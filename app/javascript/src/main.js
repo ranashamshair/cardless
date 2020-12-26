@@ -42,142 +42,142 @@ jQuery(function ($) {
 		});
 
 		// Home Slides
-		// $('.home-slides').owlCarousel({
-		// 	loop: true,
-		// 	nav: true,
-		// 	dots: false,
-        //     autoplayHoverPause: true,
-        //     items: 1,
-        //     smartSpeed: 100,
-		// 	autoplay: false,
-        //     navText: [
-        //         "<i class='flaticon-left-arrow'></i>",
-        //         "<i class='flaticon-right-arrow'></i>"
-        //     ],
-        // });
+		$('.home-slides').owlCarousel({
+			loop: true,
+			nav: true,
+			dots: false,
+            autoplayHoverPause: true,
+            items: 1,
+            smartSpeed: 100,
+			autoplay: false,
+            navText: [
+                "<i class='flaticon-left-arrow'></i>",
+                "<i class='flaticon-right-arrow'></i>"
+            ],
+        });
         
-        // $(".home-slides").on("translate.owl.carousel", function(){
-        //     $(".main-slider-content h1").removeClass("animated fadeInUp").css("opacity", "0");
-        //     $(".main-slider-content p").removeClass("animated fadeInUp").css("opacity", "0");
-        //     $(".main-slider-content a").removeClass("animated fadeInUp").css("opacity", "0");
-        // });
-        // $(".home-slides").on("translated.owl.carousel", function(){
-        //     $(".main-slider-content h1").addClass("animated fadeInUp").css("opacity", "1");
-        //     $(".main-slider-content p").addClass("animated fadeInUp").css("opacity", "1");
-        //     $(".main-slider-content a").addClass("animated fadeInUp").css("opacity", "1");
-		// });
+        $(".home-slides").on("translate.owl.carousel", function(){
+            $(".main-slider-content h1").removeClass("animated fadeInUp").css("opacity", "0");
+            $(".main-slider-content p").removeClass("animated fadeInUp").css("opacity", "0");
+            $(".main-slider-content a").removeClass("animated fadeInUp").css("opacity", "0");
+        });
+        $(".home-slides").on("translated.owl.carousel", function(){
+            $(".main-slider-content h1").addClass("animated fadeInUp").css("opacity", "1");
+            $(".main-slider-content p").addClass("animated fadeInUp").css("opacity", "1");
+            $(".main-slider-content a").addClass("animated fadeInUp").css("opacity", "1");
+		});
 
 		// Services Slider
-		// $('.services-slider').owlCarousel({
-		// 	loop: true,
-		// 	nav: true,
-		// 	dots: false,
-		// 	smartSpeed: 200,
-		// 	margin: 30,
-		// 	autoplayHoverPause: true,
-		// 	autoplay: true,
-		// 	navText: [
-        //         "<i class='flaticon-left-arrow'></i>",
-        //         "<i class='flaticon-right-arrow'></i>"
-        //     ],
-		// 	responsive: {
-		// 		0: {
-		// 			items: 1
-		// 		},
-		// 		576: {
-		// 			items: 2
-		// 		},
-		// 		768: {
-		// 			items: 2
-		// 		},
-		// 		1024: {
-		// 			items: 3
-		// 		},
-		// 		1200: {
-		// 			items: 4
-		// 		}
-		// 	}
-        // });
+		$('.services-slider').owlCarousel({
+			loop: true,
+			nav: true,
+			dots: false,
+			smartSpeed: 200,
+			margin: 30,
+			autoplayHoverPause: true,
+			autoplay: true,
+			navText: [
+                "<i class='flaticon-left-arrow'></i>",
+                "<i class='flaticon-right-arrow'></i>"
+            ],
+			responsive: {
+				0: {
+					items: 1
+				},
+				576: {
+					items: 2
+				},
+				768: {
+					items: 2
+				},
+				1024: {
+					items: 3
+				},
+				1200: {
+					items: 4
+				}
+			}
+        });
 
-		// // Credit Card Image Slider
-		// $('.credit-card-image-slider').owlCarousel({
-		// 	loop: true,
-		// 	nav: true,
-		// 	dots: false,
-		// 	smartSpeed: 200,
-		// 	margin: 30,
-		// 	autoplayHoverPause: true,
-		// 	autoplay: true,
-		// 	items: 1,
-		// 	navText: [
-        //         "<i class='flaticon-left-arrow'></i>",
-        //         "<i class='flaticon-right-arrow'></i>"
-        //     ],
-        // });
+		// Credit Card Image Slider
+		$('.credit-card-image-slider').owlCarousel({
+			loop: true,
+			nav: true,
+			dots: false,
+			smartSpeed: 200,
+			margin: 30,
+			autoplayHoverPause: true,
+			autoplay: true,
+			items: 1,
+			navText: [
+                "<i class='flaticon-left-arrow'></i>",
+                "<i class='flaticon-right-arrow'></i>"
+            ],
+        });
 		
-		// // Customer Slider
-		// $('.customer-slider').owlCarousel({
-		// 	loop: true,
-		// 	nav: true,
-		// 	dots: false,
-		// 	smartSpeed: 500,
-		// 	margin: 30,
-		// 	autoplayHoverPause: true,
-		// 	autoplay: true,
-		// 	navText: [
-        //         "<i class='flaticon-left-arrow'></i>",
-        //         "<i class='flaticon-right-arrow'></i>"
-        //     ],
-		// 	responsive: {
-		// 		0: {
-		// 			items: 1
-		// 		},
-		// 		768: {
-		// 			items: 2
-		// 		},
-		// 		1200: {
-		// 			items: 2
-		// 		}
-		// 	}
-		// });
+		// Customer Slider
+		$('.customer-slider').owlCarousel({
+			loop: true,
+			nav: true,
+			dots: false,
+			smartSpeed: 500,
+			margin: 30,
+			autoplayHoverPause: true,
+			autoplay: true,
+			navText: [
+                "<i class='flaticon-left-arrow'></i>",
+                "<i class='flaticon-right-arrow'></i>"
+            ],
+			responsive: {
+				0: {
+					items: 1
+				},
+				768: {
+					items: 2
+				},
+				1200: {
+					items: 2
+				}
+			}
+		});
 		
-		// // Partner Slider
-		// $('.partner-slider').owlCarousel({
-		// 	loop: true,
-		// 	nav: false,
-		// 	dots: false,
-		// 	smartSpeed: 500,
-		// 	margin: 30,
-		// 	autoplayHoverPause: true,
-        //     autoplay: true,
-		// 	responsive: {
-		// 		0: {
-		// 			items: 2
-		// 		},
-		// 		576: {
-		// 			items: 2
-		// 		},
-		// 		768: {
-		// 			items: 3
-		// 		},
-		// 		1024: {
-		// 			items: 4
-		// 		},
-		// 		1200: {
-		// 			items: 5
-		// 		}
-		// 	}
-		// });
+		// Partner Slider
+		$('.partner-slider').owlCarousel({
+			loop: true,
+			nav: false,
+			dots: false,
+			smartSpeed: 500,
+			margin: 30,
+			autoplayHoverPause: true,
+            autoplay: true,
+			responsive: {
+				0: {
+					items: 2
+				},
+				576: {
+					items: 2
+				},
+				768: {
+					items: 3
+				},
+				1024: {
+					items: 4
+				},
+				1200: {
+					items: 5
+				}
+			}
+		});
 
 		// Popup Video
-		// $('.popup-youtube').magnificPopup({
-		// 	disableOn: 320,
-		// 	type: 'iframe',
-		// 	mainClass: 'mfp-fade',
-		// 	removalDelay: 160,
-		// 	preloader: false,
-		// 	fixedContentPos: false
-		// });
+		$('.popup-youtube').magnificPopup({
+			disableOn: 320,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
+			fixedContentPos: false
+		});
 
 		// FAQ Accordion
         $(function() {
