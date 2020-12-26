@@ -1328,7 +1328,7 @@ Main Banner Area CSS
 }
 
 .main-banner-item.banner-item-two {
-  background-image: url(../../assets/img/main-banner/banner-bg-1.jpg);
+  background-image: url(/assets/main-banner/banner-bg-1.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1378,7 +1378,7 @@ Main Banner Area CSS
 }
 
 .main-banner-item.banner-item-five {
-  background-image: url(../../assets/img/main-banner/banner-bg-2.jpg);
+  background-image: url(/assets/main-banner/banner-bg-2.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1799,7 +1799,7 @@ Banking Area CSS
 }
 
 .banking-image-warp {
-  background-image: url(../../assets/img/banking/banking-2.jpg);
+  background-image: url(/assets/banking/banking-2.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1838,7 +1838,7 @@ Fun Facts Area CSS
 }
 
 .fun-facts-area.bg-color::before {
-  background-image: url(../../assets/img/fun-facts-bg-2.jpg);
+  background-image: url(/assets/fun-facts-bg-2.jpg);
 }
 
 .fun-facts-area.bg-color .single-fun-fact {
@@ -1868,7 +1868,7 @@ Fun Facts Area CSS
 }
 
 .fun-facts-area.bg-ffffff::before {
-  background-image: url(../../assets/img/fun-facts-bg.jpg);
+  background-image: url(/assets/fun-facts-bg.jpg);
 }
 
 .fun-facts-area.bg-ffffff .single-fun-fact {
@@ -2530,7 +2530,7 @@ App Area CSS
 }
 
 .app-area.bg-color {
-  background-image: url(../../assets/img/app-bg-2.jpg);
+  background-image: url(/assets/app-bg-2.jpg);
 }
 
 .app-area.bg-color .app-content h3 {
@@ -2881,7 +2881,7 @@ About Area CSS
 }
 
 .about-image {
-  background-image: url(../../assets/img/about.jpg);
+  background-image: url(/assets/about.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3052,7 +3052,7 @@ Overview Area CSS
 }
 
 .overview-image {
-  background-image: url(../../assets/img/overview/overview-1.jpg);
+  background-image: url(/assets/overview/overview-1.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3061,7 +3061,7 @@ Overview Area CSS
 }
 
 .overview-image.item-two {
-  background-image: url(../../assets/img/overview/overview-2.jpg);
+  background-image: url(/assets/overview/overview-2.jpg);
 }
 
 /*================================================
@@ -3128,7 +3128,7 @@ Goals Area CSS
 }
 
 .goals-image {
-  background-image: url(../../assets/img/goals.jpg);
+  background-image: url(/assets/goals.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3688,7 +3688,7 @@ Subscribe Area CSS
 .subscribe-area {
   position: relative;
   z-index: 1;
-  background-image: url(../../assets/img/subscribe-bg.jpg);
+  background-image: url(/assets/subscribe-bg.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3771,7 +3771,7 @@ Page Banner CSS
 .page-banner-area {
   position: relative;
   z-index: 1;
-  background-image: url(../../assets/img/page-banner/page-banner-1.jpg);
+  background-image: url(/assets/page-banner/page-banner-1.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4198,7 +4198,7 @@ Services Details Area CSS
 }
 
 .services-details-desc .services-details-features .features-image {
-  background-image: url(../../assets/img/services-details/services-details-2.jpg);
+  background-image: url(/assets/services-details/services-details-2.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4511,7 +4511,7 @@ Sign In Area CSS
 }
 
 .sign-in-image {
-  background-image: url(../../assets/img/sign-in-form.jpg);
+  background-image: url(/assets/sign-in-form.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4766,7 +4766,7 @@ Register Area CSS
 }
 
 .register-image {
-  background-image: url(../../assets/img/register-form.jpg);
+  background-image: url(/assets/register-form.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4789,7 +4789,7 @@ Contact Area CSS
   top: 0;
   width: 100%;
   height: 60%;
-  background-image: url(../../assets/img/contact-bg.jpg);
+  background-image: url(/assets/contact-bg.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5911,39 +5911,39 @@ Widget Sidebar CSS
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg1 {
-  background-image: url(../../assets/img/blog/blog-1.jpg);
+  background-image: url(/assets/blog/blog-1.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg2 {
-  background-image: url(../../assets/img/blog/blog-2.jpg);
+  background-image: url(/assets/blog/blog-2.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg3 {
-  background-image: url(../../assets/img/blog/blog-3.jpg);
+  background-image: url(/assets/blog/blog-3.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg4 {
-  background-image: url(../../assets/img/blog/blog-4.jpg);
+  background-image: url(/assets/blog/blog-4.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg5 {
-  background-image: url(../../assets/img/blog/blog-5.jpg);
+  background-image: url(/assets/blog/blog-5.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg6 {
-  background-image: url(../../assets/img/blog/blog-6.jpg);
+  background-image: url(/assets/blog/blog-6.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg7 {
-  background-image: url(../../assets/img/blog/blog-7.jpg);
+  background-image: url(/assets/blog/blog-7.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg8 {
-  background-image: url(../../assets/img/blog/blog-8.jpg);
+  background-image: url(/assets/blog/blog-8.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg9 {
-  background-image: url(../../assets/img/blog/blog-9.jpg);
+  background-image: url(/assets/blog/blog-9.jpg);
 }
 
 .widget-area .widget_leve_posts_thumb .item .info {
@@ -6269,7 +6269,7 @@ Security Area CSS
 }
 
 .security-image {
-  background-image: url(../../assets/img/security.jpg);
+  background-image: url(/assets/security.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6336,7 +6336,7 @@ Advice Area CSS
 }
 
 .advice-image {
-  background-image: url(../../assets/img/advice.jpg);
+  background-image: url(/assets/advice.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6399,7 +6399,7 @@ Online Area CSS
 }
 
 .online-image {
-  background-image: url(../../assets/img/online.jpg);
+  background-image: url(/assets/online.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6450,7 +6450,7 @@ Personal Loan Area CSS
 }
 
 .personal-loan-image {
-  background-image: url(../../assets/img/personal-loan.jpg);
+  background-image: url(/assets/personal-loan.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6517,7 +6517,7 @@ Types Loan Area CSS
 }
 
 .types-loan-image {
-  background-image: url(../../assets/img/types-loan.jpg);
+  background-image: url(/assets/types-loan.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6584,7 +6584,7 @@ Apply Area CSS
 }
 
 .apply-image {
-  background-image: url(../../assets/img/apply.jpg);
+  background-image: url(/assets/apply.jpg);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

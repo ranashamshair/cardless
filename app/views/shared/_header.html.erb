@@ -280,19 +280,20 @@
                           </a>
                       </li>
                   </ul>
+                  <%  if current_user.blank? %>
+                    <div class="others-options d-flex align-items-center">
+                        <!-- <div class="option-item">
+                            <form class="search-box">
+                                <input type="text" class="form-control" placeholder="Search for..">
+                                <button type="submit"><i class="flaticon-loupe"></i></button>
+                            </form>
+                        </div> -->
 
-                  <div class="others-options d-flex align-items-center">
-                      <!-- <div class="option-item">
-                          <form class="search-box">
-                              <input type="text" class="form-control" placeholder="Search for..">
-                              <button type="submit"><i class="flaticon-loupe"></i></button>
-                          </form>
-                      </div> -->
-
-                      <div class="option-item">
-                          <a href="<%= new_user_registration_path %>" data-turbolinks="false" class="default-btn">Open account</a>
-                      </div>
-                  </div>
+                        <div class="option-item">
+                            <a href="<%= new_user_registration_path %>" data-turbolinks="false" class="default-btn">Open account</a>
+                        </div>
+                    </div>
+                  <% end %>
               </div>
           </nav>
       </div>
