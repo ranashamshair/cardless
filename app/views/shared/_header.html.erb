@@ -60,7 +60,7 @@
               <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                   <ul class="navbar-nav">
                       <li class="nav-item">
-                          <a href="/" data-turbolinks="false" class="nav-link active">
+                          <a href="/" data-turbolinks="false" class="nav-link <%= controller.action_name == 'index' ? 'active' : '' %>">
                               Home 
                           </a>
                       </li>
@@ -72,31 +72,31 @@
                       </li> -->
 
                       <li class="nav-item">
-                        <a href="/about" data-turbolinks="false" class="nav-link">
+                        <a href="/about" data-turbolinks="false" class="nav-link <%= controller.action_name == 'about' ? 'active' : '' %>">
                             About
                         </a>
                       </li>
 
                       <li class="nav-item">
-                        <a href="/pricing" data-turbolinks="false" class="nav-link">
+                        <a href="/pricing" data-turbolinks="false" class="nav-link <%= controller.action_name == 'pricing' ? 'active' : '' %>">
                             Pricing
                         </a>
                       </li>
 
                       <li class="nav-item">
-                        <a href="/faq" data-turbolinks="false" class="nav-link">
+                        <a href="/faq" data-turbolinks="false" class="nav-link <%= controller.action_name == 'faq' ? 'active' : '' %>">
                             FAQ
                         </a>
                       </li>
 
                       <li class="nav-item">
-                        <a href="/terms" data-turbolinks="false" class="nav-link">
+                        <a href="/terms" data-turbolinks="false" class="nav-link <%= controller.action_name == 'terms' ? 'active' : '' %>">
                             Terms Of Service
                         </a>
                       </li>
 
                       <li class="nav-item">
-                        <a href="/privacy" data-turbolinks="false" class="nav-link">
+                        <a href="/privacy" data-turbolinks="false" class="nav-link <%= controller.action_name == 'privacy' ? 'active' : '' %>">
                             Privacy Policy
                         </a>
                       </li>
@@ -275,7 +275,7 @@
                       </li> -->
 
                       <li class="nav-item">
-                          <a href="/contact" data-turbolinks="false" class="nav-link">
+                          <a href="/contact" data-turbolinks="false" class="nav-link <%= controller.action_name == 'contact' ? 'active' : '' %>">
                               Contact
                           </a>
                       </li>
