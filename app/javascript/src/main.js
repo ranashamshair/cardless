@@ -255,7 +255,6 @@ jQuery(function ($) {
 
 		// Preloader
 		jQuery(window).on('load',function(){
-			console.log("into")
 			jQuery(".preloader").fadeOut(500);
 		});
 
