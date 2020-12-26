@@ -30,115 +30,48 @@
               <div class="row">
                   <div class="col-lg-6 col-md-6">
                       <div class="form-group">
-                          <label>Full name</label>
-                          <input type="text" class="form-control" placeholder="Full name">
+                          <label>First name</label>
+                          <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+    
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                      <label>Last name</label>
+                      <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6">
+                      <div class="form-group">
+                          <label>Phone number</label>
+                          <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number" %>
                       </div>
                   </div>
 
                   <div class="col-lg-6 col-md-6">
                       <div class="form-group">
-                          <label>Account type</label>
-                          <select>
-                              <option value="">Please select</option>
-                              <option value="">Online banking</option>
-                              <option value="">Online investing</option>
-                              <option value="">Business banking</option>
-                              <option value="">Mobile banking</option>
-                              <option value="">Corporate & commercial</option>
-                              <option value="">Institutional</option>
-                          </select>	
-                      </div>
-                  </div>
-                  
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Date of birth</label>
-                          <input type="text" class="form-control" placeholder="dd/mm/yy">
+                          <label>Email</label>
+                          <%= f.email_field :email, class: "form-control", autocomplete: "email", placeholder: "Email" %>
                       </div>
                   </div>
 
                   <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Gender</label>
-                          <select>
-                              <option value="">Male</option>
-                              <option value="">Female</option>
-                          </select>	
-                      </div>
+                    <div class="form-group">
+                      <%= f.label :password %>
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %>
+                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                    </div>
                   </div>
-
+                
                   <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Mother’s name</label>
-                          <input type="text" class="form-control" placeholder="Mother’s name">
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Father’s name</label>
-                          <input type="text" class="form-control" placeholder="Father’s name">
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Spouse’s name</label>
-                          <input type="text" class="form-control" placeholder="Spouse’s name">
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Nationality</label>
-                          <input type="text" class="form-control" placeholder="Nationality">
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Occupation</label>
-                          <input type="text" class="form-control" placeholder="Occupation">
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Monthly income</label>
-                          <input type="text" class="form-control" placeholder="Monthly income">
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Sources of income</label>
-                          <input type="text" class="form-control" placeholder="Sources of income">
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Marital status</label>
-                          <select>
-                              <option value="">Single</option>
-                              <option value="">Married</option>
-                              <option value="">Divorced</option>
-                          </select>	
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Mobile number</label>
-                          <input type="text" class="form-control" placeholder="Mobile number">
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Email address</label>
-                          <input type="text" class="form-control" placeholder="Email address">
-                      </div>
+                    <div class="form-group">
+                      <%= f.label :password_confirmation %>
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+                    </div>
                   </div>
                   
                   <div class="col-lg-12">
@@ -147,41 +80,33 @@
                       <div class="row">
                           <div class="col-lg-12">
                               <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="Street address">
-                              </div>
-                          </div>
-
-                          <div class="col-lg-12">
-                              <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="Street address line 2">
+                                  <%= f.text_field :street_address, class: "form-control", placeholder: "Street Address" %>
                               </div>
                           </div>
 
                           <div class="col-lg-6">
                               <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="City">
+                                <%= f.text_field :city, class: "form-control", placeholder: "City" %>
                               </div>
                           </div>
                           
                           <div class="col-lg-6">
                               <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="State / Province">
+                                <%= f.text_field :state, class: "form-control", placeholder: "State/Province" %>
+                                  
                               </div>
                           </div>
 
                           <div class="col-lg-6">
                               <div class="form-group">
-                                  <input type="text" class="form-control" placeholder="Postal / Zip code">
+                                <%= f.text_field :zip_code, class: "form-control", placeholder: "Postal/Zip Code" %>
+                                  
                               </div>
                           </div>
 
                           <div class="col-lg-6">
                               <div class="form-group">
-                                  <select>
-                                      <option value="">Country</option>
-                                      <option value="">England</option>
-                                      <option value="">Australia</option>
-                                  </select>	
+                                <%= f.text_field :country, class: "form-control", placeholder: "Country" %>
                               </div>
                           </div>
                       </div>
@@ -189,9 +114,7 @@
 
                   <div class="col-lg-12">
                       <div class="banner-form-btn">
-                          <button type="submit" class="default-btn">
-                              Submit
-                          </button>
+                          <%= f.submit "Open Account", class: "default-btn" %>
                       </div>
                   </div>
               </div>
@@ -200,66 +123,3 @@
   </div>
 </section>
 <!-- End Open Account Banner -->
-
-
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <%= f.hidden_field :role, value: "merchant"%>
-
-  <div class="field">
-    <%= f.label :first_name %> <br>
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
