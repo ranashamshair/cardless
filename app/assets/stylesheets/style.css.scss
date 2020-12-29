@@ -2490,7 +2490,7 @@ Page Banner CSS
 .page-banner-area {
   position: relative;
   z-index: 1;
-  background-image: url(/assets/page-banner/page-banner-1.jpg);
+  background-image: image-url("/assets/page-banner/page-banner-1.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2510,13 +2510,13 @@ Page Banner CSS
     z-index: -1;
     opacity: .60; }
   .page-banner-area.item-bg1 {
-    background-image: url(/assets/page-banner/page-banner-2.jpg); }
+    background-image: image-url("/assets/page-banner/page-banner-2.jpg"); }
   .page-banner-area.item-bg2 {
-    background-image: url(/assets/page-banner/page-banner-3.jpg); }
+    background-image: image-url("/assets/page-banner/page-banner-3.jpg"); }
   .page-banner-area.item-bg3 {
-    background-image: url(/assets/page-banner/page-banner-4.jpg); }
+    background-image: image-url("/assets/page-banner/page-banner-4.jpg"); }
   .page-banner-area.item-bg4 {
-    background-image: url(/assets/page-banner/page-banner-5.jpg); }
+    background-image: image-url("/assets/page-banner/page-banner-5.jpg"); }
 
 .page-banner-content {
   text-align: center; }
@@ -2785,7 +2785,7 @@ Services Details Area CSS
       .services-details-desc .services-details-features .features-list li:last-child {
         margin-bottom: 0; }
   .services-details-desc .services-details-features .features-image {
-    background-image: url(/assets/services-details/services-details-2.jpg);
+    background-image: image-url("/assets/services-details/services-details-2.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -3201,7 +3201,7 @@ Contact Area CSS
     top: 0;
     width: 100%;
     height: 60%;
-    background-image: url(/assets/fun-facts-bg.jpg);
+    background-image: image-url("/assets/fun-facts-bg.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -3952,23 +3952,23 @@ Widget Sidebar CSS
         background-repeat: no-repeat;
         background-position: center center; }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg1 {
-          background-image: url(/assets/blog/blog-1.jpg); }
+          background-image: image-url("/assets/blog/blog-1.jpg"); }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg2 {
-          background-image: url(/assets/blog/blog-2.jpg); }
+          background-image: image-url("/assets/blog/blog-2.jpg"); }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg3 {
-          background-image: url(/assets/blog/blog-3.jpg); }
+          background-image: image-url("/assets/blog/blog-3.jpg"); }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg4 {
-          background-image: url(/assets/blog/blog-4.jpg); }
+          background-image: image-url("/assets/blog/blog-4.jpg"); }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg5 {
-          background-image: url(/assets/blog/blog-5.jpg); }
+          background-image: image-url("/assets/blog/blog-5.jpg"); }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg6 {
-          background-image: url(/assets/blog/blog-6.jpg); }
+          background-image: image-url("/assets/blog/blog-6.jpg"); }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg7 {
-          background-image: url(/assets/blog/blog-7.jpg); }
+          background-image: image-url("/assets/blog/blog-7.jpg"); }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg8 {
-          background-image: url(/assets/blog/blog-8.jpg); }
+          background-image: image-url("/assets/blog/blog-8.jpg"); }
         .widget-area .widget_leve_posts_thumb .item .thumb .fullimage.bg9 {
-          background-image: url(/assets/blog/blog-9.jpg); }
+          background-image: image-url("/assets/blog/blog-9.jpg"); }
     .widget-area .widget_leve_posts_thumb .item .info {
       overflow: hidden;
       margin-top: 5px; }
@@ -4061,7 +4061,7 @@ Open Account Area CSS
     top: 0;
     width: 100%;
     height: 30%;
-    background-image: url(/assets/fun-facts-bg.jpg);
+    background-image: image-url("/assets/fun-facts-bg.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -4186,7 +4186,7 @@ Security Area CSS
         color: #5f24d2; }
 
 .security-image {
-  background-image: url(/assets/security.jpg);
+  background-image: image-url("/assets/security.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4235,7 +4235,7 @@ Advice Area CSS
       background-color: #fb7756; }
 
 .advice-image {
-  background-image: url(/assets/advice.jpg);
+  background-image: image-url("/assets/advice.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4281,7 +4281,7 @@ Online Area CSS
       background-color: #fb7756; }
 
 .online-image {
-  background-image: url(/assets/online.jpg);
+  background-image: image-url("/assets/online.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4318,7 +4318,7 @@ Personal Loan Area CSS
         color: #5f24d2; }
 
 .personal-loan-image {
-  background-image: url(/assets/personal-loan.jpg);
+  background-image: image-url("/assets/personal-loan.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4367,7 +4367,7 @@ Types Loan Area CSS
       background-color: #fb7756; }
 
 .types-loan-image {
-  background-image: url(/assets/types-loan.jpg);
+  background-image: image-url("/assets/types-loan.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4415,7 +4415,7 @@ Apply Area CSS
     margin-top: 30px; }
 
 .apply-image {
-  background-image: url(/assets/apply.jpg);
+  background-image: image-url("/assets/apply.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4435,7 +4435,7 @@ Loan Form Area CSS
     top: 0;
     width: 100%;
     height: 30%;
-    background-image: url(/assets/open-account-bg.jpg);
+    background-image: image-url("/assets/open-account-bg.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
