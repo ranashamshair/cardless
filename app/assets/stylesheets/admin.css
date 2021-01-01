@@ -12,6 +12,7 @@
  *
  *= require admin/all
  *= require admin/adminlte
+ *= require admin/jquery.dataTables
  * require_tree .
  *= require_self
  */

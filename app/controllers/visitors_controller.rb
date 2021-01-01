@@ -1,4 +1,6 @@
 class VisitorsController < ApplicationController
+  # skip_before_action :check_merchant
+
   def index
   end
 

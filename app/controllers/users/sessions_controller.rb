@@ -41,87 +41,7 @@ class Users::SessionsController < DeviseController
       else
         redirect_to root_path
       end
-    #   if self.resource.have_admin_access?
-    #     redirect_to transactions_admins_path(trans: "success", offset: offset)
-    #   elsif self.resource.user?
-    #     redirect_to customers_orders_path
-    #   elsif self.resource.iso? || self.resource.agent? || self.resource.qc? || self.resource.partner? || self.resource.AFFILIATE?
-    #     redirect_to v2_partner_accounts_path
-  
-    #   elsif self.resource.merchant? && self.resource.merchant_id == nil
-    #     redirect_to v2_merchant_accounts_path
-    #   elsif self.resource.merchant? && self.resource.merchant_id != nil && self.resource.try(:permission).admin?
-    #     redirect_to v2_merchant_accounts_path
-    #   elsif self.resource.merchant? && self.resource.merchant_id != nil && self.resource.try(:permission).regular?
-    #     redirect_to v2_merchant_sales_path
-    #   elsif self.resource.merchant? && self.resource.merchant_id != nil && self.resource.try(:permission).custom?
-    #     permission = self.resource.try(:permission)
-    #     if permission.try(:view_accounts) || permission.try(:account_transfer) || permission.try(:refund) || permission.try(:tip_transfer) || permission.try(:export_daily_batch)
-    #       redirect_to v2_merchant_accounts_path
-    #     elsif permission.try(:achs) || permission.try(:ach_view_only) || permission.try(:ach_add) || permission.try(:ach_void)
-    #       redirect_to v2_merchant_instant_ach_index_path
-    #     elsif permission.try(:push_to_cards) || permission.try(:push_to_card_view_only) || permission.try(:push_to_card_add) || permission.try(:push_to_card_void)
-    #       redirect_to v2_merchant_push_to_card_index_path
-    #     elsif permission.try(:e_checks) || permission.try(:check_view_only) || permission.try(:check_void) || permission.try(:check_add)
-    #       redirect_to v2_merchant_checks_path
-    #     elsif permission.try(:giftcards) || permission.try(:gift_card_view_only) || permission.try(:gift_card_add) || permission.try(:gift_card_void)
-    #       redirect_to v2_merchant_giftcards_path
-    #     elsif permission.try(:chargebacks) || permission.try(:view_chargeback_cases) || permission.try(:fight_chargeback) || permission.try(:accept_chargeback)
-    #       redirect_to v2_merchant_chargebacks_path
-    #     elsif permission.try(:invoices) || permission.try(:view_invoice) || permission.try(:create_invoice) || permission.try(:cancel_invoice)
-    #       redirect_to payee_v2_merchant_invoices_path
-    #     elsif permission.try(:customer_list)
-    #       redirect_to clients_v2_merchant_invoices_index_path
-    #       # elsif permission.try(:transfer)
-    #       #   redirect_to transfers_merchant_locations_path
-    #       # elsif permission.try(:wallets)
-    #       #   redirect_to merchant_invoices_path
-    #       # elsif permission.try(:b2b)
-    #       #   redirect_to merchant_invoices_path
-    #     elsif permission.try(:virtual_terminal)
-    #       redirect_to v2_merchant_sales_path
-    #       # elsif permission.try(:qr_scan) || permission.try(:qr_redeem) || permission.try(:qr_view_only)
-    #       #   redirect_to sale_requests_merchant_sales_path
-    #     elsif permission.try(:employee_list) || permission.try(:user_view_only)  || permission.try(:user_edit) || permission.try(:user_add)
-    #       redirect_to v2_merchant_settings_path
-    #     elsif permission.try(:permission_list) || permission.try(:permission_view_only)  || permission.try(:permission_edit) || permission.try(:permission_add)
-    #       redirect_to v2_merchant_permission_index_path
-    #     elsif permission.try(:api_key)
-    #       redirect_to v2_merchant_apps_path
-    #     elsif permission.try(:plugin)
-    #       redirect_to v2_merchant_plugins_path
-    #     elsif permission.try(:fee_structure)
-    #       redirect_to v2_merchant_location_fees_path
-    #     elsif permission.try(:help)
-    #       redirect_to get_help_v2_merchant_accounts_path
-    #       # elsif permission.try(:dispute_view_only)
-    #       #   redirect_to merchant_disputes_path
-    #     elsif permission.try(:funding_schedule)
-    #       redirect_to v2_merchant_hold_money_index_path
-    #       # elsif permission.try(:check)
-    #       #   redirect_to merchant_checks_path
-    #       # elsif permission.try(:push_to_card)
-    #       #   redirect_to debit_card_deposit_merchant_checks_path
-    #       # elsif permission.try(:ach)
-    #       #   redirect_to merchant_instant_ach_index_path
-    #       # elsif permission.try(:gift_card)
-    #       #   redirect_to merchant_orders_merchant_giftcards_path
-    #       # elsif permission.try(:sales_report)
-    #       #   redirect_to merchant_reports_path
-    #       # elsif permission.try(:checks_report)
-    #       #   redirect_to checks_report_merchant_reports_path
-    #       # elsif permission.try(:gift_card_report)
-    #       #   redirect_to gift_cards_report_merchant_reports_path
-    #     elsif permission.try(:user_view_only)
-    #       redirect_to v2_merchant_settings_path
-    #       # elsif permission.try(:developer_app)
-    #       #   redirect_to merchant_apps_path
-    #     else
-    #       redirect_to v2_merchant_sales_path
-    #     end
-    #   else
-        
-    #   end
+   
     end
   
     # def try_again
@@ -298,7 +218,7 @@ class Users::SessionsController < DeviseController
       # support returning empty response on GET request
       respond_to do |format|
         format.all { head :no_content }
-        format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name) }
+        format.any(*navigational_formats) { redirect_to root_path }
       end
     end
   

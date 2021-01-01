@@ -62,6 +62,14 @@
               </p>
             </a>
            </li>
+           <li class="nav-item">
+            <%= link_to destroy_user_session_path, :method => :delete, class: "nav-link" do  %>
+                <i class="nav-icon fas fa-sign-out-alt"></i>
+                <p>
+                Logout
+                </p>
+            <% end %>
+           </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

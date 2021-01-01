@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :check_merchant
+    # before_action :check_merchant
 
     def check_merchant
         if current_user.present?

@@ -11,5 +11,6 @@ document.addEventListener("turbolinks:load", ()=> {
         "info": true,
         "autoWidth": false,
         "responsive": true,
+        "bSort": true
       });
 })
