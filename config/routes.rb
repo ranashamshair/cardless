@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :dashboard, only: [:index]
+    resources :merchants, only: [:index]
+  end
   root to: 'visitors#index'
   devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions'}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

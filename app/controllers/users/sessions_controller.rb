@@ -36,6 +36,11 @@ class Users::SessionsController < DeviseController
       end
       set_flash_message!(:success, :signed_in) if self.resource.present?
       sign_in(resource_name, resource)
+      if self.resource.admin?
+        redirect_to admin_dashboard_index_path
+      else
+        redirect_to root_path
+      end
     #   if self.resource.have_admin_access?
     #     redirect_to transactions_admins_path(trans: "success", offset: offset)
     #   elsif self.resource.user?
@@ -115,7 +120,7 @@ class Users::SessionsController < DeviseController
     #       redirect_to v2_merchant_sales_path
     #     end
     #   else
-        redirect_to root_path
+        
     #   end
     end
   

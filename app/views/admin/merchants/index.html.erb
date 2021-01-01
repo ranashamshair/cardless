@@ -1,0 +1,102 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Merchants</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<%= admin_dashboard_index_path %>">Home</a></li>
+              <li class="breadcrumb-item active">Merchants</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Merchants</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Address</th>
+                    <th>Zip Code</th>
+                    <th>Phone Number</th>
+                    <th>Company</th>
+                    <th>Active/Inactive</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                        <% @merchants.try(:each) do |merchant| %>
+                            <tr>
+                                <td><%= merchant.id %></td>
+                                <td><%= merchant.email %></td>
+                                <td><%= merchant.first_name %></td>
+                                <td><%= merchant.last_name %></td>
+                                <td><%= merchant.country %></td>
+                                <td><%= merchant.city %></td>
+                                <td><%= merchant.state %></td>
+                                <td><%= merchant.street_address %></td>
+                                <td><%= merchant.zip_code %></td>
+                                <td><%= merchant.phone_number %></td>
+                                <td><%= merchant.company %></td>
+                                <td><%= merchant.is_active ? "Active" : "Inactive" %></td>
+                            </tr>
+                        <% end %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Address</th>
+                    <th>Zip Code</th>
+                    <th>Phone Number</th>
+                    <th>Company</th>
+                    <th>Active/Inactive</th>
+                  </tr>
+                  </tfoot>
+                </table>
+                <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-2"><%== pagy_bootstrap_nav(@pagy) %></div>
+                </div>
+                
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
