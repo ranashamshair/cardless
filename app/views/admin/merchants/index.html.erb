@@ -29,6 +29,7 @@
                     <th>Phone Number</th>
                     <th>Company</th>
                     <th>Active/Inactive</th>
+                    <th>Payment Gateway</th>
                     <th>Edit</th>
                   </tr>
                   </thead>
@@ -47,6 +48,7 @@
                                 <td><%= merchant.phone_number %></td>
                                 <td><%= merchant.company %></td>
                                 <td><%= merchant.active? ? "Active" : "Inactive" %></td>
+                                <td><%= merchant.payment_gateway.try(:name) %></td>
                                 <td><%= link_to "Edit", edit_admin_merchant_path(merchant)%></td>
                             </tr>
                         <% end %>
@@ -65,6 +67,7 @@
                     <th>Phone Number</th>
                     <th>Company</th>
                     <th>Active/Inactive</th>
+                    <th>Payment Gateway</th>
                     <th>Edit</th>
                   </tr>
                   </tfoot>

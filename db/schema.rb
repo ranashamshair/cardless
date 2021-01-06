@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2021_01_06_200801) do
     t.string "name"
     t.text "client_secret"
     t.text "client_id"
-    t.boolean "is_block"
-    t.boolean "is_deleted"
+    t.boolean "is_block", default: false
+    t.boolean "is_deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 2021_01_06_200801) do
     t.string "is_active", default: "false"
     t.string "street_address"
     t.string "zip_code"
-    t.bigint "payment_gateway_id_id"
+    t.bigint "payment_gateway_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["payment_gateway_id_id"], name: "index_users_on_payment_gateway_id_id"
+    t.index ["payment_gateway_id"], name: "index_users_on_payment_gateway_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

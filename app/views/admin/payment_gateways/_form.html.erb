@@ -1,0 +1,21 @@
+<%= form_with(model: payment_gateway, url: url, local: true) do |form| %>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="first_name"> Name</label>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="first_name">Client Secret</label>
+            <%= form.text_field :client_secret, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="first_name">Client Key</label>
+            <%= form.text_field :client_id, class: "form-control" %>
+          </div>
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+<% end %>

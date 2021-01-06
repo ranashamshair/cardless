@@ -55,13 +55,21 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<%= admin_merchants_path %>" class="nav-link <%= controller.controller_name == 'merchants' && controller.action_name == 'index' ? 'active' : '' %>">
+            <a href="<%= admin_merchants_path %>" class="nav-link <%= controller.controller_name == 'merchants' ? 'active' : '' %>">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Merchants
               </p>
             </a>
            </li>
+           <li class="nav-item">
+           <a href="<%= admin_payment_gateways_path %>" class="nav-link <%= controller.controller_name == 'payment_gateways' ? 'active' : '' %>">
+             <i class="nav-icon fas fa-copy"></i>
+             <p>
+               Payment Gateways
+             </p>
+           </a>
+          </li>
            <li class="nav-item">
             <%= link_to destroy_user_session_path, :method => :delete, class: "nav-link" do  %>
                 <i class="nav-icon fas fa-sign-out-alt"></i>

@@ -1,0 +1,77 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <%= render partial: "shared/admin_bread_crumb", locals: {page: "Payment Gateways", title: "Payment Gateways"} %>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-8">
+                    <h3 class="card-title">Payment Gateways</h3>
+                  </div>
+                  <div class="col-4">
+                    <%= link_to "New Payment Gateway", new_admin_payment_gateway_path, class: "btn btn-primary float-right" %>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Client Secret</th>
+                    <th>Client Id</th>
+                    <th>Blocked</th>
+                    <th>Edit</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                        <% @payment_gateways.try(:each) do |gateway| %>
+                            <tr>
+                                <td><%= gateway.id %></td>
+                                <td><%= gateway.name %></td>
+                                <td><%= gateway.client_secret %></td>
+                                <td><%= gateway.client_id %></td>
+                                <td><%= gateway.is_block %></td>
+                                <td><%= link_to "Edit", edit_admin_payment_gateway_path(gateway)%></td>
+                            </tr>
+                        <% end %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Client Secret</th>
+                    <th>Client Id</th>
+                    <th>Blocked</th>
+                    <th>Edit</th>
+                  </tr>
+                  </tfoot>
+                </table>
+                <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-2"><%== pagy_bootstrap_nav(@pagy) %></div>
+                </div>
+                
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

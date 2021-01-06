@@ -44,6 +44,10 @@
         <label for="first_name">Active/Inactive</label>
         <%= form.select :is_active,User.is_actives.map{|e| [e.first.humanize,e.second]},{include_blank: true}, {class: "form-control"} %>
       </div>
+      <div class="form-group">
+        <label for="gateway">Payment Gateway</label>
+        <%= form.select :payment_gateway_id,PaymentGateway.all.map{|e| [e.name,e.id]},{include_blank: true}, {class: "form-control"} %>
+      </div>
     </div>
     <!-- /.card-body -->
 

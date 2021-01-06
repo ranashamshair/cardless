@@ -5,8 +5,8 @@ class CreatePaymentGateways < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :client_secret
       t.text :client_id
-      t.boolean :is_block
-      t.boolean :is_deleted
+      t.boolean :is_block, default: false
+      t.boolean :is_deleted, default: false
 
       t.timestamps
     end

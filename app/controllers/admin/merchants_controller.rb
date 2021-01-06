@@ -2,7 +2,7 @@ class Admin::MerchantsController < AdminBaseController
   before_action :find_merchant, only: [:edit, :update]
 
   def index
-    @pagy, @merchants = pagy(User.merchant)
+    @pagy, @merchants = pagy(User.merchant.includes(:payment_gateway))
   end
 
   def edit
@@ -28,6 +28,6 @@ class Admin::MerchantsController < AdminBaseController
   end
 
   def merchant_params
-    params.require(:user).permit(:first_name, :last_name, :country,:city, :state,:phone_number, :company, :role, :is_active, :email, :password, :password_confirmation, :street_address, :zip_code)
+    params.require(:user).permit(:first_name, :last_name, :country,:city, :state,:phone_number, :company, :role, :is_active, :email, :password, :password_confirmation, :street_address, :zip_code, :payment_gateway_id)
   end
 end
