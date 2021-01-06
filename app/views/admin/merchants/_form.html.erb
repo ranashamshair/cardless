@@ -1,0 +1,53 @@
+<%= form_with(model: @merchant, url: admin_merchant_path, local: true) do |form| %>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <%= form.email_field :email, class: "form-control", placeholder: "Enter Email" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <%= form.text_field :first_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">Last Name</label>
+        <%= form.text_field :last_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">Phone Number</label>
+        <%= form.text_field :phone_number, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">Company</label>
+        <%= form.text_field :company, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">Country</label>
+        <%= form.text_field :country, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">City</label>
+        <%= form.text_field :city, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">State</label>
+        <%= form.text_field :state, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">Street Address</label>
+        <%= form.text_field :street_address, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">Zip Code</label>
+        <%= form.text_field :zip_code, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label for="first_name">Active/Inactive</label>
+        <%= form.select :is_active,User.is_actives.map{|e| [e.first.humanize,e.second]},{include_blank: true}, {class: "form-control"} %>
+      </div>
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+<% end %>

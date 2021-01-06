@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_26_154745) do
+ActiveRecord::Schema.define(version: 2021_01_06_200801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "payment_gateways", force: :cascade do |t|
+    t.integer "type"
+    t.string "name"
+    t.text "client_secret"
+    t.text "client_id"
+    t.boolean "is_block"
+    t.boolean "is_deleted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,10 +42,12 @@ ActiveRecord::Schema.define(version: 2020_12_26_154745) do
     t.string "phone_number"
     t.string "company"
     t.string "role"
-    t.boolean "is_active", default: false
+    t.string "is_active", default: "false"
     t.string "street_address"
     t.string "zip_code"
+    t.bigint "payment_gateway_id_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["payment_gateway_id_id"], name: "index_users_on_payment_gateway_id_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

@@ -1,21 +1,7 @@
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Merchants</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<%= admin_dashboard_index_path %>">Home</a></li>
-              <li class="breadcrumb-item active">Merchants</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+    <%= render partial: "shared/admin_bread_crumb", locals: {page: "Merchants", title: "Merchant"} %>
 
     <!-- Main content -->
     <section class="content">
@@ -43,6 +29,7 @@
                     <th>Phone Number</th>
                     <th>Company</th>
                     <th>Active/Inactive</th>
+                    <th>Edit</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -59,7 +46,8 @@
                                 <td><%= merchant.zip_code %></td>
                                 <td><%= merchant.phone_number %></td>
                                 <td><%= merchant.company %></td>
-                                <td><%= merchant.is_active ? "Active" : "Inactive" %></td>
+                                <td><%= merchant.active? ? "Active" : "Inactive" %></td>
+                                <td><%= link_to "Edit", edit_admin_merchant_path(merchant)%></td>
                             </tr>
                         <% end %>
                   </tbody>
@@ -77,6 +65,7 @@
                     <th>Phone Number</th>
                     <th>Company</th>
                     <th>Active/Inactive</th>
+                    <th>Edit</th>
                   </tr>
                   </tfoot>
                 </table>
