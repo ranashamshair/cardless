@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   enum role: {"merchant" => "merchant", "admin" => "admin"}
   enum is_active: {"active" => "active", "in_active" => "in_active"}
+  enum business_type: {"limited_company" => "limited_company", "charity" => "charity", "individual" => "individual","partnership" => "partnership", "trust" => "trust"}
   belongs_to :payment_gateway, optional: true
   has_many :wallets
   has_many :withdraws
