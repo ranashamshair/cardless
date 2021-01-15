@@ -1,0 +1,60 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <%= render partial: "shared/admin_bread_crumb", locals: {page: "Wallets", title: "Wallets"} %>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Wallets</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Balance</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                        <% @wallets.try(:each) do |wallet| %>
+                            <tr>
+                                <td><%= wallet.id %></td>
+                                <td><%= wallet.name %></td>
+                                <td><%= wallet.wallet_type %></td>
+                                <td><%= wallet.balance %></td>
+                            </tr>
+                        <% end %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Balance</th>
+                  </tr>
+                  </tfoot>
+                </table>
+                
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

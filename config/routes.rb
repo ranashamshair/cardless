@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :merchants, only: [:index, :edit, :update]
     resources :payment_gateways
+    resources :wallets
   end
   root to: 'visitors#index'
   devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions'}

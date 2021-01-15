@@ -1,0 +1,2 @@
+module Admin::WalletsHelper
+end

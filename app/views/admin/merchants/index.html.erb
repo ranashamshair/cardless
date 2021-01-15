@@ -31,6 +31,7 @@
                     <th>Active/Inactive</th>
                     <th>Payment Gateway</th>
                     <th>Edit</th>
+                    <th>Wallets</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -50,6 +51,7 @@
                                 <td><%= merchant.active? ? "Active" : "Inactive" %></td>
                                 <td><%= merchant.payment_gateway.try(:name) %></td>
                                 <td><%= link_to "Edit", edit_admin_merchant_path(merchant)%></td>
+                                <td><%= link_to "Wallets", admin_wallets_path(merchant_id: merchant.id) %></td>
                             </tr>
                         <% end %>
                   </tbody>
@@ -69,6 +71,7 @@
                     <th>Active/Inactive</th>
                     <th>Payment Gateway</th>
                     <th>Edit</th>
+                    <th>Wallets</th>
                   </tr>
                   </tfoot>
                 </table>
