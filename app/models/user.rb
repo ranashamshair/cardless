@@ -8,6 +8,7 @@ class User < ApplicationRecord
   enum is_active: {"active" => "active", "in_active" => "in_active"}
   belongs_to :payment_gateway, optional: true
   has_many :wallets
+  has_many :withdraws
 
   after_create :create_wallets
 

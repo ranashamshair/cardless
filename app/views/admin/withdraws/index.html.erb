@@ -1,0 +1,70 @@
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <%= render partial: "shared/admin_bread_crumb", locals: {page: "Withdraw Requests", title: "Withdraw Requests"} %>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Withdraw Requests</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>User Name</th>
+                    <th>User Id</th>
+                    <th>Amount</th>
+                    <th>Payed</th>
+                    <th>Created At</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                        <% @withdraws.try(:each) do |withdraw| %>
+                            <tr>
+                                <td><%= withdraw.id %></td>
+                                <td><%= withdraw.name %></td>
+                                <td><%= withdraw.user_id %></td>
+                                <td><%= withdraw.amount %></td>
+                                <td><%= withdraw.is_payed %></td>
+                                <th><%= withdraw.created_at.strftime("%d/%m/%Y") %></th>
+                            </tr>
+                        <% end %>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Id</th>
+                    <th>User Name</th>
+                    <th>User Id</th>
+                    <th>Amount</th>
+                    <th>Payed</th>
+                    <th>Created At</th>
+                  </tr>
+                  </tfoot>
+                </table>
+                <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-2"><%== pagy_bootstrap_nav(@pagy) %></div>
+                </div>
+                
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

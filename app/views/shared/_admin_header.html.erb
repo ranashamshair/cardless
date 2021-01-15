@@ -63,6 +63,14 @@
             </a>
            </li>
            <li class="nav-item">
+            <a href="<%= admin_withdraws_path %>" class="nav-link <%= controller.controller_name == 'merchants' ? 'active' : '' %>">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Withdraw Requests
+              </p>
+            </a>
+           </li>
+           <li class="nav-item">
            <a href="<%= admin_payment_gateways_path %>" class="nav-link <%= controller.controller_name == 'payment_gateways' ? 'active' : '' %>">
              <i class="nav-icon fas fa-copy"></i>
              <p>
