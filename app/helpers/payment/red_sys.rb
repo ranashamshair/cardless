@@ -1,6 +1,6 @@
 module Payment
     class RedSys
-
+        #4548812049400004
         def charge(card_number, exp_date, cvv, amount)
             merchant_parameters = Base64.encode64(
                 {
@@ -13,11 +13,13 @@ module Payment
                     "DS_MERCHANT_TERMINAL" => "#{ENV["MERCHANTTERMINAL"]}",
                     "DS_MERCHANT_TRANSACTIONTYPE" => "0"
                 }.to_s)
+                
             charge_detail = {
-                "Ds_MerchantParameters" => merchant_parameters,
-                "Ds_SignatureVersion" => "HMAC_SHA256_V1",
-                "Ds_Signature" => "#{ENV['MERCHANTSIGNATURE']}"
+                "Ds_MerchantParameters": merchant_parameters,
+                "Ds_SignatureVersion": "HMAC_SHA256_V1",
+                "Ds_Signature": "#{ENV['MERCHANTSIGNATURE']}"
             }
+            
             url = "#{ENV['REDSYSURL']}"
             curlObj = Curl::Easy.new(url)
             curlObj.connect_timeout = 3000
@@ -26,7 +28,7 @@ module Payment
             curlObj.post_body = charge_detail.to_json
             curlObj.perform()
             data = curlObj.body_str
-            puts data
+            binding.pry
             return JSON(data)
         end
     end

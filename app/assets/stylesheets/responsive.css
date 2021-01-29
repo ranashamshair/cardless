@@ -1,0 +1,609 @@
+@media (max-width:1440px) {
+    #pay_gateway_section .gateway_img img {
+        max-width: 50rem
+    }
+
+    .laptop_img img {
+        position: absolute;
+        top: 15%;
+        left: 0
+    }
+
+    .btn_play {
+        top: 59.5%;
+        left: 43%
+    }
+    .features_boxes_content {
+        padding: 50px 50px 0 40px;
+    }
+}
+
+@media (max-width:1380px) {
+    .container {
+        max-width: 1200px
+    }
+
+    .hero_area_left h1 {
+        font-size: 40px
+    }
+
+    #features_sction .features_boxes p {
+        font-size: 13px
+    }
+
+    .points_left_img img {
+        margin: 50% 0
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 90%;
+        left: 10%
+    }
+
+    #pay_gateway_section .gateway_img img {
+        left: 22.5%;
+        top: 69%;
+        z-index: -1;
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 69%;
+        left: 13%
+    }
+
+    .key_features {
+        margin: 280px 0 0 50px
+    }
+}
+
+@media (max-width:1200px) {
+    .container {
+        max-width: 1200px
+    }
+
+    .btn_play {
+        top: 39.5%;
+        left: 45%;
+        width: 100px;
+        height: 100px
+    }
+
+    .btn_play .fa-play {
+        position: absolute;
+        top: 22%;
+        left: 32%;
+        font-size: 57px;
+        color: var(--theme-white-color)
+    }
+
+    #pay_gateway_section .gateway_img img {
+        max-width: 54rem;
+        z-index: -1
+    }
+
+    .laptop_img img {
+        left: 10px
+    }
+
+    .hero_area_left h1 {
+        font-size: 37px
+    }
+
+    #features_sction .features_boxes h3 {
+        font-size: 26px
+    }
+
+    #features_sction .features_boxes p {
+        font-size: 12px
+    }
+
+    .virtual_boxe {
+        margin: 88% 0 0 0
+    }
+
+    .points_left_img img {
+        margin: 72% 0 0 0
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 45%;
+        left: 14%;
+        border-radius: 30px
+    }
+    .pricing_boxes_bg .col-md-3 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+@media (max-width:1175px) {
+    #pay_gateway_section .gateway_img img {
+        display: none
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 100%;
+        left: 42%;
+        border-radius: 30px
+    }
+}
+
+@media (max-width:992px) {
+    .laptop_img img {
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        max-width: 591px;
+    }
+
+    .hero_area_left h1 {
+        font-size: 31px
+    }
+
+    .features_boxes_content img {
+        max-width: 100px
+    }
+
+    .virtual_boxe {
+        margin: 50px 0
+    }
+
+    .virtual_boxe p {
+        font-size: 12px
+    }
+
+    .dashlight_img img {
+        max-width: 647px
+    }
+
+    .gateway_img img {
+        max-width: 47rem !important
+    }
+
+    #features_sction .features_boxes h3 {
+        font-size: 19px
+    }
+
+    #features_sction .features_boxes p {
+        font-size: 9px
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 100%;
+        left: 34%
+    }
+
+    .hero_area_left p {
+        font-size: 14px;
+        width: 91%;
+        color: var(--theme-white-color)
+    }
+
+    .btn_play {
+        top: 59.5%;
+        left: 40%;
+    }
+
+    .points_left_img img {
+        margin: 100% 0 0 0;
+    }
+
+    .solution_boxes .box .box_heading {
+        font-size: 16px;
+    }
+
+    .solution_boxes .box P {
+        width: 94%;
+    }
+
+    #pay_gateway_section p {
+        width: 40%;
+    }
+    button.btn_payments{
+        margin: 0 17.8rem auto;
+    }
+    .popular_title{
+        left: 35px;
+    }
+
+}
+
+@media (max-width:768px) {
+    header .toggle_navigation .fa-bars {
+        display: block;
+        padding-left: 120px
+    }
+
+    header .main_nav menu {
+        display: none;
+        position: absolute;
+        top: 97px;
+        left: 42%;
+        z-index: 999;
+        background: #e6e6e6
+    }
+
+    header .main_nav menu ul li {
+        display: block
+    }
+
+    header .main_nav menu ul li a {
+        color: var(--theme-third-color)
+    }
+
+    .hero_area_left h1 {
+        font-size: 23px;
+    }
+
+    .hero_area_left p {
+        font-size: 9px;
+    }
+
+    .key_features {
+        margin: 100px
+    }
+
+    .virtual_terminal_area .virtual_boxe p {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 100%;
+        left: 34%
+    }
+
+    #pay_gateway_section h4,
+    #pay_gateway_section p,
+    button.btn_payments {
+        margin-left: 246px
+    }
+
+    .nav_right_area {
+        margin-left: auto
+    }
+
+    #header_section .main_nav menu ul li {
+        display: block;
+        align-items: center
+    }
+
+    #header_section .main_nav menu ul li a {
+        color: var(--theme-third-color)
+    }
+
+    .developers_right_area .coding_box p {
+        padding: 0
+    }
+
+    #features_sction .features_boxes h3 {
+        font-size: 14px;
+    }
+
+    #features_sction .features_boxes p {
+        font-size: 11px
+    }
+
+    .btn_play .fa-play {
+        top: 184%;
+        left: 26%
+    }
+
+    .about_hero_area P {
+        width: 50%;
+    }
+
+    .key_features p {
+        font-size: 12px
+    }
+
+    .key_features span {
+        font-size: 25px
+    }
+
+    .virtual_boxe {
+        margin: 0 0 0 20%
+    }
+
+    .dashlight_img img {
+        margin: 20px 0 0 30px
+    }
+
+    .happy_content {
+        padding-bottom: 50px;
+    }
+
+    .input_fiealds_one{
+        display: block;
+    }
+    
+    .input_fiealds_one input {
+        width: 100%;
+    }
+
+
+    #testimonials{
+        margin-bottom: 135px;
+    }
+
+    .testimonial_box {
+        position: relative;
+        left: 0;
+        padding: 60px 5px;
+        
+    }
+
+    .solution_boxes .box {
+        margin-top: 30px;
+    }
+
+
+    footer .ft_heading {
+        font-size: 14px
+    }
+
+    footer ul li :-webkit-any-link {
+        font-size: 12px
+    }
+
+    footer ul li :-moz-any-link {
+        font-size: 12px
+    }
+
+    footer ul li :any-link {
+        font-size: 12px
+    }
+
+    .pricing_boxes_bg .col-md-3{
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    .btn_play {
+        display: none
+    }
+
+    .hero_area_left {
+        margin: 80% 0 0 0;
+    }
+
+    .virtual_terminal_area .virtual_boxe h3{
+        font-size: 22px;
+    }
+
+    .points_left_img img{
+        margin-top: 250px;
+    }
+    .login_form{
+        width: 100%;
+    }
+
+}
+@media (max-width:520px) {
+    #pay_gateway_section .gateway_img img {
+        display: none
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 100%;
+        left: 34%
+    }
+    #testimonials{
+        margin-bottom: 135px;
+    }
+
+    .testimonial_box {
+        position: relative;
+        left: 0;
+        padding: 60px 5px;
+        
+    }
+    .pricing_boxes_bg .col-md-3{
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width:425px) {
+    .nav_right_area {
+        margin-left: 0
+    }
+
+    .toggle_navigation {
+        margin-left: 20px
+    }
+
+    header .toggle_navigation .fa-bars {
+        padding-left: 20px
+    }
+
+    .points_left_img img {
+        margin: 0
+    }
+
+    header .main_nav menu {
+        display: none;
+        position: absolute;
+        top: 97px;
+        left: 55%;
+        z-index: 999;
+        background: #e6e6e6
+    }
+
+    #pay_gateway_section .gateway_img img {
+        display: none
+    }
+
+    .laptop_img img {
+        position: absolute;
+        top: 122px;
+        left: 8px;
+        max-width: 591px
+    }
+
+    .key_features {
+        margin: 40px
+    }
+}
+
+@media (max-width:480px) {
+
+    .pricing_boxes_bg .col-md-3{
+        width: 100% !important;
+    }
+
+    .hero_area_left {
+        margin: 10% 0 !important
+    }
+
+    .hero_area_left h1 {
+        font-size: 20px !important
+    }
+
+    .hero_area_left p {
+        font-size: 18px
+    }
+
+    #pay_gateway_section h4,
+    #pay_gateway_section p,
+    button.btn_payments {
+        margin: 0 0 0 20px !important
+    }
+
+    #pay_gateway_section .gateway_img img {
+        display: none
+    }
+
+    #develpors_section {
+        padding: 60% 0
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 97% !important;
+        left: 36px
+    }
+
+    .laptop_img img {
+        left: 0
+    }
+
+    .solution_boxes .box .box_heading {
+        font-size: 14px;
+    }
+
+    .solution_boxes .box P {
+        width: 100%;
+    }
+
+    .about_hero_area P {
+        width: 100%;
+    }
+
+    #testimonials{
+        margin-bottom: 135px;
+    }
+
+    .testimonial_box {
+        position: relative;
+        left: 0;
+        padding: 60px 5px;
+        
+    }
+
+    .happy_customer_box{
+        padding: 50px 0;
+    }
+
+    .hero_area_left h1 {
+        font-size: 35px !important;
+        width: 85%;
+    }
+
+    .points_left_img img {
+        margin: 0
+    }
+
+    .solution_boxes .box {
+        margin-top: 30px;
+    }
+
+    #pay_gateway_section p {
+        margin: 0 auto;
+        width: 100%;
+        padding-right: 37px;
+    }
+
+    header .main_nav menu {
+        top: 97px;
+        left: 39%;
+    }
+
+    .key_features span {
+        font-size: 16px !important
+    }
+
+    .key_features p {
+        font-size: 9px !important
+    }
+
+    footer .ft_heading {
+        font-size: 10px !important
+    }
+
+    footer ul li :-webkit-any-link {
+        font-size: 9px !important
+    }
+
+    footer ul li :-moz-any-link {
+        font-size: 9px !important
+    }
+
+    footer ul li :any-link {
+        font-size: 9px !important
+    }
+
+    .key_features {
+        margin: 50px
+    }
+
+    .pricing_box{
+        margin: 40px 0;
+    }
+    .popular_title{
+        left: 127px;
+    }
+
+}
+
+@media (max-width:380px) {
+    #features_sction .features_boxes p {
+        font-size: 10px
+    }
+
+    #pay_gateway_section p {
+        font-size: 13px;
+        padding-bottom: 8px
+    }
+
+    #develpors_section .developers_left_area h6,
+    #develpors_section .developers_left_area span {
+        font-size: 24px
+    }
+
+    #develpors_section .developers_left_area p {
+        font-size: 14px
+    }
+
+    .key_features {
+        margin: 0
+    }
+
+    #pay_gateway_section .sign_up_form {
+        top: 100%;
+        left: 34%
+    }
+    .testimonial_box {
+        top: -365px;
+        left: 0;
+    }
+}

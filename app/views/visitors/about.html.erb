@@ -1,364 +1,184 @@
-<!-- Start Page Banner -->
-<div class="page-banner-area">
+<!-- Header Section Start -->
+<%= render partial: "shared/inner_header", locals: {title: "About", description: "It is a long established fact that a reader will be distracted by the readable content of a page
+when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+distribution of letters, as opposed to using 'Content here, content here', making it look like
+readable English. "} %>
+
+
+<!-- Ceo Section Start-->
+
+<section id="ceo_section">
     <div class="container">
-        <div class="page-banner-content">
-            <h2>About us</h2>
-            <ul>
-                <li>
-                    <a href="/" data-turbolinks="false">Home</a>
-                </li>
-                <li>About us</li>
-            </ul>
+        <div class="heading">Stipe Ceo Mission</div>
+        <p>Ceo stipe mission about to develop the<br>
+            online payment community</p>
+        <div class="row align-items-center mt-5">
+            <div class="col-md-6">
+                <%= image_tag("ceo_img.png") %>
+                
+            </div>
+            <div class="col-md-6">
+                <div class="ceo_col_right ml-5">
+                    <span>Our Ceo</span>
+                    <div class="heading_ceo">John Doe, Flipp </div>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a
+                        page when looking at its 5. The point of using Lorem Ipsum is that it has a more-or-less
+                        normal,</p>
+                    <button class="send_message"><a href="#">Message Us <i
+                                class="fas fa-arrow-right"></i></a></button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<!-- End Page Banner -->
+</section>
 
-<!-- Start About Area -->
-<section class="about-area bg-ffffff ptb-100">
+<!-- Ceo Section End-->
+
+
+<!-- Brands Section Start-->
+
+<section id="brands_section">
+    <div class="container">
+        <div class="heading">Brands Were We Poppular</div>
+        <p>From startup to the largest companies trusted on stipe<br>
+            services.</p>
+        <div class="row">
+            <div class="col-md-12 justify-content-center">
+                <div class="brands_logos_one">
+                    <ul>
+                        <li><%= image_tag("dribbble-logo.png", class: "mb-5") %></li>
+                        <li><%= image_tag("producthunt-logo.png", class: "mb-5") %></li>
+                        <li><%= image_tag("envato-logo.png", class: "mb-5") %></li>
+                    </ul>
+
+                    <ul>
+                        <li><%= image_tag("js_fondation_logo.png") %></li>
+                        <li><%= image_tag("mashable-logo") %></li>
+                        <li><%= image_tag("theguardian-logo") %></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Brands Section End-->
+
+<!-- Solutions Section Start-->
+
+<section id="about_solution_section">
+    <div class="container">
+        <div class="heading text-center">Solutions For developers & business</div>
+        <div class="row">
+            <div class="solution_boxes">
+                <ul>
+                    <li>
+                        <div class="row mb-5">
+                            <div class="col-md-6">
+                                <div class="box">
+                                    <div class="box_icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div class="box_heading">Developer Friendly community</div>
+                                    <p>we support developors with digital handbook
+                                        community ecosystem, with all necessary code
+                                        feed system enabled.</p>
+                                </div>
+                            </div>
+                           <div class="col-md-6">
+                            <div class="box active_box">
+                                <div class="box_icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="box_heading">World Leading Database Enabled</div>
+                                <p>we support developors with digital handbook
+                                    community ecosystem, with all necessary code
+                                    feed system enabled.</p>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="box active_box">
+                                    <div class="box_icon">
+                                        <i class="fas fa-layer-group"></i>
+                                    </div>
+                                    <div class="box_heading">Smart Documentation & Codes</div>
+                                    <p>we support developors with digital handbook
+                                        community ecosystem, with all necessary code
+                                        feed system enabled.</p>
+                                </div>
+                            </div>
+                           <div class="col-md-6">
+                            <div class="box">
+                                <div class="box_icon">
+                                    <i class="fas fa-circle-notch"></i>
+                                </div>
+                                <div class="box_heading">Smart  Featured base dashboard</div>
+                                <p>we support developors with digital handbook
+                                    community ecosystem, with all necessary code
+                                    feed system enabled.</p>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+                </ul>
+
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section End-->
+
+<!-- Testimonials Section Start-->
+
+<section id="testimonials">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="about-content-warp">
-                    <span>About</span>
-                    <h3>We operate our banking services in many countries around the world.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <div class="col-md-7">
+                <div class="happy_customer_box">
+                    <div class="happy_content">
+                        <div class="heading">Happy customers</div>
+                    <p>Feedback from these happy customers helps<br> us in reaching the goals</p>
+                    </div>
                     
-                    <ul class="about-warp-list">
+                </div>
+            </div>
+            <div class="col-md-5">
+                
+                <div class="testimonial_box">
+                    <div class="quoate">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <ul>
                         <li>
-                            <i class="flaticon-check"></i>
-                            consectetur adipiscing elit
-                        </li>
-
-                        <li>
-                            <i class="flaticon-check"></i>
-                            Labore et dolore magna aliqua. 
-                        </li>
-
-                        <li>
-                            <i class="flaticon-check"></i>
-                            Quis ipsum suspendisse ultrices gravida.
-                        </li>
-
-                        <li>
-                            <i class="flaticon-check"></i>
-                            Risus commodo viverra maecenas accumsan.
+                            <%= image_tag("client_profile_img.png") %>
+                            <div class="client_info_testimonials">
+                                <div class="heading">Jenny Wilson</div>
+                                <span>Vice President</span>
+                            </div>
                         </li>
                     </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="about-image">
-                    <a href="https://www.youtube.com/watch?v=-67xX2__1oM" class="video-btn popup-youtube">
-                        <i class='bx bx-play'></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End About Area -->
-
-<!-- Start Partner Area -->
-<div class="partner-area ptb-100">
-    <div class="container">
-        <div class="partner-slider owl-carousel owl-theme">
-            <div class="partner-item">
-                <%= image_tag "partner/partner-1.png" %>
-            </div>
-
-            <div class="partner-item">
-                <%= image_tag "partner/partner-2.png" %>
-            </div>
-
-            <div class="partner-item">
-                <%= image_tag "partner/partner-3.png" %>
-            </div>
-
-            <div class="partner-item">
-                <%= image_tag "partner/partner-4.png" %>
-            </div>
-
-            <div class="partner-item">
-                <%= image_tag "partner/partner-5.png" %>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Partner Area -->
-
-<!-- Start Banking Area -->
-<section class="banking-area bg-ffffff ptb-100">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="banking-image-warp"></div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="banking-content">
-                    <span>Business banking</span>
-                    <h3>We operate our banking services in many countries around the world</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-
-                    <ul class="banking-list">
-                        <li><i class="flaticon-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><i class="flaticon-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</li>
-                        <li><i class="flaticon-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><i class="flaticon-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua.</li>
-                    </ul>
+                    <p>We had an incredible experience working with stipe and were impressed they made such a big
+                        difference in only three weeks. Our team is so grateful for the wonderful improvements they
+                        made and their ability to get familiar with the product concept so quickly. It acted as a
+                        catalyst to take our design to the next level and get more eyes on our product. </p>
+                     <div class="arrows">
+                         <div class="left_arrow"><a href="#"><i class="fas fa-chevron-left"></i></a></div>
+                         <div class="right_arrow"><a href="#"><i class="fas fa-chevron-right"></i></a></div>
+                     </div>   
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End Banking Area -->
 
-<!-- Start Fun Facts Area -->
-<section class="fun-facts-area bg-ffffff pt-100 pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span>Why choose us</span>
-            <h2>Our bank has been providing services to its customers for almost 25 years.</h2>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-fun-fact">
-                    <div class="icon">
-                        <i class="flaticon-positive-vote"></i>
-                    </div>
-
-                    <h3>
-                        <span class="odometer" data-count="358412">00</span>
-                    </h3>
-                    <p>Happy customers</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-fun-fact">
-                    <div class="icon">
-                        <i class="flaticon-confetti"></i>
-                    </div>
-
-                    <h3>
-                        <span class="odometer" data-count="25">00</span>
-                    </h3>
-                    <p>Years in banking</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-fun-fact">
-                    <div class="icon">
-                        <i class="flaticon-bank"></i>
-                    </div>
-
-                    <h3>
-                        <span class="odometer" data-count="2545">00</span>
-                    </h3>
-                    <p>Our branches</p>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-fun-fact">
-                    <div class="icon">
-                        <i class="flaticon-success"></i>
-                    </div>
-
-                    <h3>
-                        <span class="odometer" data-count="54285">00</span>
-                    </h3>
-                    <p>Successfully works</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Fun Facts Area -->
-
-<!-- Start Team Area -->
-<section class="team-area bg-ffffff pb-70">
-    <div class="container">
-        <div class="section-title">
-            <span>Expert people</span>
-            <h2>Global leadership team</h2>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-team-box">
-                    <div class="team-image">
-                        <%= image_tag "team/team-1.jpg" %>
-                        
-                    </div>
-
-                    <div class="team-content">
-                        <ul class="social">
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-linkedin'></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-twitter'></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-facebook'></i>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>Mark Torres</h3>
-                        <span>Reporting expert</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-team-box">
-                    <div class="team-image">
-                        <%= image_tag "team/team-2.jpg" %>
-                        
-                    </div>
-
-                    <div class="team-content">
-                        <ul class="social">
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-linkedin'></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-twitter'></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-facebook'></i>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>Shawn Maranto</h3>
-                        <span>CEO & Co-Founder</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="single-team-box">
-                    <div class="team-image">
-                        <%= image_tag "team/team-3.jpg" %>
-                        
-                    </div>
-
-                    <div class="team-content">
-                        <ul class="social">
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-linkedin'></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-twitter'></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" target="_blank">
-                                    <i class='bx bxl-facebook'></i>
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h3>Riley Dougherty</h3>
-                        <span>Project manager</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Team Area -->
-
-<!-- Start Customer Area -->
-<section class="customer-area ptb-100">
-    <div class="container">
-        <div class="section-title">
-            <span>Customers say</span>
-            <h2>What customers say about Us</h2>
-        </div>
-
-        <div class="customer-slider owl-carousel owl-theme">
-            <div class="customer-item">
-                <%= image_tag "customer/customer-1.jpg" %>
-                
-                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.”</p>
-
-                <div class="customer-info">
-                    <h3>Robert jakech</h3>
-                    <span>Software engineer</span>
-                </div>
-
-                <div class="icon">
-                    <i class="flaticon-right-quotation-mark"></i>
-                </div>
-            </div>
-
-            <div class="customer-item">
-                <%= image_tag "customer/customer-2.jpg" %>
-                
-                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.”</p>
-
-                <div class="customer-info">
-                    <h3>Joseph nakabale</h3>
-                    <span>Software engineer</span>
-                </div>
-
-                <div class="icon">
-                    <i class="flaticon-right-quotation-mark"></i>
-                </div>
-            </div>
-
-            <div class="customer-item">
-                <%= image_tag "customer/customer-1.jpg" %>
-                
-                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.”</p>
-
-                <div class="customer-info">
-                    <h3>Robert jakech</h3>
-                    <span>Software engineer</span>
-                </div>
-
-                <div class="icon">
-                    <i class="flaticon-right-quotation-mark"></i>
-                </div>
-            </div>
-
-            <div class="customer-item">
-                <%= image_tag "customer/customer-2.jpg" %>
-                
-                <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.”</p>
-
-                <div class="customer-info">
-                    <h3>Joseph nakabale</h3>
-                    <span>Software engineer</span>
-                </div>
-
-                <div class="icon">
-                    <i class="flaticon-right-quotation-mark"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Customer Area -->
+<!-- Testimonials Section End-->

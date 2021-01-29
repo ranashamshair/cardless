@@ -4,6 +4,12 @@ $(function () {
         $("menu").slideToggle(600);
     });
 
+    $(".show").click(function(){
+        $(".icons").css("display", "none");
+    });
+
+
+
     /*$(window).scroll(function () {
         var height = $(window).scrollTop();
         if (height > 30) {

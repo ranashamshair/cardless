@@ -1,0 +1,143 @@
+<!-- Header Section Start -->
+<header id="about_header_section">
+    <div class="container">
+        <div class="main_nav">
+            <div class="row align-content-center">
+                <div class="brand_identity"><%= image_tag("logo.png", alt: "logo") %></div>
+
+                <!-- Toggle Navigation -->
+                <div class="toggle_navigation">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <!-- Toggle Navigation -->
+                <%= render partial: "shared/menu" %>
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="about_hero_area">
+                <div class="about_text"><%= title %></div>
+                <p class="<%= controller.action_name == 'about' ? 'w-50' : 'w-100' %>"><%= description %></p>
+                <div class="social_icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <% if controller.action_name == "pricing"%>
+            <!-- Pricing Boxes Start -->
+
+            <div class="pricing_boxes_bg container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="pricing_box">
+                            <div class="price">$0 <span>/month</span></div>
+                            <div class="title">Intro</div>
+                            <p>For most businesses that want to otpimize web queries</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">All limited links</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Own analytics platform</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Chat support</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Optimize hashtags</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Unlimited users</div>
+                                </li>
+                            </ul>
+                            <button class="choose_plan">Choose Plan</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="pricing_box most_popular">
+                            <div class="popular_title">Most Popular</div>
+                            <div class="price">$100 <span>/month</span></div>
+                            <div class="title">Pro</div>
+                            <p>For most businesses that want to otpimize web queries</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">All limited links</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Own analytics platform</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Chat support</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Optimize hashtags</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Unlimited users</div>
+                                </li>
+                            </ul>
+                            <button class="choose_plan">Choose Plan</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="pricing_box">
+                            <div class="price">$50 <span>/month</span></div>
+                            <div class="title">Base</div>
+                            <p>For most businesses that want to otpimize web queries</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">All limited links</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Own analytics platform</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Chat support</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Optimize hashtags</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Unlimited users</div>
+                                </li>
+                            </ul>
+                            <button class="choose_plan">Choose Plan</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="pricing_box">
+                            <div class="price">Custom</div>
+                            <div class="title">Enterprise</div>
+                            <p>For most businesses that want to otpimize web queries</p>
+                            <ul>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">All limited links</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Own analytics platform</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Chat support</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Optimize hashtags</div>
+                                </li>
+                                <li><i class="fas fa-check"></i>
+                                    <div class="li_text">Unlimited users</div>
+                                </li>
+                            </ul>
+                            <button class="choose_plan">Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+           
+        </div>
+
+        <!-- Pricing Boxes End -->
+        <% end %>
+    </div>
+</header>
