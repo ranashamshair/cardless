@@ -1,140 +1,67 @@
-<!-- Start Page Banner -->
-<div class="page-banner-area item-bg3">
+<!-- Sign Up Section Start-->
+
+<div id="sign_up">
   <div class="container">
-      <div class="page-banner-content">
-          <h2>Open account</h2>
-          <ul>
-              <li>
-                  <a href="/" data-turbolinks="false">Home</a>
-              </li>
-              <li>Open account</li>
+    <div class="row align-content-center">
+      <div class="col-md-12 col-12">
+        <!-- MultiStep Form -->
+
+
+        
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {id: "signupForm"}) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>  
+          <!-- progressbar -->
+          <ul id="progressbar">
+            <li class="active">Personal Details</li>
+            <li>Password</li>
+            <li>Business Details</li>
           </ul>
+          <!-- fieldsets -->
+          
+          <fieldset>
+            <h2 class="fs-title">Sign Up</h2>
+            <h3 class="fs-subtitle">Already Have An Account <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}%> / <a href="/">Go to Home</a></h3>
+            <%= f.text_field :first_name, placeholder: "First Name", required: true %>
+            <%= f.text_field :last_name, placeholder: "Last Name", required: true %>
+            <%= f.email_field :email, autocomplete: "off", placeholder: "Email", required: true %>
+            
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "new-password", required: true, placeholder: "Password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, placeholder: "Confirm Password" %>
+            <input type="button" name="next" class="next action-button" value="Next" />
+          </fieldset>
+          <fieldset>
+            <h2 class="fs-title">Business Details</h2>
+            <h3 class="fs-subtitle">Fill in your business details</h3>
+            <%= f.text_field :phone_number, placeholder: "Phone Number", required: true %>
+            <div class="form-group">
+              <%= f.select :business_type, User.business_types.map{|e| [e.first.humanize, e.second]}, {include_blank: "Choose your business type"}, {class: "form-control", id: "sel1",  required: true} %>
+            </div>
+            <%= f.text_field :org_name,  placeholder: "Organization Name", required: true %>
+            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+          </fieldset>
+          <fieldset>
+            <h2 class="fs-title">Business Details</h2>
+            <h3 class="fs-subtitle">Fill in your business details</h3>
+            <%= f.text_field :street_address,  placeholder: "Street Address", required: true %>
+            <%= f.text_field :city,  placeholder: "City", required: true %>
+            <%= f.text_field :state, placeholder: "State/Province", required: true %>
+            <%= f.text_field :zip_code, placeholder: "Postal/Zip Code", required: true %>
+            <%= f.text_field :country, placeholder: "Country", required: true %>
+            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+            <%= f.submit "Submit", class: "submit action-button" %>
+            <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
+          </fieldset>
+        <% end %>
+
+        <!-- /.MultiStep Form -->
+  
+
       </div>
+    </div>
   </div>
 </div>
-<!-- End Page Banner -->
 
-<!-- Start Open Account Banner -->
-<section class="open-account-area ptb-100">
-  <div class="container">
-      <div class="section-title">
-          <h2>Account opening form</h2>
-          <p>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-      </div>
-
-      <div class="open-account-form">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-
-          <%= f.hidden_field :role, value: "merchant"%>
-              <div class="row">
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>First name</label>
-                          <%= f.text_field :first_name, class: "form-control", placeholder: "First Name", required: true %>
-    
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                      <label>Last name</label>
-                      <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name", required: true %>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Phone number</label>
-                          <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number", required: true %>
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                      <div class="form-group">
-                          <label>Email</label>
-                          <%= f.email_field :email, class: "form-control", autocomplete: "email", placeholder: "Email", required: true %>
-                      </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                      <%= f.label :password %>
-                      <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em>
-                      <% end %>
-                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", required: true %>
-                    </div>
-                  </div>
-                
-                  <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                      <%= f.label :password_confirmation %>
-                      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", required: true %>
-                    </div>
-                  </div>
-                  
-                  <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                        <label>Organization Name</label>
-                        <%= f.text_field :org_name, class: "form-control", placeholder: "Organization Name", required: true %>
-  
-                    </div>
-                  </div>
-
-                  <div class="col-lg-6 col-md-6">
-                    <div class="form-group">
-                      <label>Business Type</label>
-                      <%= f.select :business_type, User.business_types.map{|e| [e.first.humanize, e.second]}, {include_blank: "Choose your business type"}, {class: "form-control",  required: true} %>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-12">
-                      <h3>Address</h3>
-                      
-                      <div class="row">
-                          <div class="col-lg-12">
-                              <div class="form-group">
-                                  <%= f.text_field :street_address, class: "form-control", placeholder: "Street Address", required: true %>
-                              </div>
-                          </div>
-
-                          <div class="col-lg-6">
-                              <div class="form-group">
-                                <%= f.text_field :city, class: "form-control", placeholder: "City", required: true %>
-                              </div>
-                          </div>
-                          
-                          <div class="col-lg-6">
-                              <div class="form-group">
-                                <%= f.text_field :state, class: "form-control", placeholder: "State/Province", required: true %>
-                                  
-                              </div>
-                          </div>
-
-                          <div class="col-lg-6">
-                              <div class="form-group">
-                                <%= f.text_field :zip_code, class: "form-control", placeholder: "Postal/Zip Code", required: true %>
-                                  
-                              </div>
-                          </div>
-
-                          <div class="col-lg-6">
-                              <div class="form-group">
-                                <%= f.text_field :country, class: "form-control", placeholder: "Country", required: true %>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-lg-12">
-                      <div class="banner-form-btn">
-                          <%= f.submit "Open Account", class: "default-btn" %>
-                      </div>
-                  </div>
-              </div>
-        <% end %>
-      </div>
-  </div>
-</section>
-<!-- End Open Account Banner -->

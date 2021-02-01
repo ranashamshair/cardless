@@ -13,7 +13,7 @@
 <div class="nav_right_area">
     <% if current_user.blank? %>
       <button class="btn_log_in"><i class="fas fa-unlock"></i><%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}%></button>
-      <button class="btn_sign_up"><i class="fas fa-user"></i><a href="#">Sign Up</a></button>
+      <button class="btn_sign_up"><i class="fas fa-user"></i><%= link_to "Sign Up", new_user_registration_path, data: {turbolinks: "false"} %></button>
     <% else %>
       <button class="btn_sign_up"><i class="fas fa-user"></i><%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"} %></button>
     <% end %>

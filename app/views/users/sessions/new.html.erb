@@ -1,67 +1,31 @@
-<!-- Start Page Banner -->
-<div class="page-banner-area">
+<!-- Sign Up Section Start-->
+<div id="login_section">
   <div class="container">
-      <div class="page-banner-content">
-          <h2>Sign In</h2>
-          <ul>
-              <li>
-                  <a href="/" data-turbolinks="false">Home</a>
-              </li>
-              <li>Sign In</li>
-          </ul>
-      </div>
-  </div>
-</div>
-<!-- End Page Banner -->
-
-<!-- Start Sign In Area -->
-<section class="sign-in-area ptb-100">
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="sign-in-image"></div>
-          </div>
-
-          <div class="col-lg-6">
-              <div class="sign-in-form">
-                  <h2>Sign In</h2>
-
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                      <div class="form-group">
-                        <%= f.label :email %><br />
-                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-                      </div>
-
-                      <div class="form-group">
-                        <%= f.label :password %><br />
-                        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-                      </div>
-
-                      <div class="row align-items-center">
-                        <% if devise_mapping.rememberable? %>
-                          <div class="col-lg-6 col-md-6 col-sm-6">
-                              <div class="form-check">
-                                  <%= f.check_box :remember_me, class: "form-check-input", id: "checkme" %>
-                                  <!-- <input type="checkbox" class="form-check-input" id="checkme"> -->
-                                  <label class="form-check-label" for="checkme">Remember me</label>
-                              </div>
-                          </div>
-                        <% end %>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 lost-your-password">
-                            <%= link_to "Forgot your password?", new_password_path(resource_name), data: {turbolinks: "false"},class:"lost-your-password" %>
-                            <!-- <a href="#" class="lost-your-password">Forgot your password?</a> -->
-                        </div>
-                      </div>
-
-                      <div class="actions">
-                        <%= f.submit "Log in",class: "default-btn" %>
-                      </div>
-                    <% end %>
-                      
+      <div class="row align-content-center">
+          <div class="login_form">
+              <div class="heading">Login To Your Account</div>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="input_fiealds_one">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                  <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+              </div>
+              <div class="wrap d-flex">
+                  <% if devise_mapping.rememberable? %>
+                    
+                    <label><%= f.check_box :remember_me %> Remember Me</label>
+                  <% end %>
+                  <label class="forgotPassword"><%= link_to "Forgot your password?", new_password_path(resource_name), data: {turbolinks: "false"} %></label>
+              </div>
+                <%= f.submit "Log in",class: "btn_login" %>
+              
+              <% end %>
+              <div class="d-flex">
+                <label class="signup_txt mt-2"><%= link_to "Sign Up", new_user_registration_path %></label>
+                <label class="ml-auto mt-2 hom_txt"><a href="/">Go to Home</a></label>
               </div>
           </div>
       </div>
   </div>
-</section>
-<!-- End Sign In Area -->
+</div>
+
+<!-- Sign Up Section Start-->

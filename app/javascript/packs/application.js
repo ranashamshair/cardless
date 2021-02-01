@@ -12,6 +12,7 @@ require("jquery")
 window.jQuery = window.$ = require('jquery')
 import "src/bootstrap.min"
 import "src/main"
+import 'jquery.easing'
 
 Rails.start()
 Turbolinks.start()

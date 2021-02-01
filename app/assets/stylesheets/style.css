@@ -59,7 +59,7 @@ a {
 }
 
 .container {
-    max-width: 1440px
+    max-width: 1200px;
 }
 
 .row {
@@ -516,13 +516,11 @@ button.btn_api .fa-chevron-right {
 
 .about_hero_area {
     display: flex;
-    padding: 150px 0;
+    margin: 100px 0;
     align-items: center;
     align-content: center;
     flex-direction: column;
-    margin: 0 auto;
 }
-
 
 .about_hero_area .about_text,
 .pricing_hero_area .pricing_text,
@@ -535,7 +533,7 @@ button.btn_api .fa-chevron-right {
 
 .about_hero_area P {
     font-size: 14px;
-    width: 100%;
+    width: 40%;
     margin: 10px 0;
     text-align: justify;
     color: var(--theme-white-color);
@@ -1257,10 +1255,9 @@ Animation Styles
 Sign Up Styles
 ==============
 */
-#sign_up,
-#login_section{
+#sign_up{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     background: var(--gradient-main), url("/assets/sign_up.jpg");
     background-repeat: no-repeat;
@@ -1279,6 +1276,8 @@ Sign Up Styles
     text-align: center;
     position: relative;
     margin: 130px 0;
+    overflow: hidden;
+    height: 80%;
 }
 
 #signupForm fieldset {
@@ -1352,7 +1351,7 @@ Sign Up Styles
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
-    background-color: rgba(95, 36, 210, 0.8);
+    background-color: rgba(95, 36, 210, 10);
 }
 
 #signupForm .action-button-previous:hover, #signupForm .action-button-previous:focus {
@@ -1391,23 +1390,24 @@ Sign Up Styles
 
 #progressbar li {
     list-style-type: none;
-    color: white;
     text-transform: uppercase;
-    font-size: 9px;
+    font-size: 12px;
     width: 33.33%;
     float: left;
+    font-weight: 600;
     position: relative;
     letter-spacing: 1px;
+    color: var(--theme-white-color);
 }
 
 #progressbar li:before {
     content: counter(step);
     counter-increment: step;
-    width: 24px;
-    height: 24px;
-    line-height: 26px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
     display: block;
-    font-size: 12px;
+    font-size: 17px;
     color: #333;
     background: white;
     border-radius: 25px;
@@ -1468,11 +1468,18 @@ Sign Up Styles
 }
 /*
 ==============
-Sign Up Styles
+Login Styles
 ==============
 */
 #login_section{
-    padding: 200px 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 120px 0;
+    background: var(--gradient-main), url("/assets/sign_up.jpg");
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: cover;
+    
 }
 .login_form {
     border: 0 none;
@@ -1482,7 +1489,6 @@ Sign Up Styles
     width: 50%;
     margin: 0 auto;
     border-radius: 10px;
-    position: relative;
     background-color: var(--theme-white-color);
  }
  .login_form .heading{
@@ -1501,16 +1507,18 @@ Sign Up Styles
  label.forgotPassword a{
      color: var(--theme-second-color);
  }
+ .hom_txt a{
+     color: var(--theme-second-color);
+ }
  .btn_login{
     border: none;
     width: 100%;
     margin-top: 8px;
     padding: 5px 0;
+    color: var(--theme-white-color);
     background-color: var(--theme-second-color);
  }
- .btn_login a{
-     color: var(--theme-white-color);
- }
+ 
  .signup_txt a{
      color: var(--theme-second-color);
  }

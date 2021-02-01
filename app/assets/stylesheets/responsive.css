@@ -20,7 +20,7 @@
 
 @media (max-width:1380px) {
     .container {
-        max-width: 1200px
+        max-width: 1200px !important;
     }
 
     .hero_area_left h1 {
@@ -52,20 +52,20 @@
     }
 
     .key_features {
-        margin: 280px 0 0 50px
+        margin: 280px 0 0 50px;
     }
 }
 
 @media (max-width:1200px) {
     .container {
-        max-width: 1200px
+        max-width: 1200px !important;
     }
 
     .btn_play {
         top: 39.5%;
         left: 45%;
         width: 100px;
-        height: 100px
+        height: 100px;
     }
 
     .btn_play .fa-play {
@@ -73,42 +73,42 @@
         top: 22%;
         left: 32%;
         font-size: 57px;
-        color: var(--theme-white-color)
+        color: var(--theme-white-color);
     }
 
     #pay_gateway_section .gateway_img img {
         max-width: 54rem;
-        z-index: -1
+        z-index: -1;
     }
 
     .laptop_img img {
-        left: 10px
+        left: 10px;
     }
 
     .hero_area_left h1 {
-        font-size: 37px
+        font-size: 37px;
     }
 
     #features_sction .features_boxes h3 {
-        font-size: 26px
+        font-size: 26px;
     }
 
     #features_sction .features_boxes p {
-        font-size: 12px
+        font-size: 12px;
     }
 
     .virtual_boxe {
-        margin: 88% 0 0 0
+        margin: 88% 0 0 0;
     }
 
     .points_left_img img {
-        margin: 72% 0 0 0
+        margin: 72% 0 0 0;
     }
 
     #pay_gateway_section .sign_up_form {
         top: 45%;
         left: 14%;
-        border-radius: 30px
+        border-radius: 30px;
     }
     .pricing_boxes_bg .col-md-3 {
         flex: 0 0 50% !important;
@@ -118,13 +118,13 @@
 
 @media (max-width:1175px) {
     #pay_gateway_section .gateway_img img {
-        display: none
+        display: none;
     }
 
     #pay_gateway_section .sign_up_form {
         top: 100%;
         left: 42%;
-        border-radius: 30px
+        border-radius: 30px;
     }
 }
 
@@ -137,40 +137,40 @@
     }
 
     .hero_area_left h1 {
-        font-size: 31px
+        font-size: 31px;
     }
 
     .features_boxes_content img {
-        max-width: 100px
+        max-width: 100px;
     }
 
     .virtual_boxe {
-        margin: 50px 0
+        margin: 50px 0;
     }
 
     .virtual_boxe p {
-        font-size: 12px
+        font-size: 12px;
     }
 
     .dashlight_img img {
-        max-width: 647px
+        max-width: 647px;
     }
 
     .gateway_img img {
-        max-width: 47rem !important
+        max-width: 47rem !important;
     }
 
     #features_sction .features_boxes h3 {
-        font-size: 19px
+        font-size: 19px;
     }
 
     #features_sction .features_boxes p {
-        font-size: 9px
+        font-size: 9px;
     }
 
     #pay_gateway_section .sign_up_form {
         top: 100%;
-        left: 34%
+        left: 34%;
     }
 
     .hero_area_left p {
@@ -211,7 +211,7 @@
 @media (max-width:768px) {
     header .toggle_navigation .fa-bars {
         display: block;
-        padding-left: 120px
+        padding-left: 120px;
     }
 
     header .main_nav menu {
@@ -224,7 +224,7 @@
     }
 
     header .main_nav menu ul li {
-        display: block
+        display: block;
     }
 
     header .main_nav menu ul li a {
@@ -375,7 +375,7 @@
         margin-top: 250px;
     }
     .login_form{
-        width: 100%;
+        width: 100% !important;
     }
 
 }
