@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :merchant do
+    resources :dashboard, only: [:index]
+    resources :sale, only: [:index]
+  end
   resources :withdraws
   namespace :admin do
     resources :dashboard, only: [:index]

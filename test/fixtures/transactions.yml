@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1.5
+  status: 1
+  charge_id: MyString
+  sender_id: 1
+  receiver_id: 1
+  action: 1
+  fee: 1.5
+  reserve_money: 1.5
+  main_type: 1
+  first6: MyString
+  last4: MyString
+  sender_wallet_id: 1
+  receiver_wallet_id: 1
+  sender_balance: 1.5
+  receiver_balance: 1.5
+  ref_id: MyString
+
+two:
+  amount: 1.5
+  status: 1
+  charge_id: MyString
+  sender_id: 1
+  receiver_id: 1
+  action: 1
+  fee: 1.5
+  reserve_money: 1.5
+  main_type: 1
+  first6: MyString
+  last4: MyString
+  sender_wallet_id: 1
+  receiver_wallet_id: 1
+  sender_balance: 1.5
+  receiver_balance: 1.5
+  ref_id: MyString

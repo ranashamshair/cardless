@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_133344) do
+ActiveRecord::Schema.define(version: 2021_02_12_135519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,27 @@ ActiveRecord::Schema.define(version: 2021_01_15_133344) do
     t.text "client_id"
     t.boolean "is_block", default: false
     t.boolean "is_deleted", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.float "amount"
+    t.integer "status"
+    t.string "charge_id"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.integer "action"
+    t.float "fee"
+    t.float "reserve_money"
+    t.integer "main_type"
+    t.string "first6"
+    t.string "last4"
+    t.integer "sender_wallet_id"
+    t.integer "receiver_wallet_id"
+    t.float "sender_balance"
+    t.float "receiver_balance"
+    t.string "ref_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
