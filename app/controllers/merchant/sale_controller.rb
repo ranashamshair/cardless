@@ -38,6 +38,8 @@ class Merchant::SaleController < MerchantBaseController
       )
     customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
     merchant_wallet = current_user.wallets.primary.first
+    reserve_wallet = current_user.wallets.reserve.first
+    fee = Fee.first
     transfer_tx = Transaction.create(
       amount: params[:transaction][:amount],
       receiver_wallet_id: merchant_wallet.id, 
@@ -52,10 +54,27 @@ class Merchant::SaleController < MerchantBaseController
       last4: card.last4,
       ref_id: SecureRandom.hex,
       status: 1,
-      card_id: card.id
+      card_id: card.id,
+      fee: fee.sale,
+      reserve_money: fee.reserve
       )
+
+      reserve_tx = Transaction.create(
+        amount: fee.reserve,
+        receiver_wallet_id: reserve_wallet.id, 
+        receiver_id: current_user.id, 
+        sender_id: customer.id,
+        sender_wallet_id: merchant_wallet.id,
+        receiver_balance: reserve_wallet.balance.to_f + fee.reserve.to_f,
+        sender_balance: (merchant_wallet.balance.to_f + params[:transaction][:amount].to_f) - fee.reserve.to_f,
+        main_type: 3,
+        action: 0,
+        ref_id: SecureRandom.hex,
+        status: 1
+        )
     customer_wallet.update(balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f)
-    merchant_wallet.update(balance: merchant_wallet.balance.to_f + params[:transaction][:amount].to_f)
+    merchant_wallet.update(balance: (merchant_wallet.balance.to_f + params[:transaction][:amount].to_f - fee.sale.to_f - fee.reserve.to_f))
+    reserve_wallet.update(balance: reserve_wallet.balance.to_f + fee.reserve)
     redirect_to merchant_dashboard_index_path, notice: "success"
       
   end

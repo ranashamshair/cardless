@@ -49,6 +49,8 @@
                             <th scope="col">Date</th>
                             <th scope="col">Sender Name</th>
                             <th scope="col">Receiver Name</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Transaction Type</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Fee</th>
                             <th scope="col">Reserve Money</th>
@@ -62,6 +64,8 @@
                                 <td><%= transaction.created_at.strftime("%m/%d/%Y %H:%M %p") %></td>
                                 <td><%= transaction.sender.first_name %></td>
                                 <td><%= transaction.receiver.first_name %></td>
+                                <td><%= transaction.action %></td>
+                                <td><%= transaction.main_type %></td>
                                 <td><%= number_with_precision(number_to_currency(transaction.amount.to_f), precision: 2, delimiter: ',') %></td>
                                 <td><%= number_with_precision(number_to_currency(transaction.fee.to_f), precision: 2, delimiter: ',') %></td>
                                 <td><%= number_with_precision(number_to_currency(transaction.reserve_money.to_f), precision: 2, delimiter: ',') %></td>
