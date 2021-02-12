@@ -41,13 +41,9 @@
                     <div class="line"></div>
                     <div class="balance_one">
                     <div class="bal_title">Total Balance</div>
-                    <div class="balance">$277.50</div>
+                    <div class="balance"><%= number_with_precision(number_to_currency(wallet.balance), precision: 2, delimiter: ',') %></div>
                     </div>
-                    <div class="line"></div>
-                    <div class="balance_one">
-                    <div class="bal_title">Available Balance</div>
-                    <div class="balance">$3278.40</div>
-                    </div>
+                    
                     <div class="line"></div>
                     <button class="dash_view_more"><a href="#">View More</a></button>
 

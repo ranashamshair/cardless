@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   
   namespace :merchant do
     resources :dashboard, only: [:index]
-    resources :sale, only: [:index]
+    resources :sale, only: [:index, :create]
+    resources :transactions, only: [:index]
   end
   resources :withdraws
   namespace :admin do

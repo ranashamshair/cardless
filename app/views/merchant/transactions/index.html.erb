@@ -1,0 +1,96 @@
+<div id="dash_header">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="dash_header_left ml-5">
+          <div class="welcom_heading">
+            Welcome, </div>
+          <div class="small_head pl-2">Your Accounts Dashboard</div>
+        </div>
+        <div class="dash_header_right ml-auto">
+          <div class="toggle"></div>
+          <ul>
+            <li><a href="#">
+                <div class="notify_icon shadow-sm"><i class="fas fa-bell"></i></div>
+                
+              </a></li>
+            <li><a href="#">
+                <div class="user_icon shadow-sm"><i class="far fa-user-circle"></i></div>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="dashboard_main_page">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <nav aria-label="breadcrumb bg-info">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Transactions</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="col-md-6">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="transaction_history_table">
+                <table class="table table-striped shadow">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Sender Name</th>
+                            <th scope="col">Receiver Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Fee</th>
+                            <th scope="col">Reserve Money</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @transactions&.each do |transaction|%>
+                            <tr>
+                                <th scope="row"><%= transaction.ref_id %></th>
+                                <td><%= transaction.created_at.strftime("%m/%d/%Y %H:%M %p") %></td>
+                                <td><%= transaction.sender.first_name %></td>
+                                <td><%= transaction.receiver.first_name %></td>
+                                <td><%= number_with_precision(number_to_currency(transaction.amount.to_f), precision: 2, delimiter: ',') %></td>
+                                <td><%= number_with_precision(number_to_currency(transaction.fee.to_f), precision: 2, delimiter: ',') %></td>
+                                <td><%= number_with_precision(number_to_currency(transaction.reserve_money.to_f), precision: 2, delimiter: ',') %></td>
+                                <td><button class="tabel_status"><a href="#"><%= transaction.status %></a></button></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Pagination Start -->
+    <%== pagy_bootstrap_nav(@pagy) %>
+    <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center p-0 mt-3 mr-3">
+          <li class="page-item shadow-sm">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">1</a></li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">2</a></li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">3</a></li>
+          <li class="page-item shadow-sm">
+            <a class="page-link shadow-sm" href="#">Next</a>
+          </li>
+        </ul>
+      </nav> -->
+         <!-- Pagination End -->
+
+</div>
+</div>
