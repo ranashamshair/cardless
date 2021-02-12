@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale: 1.5
+  withdraw: 1.5
+  reserve: 1.5
+
+two:
+  sale: 1.5
+  withdraw: 1.5
+  reserve: 1.5

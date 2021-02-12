@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :payment_gateways
     resources :wallets
     resources :withdraws
+    resources :fees
   end
   root to: 'visitors#index'
   devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions'}
