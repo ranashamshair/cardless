@@ -1,9 +1,49 @@
 <%= form_with(model: fee, url: url, local: true) do |form| %>
     <div class="card-body">
-        <div class="form-group">
-            <label for="first_name">Sale fees</label>
-            <%= form.text_field :sale, class: "form-control" %>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="first_name">Bank Credit Card fees $</label>
+              <%= form.text_field :sale_credit_bank, class: "form-control" %>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="first_name">Bank Credit Card fees %</label>
+              <%= form.text_field :sale_credit_bank_percent, class: "form-control" %>
+            </div>
           </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="first_name">Bank Debit Card fees $</label>
+              <%= form.text_field :sale_debit_bank, class: "form-control" %>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="first_name">Bank Debit Card fees %</label>
+              <%= form.text_field :sale_debit_bank_percent, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="first_name">Merchant Credit Card fees $</label>
+              <%= form.text_field :sale_credit_merchant, class: "form-control" %>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="first_name">Merchant Credit Card fees %</label>
+              <%= form.text_field :sale_credit_merchant_percent, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="first_name">Merchant Debit Card fees $</label>
+              <%= form.text_field :sale_debit_merchant, class: "form-control" %>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="first_name">Merchant Debit Card fees %</label>
+              <%= form.text_field :sale_debit_merchant_percent, class: "form-control" %>
+            </div>
+          </div>
+          
           <div class="form-group">
             <label for="first_name">Withdraw Fees</label>
             <%= form.text_field :withdraw, class: "form-control" %>

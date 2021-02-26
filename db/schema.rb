@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_213405) do
+ActiveRecord::Schema.define(version: 2021_02_26_102159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,19 @@ ActiveRecord::Schema.define(version: 2021_02_12_213405) do
   end
 
   create_table "fees", force: :cascade do |t|
-    t.float "sale", default: 0.0
+    t.float "sale_credit_bank", default: 0.0
     t.float "withdraw", default: 0.0
     t.float "reserve", default: 0.0
     t.integer "days", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "sale_debit_bank", default: 0.0
+    t.float "sale_credit_merchant", default: 0.0
+    t.float "sale_debit_merchant", default: 0.0
+    t.float "sale_credit_bank_percent", default: 0.0
+    t.float "sale_debit_bank_percent", default: 0.0
+    t.float "sale_credit_merchant_percent", default: 0.0
+    t.float "sale_debit_merchant_percent", default: 0.0
   end
 
   create_table "payment_gateways", force: :cascade do |t|
