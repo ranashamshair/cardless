@@ -80,19 +80,22 @@ class Merchant::SaleController < MerchantBaseController
       net_amount: net_amount.to_f
       )
 
-      reserve_tx = Transaction.create(
-        amount: reserve,
-        receiver_wallet_id: reserve_wallet.id, 
-        receiver_id: current_user.id, 
-        sender_id: customer.id,
-        sender_wallet_id: merchant_wallet.id,
-        receiver_balance: reserve_wallet.balance.to_f + reserve.to_f,
-        sender_balance: merchant_wallet.balance.to_f + net_amount.to_f,
-        main_type: 3,
-        action: 0,
-        ref_id: SecureRandom.hex,
-        status: 1
-        )
+    reserve_tx = Transaction.create(
+      amount: reserve,
+      receiver_wallet_id: reserve_wallet.id, 
+      receiver_id: current_user.id, 
+      sender_id: customer.id,
+      sender_wallet_id: merchant_wallet.id,
+      receiver_balance: reserve_wallet.balance.to_f + reserve.to_f,
+      sender_balance: merchant_wallet.balance.to_f + net_amount.to_f,
+      main_type: 3,
+      action: 0,
+      ref_id: SecureRandom.hex,
+      status: 1
+      )
+    if reserve_tx.present?
+      ReserveSchedule.create(transaction_id: transfer_tx.id, reserve_tx_id: reserve_tx.id, amount: reserve, release_date: DateTime.now + fee.days, tx_date: transfer_tx.created_at, user_id: current_user.id, reserve_status: "pending")
+    end
     customer_wallet.update(balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f)
     merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
     reserve_wallet.update(balance: reserve_wallet.balance.to_f + reserve.to_f)

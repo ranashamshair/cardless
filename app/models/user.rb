@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :sender_transactions, class_name: "Transaction", foreign_key: :sender_id
   has_many :receiver_transactions, class_name: "Transaction", foreign_key: :receiver_id
   validates :email, uniqueness: true
-
+  has_many :reserve_schedules, dependent: :destroy
   after_create :create_wallets
 
   def create_wallets

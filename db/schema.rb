@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_145527) do
+ActiveRecord::Schema.define(version: 2021_03_04_191648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 2021_02_26_145527) do
     t.text "client_id"
     t.boolean "is_block", default: false
     t.boolean "is_deleted", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reserve_schedules", force: :cascade do |t|
+    t.integer "transaction_id"
+    t.datetime "release_date"
+    t.datetime "tx_date"
+    t.float "amount"
+    t.string "tx_id"
+    t.string "reserve_status"
+    t.integer "user_id"
+    t.integer "reserve_tx_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

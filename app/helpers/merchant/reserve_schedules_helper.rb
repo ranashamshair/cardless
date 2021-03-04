@@ -1,0 +1,2 @@
+module Merchant::ReserveSchedulesHelper
+end
