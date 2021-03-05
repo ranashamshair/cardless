@@ -742,3 +742,29 @@ Account Details Page Styles
     border-bottom: 2px solid var(--theme-primary-color);
     background-color: var(--theme-forms-color);
 }
+/*==========================
+Fee Structure Page Styles
+==========================*/
+.fee_structure_section{
+    padding: 10px 0;
+}
+.fee_structure_box .heading{
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+}
+.fee_structure_box .box_main{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--theme-white-color);
+}
+.fee_structure_box .box_main .box-data{
+    font-weight: 500;
+    border-radius: 10px;
+    color: var(--theme-white-color);
+    background-color: var(--theme-primary-color);
+}
+.box_main .box-data.child{
+    color: var(--theme-third-color);
+    background-color: var(--theme-forms-color) !important;
+}

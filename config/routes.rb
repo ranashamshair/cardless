@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :merchant do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: [:index] do
+      get :fee_structure, on: :collection
+    end
     resources :sale, only: [:index, :create]
     resources :transactions, only: [:index]
     resources :reserve_schedules, only: [:index]
