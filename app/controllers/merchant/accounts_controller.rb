@@ -21,6 +21,6 @@ class Merchant::AccountsController < MerchantBaseController
   private
 
   def set_wallet
-    @wallet = Wallet.find(params[:id])
+    @wallet = Wallet.friendly.find(params[:id])
   end
 end
