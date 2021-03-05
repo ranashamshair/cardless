@@ -1,0 +1,9 @@
+---
+:concurrency: 5
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:queues:
+  - critical
+  - [indexer, 10]
+  - [mails, 5]
+:daemon: true

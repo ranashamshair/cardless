@@ -1,0 +1,4 @@
+link_tree:
+  cron: "0 12 * * *"
+  class: "ReserveScheduleWorker"
+  queue: critical
