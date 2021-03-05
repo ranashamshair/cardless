@@ -5,6 +5,11 @@ Rails.application.routes.draw do
     resources :sale, only: [:index, :create]
     resources :transactions, only: [:index]
     resources :reserve_schedules, only: [:index]
+    resources :accounts, only: [:show] do
+      member do 
+        get :account_transactions
+      end
+    end
   end
   resources :withdraws
   namespace :admin do

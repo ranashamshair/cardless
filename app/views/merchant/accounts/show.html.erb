@@ -1,0 +1,237 @@
+<!-- dashboard header Start -->
+<!-- <div class="dash_body"> -->
+    <div id="dash_header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="dash_header_left ml-5">
+              <div class="welcom_heading">
+                Welcome, </div>
+              <div class="small_head pl-2">Your Accounts Dashboard</div>
+            </div>
+            <div class="dash_header_right ml-auto">
+              <div class="toggle"></div>
+              <ul>
+                <li><a href="#">
+                    <div class="notify_icon shadow-sm"><i class="fas fa-bell"></i></div>
+                    
+                  </a></li>
+                <li><a href="#">
+                    <div class="user_icon shadow-sm"><i class="far fa-user-circle"></i></div>
+                  </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- dashboard header End -->
+<div class="dashboard_main_page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <nav aria-label="breadcrumb bg-info">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Accounts Details</li>
+                            </ol>
+                        </nav>
+                    </div>
+
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+
+                <!-- Transaction Details Start -->
+                <section class="accounts_details">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="main_account_box shadow">
+                                <div class="main_account_heading">Main Account <span>ID: <%= @wallet.id %></span></div>
+                                <div class="main_account_list shadow-sm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="fund_head">Total Funds In Account</div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="fund_amount float-right"><%= number_to_currency(number_with_precision(@wallet.balance.to_f, precision: 2, delimiter: ',')) %></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                
+
+                                <div class="main_account_list child">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="fund_head"><a href="<%= account_transactions_merchant_account_path(@wallet) %>">View Transactions</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+
+                                <div class="d-flex justify-content-center">
+                                    <!-- Withdrawl Funds Modal -->
+                                    <a href="#" class="btn btn-withdraw_fund mr-2" data-toggle="modal"
+                                        data-target="#exampleModalCenter">Withdraw Fund</a>
+                                    <!-- Account Transfer Modal -->
+                                    <a href="#" class="btn btn-account_transfer ml-2" data-toggle="modal"
+                                        data-target="#exampleModal">Account Transfer</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main_account_box shadow">
+                                <div class="main_account_heading">Reserve <span>ID: <%= @reserve_wallet.id %></span></div>
+                                <div class="main_account_list shadow-sm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="fund_head">Total In Reserve</div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="fund_amount float-right"><%= number_to_currency(number_with_precision(@reserve_wallet.balance.to_f, precision: 2, delimiter: ',')) %></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="main_account_list child">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="fund_head">Todays Funds Release</div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="fund_amount float-right"><%= number_to_currency(number_with_precision(@reserve_release_amount.to_f, precision: 2, delimiter: ',')) %></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="main_account_list shadow-sm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="fund_head">Next Release</div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="fund_amount float-right">$0.003</div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+
+
+                                <div class="main_account_list child">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="fund_head"><a href="<%= account_transactions_merchant_account_path(@reserve_wallet) %>">View Transactions</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Withdraw Fund Modal Start -->
+                                <div class="modal modal_withdraw_fund fade" id="exampleModalCenter" tabindex="-1"
+                                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Withdraw Fund</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group col-md-12">
+                                                    <input type="text" class="form-control" id="inputEmail4"
+                                                        placeholder="Enter Amount">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <div class="form-check">
+                                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="blank">
+                                                    <label class="form-check-label" for="inlineRadio3">Remember Me</label>
+                                                  </div>
+                                                <button type="button" class="btn btn-withdraw_submit">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Withdraw Fund Moda End -->
+
+                                <!-- Account Transfer Modal Start -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog acc_trans_dialog mx-auto" role="document">
+                                        <div class="modal-content refund_modal_body">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Account Transfer</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <form>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="inputEmail4">Transfer from</label>
+                                                            <select id="inputState" class="form-control">
+                                                                <option selected>Select Reason</option>
+                                                                <option>Duplicate</option>
+                                                                <option>Fraudlent</option>
+                                                                <option>Requested By Customer</option>
+                                                            </select>
+                                                            
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="inputState">Transfer To</label>
+                                                            <select id="inputState" class="form-control">
+                                                                <option selected>Select Reason</option>
+                                                                <option>Duplicate</option>
+                                                                <option>Fraudlent</option>
+                                                                <option>Requested By Customer</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <div class="form row">
+                                                    <div class="col-md-6 pl-0 pr-1">
+                                                        <div class="balance pb-2">Balance <span class="bal_value float-right">$00.00</span></div>
+                                                    </div>
+                                                    <div class="col-md-6 pl-1 pr-0">
+                                                        <div class="balance">Balance</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form row mt-3">
+                                                    <label for="inputEmail4">Enter Your Ammount</label>
+                                                    <input type="text" placeholder="$ 10.0" class="form-control">
+                                                </div>
+
+                                                <div class="mt-3">
+                                                    <label for="inputEmail4">Instruction (Optional)</label>
+                                                    <textarea class="text-area" rows="5" placeholder="Instructions For Your Account Tarnsfer"></textarea>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-primary btn_actrans_sub">Refund</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Accaount Tarnsfer Modal End-->
+
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+            <!-- Transaction Details End -->
+        </div>

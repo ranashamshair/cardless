@@ -649,3 +649,96 @@ Virtual Terminal Page Styles
         padding: 10px 0px;
     }
 }
+
+/*==========================
+Account Details Page Styles
+==========================*/
+.main_account_box{
+    padding: 20px;
+    border-radius: 10px;
+    border-bottom: 2px solid var(--theme-primary-color);
+}
+.main_account_box .main_account_heading{
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: var(--theme-third-color);
+}
+.main_account_box .main_account_heading  span{
+    font-size: 12px;
+}
+.main_account_box .main_account_list{
+    padding: 2px;
+    margin: 20px 0;
+    border-radius: 5px;
+    color: var(--theme-white-color);
+    background-color: var(--theme-primary-color);
+    border-bottom: 2px solid var(--theme-second-color);
+}
+.main_account_box .child{
+    border-bottom: none;
+    color: var(--theme-third-color);
+    background-color: var(--theme-white-color);
+}
+.main_account_list .fund_amount{
+    font-weight: 500;
+}
+.main_account_box .child .fund_head a{
+    color: var(--theme-second-color);
+}
+.main_account_list .fund_head .date{
+    font-size: 13px;
+    font-weight: 600;
+}
+.main_account_box .fund_head .lite_text{
+    font-size: 12px;
+    font-weight: 400;
+}
+.main_account_box .btn-withdraw_fund,
+.main_account_box .btn-account_transfer{
+    font-size: 14px;
+    border-radius: 6px;
+    color: var(--theme-white-color);
+    background-color: var(--theme-primary-color);
+}
+.main_account_box .btn-withdraw_fund:hover,
+.main_account_box .btn-account_transfer:hover,
+.acc_trans_dialog .btn_actrans_sub:hover{
+    transition: .2s ease-in-out;
+    background-color: var(--theme-second-color);
+}
+.modal_withdraw_fund .btn-withdraw_submit{
+    color: var(--theme-white-color);
+    background-color: var(--theme-second-color);
+}
+.form-check{
+    width: 130px;
+}
+.acc_trans_dialog {
+    margin-top: 6%;
+}
+.acc_trans_dialog .text-area{
+    border: none;
+    width: 100%;
+    padding: 8px;
+    outline: inherit;
+    border-radius: 10px;
+    background-color: var(--theme-forms-color);
+}
+.acc_trans_dialog .text-area:hover,
+.acc_trans_dialog  .balance:hover{
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important
+}
+.acc_trans_dialog .btn_actrans_sub{
+    width: 130px;
+    border-radius:10px;
+    background-color: var(--theme-primary-color);
+}
+.acc_trans_dialog  .balance{
+    padding: 10px 15px;
+    border-radius: 10px;
+    border-bottom: 2px solid var(--theme-primary-color);
+    background-color: var(--theme-forms-color);
+}

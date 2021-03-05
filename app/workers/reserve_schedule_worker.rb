@@ -2,7 +2,7 @@ class ReserveScheduleWorker
   include Sidekiq::Worker
 
   def perform(*args)
-    ReserveSchedule.where(status: :pending).try(:each) do |reserve_schedule|
+    ReserveSchedule.where(reserve_status: :pending).try(:each) do |reserve_schedule|
       if reserve_schedule.release_date >= DateTime.now
         tx = Transaction.new(
           amount: reserve_schedule.amount,

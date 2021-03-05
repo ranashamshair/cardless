@@ -53,9 +53,7 @@
                             <th scope="col">Transaction Type</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Fee</th>
-                            <th scope="col">Bank Fee</th>
                             <th scope="col">Reserve Money</th>
-
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -70,7 +68,6 @@
                                 <td><%= transaction.main_type %></td>
                                 <td><%= number_with_precision(number_to_currency(transaction.amount.to_f), precision: 2, delimiter: ',') %></td>
                                 <td><%= number_with_precision(number_to_currency(transaction.fee.to_f), precision: 2, delimiter: ',') %></td>
-                                <td><%= number_with_precision(number_to_currency(transaction.bank_fee.to_f), precision: 2, delimiter: ',') %></td>
                                 <td><%= number_with_precision(number_to_currency(transaction.reserve_money.to_f), precision: 2, delimiter: ',') %></td>
                                 <td><button class="tabel_status"><a href="#"><%= transaction.status %></a></button></td>
                             </tr>
