@@ -1,5 +1,32 @@
-$(function () {
+$(document).on("turbolinks:load", function() {
 
+
+// $(function () {
+  /* right Sidebar */
+$('.user_icon').click(function(){
+$('.sidebar_right').css("width", "230px");
+});
+
+$('.btn_close').click(function(){
+$('.sidebar_right').css("width", "0px");
+});
+
+/* Notification Sidebar */
+$('.notify_icon').click(function(){
+$('.notify_sidebar').css("width", "350px");
+});
+
+$('.notify_btn_close').click(function(){
+$('.notify_sidebar').css("width", "0px");
+});
+
+/* Fix Home Btn Dashboard left sidebar */
+$(".sidebar_left").mouseover(function(){
+$(".fa-home").css("left", "40%");
+});
+$(".sidebar_left").mouseout(function(){
+$(".fa-home").css("left", "18%");
+});
   $(".toggle_navigation").click(function () {
       $("menu").slideToggle(600);
   });
@@ -96,32 +123,8 @@ current_fs.animate({opacity: 0}, {
 });
 });
 
-/* right Sidebar */
-$('.user_icon').click(function(){
-$('.sidebar_right').css("width", "230px");
-});
-
-$('.btn_close').click(function(){
-$('.sidebar_right').css("width", "0px");
-});
-
-/* Notification Sidebar */
-$('.notify_icon').click(function(){
-$('.notify_sidebar').css("width", "350px");
-});
-
-$('.notify_btn_close').click(function(){
-$('.notify_sidebar').css("width", "0px");
-});
-
-/* Fix Home Btn Dashboard left sidebar */
-$(".sidebar_left").mouseover(function(){
-$(".fa-home").css("left", "40%");
-});
-$(".sidebar_left").mouseout(function(){
-$(".fa-home").css("left", "18%");
-});
-
-});
 
 
+// });
+
+});

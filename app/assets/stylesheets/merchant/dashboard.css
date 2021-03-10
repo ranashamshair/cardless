@@ -13,6 +13,7 @@
     --theme-color-border: #E5E5E5;
     --theme-color-green: #7FBA4B;
     --theme-forms-color: #F2F2F2;
+    --theme-color-red: #d00000;
     --gradient-main: linear-gradient(90deg, rgba(95, 36, 210, 0.9), rgba(219, 63, 132, 0.9));
 }
 
@@ -81,7 +82,7 @@ body{
 /* Dashboard Header */
 #dash_header {
     width: 100%;
-    padding: 22px 30px;
+    padding: 16px 30px;
 }
 
 .dash_header_left .welcom_heading {
@@ -114,6 +115,7 @@ body{
     align-content: center;
     justify-content: center;
     line-height: 50px;
+    cursor: pointer;
     color: var(--theme-white-color);
 }
 
@@ -168,7 +170,7 @@ body{
 
 .sidebar_left ul {
     position: absolute;
-    top: 270px;
+    top: 85px;
     left: 0;
     width: 100%;
 }
@@ -214,7 +216,7 @@ body{
 .sidebar_left ul li a .title {
     position: relative;
     display: block;
-    padding: 0 10px;
+    padding: 0 0;
     height: 40px;
     line-height: 40px;
     text-align: start;
@@ -242,7 +244,7 @@ body{
     position: fixed;
     top: 0;
     right: 0;
-    width: 0px;
+    width: 0;
     height: 100%;
     background-color: var(--theme-white-color);
     z-index: 999;
@@ -332,6 +334,9 @@ body{
     border-radius: 50%;
     background-color: var(--theme-second-color);
 }
+.sidebar_right .log_out_my{
+    padding: 12px;
+}
 .sidebar_right .profile_my .fa-id-badge,
 .sidebar_right .log_out_my .fa-sign-out-alt{
     font-size: 22px;
@@ -347,12 +352,12 @@ body{
 .sidebar_right .line2{
     width: 1005;
     height: 1px;
-    margin-top: 80px;
+    margin-top: 10px;
     background-color: #e6e6e6;
 }
 .sidebar_right .line2{
    margin-top: 2px;
-   margin-bottom: 80px;
+   margin-bottom: 10px;
 }
 .sidebar_right ul li{
     margin: 6px 0 6px 20px;
@@ -375,6 +380,7 @@ body{
     height: 100vh;
     background-color: var(--theme-white-color);
     z-index: 999;
+    overflow-y: auto;
     transition: all ease-in-out;
 }
 
@@ -600,56 +606,170 @@ Chargeback Page Styles
 Virtual Terminal Page Styles
 ==========================*/
 .client_form{
+    width: 75%;
+    margin: 0 auto;
     background-color: var(--theme-white-color);
 }
 .client_form  form{
-    padding: 20px;
+    padding: 14px 34px;
     margin-bottom: 50px;
     border-radius: 10px;
 }
 .client_form form label{
+    font-size: 14px;
     font-weight: 500;
 }
 .form-control{
     outline: none;
     border: none;
-    background-color: var(--theme-forms-color);
+    border-radius: 10px;
+    background-color: var(--theme-forms-color);  
+}
+.form-control:hover{
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 .client_form  .heading{
     font-weight: 500;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 22px;
+    margin: 15px 0;
+    font-size: 20px;
 }
+
+.client_form .form-row{
+    padding: 4px 0;
+}
+
 .client_form .btn-primary{
     color: var(--theme-white-color);
     border: none;
     
     background-color: var(--theme-primary-color);
 }
-
-/** Media Queries **/
-@media (max-width: 480px){
-    .cahrgeback_main_tab {
-        width: 85%;
-        margin-left: 65px;
-    }
-    .client_form{
-        margin-left: 50px;
-    }
+/*==========================
+Transaction Details Page Styles
+==========================*/
+.transaction_detail_box{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--theme-white-color);
+}
+.tran_det_head{
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+}
+.transaction_detail_box .head{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--theme-white-color);
+    background-color: var(--theme-primary-color);
+}
+.refund_modal_dialog .modal-header,
+.modal_withdraw_fund .modal-header,
+.acc_trans_dialog  .modal-header{
+    color: var(--theme-white-color);
+    background-color: var(--theme-primary-color);
+}
+.modal-header .close{
+    font-size: 24px;
+    color: var(--theme-white-color);
+}
+.trans_type_head{
+    font-size: 18px;
+    font-weight: 500;
+}
+.trans_type_data{
+    font-size: 16px;
+}
+.trans_card_data .trans_card_head {
+    text-transform: capitalize;
+}
+.trans_card_data .fa-copy{
+    cursor: pointer;
+}
+.transaction_detail_box .fa-copy{
+    color: var(--theme-second-color);
+}
+.btn-refund-modal{
+    border: none;
+    outline: inherit;
+    text-align: center;
+    width: 130px;
+    border-radius: 10px;
+    background-color: var(--theme-color-red);
+}
+.btn-refund-modal:hover,
+.btn_refund_cancel:hover,
+.btn_refund_final:hover,
+.btn-refund-modal:hover{
+    transition: .2s ease-in-out;
+    background-color: var(--theme-second-color);
+}
+.refund_modal_dialog{
+   margin-top: 10%;
+}
+.btn_refund_cancel,
+.modal_withdraw_fund .btn-withdraw_submit{
+    width: 100px;
+    border: none;
+    outline: inherit;
+    background-color: var(--theme-primary-color);
+}
+.btn_refund_final{
+    width: 100px;
+    border: none;
+    outline: inherit;
+    background-color: var(--theme-color-red);
+}
+.alert-success{
+    border: none;
+    color: var(--theme-color-red);
+    border-bottom: 2px solid var(--theme-color-red);
+    background-color: var(--theme-white-color);
+}
+.alert-heading{
+    font-size: 20px;
 }
 
-@media (max-width: 768px){
-    .cahrgeback_main_tab .charge_box {
-        width: 129px;
-    }
-    .cargeback_table,
-    .cahrgeback_main_tab{
-        margin-left: 50px;
-        padding: 10px 0px;
-    }
-}
-
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
 /*==========================
 Account Details Page Styles
 ==========================*/
@@ -767,4 +887,87 @@ Fee Structure Page Styles
 .box_main .box-data.child{
     color: var(--theme-third-color);
     background-color: var(--theme-forms-color) !important;
+}
+/*==========================
+Api Key Page Styles
+==========================*/
+
+.api_key_section{
+    padding: auto;
+}
+.api_key_section .api_key_tab{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--theme-white-color);
+}
+.api_key_section .api_key_head{
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+.api_key_section .sub_head{
+    font-size: 18px;
+    font-weight: 700;
+}
+.api_key_section .api_key_box{
+    border-radius: 2px;
+    color: var(--theme-white-color);
+    background-color: var(--theme-primary-color);
+}
+.api_key_section .api_key_box.active{
+    color: var(--theme-third-color);
+    background-color: var(--theme-forms-color) !important;
+}
+.api_key_section .sub_head_two{
+    font-size: 18px;
+    font-weight: 500;
+}
+.api_key_section .api_key_box.active .fa-copy{
+    color: var(--theme-second-color);
+    cursor: pointer;
+}
+.api_key_section .api_key_box .secret_key{
+    color: var(--theme-forms-color);
+}
+.secret .secret_key{
+    position: relative;
+}
+.secret .secret_key .fa-copy{
+    cursor: pointer;
+}
+.btn_secret{
+    position: absolute;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 148px;
+    height: 22px;
+    top: 3px;
+    font-weight: 600;
+    left: 100px;
+    color: var(--theme-third-color);
+    background-color: var(--theme-white-color);
+}
+/** Media Queries **/
+@media (max-width: 480px){
+    .cahrgeback_main_tab {
+        width: 85%;
+        margin-left: 65px;
+    }
+    .client_form{
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 768px){
+    .cahrgeback_main_tab .charge_box {
+        width: 129px;
+    }
+    .cargeback_table,
+    .cahrgeback_main_tab{
+        margin-left: 50px;
+        padding: 10px 0px;
+    }
 }
