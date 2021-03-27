@@ -971,3 +971,6 @@ Api Key Page Styles
         padding: 10px 0px;
     }
 }
+[data-href] {
+    cursor: pointer;
+}

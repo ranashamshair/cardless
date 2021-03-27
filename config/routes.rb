@@ -6,7 +6,9 @@ Rails.application.routes.draw do
       get :api_key, on: :collection
     end
     resources :sale, only: [:index, :create]
-    resources :transactions, only: [:index]
+    resources :transactions, only: [:index] do 
+      get :transaction_detail, on: :collection
+    end
     resources :reserve_schedules, only: [:index]
     resources :accounts, only: [:show] do
       member do 

@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
                         <% @transactions&.each do |transaction|%>
-                            <tr>
+                            <tr data-href="<%= transaction_detail_merchant_transactions_path(id: transaction.ref_id) %>">
                                 <th scope="row"><%= transaction.ref_id&.first(6) %></th>
                                 <td><%= transaction.created_at.strftime("%m/%d/%Y %H:%M %p") %></td>
                                 <td><%= transaction.sender.first_name %></td>

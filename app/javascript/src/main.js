@@ -147,19 +147,21 @@ function hideTooltip(btn) {
 }
 /* Clipboard */
 if($("#btn_copy").length != 0){
-var clipboard = new ClipboardJS('#btn_copy');
+  var clipboard = new ClipboardJS('#btn_copy');
 
-clipboard.on('success', function(e) {
-setTooltip(e.trigger, 'Copied!');
-hideTooltip(e.trigger);
-});
+  clipboard.on('success', function(e) {
+    setTooltip(e.trigger, 'Copied!');
+    hideTooltip(e.trigger);
+  });
 
-clipboard.on('error', function(e) {
-setTooltip(e.trigger, 'Failed!');
-hideTooltip(e.trigger);
-});
+  clipboard.on('error', function(e) {
+    setTooltip(e.trigger, 'Failed!');
+    hideTooltip(e.trigger);
+  });
 }
-
+$('*[data-href]').on('click', function() {
+  window.location = $(this).data("href");
+});
 // });
 
 });
