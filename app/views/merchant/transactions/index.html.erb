@@ -41,10 +41,10 @@
                     <tbody>
                         <% @transactions&.each do |transaction|%>
                             <tr>
-                                <th scope="row"><%= transaction.ref_id.first(6) %></th>
+                                <th scope="row"><%= transaction.ref_id&.first(6) %></th>
                                 <td><%= transaction.created_at.strftime("%m/%d/%Y %H:%M %p") %></td>
                                 <td><%= transaction.sender.first_name %></td>
-                                <td><%= transaction.receiver.first_name %></td>
+                                <td><%= transaction.receiver&.first_name %></td>
                                 <td><%= transaction.action.humanize.titleize %></td>
                                 <td><%= transaction.main_type.humanize.titleize %></td>
                                 <td><%= number_with_precision(number_to_currency(transaction.amount.to_f), precision: 2, delimiter: ',') %></td>

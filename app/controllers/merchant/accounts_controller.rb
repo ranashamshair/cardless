@@ -15,7 +15,7 @@ class Merchant::AccountsController < MerchantBaseController
   end
 
   def account_transactions
-    @pagy, @transactions = pagy(Transaction.where("sender_wallet_id = ? OR receiver_wallet_id = ?", @wallet.id, @wallet.id))
+    @pagy, @transactions = pagy(Transaction.where("sender_wallet_id = ? OR receiver_wallet_id = ?", @wallet.id, @wallet.id).order(created_at: :desc))
   end
 
   private

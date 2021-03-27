@@ -23,17 +23,27 @@
                     <th>Amount</th>
                     <th>Payed</th>
                     <th>Created At</th>
+                    <th>Payed At</th>
+                    <th>Accept</th>
                   </tr>
                   </thead>
                   <tbody>
                         <% @withdraws.try(:each) do |withdraw| %>
                             <tr>
-                                <td><%= withdraw.id %></td>
+                                <td><%= withdraw.ref_id %></td>
                                 <td><%= withdraw.name %></td>
                                 <td><%= withdraw.user_id %></td>
                                 <td><%= withdraw.amount %></td>
                                 <td><%= withdraw.is_payed %></td>
-                                <th><%= withdraw.created_at.strftime("%d/%m/%Y") %></th>
+                                <td><%= withdraw.created_at.strftime("%d/%m/%Y %H:%M %p") %></td>
+                                <td><%= withdraw.payed_at&.strftime("%d/%m/%Y %H:%M %p") %></td>
+                                <td>
+                                  <% if withdraw.is_payed %> 
+                                    Accepted
+                                  <% else %>
+                                    <%= link_to "Accept", accept_admin_withdraw_path(withdraw), method: :post %>
+                                  <% end %>
+                                </td>
                             </tr>
                         <% end %>
                   </tbody>
@@ -45,6 +55,7 @@
                     <th>Amount</th>
                     <th>Payed</th>
                     <th>Created At</th>
+                    <th>Accept</th>
                   </tr>
                   </tfoot>
                 </table>

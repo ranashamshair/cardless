@@ -1,5 +1,5 @@
 class Admin::WithdrawsController < AdminBaseController
-  before_action :set_withdraw, only: [:show, :edit, :update, :destroy]
+  before_action :set_withdraw, only: [:show, :edit, :update, :destroy, :accept]
   
   # GET /withdraws
   # GET /withdraws.json
@@ -19,6 +19,19 @@ class Admin::WithdrawsController < AdminBaseController
 
   # GET /withdraws/1/edit
   def edit
+  end
+
+  def accept
+    if !@withdraw.is_payed
+      @withdraw.update(is_payed: true, payed_at: Time.now)
+      respond_to do |format|
+        format.html { redirect_to admin_withdraws_path, notice: 'Withdraw accepted.' }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to admin_withdraws_path, notice: 'Withdraw already accepted.' }
+      end
+    end
   end
 
   # POST /withdraws

@@ -25,7 +25,8 @@ class Merchant::WithdrawsController < MerchantBaseController
   # POST /withdraws
   # POST /withdraws.json
   def create
-    if withdraw_params[:amount].to_f > 0 && withdraw_params[:amount].to_f < current_user.wallets.primary.first.balance.to_f
+    wallet = current_user.wallets.primary.first
+    if withdraw_params[:amount].to_f > 0 && withdraw_params[:amount].to_f < wallet.balance.to_f
       @withdraw = Withdraw.new(withdraw_params)
       @withdraw.user = current_user
       @withdraw.name = "#{current_user.first_name} #{current_user.last_name}"
@@ -33,6 +34,41 @@ class Merchant::WithdrawsController < MerchantBaseController
       @withdraw.ref_id = "WID-#{SecureRandom.hex.first(6)}"
       respond_to do |format|
         if @withdraw.save
+          distro = Wallet.distro.first
+          fee = Fee.first
+          withdraw_fee = fee.withdraw.to_f
+          total = withdraw_fee + @withdraw.amount
+          tx = Transaction.create(
+            amount: @withdraw.amount,
+            net_amount: total,
+            fee: withdraw_fee,
+            total_fee: withdraw_fee,
+            action: 2,
+            status: 1,
+            main_type: 1,
+            sender_id: current_user.id,
+            sender_wallet_id: wallet.id,
+            sender_balance: wallet.balance.to_f - total.to_f,
+            ref_id: SecureRandom.hex
+          )
+          Transaction.create(
+            amount: withdraw_fee,
+            net_amount: withdraw_fee,
+            sender_id: current_user.id,
+            sender_wallet_id: wallet.id,
+            sender_balance: wallet.balance.to_f - total.to_f,
+            receiver_id: distro.user_id,
+            receiver_wallet_id: distro.id,
+            receiver_balance: distro.balance + withdraw_fee,
+            main_type: 6,
+            action: 0,
+            status: 1,
+            ref_id: SecureRandom.hex
+          )
+          @withdraw.transaction_id  = tx.id
+          @withdraw.save
+          wallet.update(balance: wallet.balance - total)
+          distro.update(balance: distro.balance + withdraw_fee)
           format.html { redirect_to merchant_dashboard_index_path, notice: 'Withdraw was successfully created.' }
         else
           format.html { redirect_to merchant_dashboard_index_path, notice: @withdraw.errors.messages }

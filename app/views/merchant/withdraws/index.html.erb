@@ -27,6 +27,7 @@
                               <th scope="col">Amount</th>
                               <th scope="col">Payed</th>
                               <th scope="col">Created at</th>
+                              <th scope="col">Payed at</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -36,6 +37,7 @@
                                   <td><%= number_with_precision(number_to_currency(withdraw.amount.to_f), precision: 2, delimiter: ',') %></td>
                                   <td><button class="tabel_status"><a href="#"><%= payed(withdraw.is_payed) %></a></button></td>
                                   <td><%= withdraw.created_at.strftime("%m/%d/%Y %H:%M %p") %></td>
+                                  <td><%= withdraw.payed_at&.strftime("%d/%m/%Y %H:%M %p") %></td>
                               </tr>
                           <% end %>
                       </tbody>

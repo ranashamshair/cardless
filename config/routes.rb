@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     resources :merchants, only: [:index, :edit, :update]
     resources :payment_gateways
     resources :wallets
-    resources :withdraws
+    resources :withdraws do 
+      post :accept, on: :member
+    end
     resources :fees
   end
   root to: 'visitors#index'
