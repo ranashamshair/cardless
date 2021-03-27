@@ -1,10 +1,11 @@
-class WithdrawsController < ApplicationController
+class Merchant::WithdrawsController < MerchantBaseController
   before_action :set_withdraw, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  include WithdrawsHelper
   # GET /withdraws
   # GET /withdraws.json
   def index
-    @withdraws = current_user.withdraws.all
+    @pagy, @withdraws = pagy(current_user.withdraws.all.order(created_at: :desc))
   end
 
   # GET /withdraws/1
@@ -24,15 +25,22 @@ class WithdrawsController < ApplicationController
   # POST /withdraws
   # POST /withdraws.json
   def create
-    @withdraw = Withdraw.new(withdraw_params)
-
-    respond_to do |format|
-      if @withdraw.save
-        format.html { redirect_to @withdraw, notice: 'Withdraw was successfully created.' }
-        format.json { render :show, status: :created, location: @withdraw }
-      else
-        format.html { render :new }
-        format.json { render json: @withdraw.errors, status: :unprocessable_entity }
+    if withdraw_params[:amount].to_f > 0 && withdraw_params[:amount].to_f < current_user.wallets.primary.first.balance.to_f
+      @withdraw = Withdraw.new(withdraw_params)
+      @withdraw.user = current_user
+      @withdraw.name = "#{current_user.first_name} #{current_user.last_name}"
+      @withdraw.is_payed = false
+      @withdraw.ref_id = "WID-#{SecureRandom.hex.first(6)}"
+      respond_to do |format|
+        if @withdraw.save
+          format.html { redirect_to merchant_dashboard_index_path, notice: 'Withdraw was successfully created.' }
+        else
+          format.html { redirect_to merchant_dashboard_index_path, notice: @withdraw.errors.messages }
+        end
+      end
+    else
+      respond_to do |format|
+          format.html { redirect_to merchant_dashboard_index_path, notice: 'Something went wrong please try again later!' }
       end
     end
   end

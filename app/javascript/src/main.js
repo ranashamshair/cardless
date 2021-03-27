@@ -146,6 +146,7 @@ function hideTooltip(btn) {
   }, 1000);
 }
 /* Clipboard */
+if($("#btn_copy").length != 0){
 var clipboard = new ClipboardJS('#btn_copy');
 
 clipboard.on('success', function(e) {
@@ -157,7 +158,7 @@ clipboard.on('error', function(e) {
 setTooltip(e.trigger, 'Failed!');
 hideTooltip(e.trigger);
 });
-
+}
 
 // });
 

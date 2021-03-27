@@ -13,8 +13,8 @@ Rails.application.routes.draw do
         get :account_transactions
       end
     end
+    resources :withdraws
   end
-  resources :withdraws
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :merchants, only: [:index, :edit, :update]
