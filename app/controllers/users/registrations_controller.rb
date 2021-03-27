@@ -16,6 +16,8 @@ class Users::RegistrationsController < DeviseController
     def create
       build_resource(sign_up_params)
       resource.merchant!
+      resource.regenerate_token
+      resource.create_oauth_app
       resource.save
       sign_up(resource_name, resource)
       respond_with resource, location: after_sign_up_path_for(resource)

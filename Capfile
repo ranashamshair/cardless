@@ -27,12 +27,13 @@ install_plugin Capistrano::SCM::Git
 #   https://github.com/capistrano/passenger
 #
 require 'capistrano/rails'
-require 'capistrano/rails/console'
-require 'capistrano/passenger'
+
+
 require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rake'
-
+require 'capistrano/rails/console'
+require 'capistrano/passenger'  
 set :rbenv_type, :user
 set :rbenv_ruby, '2.7.2'
 

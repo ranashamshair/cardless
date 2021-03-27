@@ -5,4 +5,7 @@ class Merchant::DashboardController < MerchantBaseController
   def fee_structure
     @fee = Fee.last
   end
+
+  def api_key
+  end
 end

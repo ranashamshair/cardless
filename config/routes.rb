@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :merchant do
     resources :dashboard, only: [:index] do
       get :fee_structure, on: :collection
+      get :api_key, on: :collection
     end
     resources :sale, only: [:index, :create]
     resources :transactions, only: [:index]

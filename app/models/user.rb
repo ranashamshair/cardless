@@ -20,4 +20,14 @@ class User < ApplicationRecord
     Wallet.create(name: "#{self.first_name} Primary Wallet", wallet_type: :primary, user_id: self.id)
     Wallet.create(name: "#{self.first_name} Reserve Wallet", wallet_type: :reserve, user_id: self.id) if self.merchant?
   end
+
+  def regenerate_token
+    token = Digest::SHA1.hexdigest([Time.now, rand].join)
+    self.authentication_token = token
+  end
+
+  def create_oauth_app
+    self.public_key = 'ID' + Digest::SHA1.hexdigest([Time.now, rand].join)
+    self.secret_key = 'SE' + Digest::SHA1.hexdigest([Time.now, rand].join)
+  end
 end

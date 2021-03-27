@@ -9,7 +9,7 @@ set :deploy_to, "/home/ubuntu/distro_payment"
 set :branch, "front-end"
 append :linked_files, "config/database.yml", "config/secrets.yml", "config/application.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle"
-
+set :use_sudo, true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -43,3 +43,23 @@ set :keep_releases, 3
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+# namespace :rails do
+#     desc "Remote console"
+#     task :console do
+#       on roles(:app) do |h|
+#         run_interactively "bundle exec rails console #{fetch(:rails_env)}", h.user
+#       end
+#     end
+  
+#     desc "Remote dbconsole"
+#     task :dbconsole do
+#       on roles(:app) do |h|
+#         run_interactively "bundle exec rails dbconsole #{fetch(:rails_env)}", h.user
+#       end
+#     end
+  
+#     def run_interactively(command, user)
+#       info "Running `#{command}` as #{user}@#{host}"
+#       exec %Q(ssh #{user}@#{host} -t "bash --login -c 'cd #{fetch(:deploy_to)}/current && #{command}'")
+#     end
+#   end

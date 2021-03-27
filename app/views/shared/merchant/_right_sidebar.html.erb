@@ -18,16 +18,16 @@
     <div class="line1"></div>
     <ul>
       <li>
-        <a href="#">About Us</a>
+        <a href="/about">About Us</a>
       </li>
       <li>
-        <a href="#">Faq</a>
+        <a href="/faq">Faq</a>
       </li>
       <li>
-        <a href="#">Privacy Policy</a>
+        <a href="/privacy">Privacy Policy</a>
       </li>
       <li>
-        <a href="#">Terms & Conditions</a>
+        <a href="/terms">Terms & Conditions</a>
       </li>
     </ul>
     <div class="line2"></div>
@@ -41,8 +41,8 @@
 
     <div class="my_log_out">
       <div class="wrap d-flex align-items-center ml-4">
-        <div class="log_out_my mt-3"><a href="#"><i class="fas fa-sign-out-alt"></i></a></div> <a href="#"
-          class="mt-3 ml-3"> Log Out</a>
+        <div class="log_out_my mt-3"><a href="#"><i class="fas fa-sign-out-alt"></i></a></div>
+        <%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "mt-3 ml-3" %> 
       </div>
     </div>
 

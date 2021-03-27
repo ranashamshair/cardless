@@ -1,0 +1,64 @@
+<!-- Dashboard Main Start -->
+<div class="api_key_section">
+    <div class="container">
+        <nav aria-label="breadcrumb bg-info">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Api Key</li>
+            </ol>
+        </nav>
+
+
+        <!-- Table Start -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="api_key_tab shadow">
+                    <div class="api_key_head">Standard Api Key</div>
+                    <div class="api_key_box">
+                        <div class="row text-center mt-3">
+                            <div class="col-lg-6">
+                                <div class="sub_head">Type</div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="sub_head">Api Key</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="api_key_box active">
+                        <div class="row text-center mt-3">
+                            <div class="col-lg-6">
+                                <div class="sub_head_two">Public Key</div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="sub_head_two" id="btn_copy" data-clipboard-text="<%= current_user.public_key %>"><%= current_user.public_key %> <i class="far fa-copy"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="api_key_box">
+                        <div class="row text-center mt-3">
+                            <div class="col-lg-6">
+                                <div class="sub_head_two">Secret Key</div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="secret">
+                                    <div class="sub_head_two secret_key" id="btn_copy" data-clipboard-text="<%= current_user.secret_key %>"><%= current_user.secret_key %> <i class="far fa-copy"></i></div>
+                                    <!-- <button  class="btn btn_secret">Click To Reveal</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Target -->
+            
+        </div>
+        
+        <!-- Table End -->
+      
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
