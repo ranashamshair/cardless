@@ -15,12 +15,17 @@ class Users::RegistrationsController < DeviseController
   
     def create
       build_resource(sign_up_params)
-      resource.merchant!
-      resource.regenerate_token
-      resource.create_oauth_app
-      resource.save
-      sign_up(resource_name, resource)
-      respond_with resource, location: after_sign_up_path_for(resource)
+      begin
+        resource.merchant!
+        resource.regenerate_token
+        resource.create_oauth_app
+        resource.save
+        sign_up(resource_name, resource)
+        respond_with resource, location: after_sign_up_path_for(resource)
+      rescue  => exc
+        render :new
+        set_flash_message :danger ,:valid_user
+      end
     #   if resource.merchant!
     #     yield resource if block_given?
     #     if resource.persisted?
