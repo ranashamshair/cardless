@@ -58,7 +58,8 @@ class Merchant::SaleController < MerchantBaseController
     customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
     merchant_wallet = current_user.wallets.primary.first
     reserve_wallet = current_user.wallets.reserve.first
-    net_amount = params[:transaction][:amount].to_f - total_fee.to_f - fee.reserve.to_f
+    net_amount = params[:transaction][:amount].to_f - total_fee.to_f - reserve.to_f
+    
     transfer_tx = Transaction.create(
       amount: params[:transaction][:amount],
       receiver_wallet_id: merchant_wallet.id, 
@@ -74,14 +75,31 @@ class Merchant::SaleController < MerchantBaseController
       ref_id: SecureRandom.hex,
       status: 1,
       card_id: card.id,
-      fee: total_merchant_fee.to_f + total_bank_fee.to_f,
+      fee: total_merchant_fee.to_f,
+      total_fee: total_merchant_fee.to_f + total_bank_fee.to_f,
       bank_fee: total_bank_fee.to_f,
       reserve_money: reserve.to_f,
       net_amount: net_amount.to_f
       )
-
+    if total_fee.to_f > 0 
+      wallet = Wallet.distro.first
+      fee_tx = Transaction.create(
+        amount: total_fee.to_f,
+        net_amount: total_fee.to_f,
+        ref_id: SecureRandom.hex,
+        action: 0,
+        main_type: 5,
+        status: 1,
+        sender_wallet_id: merchant_wallet.id,
+        receiver_wallet_id: wallet.id,
+        sender_id: current_user.id,
+        receiver_id: wallet.user_id,
+        receiver_balance: wallet.balance.to_f + total_fee.to_f
+      )
+    end
     reserve_tx = Transaction.create(
       amount: reserve,
+      net_amount: reserve,
       receiver_wallet_id: reserve_wallet.id, 
       receiver_id: current_user.id, 
       sender_id: customer.id,
