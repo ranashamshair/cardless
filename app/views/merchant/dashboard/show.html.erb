@@ -1,0 +1,27 @@
+
+<div class="welcom_heading  m-5">
+
+  <div class="small_head pl-2">
+    <div class="card my-2  ">
+      <h5 class="m-2">Account Information </h5>
+      <p class="col-6">First Name : <%= @user.first_name%> </p>
+      <p class="col-6">Last Name : <%= @user.last_name %> </p>
+      <p class="col-8">Email : <%= @user.email %> </p>
+      <p class="col-6">Country : <%= @user.country %> </p>
+      <p class="col-6">City : <%= @user.city %> </p>
+      <p class="col-6">State :<%= @user.state %> </p>
+      <p class="col-6">Ph : <%= @user.phone_number %> </p>
+      <p class="col-6">Company : <%= @user.company %> </p>
+      <p class="col-6">Role : <%= @user.role %> </p>
+      <p class="col-6">Status : <%= @user.is_active %> </p>
+      <p class="col-6">Address : <%= @user.street_address %> </p>
+      <p class="col-6">Zip Code : <%= @user.zip_code %> </p>
+    </div>
+    <%if user_signed_in? %>
+    <span class="ml-5 btn btn-outline-primary"><%=link_to 'Edit',  edit_merchant_dashboard_path(id: @user.id)  %> </span>
+    <%end %>
+  </div>
+</div>
+
+
+

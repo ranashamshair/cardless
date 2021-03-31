@@ -1,4 +1,6 @@
-<%= form_with(model: @merchant, url: admin_merchant_path, local: true) do |form| %>
+<div>
+<%= notice %>
+<%= form_with(model: @merchant, url: merchant_dashboard_path, local: true, class:"m-5") do |form|  %>
     <div class="card-body">
       <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
@@ -40,18 +42,24 @@
         <label for="first_name">Zip Code</label>
         <%= form.text_field :zip_code, class: "form-control" %>
       </div>
-      <div class="form-group">
-        <label for="first_name">Active/Inactive</label>
-        <%= form.select :is_active,User.is_actives.map{|e| [e.first.humanize,e.second]},{include_blank: true}, {class: "form-control"} %>
-      </div>
-      <div class="form-group">
-        <label for="gateway">Payment Gateway</label>
-        <%= form.select :payment_gateway_id,PaymentGateway.all.map{|e| [e.name,e.id]},{include_blank: true}, {class: "form-control"} %>
-      </div>
+    <div class="form-group">
+      <%= form.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= form.password_field :password, autocomplete: "new-password", class: "form-control"  %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
     </div>
-    <!-- /.card-body -->
+    <div class="form-group">
+      <%= form.label :password_confirmation %><br />
+      <%= form.password_field :password_confirmation, autocomplete: "new-password" , class: "form-control" %>
+    </div>
 
-    <div class="card-footer">
+
+  <!-- /.card-body -->
+
+    <div class="ml-3">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 <% end %>
+</div>

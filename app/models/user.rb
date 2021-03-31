@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,:confirmable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   enum role: {"merchant" => "merchant", "customer" => "customer", "admin" => "admin"}
   enum is_active: {"active" => "active", "in_active" => "in_active"}
@@ -30,4 +30,17 @@ class User < ApplicationRecord
     self.public_key = 'ID' + Digest::SHA1.hexdigest([Time.now, rand].join)
     self.secret_key = 'SE' + Digest::SHA1.hexdigest([Time.now, rand].join)
   end
+
+  def update_without_password(params)
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    else
+      Devise::Mailer.password_change(self).deliver_now
+    end
+    result = update(params)
+    clean_up_passwords
+    result
+  end
+
 end
