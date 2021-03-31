@@ -1,27 +1,48 @@
-
-<div class="welcom_heading  m-5">
-
+<div class="user_account_data">
   <div class="small_head pl-2">
     <div class="card my-2  ">
-      <h5 class="m-2">Account Information </h5>
-      <p class="col-6">First Name : <%= @user.first_name%> </p>
-      <p class="col-6">Last Name : <%= @user.last_name %> </p>
-      <p class="col-8">Email : <%= @user.email %> </p>
-      <p class="col-6">Country : <%= @user.country %> </p>
-      <p class="col-6">City : <%= @user.city %> </p>
-      <p class="col-6">State :<%= @user.state %> </p>
-      <p class="col-6">Ph : <%= @user.phone_number %> </p>
-      <p class="col-6">Company : <%= @user.company %> </p>
-      <p class="col-6">Role : <%= @user.role %> </p>
-      <p class="col-6">Status : <%= @user.is_active %> </p>
-      <p class="col-6">Address : <%= @user.street_address %> </p>
-      <p class="col-6">Zip Code : <%= @user.zip_code %> </p>
+      <div class="row">
+
+
+ <h5 class="ml-3">Account Information </h5>
+          <div class="row align-items-end">
+
+            <div class="col-md-6">
+              <div class="user_data"> <b>First Name:</b> <%= @user.first_name%> </div>
+            </div>
+            <div class="col-md-6">
+              <div class="user_data"> <b>Last Name:</b> <%= @user.last_name %> </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><div class="user_data"> <b>Email:</b> <%= @user.email %> </div></div>
+            <div class="col-md-6"><div class="user_data"> <b>Country:</b> <%= @user.country %> </div></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6"><div class="user_data"> <b>City:</b> <%= @user.city %> </div></div>
+            <div class="col-md-6"><div class="user_data"> <b>State:</b><%= @user.state %> </div></div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6"><div class="user_data"> <b>Ph:</b> <%= @user.phone_number %> </div></div>
+            <div class="col-md-6"><div class="user_data"> <b>Company:</b> <%= @user.company %> </div></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><div class="user_data"> <b>Role:</b> <%= @user.role %> </div></div>
+            <div class="col-md-6"><div class="user_data"> <b>Status:</b> <%= @user.is_active %> </div></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><div class="user_data"> <b>Address:</b> <%= @user.street_address %> </div></div>
+            <div class="col-md-6"><div class="user_data"> <b>Zip Code:</b> <%= @user.zip_code %> </div></div>
+          </div>
+
+
+      </div>
+      <%if user_signed_in? %>
+      <span ><%=link_to 'Edit',  edit_merchant_dashboard_path(id: @user.id), class:"btn btn-outline-primary ml-3"  %> </span>
+      <%end %>
     </div>
-    <%if user_signed_in? %>
-    <span class="ml-5 btn btn-outline-primary"><%=link_to 'Edit',  edit_merchant_dashboard_path(id: @user.id)  %> </span>
-    <%end %>
   </div>
 </div>
-
-
 

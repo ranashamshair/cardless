@@ -267,7 +267,7 @@ body{
     line-height: 40px;
     justify-content: center;
     color: var(--theme-white-color);
-    
+
 }
 
 .sidebar_right .profile_bg{
@@ -623,7 +623,7 @@ Virtual Terminal Page Styles
     outline: none;
     border: none;
     border-radius: 10px;
-    background-color: var(--theme-forms-color);  
+    background-color: var(--theme-forms-color);
 }
 .form-control:hover{
     transition: 0.4s ease-in-out;
@@ -642,7 +642,7 @@ Virtual Terminal Page Styles
 .client_form .btn-primary{
     color: var(--theme-white-color);
     border: none;
-    
+
     background-color: var(--theme-primary-color);
 }
 /*==========================
@@ -737,7 +737,7 @@ Transaction Details Page Styles
     position: relative;
     display: inline-block;
   }
-  
+
   .tooltip .tooltiptext {
     visibility: hidden;
     width: 140px;
@@ -754,7 +754,7 @@ Transaction Details Page Styles
     opacity: 0;
     transition: opacity 0.3s;
   }
-  
+
   .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -765,7 +765,7 @@ Transaction Details Page Styles
     border-style: solid;
     border-color: #555 transparent transparent transparent;
   }
-  
+
   .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
@@ -950,6 +950,30 @@ Api Key Page Styles
     color: var(--theme-third-color);
     background-color: var(--theme-white-color);
 }
+/* Merchant Dashboard Profile Data*/
+ .user_account_data{
+   margin: 20px 0 20px 90px;
+ }
+ .user_account_data .card{
+   width: 95%;
+   padding: 20px;
+   overflow-x: hidden;
+   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+ }
+ .user_account_data .btn-outline-primary{
+   width: 160px;
+   border-radius: 10px;
+    background-color: var(--theme-primary-color);
+    color: var(--theme-white-color) !important;
+ }
+ .user_account_data .btn-outline-primary a{
+   color: var(--theme-white-color);
+ }
+.user_account_data .user_data{
+  width: 550px;
+  line-height: 50px;
+}
+
 /** Media Queries **/
 @media (max-width: 480px){
     .cahrgeback_main_tab {
