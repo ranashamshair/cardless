@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::FeesController < AdminBaseController
   def index
     @fee = Fee.first
@@ -27,6 +29,6 @@ class Admin::FeesController < AdminBaseController
   private
 
   def fee_params
-    params.fetch(:fee).permit(:sale_credit_bank,:sale_debit_bank,:sale_credit_merchant,:sale_debit_merchant,:sale_credit_bank_percent,:sale_debit_bank_percent,:sale_credit_merchant_percent,:sale_debit_merchant_percent, :withdraw, :reserve, :days)
+    params.fetch(:fee).permit(:sale_credit_bank, :sale_debit_bank, :sale_credit_merchant, :sale_debit_merchant, :sale_credit_bank_percent, :sale_debit_bank_percent, :sale_credit_merchant_percent, :sale_debit_merchant_percent, :withdraw, :reserve, :days)
   end
 end

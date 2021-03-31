@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class Merchant::DashboardController < MerchantBaseController
-  before_action :find_merchant, only: [:edit, :update]
-  def index
-  end
+  before_action :find_merchant, only: %i[edit update]
+  def index; end
 
   def fee_structure
     @fee = Fee.last
@@ -17,22 +18,18 @@ class Merchant::DashboardController < MerchantBaseController
 
   def update
     respond_to do |format|
-
       if @merchant.update_without_password(merchant_params, current_user)
-          bypass_sign_in(@merchant)
-          format.html { redirect_to merchant_dashboard_index_path, notice: ' successfully updated.' }
-          format.json { render :show, status: :ok, location: @merchant }
-        else
-          format.html { render :edit , notice:'passord not mtched'}
-          format.json { render json: @merchant.errors, status: :unprocessable_entity }
+        bypass_sign_in(@merchant)
+        format.html { redirect_to merchant_dashboard_index_path, notice: ' successfully updated.' }
+        format.json { render :show, status: :ok, location: @merchant }
+      else
+        format.html { render :edit, notice: 'passord not mtched' }
+        format.json { render json: @merchant.errors, status: :unprocessable_entity }
         end
-      end
-
+    end
   end
 
-
-  def api_key
-  end
+  def api_key; end
 
   private
 
@@ -41,6 +38,6 @@ class Merchant::DashboardController < MerchantBaseController
   end
 
   def merchant_params
-    params.require(:user).permit(:first_name, :last_name, :country,:city, :state,:phone_number, :company, :role, :email, :password, :password_confirmation, :street_address, :zip_code)
+    params.require(:user).permit(:first_name, :last_name, :country, :city, :state, :phone_number, :company, :role, :email, :password, :password_confirmation, :street_address, :zip_code)
   end
 end

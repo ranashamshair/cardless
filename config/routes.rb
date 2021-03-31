@@ -1,11 +1,12 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   namespace :merchant do
-    resources :dashboard, only: [:index, :edit, :update, :show ] do
+    resources :dashboard, only: %i[index edit update show] do
       get :fee_structure, on: :collection
       get :api_key, on: :collection
     end
-    resources :sale, only: [:index, :create]
+    resources :sale, only: %i[index create]
     resources :transactions, only: [:index] do
       get :transaction_detail, on: :collection
     end
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :merchants, only: [:index, :edit, :update]
+    resources :merchants, only: %i[index edit update]
     resources :payment_gateways
     resources :wallets
     resources :withdraws do
@@ -28,13 +29,13 @@ Rails.application.routes.draw do
     resources :fees
   end
   root to: 'visitors#index'
-  devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions'}
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get "about", to: "visitors#about"
-  get "pricing", to: "visitors#pricing"
-  get "faq", to: "visitors#faq"
-  get "terms", to: "visitors#terms"
-  get "privacy", to: "visitors#privacy"
-  get "contact", to: "visitors#contact"
+  get 'about', to: 'visitors#about'
+  get 'pricing', to: 'visitors#pricing'
+  get 'faq', to: 'visitors#faq'
+  get 'terms', to: 'visitors#terms'
+  get 'privacy', to: 'visitors#privacy'
+  get 'contact', to: 'visitors#contact'
 end

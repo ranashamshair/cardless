@@ -1,10 +1,11 @@
-module WithdrawsHelper
+# frozen_string_literal: true
 
-    def payed(obj)
-        if obj
-            "Yes"
-        else
-            "No"
-        end
+module WithdrawsHelper
+  def payed(obj)
+    if obj
+      'Yes'
+    else
+      'No'
     end
+  end
 end

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ReserveScheduleWorker
   include Sidekiq::Worker
 
-  def perform(*args)
+  def perform(*_args)
     ReserveSchedule.where(reserve_status: :pending).try(:each) do |reserve_schedule|
       if reserve_schedule.release_date >= DateTime.now
         tx = Transaction.new(

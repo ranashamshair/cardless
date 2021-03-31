@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Merchant::WithdrawsController < MerchantBaseController
-  before_action :set_withdraw, only: [:show, :edit, :update, :destroy]
+  before_action :set_withdraw, only: %i[show edit update destroy]
   before_action :authenticate_user!
   include WithdrawsHelper
   # GET /withdraws
@@ -10,8 +12,7 @@ class Merchant::WithdrawsController < MerchantBaseController
 
   # GET /withdraws/1
   # GET /withdraws/1.json
-  def show
-  end
+  def show; end
 
   # GET /withdraws/new
   def new
@@ -19,8 +20,7 @@ class Merchant::WithdrawsController < MerchantBaseController
   end
 
   # GET /withdraws/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /withdraws
   # POST /withdraws.json
@@ -65,7 +65,7 @@ class Merchant::WithdrawsController < MerchantBaseController
             status: 1,
             ref_id: SecureRandom.hex
           )
-          @withdraw.transaction_id  = tx.id
+          @withdraw.transaction_id = tx.id
           @withdraw.save
           wallet.update(balance: wallet.balance - total)
           distro.update(balance: distro.balance + withdraw_fee)
@@ -76,7 +76,7 @@ class Merchant::WithdrawsController < MerchantBaseController
       end
     else
       respond_to do |format|
-          format.html { redirect_to merchant_dashboard_index_path, notice: 'Something went wrong please try again later!' }
+        format.html { redirect_to merchant_dashboard_index_path, notice: 'Something went wrong please try again later!' }
       end
     end
   end
@@ -106,13 +106,14 @@ class Merchant::WithdrawsController < MerchantBaseController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_withdraw
-      @withdraw = Withdraw.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def withdraw_params
-      params.require(:withdraw).permit(:name, :user_id, :is_payed, :amount)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_withdraw
+    @withdraw = Withdraw.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def withdraw_params
+    params.require(:withdraw).permit(:name, :user_id, :is_payed, :amount)
+  end
 end

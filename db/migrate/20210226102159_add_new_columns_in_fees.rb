@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddNewColumnsInFees < ActiveRecord::Migration[6.1]
   def change
     add_column :fees, :sale_credit_bank_percent, :float, default: 0
