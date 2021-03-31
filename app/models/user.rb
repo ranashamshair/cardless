@@ -39,11 +39,8 @@ class User < ApplicationRecord
       Devise::Mailer.password_change(self).deliver_now
     end
 
-    if user.email != params[:email]
-      Devise::Mailer.email_changed(self).deliver_now
-    end
-      result = update(params)
-      clean_up_passwords
-      result
+    result = update(params)
+    clean_up_passwords
+    result
   end
 end
