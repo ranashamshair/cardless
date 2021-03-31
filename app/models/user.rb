@@ -31,16 +31,19 @@ class User < ApplicationRecord
     self.secret_key = 'SE' + Digest::SHA1.hexdigest([Time.now, rand].join)
   end
 
-  def update_without_password(params)
+  def update_without_password(params, user )
     if params[:password].blank?
       params.delete(:password)
       params.delete(:password_confirmation) if params[:password_confirmation].blank?
     else
       Devise::Mailer.password_change(self).deliver_now
     end
-    result = update(params)
-    clean_up_passwords
-    result
-  end
 
+    if user.email != params[:email]
+      Devise::Mailer.email_changed(self).deliver_now
+    end
+      result = update(params)
+      clean_up_passwords
+      result
+  end
 end

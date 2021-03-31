@@ -17,10 +17,8 @@ class Merchant::DashboardController < MerchantBaseController
 
   def update
     respond_to do |format|
-     if @merchant.email != merchant_params[:email]
 
-     else
-      if @merchant.update_without_password(merchant_params)
+      if @merchant.update_without_password(merchant_params, current_user)
           bypass_sign_in(@merchant)
           format.html { redirect_to merchant_dashboard_index_path, notice: ' successfully updated.' }
           format.json { render :show, status: :ok, location: @merchant }
@@ -29,7 +27,7 @@ class Merchant::DashboardController < MerchantBaseController
           format.json { render json: @merchant.errors, status: :unprocessable_entity }
         end
       end
-    end
+
   end
 
 
