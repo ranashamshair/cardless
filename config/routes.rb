@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
 
   namespace :merchant do
+    resources :banks
     resources :dashboard, only: [:index] do
       get :fee_structure, on: :collection
       get :api_key, on: :collection
     end
     resources :sale, only: [:index, :create]
-    resources :transactions, only: [:index] do 
+    resources :transactions, only: [:index] do
       get :transaction_detail, on: :collection
     end
     resources :reserve_schedules, only: [:index]
     resources :accounts, only: [:show] do
-      member do 
+      member do
         get :account_transactions
       end
     end
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
     resources :merchants, only: [:index, :edit, :update]
     resources :payment_gateways
     resources :wallets
-    resources :withdraws do 
+    resources :withdraws do
       post :accept, on: :member
     end
     resources :fees

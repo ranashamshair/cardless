@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>bank id</th>
+      <th>User</th>
+      <th>Iban</th>
+      <th>Status</th>
+      <th>Currency</th>
+      <th>User name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banks.each do |bank| %>
+      <tr>
+        <td><%= bank.id %></td>
+        <td><%= bank.user_id %></td>
+        <td><%= bank.iban %></td>
+        <td><%= bank.status %></td>
+        <td><%= bank.currency %></td>
+        <td><%= bank.user_name %></td>
+        <td><%= link_to 'Show', merchant_bank_path(bank) %></td>
+        <td><%= link_to 'Edit', edit_merchant_bank_path(bank.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bank', new_merchant_bank_path %>

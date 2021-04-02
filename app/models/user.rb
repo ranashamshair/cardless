@@ -10,6 +10,7 @@ class User < ApplicationRecord
   belongs_to :payment_gateway, optional: true
   has_many :wallets
   has_many :withdraws
+  has_many :banks
   has_many :sender_transactions, class_name: "Transaction", foreign_key: :sender_id
   has_many :receiver_transactions, class_name: "Transaction", foreign_key: :receiver_id
   validates :email, uniqueness: true
