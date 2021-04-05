@@ -267,7 +267,7 @@ body{
     line-height: 40px;
     justify-content: center;
     color: var(--theme-white-color);
-    
+
 }
 
 .sidebar_right .profile_bg{
@@ -512,7 +512,7 @@ button.dash_view_more {
 .transaction_history_table .table{
     font-size: 16px;
     padding: 20px 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: var(--theme-white-color);
 }
 .breadcrumb{
@@ -521,6 +521,9 @@ button.dash_view_more {
 .table th,.table td{
 
     border-top: none;
+}
+.test-head{
+color: red;
 }
 .table thead th{
     border-bottom: none;
@@ -534,6 +537,9 @@ button.dash_view_more {
 .table-striped tbody tr:hover{
     color: var(--theme-primary-color);
     background-color: var(--theme-forms-color);
+}
+.table-striped tbody tr:nth-of-type(odd){
+  background-color: none !important;
 }
 
 .transaction_history_table .tabel_status{
@@ -623,7 +629,7 @@ Virtual Terminal Page Styles
     outline: none;
     border: none;
     border-radius: 10px;
-    background-color: var(--theme-forms-color);  
+    background-color: var(--theme-forms-color);
 }
 .form-control:hover{
     transition: 0.4s ease-in-out;
@@ -642,7 +648,7 @@ Virtual Terminal Page Styles
 .client_form .btn-primary{
     color: var(--theme-white-color);
     border: none;
-    
+
     background-color: var(--theme-primary-color);
 }
 /*==========================
@@ -737,7 +743,7 @@ Transaction Details Page Styles
     position: relative;
     display: inline-block;
   }
-  
+
   .tooltip .tooltiptext {
     visibility: hidden;
     width: 140px;
@@ -754,7 +760,7 @@ Transaction Details Page Styles
     opacity: 0;
     transition: opacity 0.3s;
   }
-  
+
   .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -765,7 +771,7 @@ Transaction Details Page Styles
     border-style: solid;
     border-color: #555 transparent transparent transparent;
   }
-  
+
   .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;

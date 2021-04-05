@@ -1,4 +1,6 @@
-<%= form_with(model: bank, url: merchant_banks_path, multipart: true, local: true) do |form| %>
+<%= form_with(model: bank, url: url, method: method, local: true) do |form| %>
+<div class="card-body">
+
   <% if bank.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
@@ -11,32 +13,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <div class="form-group">
+
+    <%= form.hidden_field :user_id, value:"#{current_user.id}", class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :iban %>
-    <%= form.text_field :iban %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :user_name %>
-    <%= form.text_field :user_name %>
+    <%= form.text_field :user_name, class: "form-control", required: "true"  %>
   </div>
+
+  <div class="form-group">
+    <%= form.label :iban %>
+    <%= form.text_field :iban , class: "form-control", required: "true"   %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :currency %>
+    <%= form.text_field :currency , class: "form-control", required: "true"   %>
+  </div>
+
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>

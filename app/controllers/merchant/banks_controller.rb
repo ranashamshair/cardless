@@ -1,5 +1,5 @@
-class Merchant::BanksController < ApplicationController
-
+class Merchant::BanksController < MerchantBaseController
+  before_action :set_bank, only: [:edit, :update, :destroy]
   def index
     @banks =  current_user.banks.all
 
@@ -14,7 +14,6 @@ class Merchant::BanksController < ApplicationController
   end
 
   def edit
-    @bank = Bank.find(params[:id])
 
   end
 
@@ -24,7 +23,7 @@ class Merchant::BanksController < ApplicationController
 
     respond_to do |format|
       if @bank.save
-        format.html { redirect_to bank, notice: "Bank was successfully created." }
+        format.html { redirect_to merchant_banks_path, notice: "Bank was successfully created." }
         format.json { render :show, status: :created, location: @bank }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,10 +33,10 @@ class Merchant::BanksController < ApplicationController
   end
 
   def update
-    binding.pry
+
     respond_to do |format|
       if @bank.update(bank_params)
-        format.html { redirect_to @bank, notice: "Bank was successfully updated." }
+        format.html { redirect_to merchant_banks_path, notice: "Bank was successfully updated." }
         format.json { render :show, status: :ok, location: @bank }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,16 +46,17 @@ class Merchant::BanksController < ApplicationController
   end
 
   def destroy
+
     @bank.destroy
     respond_to do |format|
-      format.html { redirect_to banks_url, notice: "Bank was successfully destroyed." }
+      format.html { redirect_to merchant_banks_url, notice: "Bank was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
    def set_bank
-      @bank = current.banks.find(params[:id])
+      @bank = Bank.find(params[:id])
     end
 
     def bank_params
