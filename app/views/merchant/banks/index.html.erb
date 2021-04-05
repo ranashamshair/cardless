@@ -1,36 +1,40 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Banks</h1>
+<div class="dashboard_main_page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="transaction_history_table">
+          <p id="notice"><%= notice %></p>
+          <h1>Banks</h1>
+          <table class="table table-striped shadow">
+            <%= link_to 'New Bank', new_merchant_bank_path, class:"btn btn-outline-primary float-right mr-2" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>bank id</th>
-      <th>User</th>
-      <th>Iban</th>
-      <th>Status</th>
-      <th>Currency</th>
-      <th>User name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            <thead>
+              <tr>
+                <th scope="col">User Name</th>
+                <th scope="col">Iban</th>
+                <th scope="col">Currency</th>
+                <th  scope="col"></th>
+              </tr>
+            </thead>
 
-  <tbody>
-    <% @banks.each do |bank| %>
-      <tr>
-        <td><%= bank.id %></td>
-        <td><%= bank.user_id %></td>
-        <td><%= bank.iban %></td>
-        <td><%= bank.status %></td>
-        <td><%= bank.currency %></td>
-        <td><%= bank.user_name %></td>
-        <td><%= link_to 'Show', merchant_bank_path(bank) %></td>
-        <td><%= link_to 'Edit', edit_merchant_bank_path(bank.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <tbody>
+              <% @banks.each do |bank| %>
+                <tr data-href="<%= merchant_bank_path(id: bank.id) %>" >
+                  <td><%= bank.user_name %></td>
+                  <td><%= bank.iban %></td>
+                  <td><%= bank.currency %></td>
+                  <td></td>
+                </tr>
+              <% end %>
 
-<br>
+            </tbody>
+          </table>
 
-<%= link_to 'New Bank', new_merchant_bank_path %>
+          <br>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

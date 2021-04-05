@@ -1263,7 +1263,7 @@ Sign Up Styles
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: cover;
-    
+
 }
 .signup_box{
     margin-top: 150px;
@@ -1479,7 +1479,7 @@ Login Styles
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: cover;
-    
+
 }
 .login_form {
     border: 0 none;
@@ -1518,8 +1518,7 @@ Login Styles
     color: var(--theme-white-color);
     background-color: var(--theme-second-color);
  }
- 
+
  .signup_txt a{
      color: var(--theme-second-color);
  }
- 
