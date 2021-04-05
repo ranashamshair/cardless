@@ -11,13 +11,11 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title ml-5">Editing Bank</h3>
+                <h3 class="card-title ml-5"> Bank Details</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
                 <%= render 'form', bank: @bank, url: merchant_banks_path, method: :post %>
-
-                <%= link_to 'Back', merchant_banks_path %>
 
             </div>
             <!-- /.card -->

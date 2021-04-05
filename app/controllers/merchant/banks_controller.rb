@@ -19,7 +19,7 @@ class Merchant::BanksController < MerchantBaseController
 
     respond_to do |format|
       if @bank.save
-        format.html { redirect_to merchant_banks_path, notice: 'Bank was successfully created.' }
+        format.html { redirect_to merchant_bank_path(id: @bank.id), notice: 'Bank was successfully created.' }
         format.json { render :show, status: :created, location: @bank }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -31,7 +31,7 @@ class Merchant::BanksController < MerchantBaseController
   def update
     respond_to do |format|
       if @bank.update(bank_params)
-        format.html { redirect_to merchant_banks_path, notice: 'Bank was successfully updated.' }
+        format.html { redirect_to merchant_bank_path(id: @bank.id), notice: 'Bank was successfully updated.' }
         format.json { render :show, status: :ok, location: @bank }
       else
         format.html { render :edit, status: :unprocessable_entity }
