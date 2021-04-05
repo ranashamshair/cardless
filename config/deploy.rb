@@ -1,14 +1,16 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.15.0"
+# frozen_string_literal: true
 
-set :application, "distro_payment"
+# config valid for current version and patch releases of Capistrano
+lock '~> 3.15.0'
+
+set :application, 'distro_payment'
 set :repo_url, 'https://ranashamshair:numlock1234545@github.com/ranashamshair/cardless.git'
 
-set :deploy_to, "/home/ubuntu/distro_payment"
+set :deploy_to, '/home/ubuntu/distro_payment'
 
-set :branch, "front-end"
-append :linked_files, "config/database.yml", "config/secrets.yml", "config/application.yml"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle"
+set :branch, 'front-end'
+append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/application.yml'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle'
 set :use_sudo, true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -50,14 +52,14 @@ set :keep_releases, 3
 #         run_interactively "bundle exec rails console #{fetch(:rails_env)}", h.user
 #       end
 #     end
-  
+
 #     desc "Remote dbconsole"
 #     task :dbconsole do
 #       on roles(:app) do |h|
 #         run_interactively "bundle exec rails dbconsole #{fetch(:rails_env)}", h.user
 #       end
 #     end
-  
+
 #     def run_interactively(command, user)
 #       info "Running `#{command}` as #{user}@#{host}"
 #       exec %Q(ssh #{user}@#{host} -t "bash --login -c 'cd #{fetch(:deploy_to)}/current && #{command}'")

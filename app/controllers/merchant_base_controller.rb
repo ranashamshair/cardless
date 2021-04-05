@@ -1,12 +1,12 @@
-class MerchantBaseController < ActionController::Base
-    layout 'merchant'
-    include Pagy::Backend
-    before_action :check_merchant
-    before_action :authenticate_user!
+# frozen_string_literal: true
 
-    def check_merchant
-        if !current_user.merchant?
-            redirect_to root_path
-        end
-    end
+class MerchantBaseController < ActionController::Base
+  layout 'merchant'
+  include Pagy::Backend
+  before_action :check_merchant
+  before_action :authenticate_user!
+
+  def check_merchant
+    redirect_to root_path unless current_user.merchant?
+  end
 end

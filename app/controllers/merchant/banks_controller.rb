@@ -1,8 +1,7 @@
 class Merchant::BanksController < MerchantBaseController
-  before_action :set_bank, only: [:edit, :update, :destroy]
+  before_action :set_bank, only: %i[edit update destroy]
   def index
-    @banks =  current_user.banks.all
-
+    @banks = current_user.banks.all
   end
 
   def show
@@ -13,17 +12,14 @@ class Merchant::BanksController < MerchantBaseController
     @bank = Bank.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
-
     @bank = current_user.banks.build(bank_params)
 
     respond_to do |format|
       if @bank.save
-        format.html { redirect_to merchant_banks_path, notice: "Bank was successfully created." }
+        format.html { redirect_to merchant_banks_path, notice: 'Bank was successfully created.' }
         format.json { render :show, status: :created, location: @bank }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -33,10 +29,9 @@ class Merchant::BanksController < MerchantBaseController
   end
 
   def update
-
     respond_to do |format|
       if @bank.update(bank_params)
-        format.html { redirect_to merchant_banks_path, notice: "Bank was successfully updated." }
+        format.html { redirect_to merchant_banks_path, notice: 'Bank was successfully updated.' }
         format.json { render :show, status: :ok, location: @bank }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -46,20 +41,20 @@ class Merchant::BanksController < MerchantBaseController
   end
 
   def destroy
-
     @bank.destroy
     respond_to do |format|
-      format.html { redirect_to merchant_banks_url, notice: "Bank was successfully destroyed." }
+      format.html { redirect_to merchant_banks_url, notice: 'Bank was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-   def set_bank
-      @bank = Bank.find(params[:id])
-    end
 
-    def bank_params
-      params.require(:bank).permit(:user_id, :iban, :currency, :user_name)
-    end
+  def set_bank
+    @bank = Bank.find(params[:id])
+  end
+
+  def bank_params
+    params.require(:bank).permit(:user_id, :iban, :currency, :user_name)
+  end
 end

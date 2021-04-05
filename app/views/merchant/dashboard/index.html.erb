@@ -1,6 +1,6 @@
 <!-- dashboard header Start -->
 <!-- <div class="dash_body"> -->
-    
+
     <!-- dashboard header End -->
 <!-- Dashboard Main Start -->
 <div class="dashboard_main_page">
@@ -21,7 +21,7 @@
                     <div class="bal_title">Total Balance</div>
                     <div class="balance"><%= number_with_precision(number_to_currency(wallet.balance), precision: 2, delimiter: ',') %></div>
                     </div>
-                    
+
                     <div class="line"></div>
                     <button class="dash_view_more"><a href="<%= merchant_account_path(wallet) %>">View More</a></button>
 

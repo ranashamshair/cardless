@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Merchant::AccountsController < MerchantBaseController
   before_action :set_wallet
 
@@ -9,13 +11,12 @@ class Merchant::AccountsController < MerchantBaseController
       @reserve_wallet = @wallet.user.wallets.reserve.first
     end
     reserve_release = current_user.reserve_schedules.where('DATE(release_date) = ?', Date.today)
-    if reserve_release.present?
-      @reserve_release_amount = reserve_release.pluck(:amount).sum
-    end
+    @reserve_release_amount = reserve_release.pluck(:amount).sum if reserve_release.present?
   end
 
   def account_transactions
-    @pagy, @transactions = pagy(Transaction.where("sender_wallet_id = ? OR receiver_wallet_id = ?", @wallet.id, @wallet.id).order(created_at: :desc))
+    @pagy, @transactions = pagy(Transaction.where('sender_wallet_id = ? OR receiver_wallet_id = ?', @wallet.id,
+                                                  @wallet.id).order(created_at: :desc))
   end
 
   private
