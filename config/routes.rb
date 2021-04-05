@@ -2,20 +2,17 @@
 
 Rails.application.routes.draw do
   namespace :merchant do
-<<<<<<< HEAD
     resources :banks
     resources :dashboard, only: [:index] do
       get :fee_structure, on: :collection
       get :api_key, on: :collection
     end
     resources :sale, only: [:index, :create]
-=======
     resources :dashboard, only: %i[index edit update show] do
       get :fee_structure, on: :collection
       get :api_key, on: :collection
     end
     resources :sale, only: %i[index create]
->>>>>>> 514062f5e4d02037a2aaeae7d815cebdbfcfb78e
     resources :transactions, only: [:index] do
       get :transaction_detail, on: :collection
     end
