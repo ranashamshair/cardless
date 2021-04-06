@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get :fee_structure, on: :collection
       get :api_key, on: :collection
     end
-    resources :sale, only: [:index, :create]
+    resources :sale, only: %i[index create]
     resources :dashboard, only: %i[index edit update show] do
       get :fee_structure, on: :collection
       get :api_key, on: :collection

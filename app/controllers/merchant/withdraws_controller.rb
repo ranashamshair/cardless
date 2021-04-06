@@ -16,6 +16,8 @@ class Merchant::WithdrawsController < MerchantBaseController
 
   # GET /withdraws/new
   def new
+    @banks = current_user.banks.all
+
     @withdraw = Withdraw.new
   end
 
@@ -34,6 +36,7 @@ class Merchant::WithdrawsController < MerchantBaseController
       @withdraw.ref_id = "WID-#{SecureRandom.hex.first(6)}"
       respond_to do |format|
         if @withdraw.save
+
           distro = Wallet.distro.first
           fee = Fee.first
           withdraw_fee = fee.withdraw.to_f
@@ -49,7 +52,8 @@ class Merchant::WithdrawsController < MerchantBaseController
             sender_id: current_user.id,
             sender_wallet_id: wallet.id,
             sender_balance: wallet.balance.to_f - total.to_f,
-            ref_id: SecureRandom.hex
+            ref_id: SecureRandom.hex,
+            bank_id: @withdraw.bank_id
           )
           Transaction.create(
             amount: withdraw_fee,
@@ -63,7 +67,8 @@ class Merchant::WithdrawsController < MerchantBaseController
             main_type: 6,
             action: 0,
             status: 1,
-            ref_id: SecureRandom.hex
+            ref_id: SecureRandom.hex,
+            bank_id: @withdraw.bank_id
           )
           @withdraw.transaction_id = tx.id
           @withdraw.save
@@ -116,6 +121,6 @@ class Merchant::WithdrawsController < MerchantBaseController
 
   # Only allow a list of trusted parameters through.
   def withdraw_params
-    params.require(:withdraw).permit(:name, :user_id, :is_payed, :amount)
+    params.require(:withdraw).permit(:name, :user_id, :bank_id, :is_payed, :amount)
   end
 end

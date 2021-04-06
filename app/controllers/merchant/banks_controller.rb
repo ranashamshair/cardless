@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Merchant::BanksController < MerchantBaseController
-  before_action :set_bank, only: %i[edit update destroy]
+  before_action :set_bank, only: %i[edit update]
   def index
     @banks = current_user.banks.all
   end
