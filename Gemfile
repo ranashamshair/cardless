@@ -33,6 +33,7 @@ gem 'devise'
 gem 'pagy'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'browser'
 gem 'curb'
 gem 'figaro'
 gem 'friendly_id', '~> 5.4.0'
