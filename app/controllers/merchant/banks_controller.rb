@@ -55,6 +55,6 @@ class Merchant::BanksController < MerchantBaseController
   end
 
   def bank_params
-    params.require(:bank).permit(:user_id, :iban, :currency, :user_name)
+    params.require(:bank).permit(:user_id, :iban, :currency, :user_name, :bank_name)
   end
 end
