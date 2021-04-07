@@ -642,7 +642,7 @@ Virtual Terminal Page Styles
 .form-control{
     outline: none;
     border: none;
-    border-radius: 10px;
+    border-radius: 2px;
     background-color: var(--theme-forms-color);
 }
 .form-control:hover{
@@ -717,7 +717,7 @@ Transaction Details Page Styles
     outline: inherit;
     text-align: center;
     width: 130px;
-    border-radius: 10px;
+    border-radius: 3px;
     background-color: var(--theme-color-red);
 }
 .btn-refund-modal:hover,
@@ -1012,6 +1012,12 @@ Api Key Page Styles
 select .dropdown-menu{
   border: none;
   background-color: red;
+}
+.card-add-bank{
+  border: none;
+}
+.transaction_history_table{
+  overflow: auto;
 }
 /** Media Queries **/
 @media (max-width: 480px){
