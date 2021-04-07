@@ -1,10 +1,55 @@
 # frozen_string_literal: true
 
+require 'uri'
+require 'openssl'
+require 'net/http'
+
 require 'openssl'
 require 'base64'
 # require 'mcrypt'
 module Payment
   class RedSys
+
+    def withdraw
+      url = URI("https://apis-i.redsys.es:20443/psd2/xs2a/api-entrada-xs2a/services/caixabank/v1/payments/sepa-credit-transfers/REPLACE_PAYMENT-ID/authorisations")
+
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+
+
+      request = Net::HTTP::Post.new(url)
+      request["x-ibm-client-id"] = 'REPLACE_THIS_KEY'
+      request["content-type"] = 'application/json'
+      request["x-request-id"] = 'REPLACE_THIS_VALUE'
+      request["authorization"] = 'Bearer 6yBnsqnMQQ'
+      request["psu-ip-address"] = '127.0.0.1'
+
+      request["digest"] = 'REPLACE_THIS_VALUE'
+      request["signature"] = 'REPLACE_THIS_VALUE'
+      request["tpp-signature-certificate"] = 'REPLACE_THIS_VALUE'
+      request["accept"] = 'application/json'
+
+      response = http.request(request)
+      puts response.read_body
+    end
+
+    def withdraw1
+
+      curl --request POST \
+        --url https://apis-i.redsys.es:20443/psd2/xs2a/api-entrada-xs2a/services/caixabank/v1/payments/sepa-credit-transfers/REPLACE_PAYMENT-ID/authorisations \
+        --header 'accept: application/json' \
+        --header 'authorization: Bearer 6yBnsqnMQQ' \
+        --header 'content-type: application/json' \
+        --header 'digest: REPLACE_THIS_VALUE' \
+        --header 'psu-ip-address: REPLACE_THIS_VALUE' \
+        --header 'psu-user-agent: REPLACE_THIS_VALUE' \
+        --header 'signature: REPLACE_THIS_VALUE' \
+        --header 'tpp-signature-certificate: REPLACE_THIS_VALUE' \
+        --header 'x-ibm-client-id: REPLACE_THIS_KEY' \
+        --header 'x-request-id: REPLACE_THIS_VALUE'
+     end
+
     # 4548812049400004
     def charge
       merchant_key64 = Base64.decode64('sq7HjrUOBfKmC576ILgskD5srU870gJ7')
