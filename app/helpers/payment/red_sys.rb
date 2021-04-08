@@ -34,6 +34,7 @@ module Payment
       puts response.read_body
     end
 
+
     def withdraw1
 
       curl --request POST \
@@ -48,6 +49,14 @@ module Payment
         --header 'tpp-signature-certificate: REPLACE_THIS_VALUE' \
         --header 'x-ibm-client-id: REPLACE_THIS_KEY' \
         --header 'x-request-id: REPLACE_THIS_VALUE'
+     end
+
+     def genrate_digest
+      digest = ""
+      body_text = "application/json"
+      sha256 = Digest::SHA256.new
+      digest = sha256.base64digest body_text
+      digest = "SHA-256=" + digest
      end
 
     # 4548812049400004
