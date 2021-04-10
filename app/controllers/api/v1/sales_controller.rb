@@ -153,7 +153,60 @@ class Api::V1::SalesController < ApplicationController
       end
     end
 
+    value = args[:name]
+    unless value.length > 4
+      raise ArgumentError.new "Invalid name : #{value}"
+    end
 
+    value = args[:email ]
+    unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+      raise ArgumentError.new "Invalid Email: #{value}"
+    end
+
+    value = args[:amount]
+    unless Integer(value)
+      raise ArgumentError.new "Invalid Amount : #{value}"
+    end
+
+    value = args[:card_number]
+    unless Integer(value) &&  value.size == 16
+      raise ArgumentError.new "Invalid Card number : #{value}"
+    end
+
+    value = args[:exp_date]
+    unless value.length == 5
+      raise ArgumentError.new "Invalid Date : #{value}"
+    end
+    date_checker(value)
+
+    value = args[:cvc]
+    unless (value.size == 3 || value.size ==4)   && Integer(value)
+      raise ArgumentError.new "Invalid CVC  : #{value}"
+    end
   end
 
+  def date_checker(value)
+    date = value.split("/")
+    today = Time.now
+    year = today.year.to_s
+    year = year.slice(2..3).to_i
+
+    unless Integer(date[0]) && Integer(date[1])
+      raise ArgumentError.new "Invalid date }"
+    end
+
+    if date[0].to_i <= today.month && date[1].to_i < year
+      raise ArgumentError.new "Invalid month  : #{date[0]}"
+    elsif date[0].to_i > today.month && date[1].to_i < year
+      raise ArgumentError.new "Invalid year  : #{date[1]}"
+    elsif date[0].to_i > 12
+      raise ArgumentError.new "Invalid date  : #{date[1]}"
+    elsif date[0].to_i <= today.month && date[1].to_i == year
+      raise ArgumentError.new "Invalid date  : #{date[1]}"
+
+    end
+
+
+
+  end
 end
