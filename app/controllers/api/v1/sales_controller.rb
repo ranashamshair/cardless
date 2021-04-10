@@ -181,7 +181,7 @@ class Api::V1::SalesController < ApplicationController
       raise ArgumentError, "Invalid year  : #{date[1]}"
     elsif date[0].to_i > 12
       raise ArgumentError, "Invalid date  : #{date[1]}"
-    elsif date[0].to_i <= today.month && date[1].to_i == year
+    elsif date[0].to_i < today.month && date[1].to_i == year
       raise ArgumentError, "Invalid date  : #{date[1]}"
     end
   end
