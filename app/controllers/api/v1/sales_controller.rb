@@ -1,31 +1,25 @@
 # frozen_string_literal: true
 
-
 class Api::V1::SalesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-   before_action :validate_token
+  before_action :validate_token
 
   def validate_token
-      @user = User.where(authentication_token: params[:access_token]).last
-      unless @user.present?
-       return  render json: {message: 'Access token not found check it', status: 401}
-      end
+    @user = User.where(authentication_token: params[:access_token]).last
+    render json: { message: 'Access token not found check it', status: 401 } unless @user.present?
   end
 
-
-
   def virtual_terminal
-
     validate_params(
-                      name: params[:transaction][:name],
-                      email: params[:transaction][:email],
-                      phone: params[:transaction][:phone],
-                      amount: params[:transaction][:amount],
-                      card_number: params[:transaction][:card_number],
-                      exp_date: params[:transaction][:exp_date],
-                      cvc: params[:transaction][:cvc]
-                     )
+      name: params[:transaction][:name],
+      email: params[:transaction][:email],
+      phone: params[:transaction][:phone],
+      amount: params[:transaction][:amount],
+      card_number: params[:transaction][:card_number],
+      exp_date: params[:transaction][:exp_date],
+      cvc: params[:transaction][:cvc]
+    )
 
     customer = User.customer.where(email: params[:transaction][:email]).first
     if customer.blank?
@@ -142,71 +136,53 @@ class Api::V1::SalesController < ApplicationController
     customer_wallet.update(balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f)
     merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
     reserve_wallet.update(balance: reserve_wallet.balance.to_f + reserve.to_f)
-   return  render json: {message: 'Payment successful ', status: 200,  ref_id:  issue_tx[:ref_id]}
+    render json: { message: 'Payment successful ', status: 200, ref_id: issue_tx[:ref_id] }
   end
 
   private
+
   def validate_params(args)
     args.each do |name, value|
-      if value.blank?
-        raise ArgumentError.new "Missing required parameter: #{name}"
-      end
+      raise ArgumentError, "Missing required parameter: #{name}" if value.blank?
     end
 
     value = args[:name]
-    unless value.length > 4
-      raise ArgumentError.new "Invalid name : #{value}"
-    end
+    raise ArgumentError, "Invalid name : #{value}" unless value.length > 4
 
-    value = args[:email ]
-    unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-      raise ArgumentError.new "Invalid Email: #{value}"
-    end
+    value = args[:email]
+    raise ArgumentError, "Invalid Email: #{value}" unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
     value = args[:amount]
-    unless Integer(value)
-      raise ArgumentError.new "Invalid Amount : #{value}"
-    end
+    raise ArgumentError, "Invalid Amount : #{value}" unless Integer(value)
 
     value = args[:card_number]
-    unless Integer(value) &&  value.size == 16
-      raise ArgumentError.new "Invalid Card number : #{value}"
-    end
+    raise ArgumentError, "Invalid Card number : #{value}" unless Integer(value) && value.size == 16
 
     value = args[:exp_date]
-    unless value.length == 5
-      raise ArgumentError.new "Invalid Date : #{value}"
-    end
+    raise ArgumentError, "Invalid Date : #{value}" unless value.length == 5
+
     date_checker(value)
 
     value = args[:cvc]
-    unless (value.size == 3 || value.size ==4)   && Integer(value)
-      raise ArgumentError.new "Invalid CVC  : #{value}"
-    end
+    raise ArgumentError, "Invalid CVC  : #{value}" unless (value.size == 3 || value.size == 4) && Integer(value)
   end
 
   def date_checker(value)
-    date = value.split("/")
+    date = value.split('/')
     today = Time.now
     year = today.year.to_s
     year = year.slice(2..3).to_i
 
-    unless Integer(date[0]) && Integer(date[1])
-      raise ArgumentError.new "Invalid date }"
-    end
+    raise ArgumentError, 'Invalid date }' unless Integer(date[0]) && Integer(date[1])
 
     if date[0].to_i <= today.month && date[1].to_i < year
-      raise ArgumentError.new "Invalid month  : #{date[0]}"
+      raise ArgumentError, "Invalid month  : #{date[0]}"
     elsif date[0].to_i > today.month && date[1].to_i < year
-      raise ArgumentError.new "Invalid year  : #{date[1]}"
+      raise ArgumentError, "Invalid year  : #{date[1]}"
     elsif date[0].to_i > 12
-      raise ArgumentError.new "Invalid date  : #{date[1]}"
+      raise ArgumentError, "Invalid date  : #{date[1]}"
     elsif date[0].to_i <= today.month && date[1].to_i == year
-      raise ArgumentError.new "Invalid date  : #{date[1]}"
-
+      raise ArgumentError, "Invalid date  : #{date[1]}"
     end
-
-
-
   end
 end

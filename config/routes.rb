@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   namespace :api do
     namespace :v1 do
-      resources :sales, only:[:virtual_terminal] do
+      resources :sales, only: [:virtual_terminal] do
         collection do
           post 'virtual_terminal'
         end
       end
-      resources :auth_token, only:[:token] do
+      resources :auth_token, only: [:token] do
         collection do
           post 'token'
         end
