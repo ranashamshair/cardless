@@ -2,13 +2,31 @@
 
 
 class Api::V1::SalesController < ApplicationController
-   before_action :validate_params
+  skip_before_action :verify_authenticity_token
 
-  def validate_params
-     
+   before_action :validate_token
+
+  def validate_token
+      @user = User.where(authentication_token: params[:access_token]).last
+      unless @user.present?
+       return  render json: {message: 'Access token not found check it', status: 401}
+      end
   end
 
-  def virtuat_terminal
+
+
+  def virtual_terminal
+
+    validate_params(
+                      name: params[:transaction][:name],
+                      email: params[:transaction][:email],
+                      phone: params[:transaction][:phone],
+                      amount: params[:transaction][:amount],
+                      card_number: params[:transaction][:card_number],
+                      exp_date: params[:transaction][:exp_date],
+                      cvc: params[:transaction][:cvc]
+                     )
+
     customer = User.customer.where(email: params[:transaction][:email]).first
     if customer.blank?
       password = SecureRandom.hex
@@ -27,9 +45,9 @@ class Api::V1::SalesController < ApplicationController
     end
     customer_wallet = customer.wallets.primary.first
     card_number = params[:transaction][:card_number]
-    card_bin = Card.neutrino_post(card_number.first(6))
+    # card_bin = Card.neutrino_post(card_number.first(6))
     card = Card.create(first6: card_number.first(6), last4: card_number.last(4),
-                       exp_date: params[:transaction][:exp_date], user_id: customer.id, brand: card_bin['card-brand'], card_type: card_bin['card-type']&.downcase)
+                       exp_date: params[:transaction][:exp_date], user_id: customer.id, brand: 'visa', card_type: 'credit')
     fee = Fee.first
     if card.card_type.downcase == 'credit'
       bank_fee = fee.sale_credit_bank.to_f
@@ -62,14 +80,14 @@ class Api::V1::SalesController < ApplicationController
       card_id: card.id
     )
     customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
-    merchant_wallet = current_user.wallets.primary.first
-    reserve_wallet = current_user.wallets.reserve.first
+    merchant_wallet = @user.wallets.primary.first
+    reserve_wallet = @user.wallets.reserve.first
     net_amount = params[:transaction][:amount].to_f - total_fee.to_f - reserve.to_f
 
     transfer_tx = Transaction.create(
       amount: params[:transaction][:amount],
       receiver_wallet_id: merchant_wallet.id,
-      receiver_id: current_user.id,
+      receiver_id: @user.id,
       sender_id: customer.id,
       sender_wallet_id: customer_wallet.id,
       receiver_balance: merchant_wallet.balance.to_f + net_amount.to_f,
@@ -98,7 +116,7 @@ class Api::V1::SalesController < ApplicationController
         status: 1,
         sender_wallet_id: merchant_wallet.id,
         receiver_wallet_id: wallet.id,
-        sender_id: current_user.id,
+        sender_id: @user.id,
         receiver_id: wallet.user_id,
         receiver_balance: wallet.balance.to_f + total_fee.to_f
       )
@@ -107,7 +125,7 @@ class Api::V1::SalesController < ApplicationController
       amount: reserve,
       net_amount: reserve,
       receiver_wallet_id: reserve_wallet.id,
-      receiver_id: current_user.id,
+      receiver_id: @user.id,
       sender_id: customer.id,
       sender_wallet_id: merchant_wallet.id,
       receiver_balance: reserve_wallet.balance.to_f + reserve.to_f,
@@ -119,14 +137,23 @@ class Api::V1::SalesController < ApplicationController
     )
     if reserve_tx.present?
       ReserveSchedule.create(transaction_id: transfer_tx.id, reserve_tx_id: reserve_tx.id, amount: reserve,
-                             release_date: DateTime.now + fee.days, tx_date: transfer_tx.created_at, user_id: current_user.id, reserve_status: 'pending')
+                             release_date: DateTime.now + fee.days, tx_date: transfer_tx.created_at, user_id: @user.id, reserve_status: 'pending')
     end
     customer_wallet.update(balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f)
     merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
     reserve_wallet.update(balance: reserve_wallet.balance.to_f + reserve.to_f)
-    redirect_to merchant_dashboard_index_path, notice: 'success'
+   return  render json: {message: 'Payment successful ', status: 200,  ref_id:  issue_tx[:ref_id]}
   end
 
+  private
+  def validate_params(args)
+    args.each do |name, value|
+      if value.blank?
+        raise ArgumentError.new "Missing required parameter: #{name}"
+      end
+    end
 
+
+  end
 
 end
