@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(first_name: "admin", email: "admin@admin.com", password: "123456", password_confirmation: "123456", role: :admin) if User.where(email: "admin@admin.com").blank?
 Wallet.create(name: "Admin Primary Wallet", wallet_type: :distro, user_id: User.where(email: "admin@admin.com").first.id) if Wallet.distro.blank?
+Fee.create(days: 0) if Fee.first.blank?
