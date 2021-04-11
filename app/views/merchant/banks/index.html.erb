@@ -1,0 +1,42 @@
+
+<div class="dashboard_main_page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="transaction_history_table">
+          <p id="notice"><%= notice %></p>
+          <h1>Banks</h1>
+          <table class="table table-striped shadow">
+            <%= link_to 'New Bank', new_merchant_bank_path, class:"btn btn-outline-primary float-right mr-2" %>
+
+            <thead>
+              <tr>
+                <th scope="col">Bank Name</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Iban</th>
+                <th scope="col">Currency</th>
+                <th  scope="col"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @banks.each do |bank| %>
+                <tr data-href="<%= merchant_bank_path(id: bank.id) %>" >
+                  <td><%= bank.bank_name %></td>
+                  <td><%= bank.user_name %></td>
+                  <td><%= bank.iban %></td>
+                  <td><%= bank.currency %></td>
+                  <td></td>
+                </tr>
+              <% end %>
+
+            </tbody>
+          </table>
+
+          <br>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

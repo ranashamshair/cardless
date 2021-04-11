@@ -267,7 +267,7 @@ body{
     line-height: 40px;
     justify-content: center;
     color: var(--theme-white-color);
-    
+
 }
 
 .sidebar_right .profile_bg{
@@ -511,9 +511,23 @@ button.dash_view_more {
 /* Transcation History Table */
 .transaction_history_table .table{
     font-size: 16px;
+    margin: 50px 0;
     padding: 20px 10px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
+}
+.transaction_history_table .btn-outline-primary,
+.btn-outline-primary{
+  border: none;
+  outline: none;
+  font-weight: 500;
+  color: var(--theme-white-color);
+  background-color: var(--theme-primary-color);
+}
+.transaction_history_table .btn-outline-primary:hover,
+.btn-outline-primary:hover{
+  background-color: var(--theme-second-color);
+  transition: all 0.3s linear infinite;
 }
 .breadcrumb{
     background-color: transparent;
@@ -521,6 +535,9 @@ button.dash_view_more {
 .table th,.table td{
 
     border-top: none;
+}
+.test-head{
+color: red;
 }
 .table thead th{
     border-bottom: none;
@@ -534,6 +551,9 @@ button.dash_view_more {
 .table-striped tbody tr:hover{
     color: var(--theme-primary-color);
     background-color: var(--theme-forms-color);
+}
+.table-striped tbody tr:nth-of-type(odd){
+  background-color: none !important;
 }
 
 .transaction_history_table .tabel_status{
@@ -622,8 +642,8 @@ Virtual Terminal Page Styles
 .form-control{
     outline: none;
     border: none;
-    border-radius: 10px;
-    background-color: var(--theme-forms-color);  
+    border-radius: 2px;
+    background-color: var(--theme-forms-color);
 }
 .form-control:hover{
     transition: 0.4s ease-in-out;
@@ -642,7 +662,7 @@ Virtual Terminal Page Styles
 .client_form .btn-primary{
     color: var(--theme-white-color);
     border: none;
-    
+
     background-color: var(--theme-primary-color);
 }
 /*==========================
@@ -697,7 +717,7 @@ Transaction Details Page Styles
     outline: inherit;
     text-align: center;
     width: 130px;
-    border-radius: 10px;
+    border-radius: 3px;
     background-color: var(--theme-color-red);
 }
 .btn-refund-modal:hover,
@@ -737,7 +757,7 @@ Transaction Details Page Styles
     position: relative;
     display: inline-block;
   }
-  
+
   .tooltip .tooltiptext {
     visibility: hidden;
     width: 140px;
@@ -754,7 +774,7 @@ Transaction Details Page Styles
     opacity: 0;
     transition: opacity 0.3s;
   }
-  
+
   .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -765,7 +785,7 @@ Transaction Details Page Styles
     border-style: solid;
     border-color: #555 transparent transparent transparent;
   }
-  
+
   .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
@@ -810,6 +830,9 @@ Account Details Page Styles
 .main_account_list .fund_head .date{
     font-size: 13px;
     font-weight: 600;
+}
+.main_account_list .fund_head {
+  width: 12rem;
 }
 .main_account_box .fund_head .lite_text{
     font-size: 12px;
@@ -949,6 +972,52 @@ Api Key Page Styles
     left: 100px;
     color: var(--theme-third-color);
     background-color: var(--theme-white-color);
+}
+/* Merchant Dashboard Profile Data*/
+ .user_account_data{
+   margin: 20px 0 20px 90px;
+ }
+ .user_account_data .card{
+   width: 95%;
+   padding: 20px;
+   overflow-x: hidden;
+   border: none;
+   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+ }
+ .user_account_data .btn-outline-primary{
+   width: 160px;
+   border-radius: 5px;
+    background-color: var(--theme-primary-color);
+    color: var(--theme-white-color) !important;
+ }
+ .user_account_data .btn-outline-primary a{
+   color: var(--theme-white-color);
+ }
+  .user_account_data .btn-outline-primary:hover{
+    background-color: var(--theme-second-color);
+    transition: all 0.3s linear infinite;
+  }
+.user_account_data .user_data{
+  width: 550px;
+  line-height: 50px;
+}
+.custom-select-one select{
+    border: none;
+    outline: none;
+    padding: 3px 3px;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-radius: 2px;
+}
+select .dropdown-menu{
+  border: none;
+  background-color: red;
+}
+.card-add-bank{
+  border: none;
+}
+.transaction_history_table{
+  overflow: auto;
 }
 /** Media Queries **/
 @media (max-width: 480px){

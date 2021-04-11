@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-center mt-3 mb-3">
       <div class="dash_logo">
         <%= image_tag "logodash.png" %>
-        
+
       </div>
 
     </div>
@@ -35,6 +35,12 @@
         <a href="<%= merchant_transactions_path %>">
           <div class="icon"><i class="fas fa-money-check"></i></div>
           <div class="title">Transactions</div>
+        </a>
+      </li>
+        <li class="mb-3 <%= controller.controller_name == 'banks' ? 'active' : '' %>">
+        <a href="<%= merchant_banks_path %>">
+          <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
+          <div class="title">Banks</div>
         </a>
       </li>
 

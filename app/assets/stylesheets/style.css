@@ -3,41 +3,42 @@
 1: Global Styles
 =================
 */
+
 :root {
     --theme-primary-color: #032550;
-    --theme-second-color: #5F24D2;
-    --theme-third-color: #02152C;
+    --theme-second-color: #5f24d2;
+    --theme-third-color: #02152c;
     --theme-white-color: #ffffff;
-    --theme-color-light: #F3F4F5;
-    --theme-color-blue: #154AE4;
-    --theme-color-border: #E5E5E5;
-    --theme-color-green: #7FBA4B;
-    --theme-forms-color: #F2F2F2;
-    --gradient-main: linear-gradient(90deg,  rgba(95, 36, 210, 0.9),  rgba(219, 63, 132, 0.9) );
+    --theme-color-light: #f3f4f5;
+    --theme-color-blue: #154ae4;
+    --theme-color-border: #e5e5e5;
+    --theme-color-green: #7fba4b;
+    --theme-forms-color: #f2f2f2;
+    --gradient-main: linear-gradient( 90deg, rgba(95, 36, 210, 0.9), rgba(219, 63, 132, 0.9));
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 img {
     width: 100%;
-    height: auto
+    height: auto;
 }
 
 *,
 ::after,
 ::before {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 dl,
 ol,
 ul {
     margin-top: 0;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 h1,
@@ -47,15 +48,15 @@ h4,
 h5,
 h6 {
     padding-bottom: 8px !important;
-    margin-bottom: 0 !important
+    margin-bottom: 0 !important;
 }
 
 li {
-    list-style: none
+    list-style: none;
 }
 
 a {
-    text-decoration: none !important
+    text-decoration: none !important;
 }
 
 .container {
@@ -63,7 +64,7 @@ a {
 }
 
 .row {
-    margin: 0
+    margin: 0;
 }
 
 body {
@@ -72,8 +73,9 @@ body {
     line-height: 1.5;
     color: var(--theme-third-color);
     background-color: #fff;
-    font-family: 'Red Hat Display', sans-serif
+    font-family: "Red Hat Display", sans-serif;
 }
+
 
 /*
 =================
@@ -88,26 +90,26 @@ body {
     background-image: url("/assets/header_bg.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover
+    background-size: cover;
 }
 
 .main_nav {
-    padding: 30px 0
+    padding: 30px 0;
 }
 
 .main_nav menu {
     margin: 0 auto;
-    padding: 10px 0
+    padding: 10px 0;
 }
 
 .main_nav menu ul li {
     display: inline-flex;
-    align-items: center
+    align-items: center;
 }
 
 .main_nav menu ul li a {
     padding: 0 10px;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .toggle_navigation .fa-bars {
@@ -115,36 +117,36 @@ body {
     font-size: 22px;
     padding: 16px 0;
     display: none;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 button.btn_sign_up {
     border: none;
     border-radius: 8px;
     padding: 5px 10px;
-    background-color: var(--theme-second-color)
+    background-color: var(--theme-second-color);
 }
 
 button.btn_log_in a,
 button.btn_sign_up a {
     font-size: 14px;
     font-weight: 500;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 button.btn_log_in .fa-unlock,
 button.btn_sign_up .fa-user {
     font-size: 13px;
     margin-right: 5px;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 button.btn_log_in {
     margin-right: -17px;
-    padding: .8px 12px;
+    padding: 0.8px 12px;
     border-radius: 8px;
     background-color: transparent;
-    border: 4px solid var(--theme-second-color)
+    border: 4px solid var(--theme-second-color);
 }
 
 .hero_area_left {
@@ -154,13 +156,13 @@ button.btn_log_in {
 .hero_area_left h1 {
     font-size: 40px;
     font-weight: 700;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .hero_area_left p {
     font-size: 14px;
     width: 83%;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 button.btn_start_now {
@@ -170,18 +172,18 @@ button.btn_start_now {
     font-size: 18px;
     color: var(--theme-white-color);
     border-bottom-left-radius: 10 px solid #fff;
-    background-color: var(--theme-second-color)
+    background-color: var(--theme-second-color);
 }
 
 button.btn_start_now .fa-arrow-right {
     padding-left: 8px;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .laptop_img img {
     position: absolute;
     top: 15%;
-    left: 9%
+    left: 9%;
 }
 
 .btn_play {
@@ -191,10 +193,10 @@ button.btn_start_now .fa-arrow-right {
     width: 130px;
     height: 130px;
     border-radius: 100px;
-    box-shadow: 0 0 0 8px rgba(21, 74, 228, .3);
+    box-shadow: 0 0 0 8px rgba(21, 74, 228, 0.3);
     background-color: var(--theme-color-blue);
     -webkit-animation: animate 2s linear infinite;
-    animation: animate 2s linear infinite
+    animation: animate 2s linear infinite;
 }
 
 .btn_play .fa-play {
@@ -202,8 +204,9 @@ button.btn_start_now .fa-arrow-right {
     top: 15%;
     left: 26%;
     font-size: 80px;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
+
 
 /*
 ===================
@@ -215,41 +218,41 @@ button.btn_start_now .fa-arrow-right {
     padding: 100px 0;
     background-image: url("/assets/features_bg_png.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%
+    background-size: 100% 100%;
 }
 
 #features_sction h2 {
     font-size: 38px;
     font-weight: 700;
-    text-align: center
+    text-align: center;
 }
 
 #features_sction .next_arrows {
-    text-align: center
+    text-align: center;
 }
 
 #features_sction .next_arrows img {
-    max-width: 50px
+    max-width: 50px;
 }
 
 #features_sction .features_boxes {
     height: 509px;
     border-radius: 5px;
     margin: 50px 0;
-    box-shadow: 0 .125rem .25rem rgba(3, 37, 80, .2) !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(3, 37, 80, 0.2) !important;
     background-color: var(--theme-color-light);
 }
 
 .features_boxes_content {
-    padding: 65px 50px 0 40px
+    padding: 65px 50px 0 40px;
 }
 
 .features_boxes_content img {
-    max-width: 100px
+    max-width: 100px;
 }
 
 .img_with {
-    max-width: 82px !important
+    max-width: 82px !important;
 }
 
 #features_sction .features_boxes h3 {
@@ -259,51 +262,52 @@ button.btn_start_now .fa-arrow-right {
 }
 
 #features_sction .features_boxes a {
-    color: var(--theme-third-color)
+    color: var(--theme-third-color);
 }
 
 #features_sction .features_boxes p {
-    font-size: 15px
+    font-size: 15px;
 }
 
 .virtual_terminal_area {
-    margin: 50px 0
+    margin: 50px 0;
 }
 
 .virtual_terminal_area .virtual_boxe h3 {
     font-size: 30px;
     font-weight: 700;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .virtual_terminal_area .virtual_boxe img {
-    max-width: 150px
+    max-width: 150px;
 }
 
 .virtual_terminal_area .virtual_boxe p {
     font-size: 16px;
     width: 82%;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .virtual_terminal_area .virtual_boxe a {
     font-weight: 500;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .virtual_terminal_area .virtual_boxe a .fa-arrow-right {
     padding: 1px 3px;
     color: var(--theme-third-color);
-    background-color: var(--theme-white-color)
+    background-color: var(--theme-white-color);
 }
 
 .virtual_boxe {
-    margin: 40% 0 0 0
+    margin: 40% 0 0 0;
 }
 
 .dashlight_img img {
-    margin: 180px 0 0 30px
+    margin: 180px 0 0 30px;
 }
+
 
 /*
 ===================
@@ -311,26 +315,25 @@ button.btn_start_now .fa-arrow-right {
 ===================
 */
 
-
 #pay_gateway_section {
     position: relative;
-    padding: 100px 0
+    padding: 100px 0;
 }
 
 #pay_gateway_section .row {
-    flex-direction: column
+    flex-direction: column;
 }
 
 #pay_gateway_section h4 {
     margin: 0 auto;
     font-size: 34px;
-    font-weight: 700
+    font-weight: 700;
 }
 
 #pay_gateway_section p {
     margin: 0 auto;
     width: 30%;
-    padding-right: 37px
+    padding-right: 37px;
 }
 
 button.btn_payments {
@@ -341,14 +344,14 @@ button.btn_payments {
     padding: 12px 5px;
     cursor: pointer;
     color: var(--theme-white-color);
-    background-color: var(--theme-second-color)
+    background-color: var(--theme-second-color);
 }
 
 #pay_gateway_section .gateway_img img {
     position: absolute;
     left: 24%;
     top: 69%;
-    max-width: 70rem
+    max-width: 70rem;
 }
 
 #pay_gateway_section .sign_up_form {
@@ -359,28 +362,28 @@ button.btn_payments {
     left: 16%;
     border-radius: 30px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 .125rem .25rem rgba(3, 37, 80, .2) !important
+    box-shadow: 0 0.125rem 0.25rem rgba(3, 37, 80, 0.2) !important;
 }
 
 #pay_gateway_section .sign_up_form img {
     position: absolute;
     top: -25%;
     left: 26%;
-    max-width: 130px
+    max-width: 130px;
 }
 
 #pay_gateway_section .sign_up_form h5 {
     font-weight: 700;
     font-size: 22px;
     text-align: center;
-    padding-top: 45px
+    padding-top: 45px;
 }
 
 .form-group .input_field {
     margin: 6px 30px;
     padding: 3px 6px;
     border-radius: 50px;
-    border: 1px solid var(--theme-color-border)
+    border: 1px solid var(--theme-color-border);
 }
 
 .btn_form_signup {
@@ -390,12 +393,13 @@ button.btn_payments {
     margin: 6px 65px;
     cursor: pointer;
     color: var(--theme-third-color);
-    background-color: rgba(95, 36, 210, .3)
+    background-color: rgba(95, 36, 210, 0.3);
 }
 
 .space {
-    padding: 50% 0
+    padding: 50% 0;
 }
+
 
 /*
 ===================
@@ -409,36 +413,36 @@ button.btn_payments {
     margin: 50% 0 10% 0;
     background-image: url("/assets/bg_developers.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%
+    background-size: 100% 100%;
 }
 
 #develpors_section .developers_left_area span {
     font-size: 24px;
     font-weight: 500;
-    color: var(--theme-color-blue)
+    color: var(--theme-color-blue);
 }
 
 #develpors_section .developers_left_area h6 {
     font-size: 36px;
     font-weight: 500;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 #develpors_section .developers_left_area p {
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .developers_right_area .coding_box {
     padding: 80px 80px;
     border-bottom: 10px;
-    background-color: var(--theme-third-color)
+    background-color: var(--theme-third-color);
 }
 
 .developers_right_area .coding_box p {
     margin: 0 auto;
     float: left;
     padding: 50px;
-    color: #db3f84
+    color: #db3f84;
 }
 
 button.btn_api {
@@ -448,11 +452,11 @@ button.btn_api {
     outline: 0;
     margin: 10px 0;
     color: var(--theme-white-color);
-    background-color: var(--theme-color-blue)
+    background-color: var(--theme-color-blue);
 }
 
 button.btn_api .fa-chevron-right {
-    padding-left: 6px
+    padding-left: 6px;
 }
 
 
@@ -467,42 +471,44 @@ button.btn_api .fa-chevron-right {
     margin-bottom: 20%;
     background-image: url("/assets/bg_features.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%
+    background-size: 100% 100%;
 }
 
 .key_features {
-    margin: 100px 0 0 220px
+    margin: 100px 0 0 220px;
 }
 
 .keyf_box {
-    padding: 20px
+    padding: 20px;
 }
 
 .keyf_box img {
-    max-width: 60px
+    max-width: 60px;
 }
 
 .key_features span {
     font-size: 26px;
     font-weight: 700;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .keyf_box p {
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .box_bg,
 .keyf_box {
     border-radius: 25px;
-    background-color: var(--theme-primary-color)
+    background-color: var(--theme-primary-color);
 }
+
 
 /*
 =======================
 0: About Us Page Styles
 =======================
 */
+
 #about_header_section,
 #pricing_header_section,
 #contact_header_section {
@@ -566,7 +572,9 @@ button.btn_api .fa-chevron-right {
     background-color: var(--theme-second-color);
 }
 
+
 /* Ceo Section Styles*/
+
 #ceo_section {
     padding: 50px 0;
 }
@@ -610,7 +618,9 @@ button.send_message a {
     color: var(--theme-white-color);
 }
 
+
 /* Brands Section Styles*/
+
 #brands_section {
     padding: 50px 0;
 }
@@ -634,6 +644,7 @@ button.send_message a {
 .brands_logos_one ul li img {
     margin: 0 10px;
 }
+
 
 /* Solutions Section Styles */
 
@@ -697,7 +708,9 @@ button.send_message a {
     color: var(--theme-white-color);
 }
 
+
 /* Testimonials Styles */
+
 #testimonials {
     padding: 100px 0;
 }
@@ -728,7 +741,7 @@ button.send_message a {
     padding: 75px 15px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .testimonial_box p {
@@ -783,11 +796,13 @@ button.send_message a {
     background-color: var(--theme-second-color);
 }
 
+
 /*
 =======================
 Pricing Page Styles
 =======================
 */
+
 .pricing_hero_area,
 .contact_hero_area {
     padding: 150px 0;
@@ -834,7 +849,7 @@ Pricing Page Styles
     margin-bottom: 0 !important;
 }
 
-.pricing_boxes_bg{
+.pricing_boxes_bg {
     border-radius: 25px;
     box-shadow: 8px 0 30px 0 rgba(95, 36, 210, 0.3);
     background-color: var(--theme-white-color);
@@ -893,7 +908,9 @@ button.choose_plan {
     background-color: var(--theme-primary-color);
 }
 
+
 /* Exchange Section Styles */
+
 #exchange_section {
     padding: 100px 0;
 }
@@ -908,7 +925,9 @@ button.choose_plan {
     text-align: justify;
 }
 
+
 /* Price Comparison Section */
+
 #price_comparison_section {
     padding: 0 0 80px 0;
 }
@@ -974,11 +993,13 @@ table tr:nth-child(even) {
     background-color: var(--theme-color-border);
 }
 
+
 /*
 =======================
 Contact Page Styles
 =======================
 */
+
 #contact_us {
     margin: 380px 0;
     position: relative;
@@ -1035,7 +1056,6 @@ Contact Page Styles
     margin-bottom: 6px;
 }
 
-
 .input_fiealds_one input {
     width: 100%;
     border: none;
@@ -1044,7 +1064,7 @@ Contact Page Styles
     background-color: var(--theme-forms-color);
 }
 
-.bro{
+.bro {
     border-left: 50px solid #fff;
 }
 
@@ -1082,6 +1102,7 @@ button.btn_submit {
     background-color: var(--theme-second-color);
 }
 
+
 /*
 =======================
 Faq's Page Styles
@@ -1092,30 +1113,35 @@ Faq's Page Styles
     margin: 80px 20px;
     background-color: var(--theme-white-color);
 }
-.accordion{
+
+.accordion {
     width: 100%;
 }
-.card-header{
+
+.card-header {
     background-color: var(--theme-primary-color);
 }
 
-.card-header:hover{
+.card-header:hover {
     background-color: var(--theme-second-color);
 }
-.btn-link{
+
+.btn-link {
     text-decoration: none;
     color: var(--theme-white-color);
 }
-.btn-link:hover{
+
+.btn-link:hover {
     color: var(--theme-white-color);
 }
-.card-body{
+
+.card-body {
     background-color: var(--theme-forms-color);
 }
 
 .icons::before {
     position: absolute;
-    content: '\002B';
+    content: "\002B";
     top: 18px;
     right: 20px;
     font-weight: 700;
@@ -1123,27 +1149,34 @@ Faq's Page Styles
     color: var(--theme-white-color);
 }
 
+
 /*
 =======================
 Terms / Page Styles
 =======================
 */
-#terms_conditions{
+
+#terms_conditions {
     margin: 80px 0;
 }
-.terms_body{
+
+.terms_body {
     background-color: var(--theme-forms-color);
 }
-.terms_heading{
+
+.terms_heading {
     width: 50%;
     padding: 5px 8px;
     color: var(--theme-white-color);
     background-color: var(--theme-second-color);
 }
-.terms_content p{
+
+.terms_content p {
     text-align: justify;
     padding: 6px 8px;
 }
+
+
 /*
 ===================
 Footer Styles
@@ -1157,38 +1190,38 @@ footer {
 
 footer .ft_heading {
     font-weight: 700;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 footer ul li {
-    padding: 10px 0
+    padding: 10px 0;
 }
 
 footer ul li :-webkit-any-link {
     padding: 10px 0;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 footer ul li :-moz-any-link {
     padding: 10px 0;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 footer ul li :any-link {
     padding: 10px 0;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 .line {
     width: 89%;
     height: 2px;
     margin-left: 10px;
-    background-color: var(--theme-white-color)
+    background-color: var(--theme-white-color);
 }
 
 .copyright {
     margin-left: 10px;
-    color: var(--theme-white-color)
+    color: var(--theme-white-color);
 }
 
 
@@ -1197,65 +1230,60 @@ footer ul li :any-link {
 Animation Styles
 ===================
 */
+
 @-webkit-keyframes animate {
     0% {
-        box-shadow: 0 0 0 6px rgba(21, 74, 228, .5)
+        box-shadow: 0 0 0 6px rgba(21, 74, 228, 0.5);
     }
-
     40% {
-        box-shadow: 0 0 0 20px rgba(21, 74, 228, .3)
+        box-shadow: 0 0 0 20px rgba(21, 74, 228, 0.3);
     }
-
     80% {
-        box-shadow: 0 0 0 20px rgba(21, 74, 228, .3)
+        box-shadow: 0 0 0 20px rgba(21, 74, 228, 0.3);
     }
-
     100% {
-        box-shadow: 0 0 0 rgba(21, 74, 228, .2)
+        box-shadow: 0 0 0 rgba(21, 74, 228, 0.2);
     }
 }
 
 @-webkit-keyframes animate {
     0% {
-        box-shadow: 0 0 0 6px rgba(21, 74, 228, .5)
+        box-shadow: 0 0 0 6px rgba(21, 74, 228, 0.5);
     }
-
     40% {
-        box-shadow: 0 0 0 20px rgba(21, 74, 228, .3)
+        box-shadow: 0 0 0 20px rgba(21, 74, 228, 0.3);
     }
-
     80% {
-        box-shadow: 0 0 0 20px rgba(21, 74, 228, .3)
+        box-shadow: 0 0 0 20px rgba(21, 74, 228, 0.3);
     }
-
     100% {
-        box-shadow: 0 0 0 rgba(21, 74, 228, .2)
+        box-shadow: 0 0 0 rgba(21, 74, 228, 0.2);
     }
 }
 
 @keyframes animate {
     0% {
-        box-shadow: 0 0 0 6px rgba(21, 74, 228, .5)
+        box-shadow: 0 0 0 6px rgba(21, 74, 228, 0.5);
     }
-
     40% {
-        box-shadow: 0 0 0 20px rgba(21, 74, 228, .3)
+        box-shadow: 0 0 0 20px rgba(21, 74, 228, 0.3);
     }
-
     80% {
-        box-shadow: 0 0 0 20px rgba(21, 74, 228, .3)
+        box-shadow: 0 0 0 20px rgba(21, 74, 228, 0.3);
     }
-
     100% {
-        box-shadow: 0 0 0 rgba(21, 74, 228, .2)
+        box-shadow: 0 0 0 rgba(21, 74, 228, 0.2);
     }
 }
+
+
 /*
 ==============
 Sign Up Styles
 ==============
 */
-#sign_up{
+
+#sign_up {
     width: 100%;
     min-height: 100vh;
     position: relative;
@@ -1263,15 +1291,18 @@ Sign Up Styles
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: cover;
-    
 }
-.signup_box{
+
+.signup_box {
     margin-top: 150px;
     padding: 50px 20px;
     border-radius: 20px;
     background-color: var(--theme-white-color);
 }
+
+
 /*form styles*/
+
 #signupForm {
     text-align: center;
     position: relative;
@@ -1290,18 +1321,22 @@ Sign Up Styles
     width: 80%;
     margin: 0 10%;
     border-radius: 10px;
-
     /*stacking fieldsets above each other*/
     position: relative;
 }
 
+
 /*Hide all except first fieldset*/
+
 #signupForm fieldset:not(:first-of-type) {
     display: none;
 }
 
+
 /*inputs*/
-#signupForm input, #signupForm textarea {
+
+#signupForm input,
+#signupForm textarea {
     padding: 15px;
     border: 1px solid var(--theme-forms-color);
     border-radius: 0px;
@@ -1313,7 +1348,8 @@ Sign Up Styles
     background-color: var(--theme-forms-color);
 }
 
-#signupForm input:focus, #signupForm textarea:focus {
+#signupForm input:focus,
+#signupForm textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -1325,7 +1361,9 @@ Sign Up Styles
     -o-transition: All 0.5s ease-in;
 }
 
+
 /*buttons*/
+
 #signupForm .action-button {
     width: 100px;
     font-weight: bold;
@@ -1338,7 +1376,8 @@ Sign Up Styles
     background-color: var(--theme-second-color);
 }
 
-#signupForm .action-button:hover, #signupForm .action-button:focus {
+#signupForm .action-button:hover,
+#signupForm .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px var(--theme-second-color);
 }
 
@@ -1354,11 +1393,14 @@ Sign Up Styles
     background-color: rgba(95, 36, 210, 10);
 }
 
-#signupForm .action-button-previous:hover, #signupForm .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+#signupForm .action-button-previous:hover,
+#signupForm .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #c5c5f1;
 }
 
+
 /*headings*/
+
 .fs-title {
     font-size: 22px;
     text-transform: uppercase;
@@ -1368,7 +1410,7 @@ Sign Up Styles
     color: var(--theme-third-color);
 }
 
-.fs-subtitle a{
+.fs-subtitle a {
     font-weight: 700;
     color: var(--theme-second-color);
 }
@@ -1380,7 +1422,9 @@ Sign Up Styles
     color: var(--theme-third-color);
 }
 
+
 /*progressbar*/
+
 #progressbar {
     margin-bottom: 30px;
     overflow: hidden;
@@ -1414,16 +1458,19 @@ Sign Up Styles
     margin: 0 auto 10px auto;
 }
 
+
 /*progressbar connectors*/
+
 #progressbar li:after {
-    content: '';
+    content: "";
     width: 100%;
     height: 2px;
     background: rgb(216, 214, 214);
     position: absolute;
     left: -50%;
     top: 9px;
-    z-index: -1; /*put it behind the numbers*/
+    z-index: -1;
+    /*put it behind the numbers*/
 }
 
 #progressbar li:first-child:after {
@@ -1431,21 +1478,28 @@ Sign Up Styles
     content: none;
 }
 
+
 /*marking active/completed steps green*/
+
+
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before, #progressbar li.active:after {
+
+#progressbar li.active:before,
+#progressbar li.active:after {
     color: var(--theme-white-color);
     background: var(--theme-second-color);
 }
 
 
 /* Not relevant to this form */
+
 .dme_link {
     margin-top: 30px;
     text-align: center;
 }
+
 .dme_link a {
-    background: #FFF;
+    background: #fff;
     font-weight: bold;
     color: #ee0979;
     border: 0 none;
@@ -1455,23 +1509,27 @@ Sign Up Styles
     font-size: 12px;
 }
 
-.dme_link a:hover, .dme_link a:focus {
-    background: #C5C5F1;
+.dme_link a:hover,
+.dme_link a:focus {
+    background: #c5c5f1;
     text-decoration: none;
 }
 
-.form-control{
+.form-control {
     border: none;
     padding: 8px 15px;
     color: var(--theme-third-color);
     background-color: var(--theme-forms-color);
 }
+
+
 /*
 ==============
 Login Styles
 ==============
 */
-#login_section{
+
+#login_section {
     width: 100%;
     min-height: 100vh;
     padding: 120px 0;
@@ -1479,8 +1537,8 @@ Login Styles
     background-repeat: no-repeat;
     background-position: 100% 100%;
     background-size: cover;
-    
 }
+
 .login_form {
     border: 0 none;
     border-radius: 0px;
@@ -1490,36 +1548,41 @@ Login Styles
     margin: 0 auto;
     border-radius: 10px;
     background-color: var(--theme-white-color);
- }
- .login_form .heading{
-     font-size: 28px;
-     font-weight: 700;
-     text-align: center;
-     padding-bottom: 30px;
-     color: var(--theme-third-color);
- }
- .rememberMe{
-     padding-left: 8px;
- }
- label.forgotPassword {
-     margin-left: auto;
- }
- label.forgotPassword a{
-     color: var(--theme-second-color);
- }
- .hom_txt a{
-     color: var(--theme-second-color);
- }
- .btn_login{
+}
+
+.login_form .heading {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    padding-bottom: 30px;
+    color: var(--theme-third-color);
+}
+
+.rememberMe {
+    padding-left: 8px;
+}
+
+label.forgotPassword {
+    margin-left: auto;
+}
+
+label.forgotPassword a {
+    color: var(--theme-second-color);
+}
+
+.hom_txt a {
+    color: var(--theme-second-color);
+}
+
+.btn_login {
     border: none;
     width: 100%;
     margin-top: 8px;
     padding: 5px 0;
     color: var(--theme-white-color);
     background-color: var(--theme-second-color);
- }
- 
- .signup_txt a{
-     color: var(--theme-second-color);
- }
- 
+}
+
+.signup_txt a {
+    color: var(--theme-second-color);
+}

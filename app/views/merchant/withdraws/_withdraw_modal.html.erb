@@ -1,27 +1,39 @@
 <!-- Withdraw Fund Modal Start -->
-<div class="modal modal_withdraw_fund fade" id="exampleModalCenter" tabindex="-1"
-role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal modal_withdraw_fund fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Withdraw Fund</h5>
-            <button type="button" class="close" data-dismiss="modal"
-                aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Withdraw Fund</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% if @banks.present?  %>
         <%= form_for [:merchant,@withdraw], method: :post do |form|  %>
-            <div class="modal-body">
-                <div class="form-group col-md-12">
-                    <label for="amount">Amount</label>
-                    <%= form.number_field :amount, class: "form-control", id: "inputEmail4", step: :any, required: true %>
-                </div>
+          <div class="modal-body ">
+            <div class="form-group col-md-12">
+              <div class="custom-select-one">
+               <label for="amount">Bank </label>
+                <%= form.select :bank_id, @banks.map{|e| [ e.bank_name, e.id]}, class:"form-select p-2 " %>
+              </div>
             </div>
-            <div class="modal-footer justify-content-center">
-                <%= form.submit 'Submit', class: "btn btn-withdraw_submit" %>
+            <div class="form-group col-md-12">
+              <label for="amount">Amount</label>
+              <%= form.number_field :amount, class: "form-control", id: "inputEmail4", step: :any, required: true %>
             </div>
+          </div>
+          <div class="modal-footer justify-content-center">
+            <%= form.submit 'Submit', class: "btn btn-withdraw_submit" %>
+          </div>
         <% end %>
+      <%else  %>
+        <div class="alert alert-danger m-3" role="alert">
+          Sorry! You haven't added any bnak. Pleas add one first
+        </div>
+        <%= link_to 'Add Bank', new_merchant_bank_path, class:"btn btn-outline-primary m-5" %>
+      <% end %>
     </div>
-</div>
+  </div>
 </div>
 <!-- Withdraw Fund Moda End -->

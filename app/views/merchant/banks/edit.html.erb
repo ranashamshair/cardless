@@ -1,0 +1,29 @@
+
+<div class="content-wrapper">
+    <!-- Main content -->
+    <div class="container">
+    <section class="content mb-3">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary card-add-bank shadow mx-auto w-100">
+              <div class="card-header">
+                <h3 class="card-title">Editing Bank</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <%= render 'form', bank: @bank, url: merchant_bank_path, method: :patch  %>
+
+            </div>
+            <!-- /.card -->
+          </div>
+          <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+

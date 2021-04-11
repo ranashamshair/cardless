@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_184145) do
+ActiveRecord::Schema.define(version: 2021_04_09_135109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "banks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "iban"
+    t.integer "status"
+    t.string "currency"
+    t.string "user_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "bank_name"
+    t.index ["user_id"], name: "index_banks_on_user_id"
+  end
 
   create_table "cards", force: :cascade do |t|
     t.string "first6"
@@ -100,6 +112,8 @@ ActiveRecord::Schema.define(version: 2021_03_27_184145) do
     t.float "bank_fee", default: 0.0
     t.float "net_amount", default: 0.0
     t.float "total_fee", default: 0.0
+    t.bigint "bank_id"
+    t.index ["bank_id"], name: "index_transactions_on_bank_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -130,6 +144,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_184145) do
     t.string "authentication_token"
     t.string "secret_key"
     t.string "public_key"
+    t.string "unconfirmed_email"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["payment_gateway_id"], name: "index_users_on_payment_gateway_id"
@@ -158,9 +173,14 @@ ActiveRecord::Schema.define(version: 2021_03_27_184145) do
     t.string "ref_id"
     t.integer "transaction_id"
     t.datetime "payed_at"
+    t.bigint "bank_id", null: false
+    t.index ["bank_id"], name: "index_withdraws_on_bank_id"
     t.index ["user_id"], name: "index_withdraws_on_user_id"
   end
 
+  add_foreign_key "banks", "users"
+  add_foreign_key "transactions", "banks"
   add_foreign_key "wallets", "users"
+  add_foreign_key "withdraws", "banks"
   add_foreign_key "withdraws", "users"
 end

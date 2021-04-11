@@ -2,8 +2,9 @@
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="dash_header_left ml-5">
+          <% user= current_user %>
             <div class="welcom_heading">
-              Welcome, </div>
+              Welcome, <%= user.first_name + " " + user.last_name %>  </div>
             <div class="small_head pl-2">Your Accounts Dashboard</div>
           </div>
           <div class="dash_header_right ml-auto">
@@ -11,7 +12,7 @@
             <ul>
               <li>
                   <div class="notify_icon shadow-sm"><i class="fas fa-bell"></i></div>
-                  
+
                 </li>
               <li>
                   <div class="user_icon shadow-sm"><i class="far fa-user-circle"></i></div>

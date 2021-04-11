@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Admin::WithdrawsController < AdminBaseController
-  before_action :set_withdraw, only: [:show, :edit, :update, :destroy, :accept]
-  
+  before_action :set_withdraw, only: %i[show edit update destroy accept]
+
   # GET /withdraws
   # GET /withdraws.json
   def index
@@ -9,8 +11,7 @@ class Admin::WithdrawsController < AdminBaseController
 
   # GET /withdraws/1
   # GET /withdraws/1.json
-  def show
-  end
+  def show; end
 
   # GET /withdraws/new
   def new
@@ -18,8 +19,7 @@ class Admin::WithdrawsController < AdminBaseController
   end
 
   # GET /withdraws/1/edit
-  def edit
-  end
+  def edit; end
 
   def accept
     if !@withdraw.is_payed
@@ -75,13 +75,14 @@ class Admin::WithdrawsController < AdminBaseController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_withdraw
-      @withdraw = Withdraw.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def withdraw_params
-      params.require(:withdraw).permit(:name, :user_id, :is_payed, :amount)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_withdraw
+    @withdraw = Withdraw.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def withdraw_params
+    params.require(:withdraw).permit(:name, :user_id, :is_payed, :amount)
+  end
 end
