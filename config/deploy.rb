@@ -8,7 +8,7 @@ set :repo_url, 'https://ranashamshair:numlock1234545@github.com/ranashamshair/ca
 
 set :deploy_to, '/home/ubuntu/distro_payment'
 
-set :branch, 'front-end'
+set :branch, 'master'
 append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/application.yml'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle'
 set :use_sudo, true

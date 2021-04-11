@@ -19,9 +19,9 @@ module Payment
 
 
       request = Net::HTTP::Post.new(url)
-      request["x-ibm-client-id"] = 'REPLACE_THIS_KEY'
+      request["x-ibm-client-id"] = 'bb0a4ee8-41b3-459c-bcd9-6cb8b8e0de0c'
       request["content-type"] = 'application/json'
-      request["x-request-id"] = 'REPLACE_THIS_VALUE'
+      request["x-request-id"] = '1b3ab8e8-0fd5-43d2-946e-d75958b172e7'
       request["authorization"] = 'Bearer 6yBnsqnMQQ'
       request["psu-ip-address"] = '127.0.0.1'
 
@@ -66,10 +66,10 @@ module Payment
         "DS_MERCHANT_AMOUNT": '145',
         "DS_MERCHANT_CURRENCY": '978',
         "DS_MERCHANT_CVV2": '123',
-        "DS_MERCHANT_EXPIRYDATE": '1512',
+        "DS_MERCHANT_EXPIRYDATE": '1223',
         "DS_MERCHANT_MERCHANTCODE": '352263560',
         "DS_MERCHANT_ORDER": '1446068581',
-        "DS_MERCHANT_PAN": '4548812049400004',
+        "DS_MERCHANT_PAN": '454881********04',
         "DS_MERCHANT_TERMINAL": '1',
         "DS_MERCHANT_TRANSACTIONTYPE": '0'
       }.to_json)
