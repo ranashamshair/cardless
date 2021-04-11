@@ -37,19 +37,19 @@ module Payment
 
     def withdraw1
 
-      curl --request POST \
-        --url https://apis-i.redsys.es:20443/psd2/xs2a/api-entrada-xs2a/services/caixabank/v1/payments/sepa-credit-transfers/REPLACE_PAYMENT-ID/authorisations \
-        --header 'accept: application/json' \
-        --header 'authorization: Bearer 6yBnsqnMQQ' \
-        --header 'content-type: application/json' \
-        --header 'digest: REPLACE_THIS_VALUE' \
-        --header 'psu-ip-address: REPLACE_THIS_VALUE' \
-        --header 'psu-user-agent: REPLACE_THIS_VALUE' \
-        --header 'signature: REPLACE_THIS_VALUE' \
-        --header 'tpp-signature-certificate: REPLACE_THIS_VALUE' \
-        --header 'x-ibm-client-id: REPLACE_THIS_KEY' \
-        --header 'x-request-id: REPLACE_THIS_VALUE'
-     end
+      # curl --request 'POST' \
+      #   --url https://apis-i.redsys.es:20443/psd2/xs2a/api-entrada-xs2a/services/caixabank/v1/payments/sepa-credit-transfers/REPLACE_PAYMENT-ID/authorisations \
+      #   --header 'accept: application/json' \
+      #   --header 'authorization: Bearer 6yBnsqnMQQ' \
+      #   --header 'content-type: application/json' \
+      #   --header 'digest: REPLACE_THIS_VALUE' \
+      #   --header 'psu-ip-address: REPLACE_THIS_VALUE' \
+      #   --header 'psu-user-agent: REPLACE_THIS_VALUE' \
+      #   --header 'signature: REPLACE_THIS_VALUE' \
+      #   --header 'tpp-signature-certificate: REPLACE_THIS_VALUE' \
+      #   --header 'x-ibm-client-id: REPLACE_THIS_KEY' \
+      #   --header 'x-request-id: REPLACE_THIS_VALUE'
+    end
 
      def genrate_digest
       digest = ""

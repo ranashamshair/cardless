@@ -2,6 +2,6 @@
 
 class AddBankToWithdraws < ActiveRecord::Migration[6.1]
   def change
-    add_reference :withdraws, :bank, null: false, foreign_key: true
+    add_reference :withdraws, :bank, null: true, foreign_key: true
   end
 end
