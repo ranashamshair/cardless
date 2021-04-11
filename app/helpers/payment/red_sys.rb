@@ -4,7 +4,6 @@ require 'uri'
 require 'openssl'
 require 'net/http'
 
-require 'openssl'
 require 'base64'
 # require 'mcrypt'
 module Payment
@@ -77,15 +76,15 @@ module Payment
       bytes = [0, 0, 0, 0, 0, 0, 0, 0]
       iv = bytes.map(&:chr).join
 
-      cipher = OpenSSL::Cipher.new('cip-her-des')
+      cipher = OpenSSL::Cipher.new('des3')
       cipher.encrypt # Call this before setting key or iv
       cipher.key = merchant_key64
-      cipher.iv = iv
+      # cipher.iv = cipher.random_iv
       ciphertext = cipher.update('1446068581')
       ciphertext << cipher.final
-
+      
       digest = OpenSSL::Digest.new('sha256')
-      hashh = OpenSSL::HMAC.hexdigest(digest, ciphertext, merchant_parameters)
+      hashh = OpenSSL::HMAC.hexdigest(digest,  Base64.strict_encode64(ciphertext), merchant_parameters)
       skey = Base64.strict_encode64(hashh)
       # crypto = Mcrypt.new(:tripledes, :cbc, merchant_key64, iv, :pkcs)
       # ciphertext = crypto.encrypt("1446068581")
