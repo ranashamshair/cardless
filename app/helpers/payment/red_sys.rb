@@ -33,115 +33,82 @@ module Payment
       puts response.read_body
     end
 
-
-    def withdraw1
-
-      # curl --request 'POST' \
-      #   --url https://apis-i.redsys.es:20443/psd2/xs2a/api-entrada-xs2a/services/caixabank/v1/payments/sepa-credit-transfers/REPLACE_PAYMENT-ID/authorisations \
-      #   --header 'accept: application/json' \
-      #   --header 'authorization: Bearer 6yBnsqnMQQ' \
-      #   --header 'content-type: application/json' \
-      #   --header 'digest: REPLACE_THIS_VALUE' \
-      #   --header 'psu-ip-address: REPLACE_THIS_VALUE' \
-      #   --header 'psu-user-agent: REPLACE_THIS_VALUE' \
-      #   --header 'signature: REPLACE_THIS_VALUE' \
-      #   --header 'tpp-signature-certificate: REPLACE_THIS_VALUE' \
-      #   --header 'x-ibm-client-id: REPLACE_THIS_KEY' \
-      #   --header 'x-request-id: REPLACE_THIS_VALUE'
-    end
-
-     def genrate_digest
+    def genrate_digest
       digest = ""
       body_text = "application/json"
       sha256 = Digest::SHA256.new
       digest = sha256.base64digest body_text
       digest = "SHA-256=" + digest
-     end
+    end
 
     # 4548812049400004
     def charge
-      merchant_key64 = Base64.decode64('sq7HjrUOBfKmC576ILgskD5srU870gJ7')
-      merchant_parameters = Base64.strict_encode64({
-        "DS_MERCHANT_AMOUNT": '145',
-        "DS_MERCHANT_CURRENCY": '978',
-        "DS_MERCHANT_CVV2": '123',
-        "DS_MERCHANT_EXPIRYDATE": '1223',
-        "DS_MERCHANT_MERCHANTCODE": '352263560',
-        "DS_MERCHANT_ORDER": '1446068581',
-        "DS_MERCHANT_PAN": '454881********04',
-        "DS_MERCHANT_TERMINAL": '1',
-        "DS_MERCHANT_TRANSACTIONTYPE": '0'
-      }.to_json)
-
-      bytes = [0, 0, 0, 0, 0, 0, 0, 0]
-      iv = bytes.map(&:chr).join
-
-      cipher = OpenSSL::Cipher.new('des3')
-      cipher.encrypt # Call this before setting key or iv
-      cipher.key = merchant_key64
-      # cipher.iv = cipher.random_iv
-      ciphertext = cipher.update('1446068581')
-      ciphertext << cipher.final
-      
-      digest = OpenSSL::Digest.new('sha256')
-      hashh = OpenSSL::HMAC.hexdigest(digest,  Base64.strict_encode64(ciphertext), merchant_parameters)
-      skey = Base64.strict_encode64(hashh)
-      # crypto = Mcrypt.new(:tripledes, :cbc, merchant_key64, iv, :pkcs)
-      # ciphertext = crypto.encrypt("1446068581")
-
-      # puts "Encrypted \"#{"1446068581"}\" with \"#{Base64.decode64("sq7HjrUOBfKmC576ILgskD5srU870gJ7")}\" to:\n\"#{ciphertext}\"\n"
-      # encodedCipherText = Base64.encode64(ciphertext)
-      # cipher.decrypt
-      # plaintext = cipher.update(Base64.decode64(encodedCipherText))
-      # plaintext << cipher.final
-
-      # Print decrypted plaintext; should match original message
-      # puts "Decrypted \"#{ciphertext}\" with \"#{Base64.decode64("sq7HjrUOBfKmC576ILgskD5srU870gJ7")}\" to:\n\"#{plaintext}\"\n\n"
-
-      charge_detail = {
-        "Ds_MerchantParameters": merchant_parameters,
-        "Ds_SignatureVersion": 'HMAC_SHA256_V1',
-        "Ds_Signature": skey
-      }
-
+      data = signed_request_order(merchant_parameters_hash)
       url = 'https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST'
       curlObj = Curl::Easy.new(url)
       curlObj.connect_timeout = 3000
       curlObj.timeout = 3000
       curlObj.headers = ['Content-Type:application/json']
-      curlObj.post_body = charge_detail.to_json
+      curlObj.post_body = data.to_json
       curlObj.perform
       data = curlObj.body_str
       JSON(data)
     end
 
-    # def charge(card_number, exp_date, cvv, amount)
-    #     merchant_parameters = Base64.encode64({
-    #         "DS_MERCHANT_AMOUNT" => "#{amount}",
-    #         "DS_MERCHANT_CURRENCY" => "#{ENV["MERCHANTCURRENCY"]}",
-    #         "DS_MERCHANT_CVV2" => "#{cvv}",
-    #         "DS_MERCHANT_EXPIRYDATE" => "#{exp_date}",
-    #         "DS_MERCHANT_MERCHANTCODE" => "#{ENV["MERCHANTCODE"]}",
-    #         "DS_MERCHANT_PAN" => "#{card_number}",
-    #         "DS_MERCHANT_TERMINAL" => "#{ENV["MERCHANTTERMINAL"]}",
-    #         "DS_MERCHANT_TRANSACTIONTYPE" => "0"
-    #     }.to_json)
+    private
 
-    #     charge_detail = {
-    #         "Ds_MerchantParameters": merchant_parameters,
-    #         "Ds_SignatureVersion": "HMAC_SHA256_V1",
-    #         "Ds_Signature": "#{ENV['MERCHANTSIGNATURE']}"
-    #     }
+    def merchant_parameters_hash
+      {
+        "Ds_Merchant_Amount" => 4999,
+        "Ds_Merchant_Currency" => 978,
+        "Ds_Merchant_ProductDescription" => "Jacket",
+        "Ds_Merchant_MerchantCode" => 352263560,
+        "Ds_Merchant_MerchantURL" => "https://www.example.com/callback/",
+        "Ds_Merchant_UrlOK" => "https://www.example.com/payment/ok/",
+        "Ds_Merchant_UrlKO" => "https://www.example.com/payment/ko/",
+        "Ds_Merchant_MerchantName" => "ACME",
+        "Ds_Merchant_Terminal" => 1,
+        "Ds_Merchant_TransactionType" => 0,
+        "Ds_Merchant_Order" => "12345",
+        "DS_MERCHANT_PAN": '4548812049400004',
+        "DS_MERCHANT_CURRENCY": '978',
+        "DS_MERCHANT_CVV2": '123',
+        "DS_MERCHANT_EXPIRYDATE": '1223',
+      }
+    end
 
-    #     url = "#{ENV['REDSYSURL']}"
-    #     curlObj = Curl::Easy.new(url)
-    #     curlObj.connect_timeout = 3000
-    #     curlObj.timeout = 3000
-    #     curlObj.headers = ['Content-Type:application/json']
-    #     curlObj.post_body = charge_detail.to_json
-    #     curlObj.perform()
-    #     data = curlObj.body_str
-    #     return JSON(data)
-    # end
+
+    def signed_request_order(merchant_parameters)
+      encoded_parameters = encode_parameters(merchant_parameters)
+      signature = calculate_signature(encoded_parameters, merchant_parameters["Ds_Merchant_Order"])
+      {
+        "Ds_SignatureVersion" => "HMAC_SHA256_V1",
+        "Ds_MerchantParameters" => encoded_parameters,
+        "Ds_Signature" => signature
+      }
+    end
+
+    def encode_parameters(parameters)
+      Base64.strict_encode64(parameters.to_json)
+    end
+
+    def calculate_signature(b64_parameters, ds_order)
+      unique_key_per_order = encrypt_3DES(ds_order, Base64.decode64("sq7HjrUOBfKmC576ILgskD5srU870gJ7"))
+      sign_hmac256(b64_parameters, unique_key_per_order)
+    end
+  
+    def encrypt_3DES(data, key)
+      cipher = OpenSSL::Cipher::Cipher.new("DES-EDE3-CBC")
+      cipher.encrypt
+      cipher.key = key
+      if (data.bytesize % 8) > 0
+        data += "\0" * (8 - data.bytesize % 8)
+      end
+      cipher.update(data)
+    end
+  
+    def sign_hmac256(data, key)
+      Base64.strict_encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha256'), key, data))
+    end
   end
 end
