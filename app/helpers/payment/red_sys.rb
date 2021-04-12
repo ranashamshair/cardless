@@ -110,5 +110,20 @@ module Payment
     def sign_hmac256(data, key)
       Base64.strict_encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha256'), key, data))
     end
+
+
+    #verify response key
+    def redsys_response_parameters
+      decode_parameters(params["Ds_MerchantParameters"])
+    end
+  
+    def decode_parameters(parameters)
+       JSON.parse(Base64.decode64(parameters.tr("-_", "+/")))
+    end
+    
+    def check_response_signature(order_id)
+      response_signature = Base64.strict_encode64(Base64.urlsafe_decode64(params["Ds_Signature"]))
+      raise InvalidSignatureError unless response_signature == calculate_signature(params["Ds_MerchantParameters"], order_id)
+    end
   end
 end
