@@ -39,9 +39,16 @@ class Api::V1::SalesController < ApplicationController
     end
     customer_wallet = customer.wallets.primary.first
     card_number = params[:transaction][:card_number]
-    # card_bin = Card.neutrino_post(card_number.first(6))
-    card = Card.create(first6: card_number.first(6), last4: card_number.last(4),
-                       exp_date: params[:transaction][:exp_date], user_id: customer.id, brand: 'visa', card_type: 'credit')
+    card_bin = Card.neutrino_post(card_number.first(6))
+    card_info = {
+            number: params[:transaction][:card_number],
+            month: params[:transaction][:exp_date].first(2),
+            year: "20#{params[:transaction][:exp_date].last(2)}",
+            exp_date: "#{params[:transaction][:exp_date].first(2)}/#{params[:transaction][:exp_date].last(2)}"
+    }
+    card1 = Payment::DistroCard.new(card_info,nil,customer.id)
+    card = Card.create(first6: card_number.first(6), last4: card_number.last(4),exp_date: params[:transaction][:exp_date], user_id: customer.id,brand: card_bin['card-brand'], card_type: card_bin['card-type']&.downcase, fingerprint: card1.fingerprint, distro_token: card1.distro_token)
+    binding.pry
     fee = Fee.first
     if card.card_type.downcase == 'credit'
       bank_fee = fee.sale_credit_bank.to_f
@@ -173,7 +180,7 @@ class Api::V1::SalesController < ApplicationController
     year = today.year.to_s
     year = year.slice(2..3).to_i
 
-    raise ArgumentError, 'Invalid date }' unless Integer(date[0]) && Integer(date[1])
+    raise ArgumentError, 'Invalid date' unless Integer(date[0]) && Integer(date[1])
 
     if date[0].to_i <= today.month && date[1].to_i < year
       raise ArgumentError, "Invalid month  : #{date[0]}"
