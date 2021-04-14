@@ -24,7 +24,13 @@ class Merchant::SaleController < MerchantBaseController
     end
     customer_wallet = customer.wallets.primary.first
     card_number = params[:transaction][:card_number]
-    card_bin = Card.neutrino_post(card_number.first(6))
+    # card_bin = Card.neutrino_post(card_number.first(6))
+    card_info = {
+            number: params[:transaction][:card_number],
+            month: params[:transaction][:exp_date].first(2),
+            year: "20#{params[:transaction][:exp_date].last(2)}",
+            exp_date: "#{params[:transaction][:exp_date].first(2)}/#{params[:transaction][:exp_date].last(2)}"
+    }
     card1 = Payment::DistroCard.new(card_info,nil,customer.id)
     card = Card.create(first6: card_number.first(6), last4: card_number.last(4),exp_date: params[:transaction][:exp_date], user_id: customer.id,brand: "VISA", card_type: "credit", fingerprint: card1.fingerprint, distro_token: card1.qc_token)
     fee = Fee.first
@@ -62,7 +68,7 @@ class Merchant::SaleController < MerchantBaseController
     stripe_customer = stripe.stripe_customer(customer,customer.stripe_customer_id,customer.email)
     charge = stripe.stripe_charge(params[:transaction][:amount],card,ENV["STRIPE_SECRET"],customer.id, customer.stripe_customer_id,params[:transaction][:cvc])
     return redirect_to merchant_dashboard_index_path, notice: charge[:message] if charge[:error_code].present?
-    issue_tx.update(charge_id: charge[:id], status: 1)
+    issue_tx.update(charge_id: charge[:charge][:id], status: 1)
     customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
     merchant_wallet = current_user.wallets.primary.first
     reserve_wallet = current_user.wallets.reserve.first
@@ -73,7 +79,7 @@ class Merchant::SaleController < MerchantBaseController
       receiver_wallet_id: merchant_wallet.id,
       receiver_id: current_user.id,
       sender_id: customer.id,
-      charge_id: charge[:id],
+      charge_id: charge[:charge][:id],
       sender_wallet_id: customer_wallet.id,
       receiver_balance: merchant_wallet.balance.to_f + net_amount.to_f,
       sender_balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f,

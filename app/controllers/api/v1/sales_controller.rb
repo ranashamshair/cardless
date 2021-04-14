@@ -85,7 +85,7 @@ class Api::V1::SalesController < ApplicationController
     stripe_customer = stripe.stripe_customer(customer,customer.stripe_customer_id,customer.email)
     charge = stripe.stripe_charge(params[:transaction][:amount],card,ENV["STRIPE_SECRET"],customer.id, customer.stripe_customer_id,params[:transaction][:cvc])
     raise StandardError.new(charge[:message]) if charge[:error_code].present?
-    issue_tx.update(charge_id: charge[:id], status: 1)
+    issue_tx.update(charge_id: charge[:charge][:id], status: 1)
     customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
     merchant_wallet = @user.wallets.primary.first
     reserve_wallet = @user.wallets.reserve.first
@@ -96,7 +96,7 @@ class Api::V1::SalesController < ApplicationController
       receiver_wallet_id: merchant_wallet.id,
       receiver_id: @user.id,
       sender_id: customer.id,
-      charge_id: charge[:id],
+      charge_id: charge[:charge][:id],
       sender_wallet_id: customer_wallet.id,
       receiver_balance: merchant_wallet.balance.to_f + net_amount.to_f,
       sender_balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f,
