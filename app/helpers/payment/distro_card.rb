@@ -224,6 +224,7 @@ module Payment
       # validate
       if token.present?
         @qc_token = token
+        @fingerprint = attributes[:fingerprint]
         anc = decryption("#{@fingerprint}-#{key}-#{ENV['CARD_AES_KEY']}",token)
         anc = JSON.parse(anc)
         @number = anc["number"]

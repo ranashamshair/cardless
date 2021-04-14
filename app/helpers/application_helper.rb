@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
+    include ActionView::Helpers::NumberHelper
     def dollars_to_cents(dollars)
         return number_with_precision(dollars.to_f * 100, precision: 2).to_i
     end
