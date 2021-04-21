@@ -138,4 +138,9 @@ class Merchant::SaleController < MerchantBaseController
     merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
     redirect_to merchant_dashboard_index_path, notice: 'success'
   end
+
+
+  def refund
+    @fee = Fee.last
+  end
 end

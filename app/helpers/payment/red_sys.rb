@@ -69,11 +69,11 @@ module Payment
         "Ds_Merchant_MerchantName" => "ACME",
         "Ds_Merchant_Terminal" => 1,
         "Ds_Merchant_TransactionType" => 0,
-        "Ds_Merchant_Order" => "12345",
-        "DS_MERCHANT_PAN": '4548812049400004',
-        "DS_MERCHANT_CURRENCY": '978',
-        "DS_MERCHANT_CVV2": '123',
-        "DS_MERCHANT_EXPIRYDATE": '1223',
+        "Ds_Merchant_Order" =>  rand.to_s[2..6],
+        # "DS_MERCHANT_PAN": '4548812049400004',
+        # "DS_MERCHANT_CURRENCY": '978',
+        # "DS_MERCHANT_CVV2": '123',
+        # "DS_MERCHANT_EXPIRYDATE": '1223',
       }
     end
 

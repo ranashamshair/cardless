@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_071749) do
+ActiveRecord::Schema.define(version: 2021_04_14_104508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_071749) do
     t.float "sale_debit_bank_percent", default: 0.0
     t.float "sale_credit_merchant_percent", default: 0.0
     t.float "sale_debit_merchant_percent", default: 0.0
+    t.float "refund", default: 0.0
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
