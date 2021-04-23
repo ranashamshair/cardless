@@ -55,7 +55,7 @@ module Payment
       JSON(data)
     end
 
-    private
+    
 
     def merchant_parameters_hash
       {
@@ -113,17 +113,17 @@ module Payment
 
 
     #verify response key
-    def redsys_response_parameters
-      decode_parameters(params["Ds_MerchantParameters"])
+    def redsys_response_parameters(data)
+      decode_parameters(data)
     end
   
     def decode_parameters(parameters)
        JSON.parse(Base64.decode64(parameters.tr("-_", "+/")))
     end
     
-    def check_response_signature(order_id)
-      response_signature = Base64.strict_encode64(Base64.urlsafe_decode64(params["Ds_Signature"]))
-      raise InvalidSignatureError unless response_signature == calculate_signature(params["Ds_MerchantParameters"], order_id)
+    def check_response_signature(order_id, signature, merchant_data)
+      response_signature = Base64.strict_encode64(Base64.urlsafe_decode64(signature))
+      raise InvalidSignatureError unless response_signature == calculate_signature(merchant_data, order_id)
     end
   end
 end
