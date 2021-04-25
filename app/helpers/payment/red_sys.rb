@@ -55,7 +55,7 @@ module Payment
       JSON(data)
     end
 
-    
+
 
     def merchant_parameters_hash
       {
@@ -67,13 +67,12 @@ module Payment
         "Ds_Merchant_UrlOK" => "https://www.example.com/payment/ok/",
         "Ds_Merchant_UrlKO" => "https://www.example.com/payment/ko/",
         "Ds_Merchant_MerchantName" => "ACME",
-        "Ds_Merchant_Terminal" => 1,
-        "Ds_Merchant_TransactionType" => 0,
+        "Ds_Merchant_Terminal" => 2,
+        "Ds_Merchant_TransactionType" => 2,
         "Ds_Merchant_Order" =>  rand.to_s[2..6],
-        # "DS_MERCHANT_PAN": '4548812049400004',
-        # "DS_MERCHANT_CURRENCY": '978',
-        # "DS_MERCHANT_CVV2": '123',
-        # "DS_MERCHANT_EXPIRYDATE": '1223',
+        "DS_MERCHANT_PAN" => '4548812049400004',
+        "DS_MERCHANT_CVV2" => '123',
+        "DS_MERCHANT_EXPIRYDATE" => '1223',
       }
     end
 
@@ -96,7 +95,7 @@ module Payment
       unique_key_per_order = encrypt_3DES(ds_order, Base64.decode64("sq7HjrUOBfKmC576ILgskD5srU870gJ7"))
       sign_hmac256(b64_parameters, unique_key_per_order)
     end
-  
+
     def encrypt_3DES(data, key)
       cipher = OpenSSL::Cipher::Cipher.new("DES-EDE3-CBC")
       cipher.encrypt
@@ -106,7 +105,7 @@ module Payment
       end
       cipher.update(data)
     end
-  
+
     def sign_hmac256(data, key)
       Base64.strict_encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha256'), key, data))
     end
@@ -116,11 +115,11 @@ module Payment
     def redsys_response_parameters(data)
       decode_parameters(data)
     end
-  
+
     def decode_parameters(parameters)
        JSON.parse(Base64.decode64(parameters.tr("-_", "+/")))
     end
-    
+
     def check_response_signature(order_id, signature, merchant_data)
       response_signature = Base64.strict_encode64(Base64.urlsafe_decode64(signature))
       raise InvalidSignatureError unless response_signature == calculate_signature(merchant_data, order_id)
