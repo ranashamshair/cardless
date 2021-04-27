@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_104508) do
     t.string "ref_id"
     t.integer "transaction_id"
     t.datetime "payed_at"
-    t.bigint "bank_id", null: false
+    t.bigint "bank_id"
     t.index ["bank_id"], name: "index_withdraws_on_bank_id"
     t.index ["user_id"], name: "index_withdraws_on_user_id"
   end
