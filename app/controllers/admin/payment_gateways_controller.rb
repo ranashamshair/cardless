@@ -2,6 +2,8 @@
 
 class Admin::PaymentGatewaysController < AdminBaseController
   before_action :find_gateway, only: %i[show edit update]
+   skip_before_action :verify_authenticity_token
+
 
   def index
     @pagy, @payment_gateways = pagy(PaymentGateway.all)
@@ -47,6 +49,6 @@ class Admin::PaymentGatewaysController < AdminBaseController
   end
 
   def payment_gateway_params
-    params.require(:payment_gateway).permit(:name, :type, :client_secret, :client_id, :is_block, :is_deleted)
+    params.require(:payment_gateway).permit(:name, :type, :client_secret, :client_id, :is_block, :is_deleted, :merchante_id, :base_url, :secret_word, :redirect_url)
   end
 end

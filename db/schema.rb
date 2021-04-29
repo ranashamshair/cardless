@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_104508) do
+ActiveRecord::Schema.define(version: 2021_04_29_171901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_104508) do
   end
 
   create_table "payment_gateways", force: :cascade do |t|
-    t.integer "type"
+    t.integer "gateway_type"
     t.string "name"
     t.text "client_secret"
     t.text "client_id"
@@ -77,6 +77,10 @@ ActiveRecord::Schema.define(version: 2021_04_14_104508) do
     t.boolean "is_deleted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "merchant_id"
+    t.string "redirect_url"
+    t.string "base_url"
+    t.string "secret_word"
   end
 
   create_table "reserve_schedules", force: :cascade do |t|
