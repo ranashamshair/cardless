@@ -46,14 +46,12 @@
 <script>
 
 
-window.addEventListener('load', (event) => {
 
-  let hide_arguments = [ "redirect_url", "base_url", "client_key", "name", "merchant_id","secret_word", "client_secret" ];
+ var hide_arguments = [ "redirect_url", "base_url", "client_key", "name", "merchant_id","secret_word", "client_secret" ];
   for(var i=0; i < hide_arguments.length; i++){
     document.getElementById(hide_arguments[i]).style.display = "none";
   }
 
-});
 
 
   document.addEventListener('input', function (event) {
