@@ -133,7 +133,7 @@ class Merchant::SaleController < MerchantBaseController
       end
       reserve_wallet.update(balance: reserve_wallet.balance.to_f + reserve.to_f)
     end
-    
+
     customer_wallet.update(balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f)
     merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
     redirect_to merchant_dashboard_index_path, notice: 'success'
