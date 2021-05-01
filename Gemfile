@@ -23,6 +23,7 @@ gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'stripe'
 gem 'sidekiq-status'
+gem 'gocardless_pro'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
