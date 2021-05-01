@@ -68,7 +68,7 @@ module Payment
       if refund['status'] == 'succeeded'
         return {message: nil, charge: refund.id}
       else
-        return {message: , charge: nil}
+        return {message: refund, charge: nil}
       end
     end
 
