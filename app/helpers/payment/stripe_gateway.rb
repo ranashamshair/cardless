@@ -35,9 +35,8 @@ module Payment
       end
     end
 
-    def stripe_charge(amount,card, key,user_id,customer_id,card_cvv,capture=nil)
+    def stripe_charge(amount,card, key,user_id,customer_id,card_cvv)
       Stripe.api_key = key if key.present?
-      capture = capture ? true : false
       begin
         card_info = Payment::DistroCard.new({fingerprint: card.fingerprint}, card.distro_token, user_id)
         customer = Stripe::Customer.retrieve(customer_id)
@@ -47,7 +46,7 @@ module Payment
                                            :currency => "usd",
                                            :customer => customer_id,
                                            :card => card[:id],
-                                           :capture => capture
+                                           :capture => true
                                        })
       rescue Stripe::CardError, Stripe::InvalidRequestError => e
         body = e.json_body
@@ -59,6 +58,18 @@ module Payment
         end
       end
       return {message: nil,charge: charge,error_code: nil}
+    end
+
+    def refund(id, key)
+      Stripe.api_key = key if key.present?
+      refund = Stripe::Refund.create({
+        charge: id,
+      })
+      if refund['status'] == 'succeeded'
+        return {message: nil, charge: refund.id}
+      else
+        return {message: , charge: nil}
+      end
     end
 
     private
