@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_093149) do
+ActiveRecord::Schema.define(version: 2021_05_03_092324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_transfers", force: :cascade do |t|
+    t.integer "receiver_wallet_id"
+    t.integer "sender_wallet_id"
+    t.float "amount"
+    t.text "instruction"
+    t.string "reason"
+    t.float "sender_balance"
+    t.float "receiver_balance"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "banks", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -55,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_093149) do
     t.float "sale_credit_merchant_percent", default: 0.0
     t.float "sale_debit_merchant_percent", default: 0.0
     t.float "refund", default: 0.0
+    t.float "account_transfer", default: 0.0
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

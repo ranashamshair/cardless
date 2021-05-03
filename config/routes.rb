@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       get :fee_structure, on: :collection
       get :api_key, on: :collection
     end
-    resources :sale, only: %i[index create] do 
+    resources :sale, only: %i[index create] do
       get :refund, on: :collection
     end
     resources :dashboard, only: %i[index edit update show] do
@@ -40,6 +40,9 @@ Rails.application.routes.draw do
       end
     end
     resources :withdraws
+    resources :account_transfers do
+      get :check_email, on: :collection
+    end
   end
   namespace :admin do
     resources :dashboard, only: [:index]

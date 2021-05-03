@@ -1,0 +1,2 @@
+$("#account-transfers").html("<%= escape_javascript(render partial: 'account_transfer', locals: {fee: @fee, account_transfer: @account_transfer, balance: @balance}) %>");
+$(".account_transfer_modal").modal('show');

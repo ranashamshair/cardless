@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  receiver_wallet: one
+  sender_wallet: one
+  amount: 1.5
+  instruction: MyText
+  reason: MyString
+  sender_balance: 1.5
+  receiver_balance: 1.5
+  sender: one
+  receiver: one
+
+two:
+  receiver_wallet: two
+  sender_wallet: two
+  amount: 1.5
+  instruction: MyText
+  reason: MyString
+  sender_balance: 1.5
+  receiver_balance: 1.5
+  sender: two
+  receiver: two

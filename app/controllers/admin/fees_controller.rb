@@ -30,6 +30,6 @@ class Admin::FeesController < AdminBaseController
 
   def fee_params
     params.fetch(:fee).permit(:sale_credit_bank,:refund, :sale_debit_bank, :sale_credit_merchant, :sale_debit_merchant,
-                              :sale_credit_bank_percent, :sale_debit_bank_percent, :sale_credit_merchant_percent, :sale_debit_merchant_percent, :withdraw, :reserve, :days)
+                              :sale_credit_bank_percent, :account_transfer, :sale_debit_bank_percent, :sale_credit_merchant_percent, :sale_debit_merchant_percent, :withdraw, :reserve, :days)
   end
 end

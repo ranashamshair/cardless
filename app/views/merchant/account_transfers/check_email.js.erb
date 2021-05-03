@@ -1,0 +1,7 @@
+<% if @user.blank? && @same_user.blank? %>
+  $(".email-error").html("No account found with this email.");
+<% elsif @same_user.present? %>
+  $(".email-error").html("You cannot transfer to your self.");
+<% else %>
+  $(".email-error").html("");
+<% end %>
