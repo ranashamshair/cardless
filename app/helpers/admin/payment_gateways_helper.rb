@@ -5,7 +5,7 @@ module Admin::PaymentGatewaysHelper
       case type
         when 'gocardless'
           return 0
-        when 'brain_tree_payment'
+        when 'brain_tree_payments'
           return 1
         when 'checkout'
           return 2

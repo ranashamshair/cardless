@@ -5,7 +5,6 @@
         <%= form.select :gateway_type, PaymentGateway.gateway_types.map { |w| [w.first.humanize, w.second] }, include_blank: true ,
           class: "form-control", selected:  default_gateway_type(form.object.gateway_type) %>
       </div>
-
       <div class="form-group" id="name" >
         <label for="name"> Name</label>
         <%= form.text_field :name, class: "form-control", requried: true %>
@@ -48,19 +47,19 @@
 
 <script>
 
-var gateway_type ='<%=@gateway_t  %>'
-if (gateway_type.length > 0 ){
-  if(gateway_type == 'dowlla' || 'securion_pay' || 'rapyd' || 'stripe' ){
-    let hide_arguments = ["merchant_id", "redirect_url", "base_url","secret_word"];
-    for(var i=0; i < hide_arguments.length; i++){
-      document.getElementById(hide_arguments[i]).style.display = "none";
-    }
+  var gateway_type ='<%=@gateway_t  %>'
+  if (gateway_type.length > 0 ){
+    if(gateway_type == 'dowlla' || 'securion_pay' || 'rapyd' || 'stripe' ){
+      let hide_arguments = ["merchant_id", "redirect_url", "base_url","secret_word"];
+      for(var i=0; i < hide_arguments.length; i++){
+        document.getElementById(hide_arguments[i]).style.display = "none";
+      }
 
-    let show_arguments = ["name", "client_key", "client_secret"];
-    for(var i=0; i < show_arguments.length; i++){
-      document.getElementById(show_arguments[i]).style.display = "block";
+      let show_arguments = ["name", "client_key", "client_secret"];
+      for(var i=0; i < show_arguments.length; i++){
+        document.getElementById(show_arguments[i]).style.display = "block";
+      }
     }
-  }
 
   if(gateway_type == 'gocardless'){
     let hide_arguments = [ "client_key", "redirect_url", "base_url", "secret_word"];
@@ -103,15 +102,15 @@ if (gateway_type.length > 0 ){
 
   if(gateway_type == '_2_checkout'){
     let hide_arguments = [ "redirect_url", "base_url", "client_key" ];
-  for(var i=0; i < hide_arguments.length; i++){
-    document.getElementById(hide_arguments[i]).style.display = "none";
-  }
+    for(var i=0; i < hide_arguments.length; i++){
+      document.getElementById(hide_arguments[i]).style.display = "none";
+    }
 
-  let show_arguments = [ "name", "merchant_id","secret_word", "client_secret" ];
+    let show_arguments = [ "name", "merchant_id","secret_word", "client_secret" ];
 
-  for(var i=0; i < show_arguments.length; i++){
-    document.getElementById(show_arguments[i]).style.display = "block";
-  }
+    for(var i=0; i < show_arguments.length; i++){
+      document.getElementById(show_arguments[i]).style.display = "block";
+    }
   }
 }
 else{
