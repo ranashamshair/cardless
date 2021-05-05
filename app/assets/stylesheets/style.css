@@ -1586,3 +1586,109 @@ label.forgotPassword a {
 .signup_txt a {
     color: var(--theme-second-color);
 }
+
+#header_section_api {
+    width: 100%;
+    height: 100px;
+    background-color: var(--theme-primary-color);
+}
+
+#header_section_api li {
+    list-style: initial;
+}
+
+#apidocs_section {
+    margin: 3rem 0;
+}
+
+#apidocs_section .breadcrumb {
+    padding: 0 0;
+    background-color: var(--theme-white-color);
+}
+
+#apidocs_section .breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: .5rem;
+    color: #6c757d;
+    content: ">";
+}
+
+#apidocs_section .breadcrumb li a {
+    font-weight: 500;
+    color: var(--theme-second-color);
+}
+
+#apidocs_section .heading,
+#apidocs_section .heading_3 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+#apidocs_section .heading_2 {
+    padding: .5rem .6rem;
+    border-radius: 2px;
+    color: var(--theme-white-color);
+    border-bottom: 2px solid var(--theme-second-color);
+    background-color: var(--theme-primary-color);
+}
+
+#apidocs_section p {
+    padding-top: .5rem;
+}
+
+#php_section {
+    margin: 0rem 0;
+}
+
+#apidocs_section .heading_3 {
+    margin-top: .4rem;
+}
+
+#php_section .heading_4,
+#php_section .heading_5,
+#php_section .heading_6,
+#ruby_section .heading_4,
+#ruby_section .heading_5,
+#ruby_section .heading_6 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#php_section span,
+#ruby_section span {
+    font-weight: 500;
+    color: var(--theme-second-color);
+}
+
+#php_section .init_code,
+#ruby_section .init_code {
+    padding: 40px 50px;
+    border-radius: 2px;
+    border-bottom: 1px solid var(--theme-second-color);
+    background-color: var(--theme-third-color);
+}
+
+#php_section .init_code .color_0,
+#ruby_section .init_code .color_0 {
+    color: var(--theme-second-color);
+}
+
+#php_section .init_code .color_one,
+#ruby_section .init_code .color_one {
+    color: var(--theme-color-blue);
+}
+
+#php_section .init_code .color_two,
+#ruby_section .init_code .color_two {
+    color: var(--theme-forms-color);
+}
+
+#php_section .init_code .color_three,
+#ruby_section .init_code .color_three {
+    color: var(--theme-color-green);
+}
+
+#php_section .init_code .code_api,
+#ruby_section .init_code .code_api {
+    color: var(--theme-forms-color);
+}
