@@ -70,7 +70,7 @@ module Payment
         "Ds_Merchant_Terminal" => 2,
         "Ds_Merchant_TransactionType" => 2,
         "Ds_Merchant_Order" =>  rand.to_s[2..6],
-        "DS_MERCHANT_PAN" => '4548812049400004',
+        "DS_MERCHANT_PAN" => '454881********04',
         "DS_MERCHANT_CVV2" => '123',
         "DS_MERCHANT_EXPIRYDATE" => '1223',
       }
