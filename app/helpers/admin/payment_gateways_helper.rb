@@ -13,7 +13,7 @@ module Admin::PaymentGatewaysHelper
           return 3
         when 'securion_pay'
           return 4
-        when '_2_checkout'
+        when 'two_checkout'
           return 5
         when 'rapyd'
           return 6
