@@ -98,10 +98,8 @@
   		return true;
   	}
 
-
-  	<!-- Listener de recepción de ID de operación -->
   	window.addEventListener("message", function receiveMessage(event) {
-  		storeIdOper(event,"token", "errorCode", "merchantValidationEjemplo");
+  		storeIdOper(event,"token", "errorCode", "merchantValidation");
   	});
 
     getInSiteForm('card-form', '', '', '', '', 'Texto botón pago', 352263560, 2, 123456);
