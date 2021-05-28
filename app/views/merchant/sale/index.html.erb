@@ -1,4 +1,4 @@
-
+<script src="https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js"></script>
 <!-- Virtual Terminal Form -->
     <div class="client_form">
         <div class="container">
@@ -91,7 +91,7 @@
   <input type="hidden" id="token" ></input>
   <input type="hidden" id="errorCode" ></input>
 
-  <script src="https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js"></script>
+
 <script type="text/javascript">
   function merchantValidationEjemplo(){
   		//Insertar validaciones…
@@ -99,7 +99,7 @@
   	}
 
   	window.addEventListener("message", function receiveMessage(event) {
-  		storeIdOper(event,"token", "errorCode", "merchantValidation");
+  		storeIdOper(event,"token", "errorCode", "merchantValidationEjemplo");
   	});
 
     getInSiteForm('card-form', '', '', '', '', 'Texto botón pago', 352263560, 2, 123456);
