@@ -93,6 +93,8 @@
 
 
 <script type="text/javascript">
+  var order_id = "<%= rand.to_s[2..6] %>"
+  console.log(order_idx)
   function merchantValidationEjemplo(){
   		//Insertar validaciones…
   		return true;
@@ -102,5 +104,5 @@
   		storeIdOper(event,"token", "errorCode", "merchantValidationEjemplo");
   	});
 
-    getInSiteForm('card-form', '', '', '', '', 'Texto botón pago', "352263560", "2", "<%= rand.to_s[2..6] %>");
+    getInSiteForm('card-form', '', '', '', '', 'Texto botón pago', "352263560", "2", order_id);
 </script>
