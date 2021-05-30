@@ -95,7 +95,8 @@ module Payment
         "Ds_Merchant_Order" => order_id,
         "Ds_Merchant_MerchantCode" => 352263560,
         "Ds_Merchant_Terminal" => 2,
-        "Ds_Merchant_TransactionType" => 0
+        "Ds_Merchant_TransactionType" => 0,
+        "Ds_Merchant_Currency" => 978
       }
     end
 
