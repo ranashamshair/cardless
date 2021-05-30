@@ -55,8 +55,8 @@ module Payment
       JSON(data)
     end
 
-    def insite_authorize(id, order_id)
-      data = signed_request_order(insite_params(id, order_id))
+    def insite_authorize(id, order_id,tx_type)
+      data = signed_request_order(insite_params(id, order_id,tx_type))
       url = 'https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST'
       curlObj = Curl::Easy.new(url)
       curlObj.connect_timeout = 3000
