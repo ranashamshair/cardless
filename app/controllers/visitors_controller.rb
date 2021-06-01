@@ -17,6 +17,4 @@ class VisitorsController < ApplicationController
 
   def contact; end
 
-  def maintenance
-  end
 end
