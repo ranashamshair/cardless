@@ -16,4 +16,7 @@ class VisitorsController < ApplicationController
   def privacy; end
 
   def contact; end
+
+  def maintenance
+  end
 end
