@@ -7,6 +7,7 @@
       <li><a href="/faq">Faq</a></li>
       <li><a href="/privacy">Privacy</a></li>
       <li><a href="/terms">Terms</a></li>
+      <li><a href="/docs">Docs</a></li>
       <% if current_user.present? %>
         <li><a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>">Dashboard</a></li>
       <% end %>
