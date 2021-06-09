@@ -1,0 +1,190 @@
+  <header id="header_section_api">
+    <div class="container">
+      <div class="main_nav">
+        <div class="row align-content-center">
+
+          <div class="brand_identity"><%= image_tag("logo_icon.png", {:style => "width:40px;"}) %></div>
+          <!-- Toggle Navigation -->
+          <div class="toggle_navigation">
+            <i class="fas fa-bars"></i>
+          </div>
+          <!-- Toggle Navigation -->
+            <%= render partial: "shared/menu" %>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Api Docs Section Start -->
+  <section id="apidocs_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Docs</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="#">Api Overview</a></li>
+            </ol>
+          </nav>
+          <div class="heading">API Overview</div>
+          <p>The DistroPayment API uses API keys to authenticate requests. You can view and manage your API keys in the DestroPyment Dashboard
+          DistroPayment provides HTTP based API which follows the essence of REST*. The HTTP protocol's rules are
+            followed thereby enabling simple HTTP client tools like "curl" to be used.</p>
+          <p class="heading_2">Here we are introducing a new way of handling payment securely and easily with DistroPayment API.</p>
+          <div>You can use it in an easy way</div>
+
+          <div id="ruby_section">
+          <div class="heading pt-3">Errors</div>
+          <p>Stripe uses conventional HTTP response codes to indicate the success or failure of an API request.
+           In general: Codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided
+          </p>
+            <div class="init_code"><span class="color_0">
+              <div class="code_api">
+                  <h4> Summery of errors </h4>
+
+                <div class="pl-3 mt-2">
+                 <p> <span>200 - </span>OK	Everything worked as expected.<br>
+                  <span>401 - </span>Unable to retrieve auth token! please check your keys.<br>
+                  <span>401 - </span>Access token not found check it.<br></p>
+                <h5> Argument of errors </h5>
+
+               <p> Missing required parameter :  perameter name.</p>
+               <p> Invalid Email: givin email.</p>
+               <p> Invalid Amount : given amount</p>
+               <p>Invalid Card number : given card_number </p>
+               <p> Invalid Date : given date</p>
+               <p> Invalid CVC  : given cvc</p>
+               <p> Invalid month  : given month </p>
+               <p> Invalid year  : given year</p>
+               <p> </p>
+               <p> </p>
+
+
+                </div>
+              </div>
+            </div>
+           <div class="heading pt-3">Account setup</div>
+            <p>Sign Up configure your site and your API keys. It is a global
+              configuration and can set up as part of your server initialization.
+              Your API keys carry many privileges, so be sure to keep them secure!
+             Do not share your secret API keys in publicly accessible areas such as GitHub,
+             client-side code, and so forth. </p>
+           <div class="heading pt-3">Authentication token</div>
+            <p>The first step is to create a token by sending API keys by a server-to-server POST request to DistroPayment.
+            <br> Use the <span>https://distropayment.com/api/v1/auth_token/token</span></p>
+            <div class="init_code"><span class="color_0">
+              <div class="code_api">
+                <div class="pl-3">
+                  <pre  class="color_three">   <span>"client_secret":</span>"SE7fceb1d113129da5f35c498b8a0a7"</pre>
+                  <pre  class="color_three">    <span>"client_public":</span>"IDa971f36df184f0ce0887cd55"</pre>
+                </div>
+              </div>
+            </div>
+            <p><br>The response is in JSON format. A successful response provides the token in the location body, as follows:</p>
+            <div class="init_code"><span class="color_three">{ <br>
+            <pre  class="color_three"> <span> "access_token": </span> "2de7cbce1a775c2548835eb97b8a.."</pre>}</span></div>
+           <div class="heading  pt-3">Virtual terminal</div>
+
+            <p>Virtual terminal captures the shopper's sensitive card data via our Hosted Payment Fields, and binds it to the token.
+             Your PCI compliance is reduced to SAQ-A because sensitive data never hits your sever.
+            The second step is send token and card information server-to-server by POST request to Virtual terminal <br></p>
+           <h6> <span class="m-2"> access_token  <span class="text-danger"> - required </span></span></h6>
+           <p>Authentication token we have learn in privious section how to genrate, for successful sale transection access_token required  </p>
+
+           <h6> <span class="m-2"> name  <span class="text-danger"> - required </span></span></h6>
+           <p> Customer name is required to complete the transection </p>
+
+           <h6> <span class="m-2"> email  <span class="text-danger"> - required </span></span></h6>
+           <p> User's Email Address is required to complete the transection </p>
+
+           <h6> <span class="m-2"> amount  <span class="text-danger"> - required </span></span></h6>
+
+            <p> Amount intended to be collected by this payment.
+             A positive integer representing how much to charge in the smallest currency unit $1 US.
+             The minimum amount is $1 US or equivalent in charge currency.
+             The amount value supports up to eight digits (e.g., a value of $99999999 US). </p>
+
+           <h6> <span class="m-2"> card_number  <span class="text-danger"> - required </span></span></h6>
+           <p> A valid card number is required to verify the source and complete the transection </p>
+
+           <h6> <span class="m-2"> exp_date <span class="text-danger"> - required </span></span></h6>
+           <p> To complete the transection the valid future date is must.  </p>
+
+           <h6> <span class="m-2"> cvc<span class="text-danger"> - required </span></span></h6>
+           <p> Card Verification Code  is also required</p>
+
+          <h6> <span class="m-2"> phone <span class="text-secondary"> - optional </span></span></h6>
+           <p>Phone Number is optional </p>
+
+          <h6> <span class="m-2"> street_address <span class="text-secondary"> - optional </span></span></h6>
+           <p> </p>
+
+          <h6> <span class="m-2"> city <span class="text-secondary"> - optional </span></span></h6>
+           <p> </p>
+          <h6> <span class="m-2">country  <span class="text-secondary"> - optional </span></span></h6>
+           <p> </p>
+          <h6> <span class="m-2">zip_code  <span class="text-secondary"> - optional </span></span></h6>
+           <p> </p>
+
+
+            <p> Use the <span>https://distropayment.com/api/v1/sales/virtual_terminal </p>
+
+            <div class="init_code"><span class="color_0">
+              <div class="code_api">
+                <div class="pl-3">
+                  <pre  class="color_three"> {</pre>
+                  <pre  class="color_three">    <span>"access_token":</span>"2de7cbce1a775c2548835eb97b8a.."</pre>
+                  <pre  class="color_three">    "transaction": {</pre>
+                  <pre  class="color_three">      <span>" name":</span>"Jhon",</pre>
+                  <pre  class="color_three">      <span>"email":</span>"jhonkozak@example.com",</pre>
+                  <pre  class="color_three">      <span>"phone":</span>"+5434309242",</pre>
+                  <pre  class="color_three">      <span>"amount":</span>"1000"</pre>
+                  <pre  class="color_three">      <span>"card_number":</span>"4242424242424242",</pre>
+                  <pre  class="color_three">      <span>"exp_date":</span>"05/22"</pre>
+                  <pre  class="color_three">      <span>"street_address":</span>"103  Iffley Road",</pre>
+                  <pre  class="color_three">      <span>"city":</span>"BROADMERE",</pre>
+                  <pre  class="color_three">      <span>"country":</span>"UK",</pre>
+                  <pre  class="color_three">      <span>"zip-code":</span>"RG25 8FD"</pre>
+                  <pre  class="color_three">    } </pre>
+                  <pre  class="color_three">  }</pre>
+                </div>
+              </div>
+            </div>
+            <div class="heading_6 pt-3">RESPONSE</div>
+            <p>The response is in JSON format. Currently Virtual_terminal does not support any other response format. The
+              Virtual_terminal class wraps the response sent by the server.</p>
+            <div class="init_code"><span class="color_0">
+              <div class="code_api">
+                <div class="pl-3">
+                  <span class="color_three">{ <br>
+                  <span>"message": </span>"Payment successful ", <br>
+                  <span>"success": </span> true, <br>
+                  <span>"status": </span> 200, <br>
+                  <span>"ref_id": </span> "5155dd393a380e22939015e690ba92cb"
+                  <br> }
+                  <span class="color_two"></span><br>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </section>
+  <!-- Api Docs Section End -->
+
+  <script type="text/javascript">
+    $(".scrollTo").on('click', function (e) {
+      e.preventDefault();
+      var target = $(this).attr('href');
+      $('html, body').animate({
+        scrollTop: ($(target).offset().top)
+      }, 1000);
+    });
+  </script>
+
