@@ -18,11 +18,12 @@
                             <label for="inputEmail4">Transfer to</label>
                             <%= form.email_field :receiver_wallet_id, placeholder: "Email", class: "form-control", required: true, data: {url: check_email_merchant_account_transfers_path, remote: true} %>
                             <div class="email-error">
+
                             </div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputState">Reason</label>
-                            <%= form.select :reason, [["Duplicate", "Duplicate"],["Fraudlent", "Fraudlent"], ["Other", "Other"]],{include_blank: true, required: true}, id: "inputState", class: "form-control" %>
+                            <%= form.select :reason, [["Duplicate", "Duplicate"],["Fraudlent", "Fraudlent"], ["Other", "Other"]],{include_blank: true}, required: true, id: "inputState", class: "form-control" %>
 
                         </div>
                     </div>
@@ -39,12 +40,12 @@
 
                   <div class="form row mt-3">
                       <label for="inputEmail4">Amount</label>
-                      <%= form.number_field :amount, placeholder: "10",min: "0", class: "form-control" %>
+                      <%= form.number_field :amount, placeholder: "10",min: "0", class: "form-control", required: true %>
 
                   </div>
                   <div class="form row mt-3">
                       <div class="col-md-6 pl-0 pr-1">
-                          <div class="balance total-amount pb-2">Total <span class="bal_value float-right"><%= number_with_precision(number_to_currency(balance), precision: 2, delimiter: ',') %></span></div>
+                          <div class="balance total-amount pb-2" data-fee="<%= fee %>">Total <span class="bal_value total_value float-right">$0.00</span></div>
                       </div>
                   </div>
                   <div class="mt-3">
@@ -62,3 +63,16 @@
     </div>
 </div>
 <!-- Accaount Tarnsfer Modal End-->
+<script type="text/javascript">
+  $("#account_transfer_amount").on('keyup',function(){
+    fee = parseFloat($(".total-amount").data("fee"))
+    amount =  $(this).val();
+    if (amount != "") {
+      total = fee + parseFloat($(this).val())
+    } else {
+      total = 0.00
+    }
+
+    $(".total_value").text("$"+total.toFixed(2));
+  });
+</script>

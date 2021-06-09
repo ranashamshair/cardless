@@ -6,6 +6,7 @@ class MerchantBaseController < ActionController::Base
   before_action :check_merchant
   before_action :authenticate_user!
 
+
   def check_merchant
     redirect_to root_path unless current_user.merchant?
   end

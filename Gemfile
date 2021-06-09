@@ -25,6 +25,7 @@ gem 'stripe'
 gem 'sidekiq-status'
 gem 'gocardless_pro'
 gem "braintree", "~> 3.4.0"
+gem 'activemerchant'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -77,3 +78,4 @@ end
 gem 'rest-client'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'aes'
+gem 'turnout'

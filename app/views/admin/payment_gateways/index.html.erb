@@ -21,13 +21,18 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="example2" class="table table-bordered table-hover ">
                   <thead>
                   <tr>
                     <th>Id</th>
+                    <th>Type</th>
                     <th>Name</th>
                     <th>Client Secret</th>
                     <th>Client Id</th>
+                    <th>Merchant Id</th>
+                    <th>Base url</th>
+                    <th>Redirect url</th>
+                    <th>Secret Word</th>
                     <th>Blocked</th>
                     <th>Edit</th>
                   </tr>
@@ -36,9 +41,14 @@
                         <% @payment_gateways.try(:each) do |gateway| %>
                             <tr>
                                 <td><%= gateway.id %></td>
+                                <td><%= gateway.gateway_type.humanize %></td>
                                 <td><%= gateway.name %></td>
                                 <td><%= gateway.client_secret %></td>
                                 <td><%= gateway.client_id %></td>
+                                <td><%= gateway.merchant_id %></td>
+                                <td><%= gateway.base_url %></td>
+                                <td><%= gateway.redirect_url %></td>
+                                <td><%= gateway.secret_word %></td>
                                 <td><%= gateway.is_block %></td>
                                 <td><%= link_to "Edit", edit_admin_payment_gateway_path(gateway)%></td>
                             </tr>
@@ -47,9 +57,15 @@
                   <tfoot>
                   <tr>
                     <th>Id</th>
+                    <th>Type</th>
+
                     <th>Name</th>
                     <th>Client Secret</th>
                     <th>Client Id</th>
+                    <th>Merchant Id</th>
+                    <th>Base url</th>
+                    <th>Redirect url</th>
+                    <th>Secret Word</th>
                     <th>Blocked</th>
                     <th>Edit</th>
                   </tr>

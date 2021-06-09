@@ -1,4 +1,4 @@
-
+<script src="https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js"></script>
 <!-- Virtual Terminal Form -->
     <div class="client_form">
         <div class="container">
@@ -14,15 +14,15 @@
                           <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
                             <%= form.email_field :email, class: "form-control", id: "inputEmail4", placeholder: "Customer Email", required: true %>
-                            
+
                           </div>
-                          
+
                         </div>
                         <div class="form-row">
                           <div class="form-group col-md-6">
                             <label for="inputAddress">Client Address</label>
                             <%= form.text_field :street_address, class: "form-control", id: "inputAddress", placeholder: "1234 Main st" %>
-                            
+
                           </div>
                           <div class="form-group col-md-6">
                             <label for="inputPassword4">Mobile Number</label>
@@ -33,13 +33,13 @@
                           <div class="form-group col-md-6">
                             <label for="inputCity">City</label>
                             <%= form.text_field :city, class: "form-control", id: "inputCity", placeholder: "city" %>
-                            
+
                           </div>
                           <div class="form-group col-md-6">
                             <label for="inputState">Country</label>
                             <%= form.text_field :country, class: "form-control", id: "inputState", placeholder: "Country" %>
                           </div>
-                         
+
                         </div>
 
                         <div class="form-row">
@@ -52,13 +52,13 @@
                               <%= form.text_field :zip_code, class: "form-control", id: "inputZip", placeholder: "18045" %>
                             </div>
                           </div>
-                    
+
                         <div class="heading">Payment Info</div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputState">Amount</label>
                                 <%= form.text_field :amount, class: 'form-control', placeholder: "0.0", required: true %>
-                                
+
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Card Number</label>
@@ -87,4 +87,24 @@
         </div>
     </div>
     <!-- Virtual Terminal Form -->
-    
+  <div id="card-form"/>
+  <input type="hidden" id="token" ></input>
+  <input type="hidden" id="errorCode" ></input>
+
+
+<script type="text/javascript">
+  var order_id = "<%= rand.to_s[2..6] %>"
+  console.log(order_id)
+  function merchantValidationEjemplo(){
+  		//Insertar validaciones…
+  		return true;
+  	}
+
+  	window.addEventListener("message", function receiveMessage(event) {
+  		storeIdOper(event,"token", "errorCode", "merchantValidationEjemplo");
+  	});
+
+    getInSiteForm('card-form', '', '', '', '', 'Texto botón pago', "352263560", "2", order_id);
+</script>
+<%# 31149c3ec12ca33e2179802ab657728578f98797 %>
+<%# 34188 %>

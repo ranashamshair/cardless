@@ -13,8 +13,8 @@ window.jQuery = window.$ = require('jquery')
 import "src/bootstrap.min"
 import "src/main"
 import 'jquery.easing'
+import '@popperjs/core'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-

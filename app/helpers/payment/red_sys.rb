@@ -55,6 +55,19 @@ module Payment
       JSON(data)
     end
 
+    def insite_authorize(id, order_id,tx_type)
+      data = signed_request_order(insite_params(id, order_id,tx_type))
+      url = 'https://sis-t.redsys.es:25443/sis/rest/trataPeticionREST'
+      curlObj = Curl::Easy.new(url)
+      curlObj.connect_timeout = 3000
+      curlObj.timeout = 3000
+      curlObj.headers = ['Content-Type:application/json']
+      curlObj.post_body = data.to_json
+      curlObj.perform
+      data = curlObj.body_str
+      JSON(data)
+    end
+
 
 
     def merchant_parameters_hash
@@ -70,9 +83,21 @@ module Payment
         "Ds_Merchant_Terminal" => 2,
         "Ds_Merchant_TransactionType" => 2,
         "Ds_Merchant_Order" =>  rand.to_s[2..6],
-        "DS_MERCHANT_PAN" => '4548812049400004',
+        "DS_MERCHANT_PAN" => '454881********04',
         "DS_MERCHANT_CVV2" => '123',
         "DS_MERCHANT_EXPIRYDATE" => '1223',
+      }
+    end
+
+    def insite_params(id, order_id, tx_type)
+      {
+        "DS_MERCHANT_IDOPER" => id,
+        "Ds_Merchant_Order" => order_id,
+        "Ds_Merchant_MerchantCode" => 352263560,
+        "Ds_Merchant_Terminal" => 2,
+        "Ds_Merchant_TransactionType" => tx_type,
+        "Ds_Merchant_Currency" => 978,
+        "Ds_Merchant_Amount" => 4999,
       }
     end
 
