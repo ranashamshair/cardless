@@ -1,50 +1,40 @@
-<%= render partial: "shared/inner_header", locals: {title: "Contact Us", description: "SUBMIY YOUR MESSAGE OUR ASSITANT HELP YOU SOON"} %>
-<!--Contact Section Start-->
- 
-<section id="contact_us ">
+<!-- Contact Section -->
+  <section class="contact-us">
     <div class="container">
-    <div class="contact_us_box">
-        <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-3">
-                <div class="social_icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-                <p>Most calendars are designed for teams.
-                    Slate is designed for freelancesimple
-                    way to plan their schedule.</p>
-
-                <div class="wrap d-flex mt-4">
-                    <div class="icons_contacts">
-                        <div class="icon"><i class="far fa-map"></i></div> <div class="info">7485AC Mountain View CA</div>
-                    </div>
-
-                    <div class="icons_contacts">
-                        <div class="icon"><i class="fas fa-mobile-alt"></i></div>
-                        <div class="info">(239) 555-0108</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="send_message_box">
-                    <div class="heading">Send Message</div>
-                    <div class="input_fiealds_one">
-                        <input type="text" placeholder="Enter Your Name"> 
-                        <input type="email" placeholder="Enter Your Email" class="bro">
-                    </div>
-                    <div class="input_message">
-                        <textarea placeholder="Enter Your Message" rows="5"></textarea>
-                    </div>
-                    <button type="submit" class="btn_submit">Submit Your Message</button>
-                </div>
-            </div>
-        </div>
+        <div class="row text-center">
+            <div class="sub-title">Contact Us</div>
+            <div class="title">Need Help? Let Us Now</div>
+            <p>Cloudless and of a deep dark blue spectacle before us was.</p>
         </div>
     </div>
-
-<div class="map"></div>
-</div>
-</section>
+    <div class="contact-bg">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <%= image_tag "illustration_virtual_terminal.svg", class: "img-fluid"%>
+                    
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="contact-wrapper">
+                        <div class="title">Get In Touch</div>
+                        <form class="row g-3">
+                            <div class="col-md-12">
+                              <input type="email" placeholder="Your Email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-12">
+                              <input type="password" placeholder="Full Name" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="form-control" placeholder="Your Message" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="col-12">
+                              <button type="submit" class="btn btn-contact-us">Submit</button>
+                            </div>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!-- /.Contact Section -->

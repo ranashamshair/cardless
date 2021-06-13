@@ -1,20 +1,5 @@
 /*
 ====================
-INCLUDES STYLES
-====================
-*/
-/*
-==========
-VARIABLES
-==========
-*/
-/*
-==========
-MIXINS
-==========
-*/
-/*
-====================
 GLOBAL STYLES
 ====================
 */
@@ -30,7 +15,7 @@ GLOBAL STYLES
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 body {
@@ -52,6 +37,11 @@ header {
   background-color: #181C33;
 }
 
+header.inner{
+  width: 100%;
+  min-height: 100%;
+}
+
 header .navbar-brand {
   color: #ffffff !important;
 }
@@ -63,7 +53,7 @@ header .navbar-brand span {
 
 header .navbar-nav .nav-link {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   color: #ffffff !important;
 }
 
@@ -72,9 +62,6 @@ header .navbar-light .navbar-toggler {
   border-color: #ffffff !important;
 }
 
-header .toggler {
-  max-width: 30px;
-}
 
 header #sidebar-btn {
   display: none;
@@ -456,19 +443,28 @@ section.faq {
   padding-top: 50px;
 }
 
-section.faq .sub-title {
-  width: 120px;
+section.faq .sub-title,
+section.contact-us .sub-title,
+section.privacy-section .sub-title,
+section.privacy-section .sub-title-terms,
+section.about .sub-title-about{
+  width: 136px;
   height: 30px;
   line-height: 30px;
   border-radius: 50px;
   font-weight: 700;
   color: #1657FF;
   margin: 0 auto;
+  text-align: center;
   border: 2px dashed rgba(22, 87, 255, 0.5);
   text-transform: uppercase;
 }
 
-section.faq .title {
+section.faq .title,
+section.contact-us .title,
+section.privacy-section .title,
+section.about .title,
+section.about .popular-title{
   font-size: 28px;
   font-weight: 700;
   margin: 5px 0;
@@ -536,7 +532,118 @@ section.faq .question-bg .accordion .accordion-button.collapsed::after {
 section.faq .question-bg .accordion .accordion-body {
   background-color: #ffffff !important;
 }
-
+/*
+=======================
+CONTACT SECTION STYLES
+=======================
+*/
+section.contact-us{
+  padding-top:50px;
+}
+section.contact-us .contact-bg{
+  padding: 50px 0;
+}
+section.contact-us .contact-wrapper{
+  padding: 35px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.10) !important;
+}
+section.contact-us .form-control{
+  border-radius: 16px;
+  border: 1px solid #dadada !important;
+}
+section.contact-us .btn-contact-us{
+  color: #ffffff;
+  padding: 5px 25px;
+  border-radius: 50px;
+  background-color: #181C33;
+}
+/*
+=======================
+PRIVACY SECTION STYLES
+=======================
+*/
+section.privacy-section{
+  padding: 50px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+section.privacy-section .policy-box{
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.07) !important;
+}
+section.privacy-section .number{
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+  line-height: 30px;
+  border-radius: 50px;
+  margin-left: auto;
+  background-color: #1657FF;
+}
+section.privacy-section .policy-box{
+  margin: 20px 0;
+}
+.box-title{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  border-bottom: 2px solid #1657FF;
+}
+.policy-box p{
+  text-align: left;
+}
+/*
+=========================
+ABOUT PAGE SECTION STYLES
+=========================
+*/
+section.about {
+  padding-top: 80px;
+}
+section.about .sub-title-about{
+  margin: 0;
+  padding-bottom: 20px;
+}
+section.about .popular-title{
+  text-align: center;
+}
+section.about p.popular-content{
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+section.about .brands-images{
+  margin-top: 30px;
+  text-align: center;
+}
+section.about .brands-images img{
+  padding: 0 50px;
+  margin-bottom: 50px;
+}
+section.about .clients-info {
+  margin: 100px 0;
+  color: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  background-color: #1657FF;
+}
+section.about .clients-info .box{
+  text-align: center;
+  margin: 0 auto;
+}
+section.about .clients-info .box .title{
+  color: #ffffff;
+}
+section.about .clients-info .box .number{
+  font-size: 18px;
+}
+section.about .social img{
+  padding: 0 5px;
+}
 /*
 =======================
 FOOTER SECTION STYLES
@@ -676,6 +783,12 @@ RESPONSIVE STYLES
   .btn-sidebar {
     background: #FDBE34;
   }
+  section.faq .title, section.contact-us .title, section.privacy-section .title, section.about .title, section.about .popular-title{
+    font-size: 18px;
+  }
+  section.about p.popular-content{
+    width: 75%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -684,6 +797,9 @@ RESPONSIVE STYLES
   }
   header h1 {
     font-size: 38px;
+  }
+  .custom-mr{
+    margin-top: 70px;
   }
   header p {
     font-size: 18px;
@@ -711,116 +827,11 @@ RESPONSIVE STYLES
   section.faq .question-bg .accordion .accordion-button {
     font-size: 18px;
   }
+  section.about p.popular-content{
+    width: 100%;
+  }
   footer .copyright-warpper {
     display: block !important;
   }
-}
 
-.signup_txt a {
-    color: var(--theme-second-color);
-}
-
-#header_section_api {
-    width: 100%;
-    height: 100px;
-    background-color: var(--theme-primary-color);
-}
-
-#header_section_api li {
-    list-style: initial;
-}
-
-#apidocs_section {
-    margin: 3rem 0;
-}
-
-#apidocs_section .breadcrumb {
-    padding: 0 0;
-    background-color: var(--theme-white-color);
-}
-
-#apidocs_section .breadcrumb-item+.breadcrumb-item::before {
-    display: inline-block;
-    padding-right: .5rem;
-    color: #6c757d;
-    content: ">";
-}
-
-#apidocs_section .breadcrumb li a {
-    font-weight: 500;
-    color: var(--theme-second-color);
-}
-
-#apidocs_section .heading,
-#apidocs_section .heading_3 {
-    font-size: 22px;
-    font-weight: 500;
-}
-
-#apidocs_section .heading_2 {
-    padding: .5rem .6rem;
-    border-radius: 2px;
-    color: var(--theme-white-color);
-    border-bottom: 2px solid var(--theme-second-color);
-    background-color: var(--theme-primary-color);
-}
-
-#apidocs_section p {
-    padding-top: .5rem;
-}
-
-#php_section {
-    margin: 0rem 0;
-}
-
-#apidocs_section .heading_3 {
-    margin-top: .4rem;
-}
-
-#php_section .heading_4,
-#php_section .heading_5,
-#php_section .heading_6,
-#ruby_section .heading_4,
-#ruby_section .heading_5,
-#ruby_section .heading_6 {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-#php_section span,
-#ruby_section span {
-    font-weight: 500;
-    color: var(--theme-second-color);
-}
-
-#php_section .init_code,
-#ruby_section .init_code {
-    padding: 40px 50px;
-    border-radius: 2px;
-    border-bottom: 1px solid var(--theme-second-color);
-    background-color: var(--theme-third-color);
-}
-
-#php_section .init_code .color_0,
-#ruby_section .init_code .color_0 {
-    color: var(--theme-second-color);
-}
-
-#php_section .init_code .color_one,
-#ruby_section .init_code .color_one {
-    color: var(--theme-color-blue);
-}
-
-#php_section .init_code .color_two,
-#ruby_section .init_code .color_two {
-    color: var(--theme-forms-color);
-}
-
-#php_section .init_code .color_three,
-#ruby_section .init_code .color_three {
-    color: var(--theme-color-green);
-}
-
-#ruby_section .init_code .code_api {
-    color: var(--theme-forms-color);
 }
