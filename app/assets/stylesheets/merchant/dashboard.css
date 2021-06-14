@@ -4,8 +4,8 @@
 =================
 */
 :root {
-    --theme-primary-color: #032550;
-    --theme-second-color: #5f24d2;
+    --theme-primary-color: #181C33;
+    --theme-second-color: #1657FF;
     --theme-third-color: #02152C;
     --theme-white-color: #ffffff;
     --theme-color-light: #F3F4F5;
@@ -82,7 +82,7 @@ body{
 /* Dashboard Header */
 #dash_header {
     width: 100%;
-    padding: 16px 30px;
+    padding: 16px 32px;
 }
 
 .dash_header_left .welcom_heading {
@@ -115,7 +115,6 @@ body{
     align-content: center;
     justify-content: center;
     line-height: 50px;
-    cursor: pointer;
     color: var(--theme-white-color);
 }
 
@@ -123,6 +122,9 @@ body{
 .dash_logo img {
     max-width: 40px;
     margin: 10px 10px;
+    position: absolute;
+    left: 10%;
+    top: 0%;
 }
 
 .search {
@@ -155,24 +157,19 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    width: 60px;
-    height: 100vh;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    width: 75px;
+    height: 100%;
     overflow: hidden;
     background-color: var(--theme-primary-color);
     z-index: 1;
 }
 
 .sidebar_left:hover {
-    width: 200px;
+    width: 235px;
 }
 
 .sidebar_left ul {
-    position: absolute;
-    top: 85px;
-    left: 0;
-    width: 100%;
+    margin-top: 80px;
 }
 
 .sidebar_left ul li {
@@ -202,7 +199,7 @@ body{
 .sidebar_left ul li a .icon {
     position: relative;
     display: block;
-    min-width: 60px;
+    min-width: 80px;
     height: 40px;
     line-height: 47px;
     text-align: center;
@@ -225,8 +222,8 @@ body{
 
 .sidebar_left .fa-home{
     position: absolute;
-    top: 88%;
-    left: 18%;
+    top: 94%;
+    left: 15% !important;
     font-size: 34px;
     color: var(--theme-white-color);
 }
@@ -244,7 +241,7 @@ body{
     position: fixed;
     top: 0;
     right: 0;
-    width: 0;
+    width: 0px;
     height: 100%;
     background-color: var(--theme-white-color);
     z-index: 999;
@@ -334,9 +331,6 @@ body{
     border-radius: 50%;
     background-color: var(--theme-second-color);
 }
-.sidebar_right .log_out_my{
-    padding: 12px;
-}
 .sidebar_right .profile_my .fa-id-badge,
 .sidebar_right .log_out_my .fa-sign-out-alt{
     font-size: 22px;
@@ -352,12 +346,12 @@ body{
 .sidebar_right .line2{
     width: 1005;
     height: 1px;
-    margin-top: 10px;
+    margin-top: 80px;
     background-color: #e6e6e6;
 }
 .sidebar_right .line2{
    margin-top: 2px;
-   margin-bottom: 10px;
+   margin-bottom: 80px;
 }
 .sidebar_right ul li{
     margin: 6px 0 6px 20px;
@@ -380,7 +374,6 @@ body{
     height: 100vh;
     background-color: var(--theme-white-color);
     z-index: 999;
-    overflow-y: auto;
     transition: all ease-in-out;
 }
 
@@ -462,7 +455,7 @@ body{
 Chargeback Page Styles
 ====================*/
 .dashboard_main_page {
-    margin-left: 4rem;
+    margin-left: 3rem;
 }
 
 .dashboard_main_box {
@@ -470,6 +463,7 @@ Chargeback Page Styles
     margin: 100px 0;
     padding: 20px 15px;
     background-color: var(--theme-white-color);
+    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
 }
 
 .dashboard_main_box .title {
@@ -511,23 +505,10 @@ button.dash_view_more {
 /* Transcation History Table */
 .transaction_history_table .table{
     font-size: 16px;
-    margin: 50px 0;
     padding: 20px 10px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
-}
-.transaction_history_table .btn-outline-primary,
-.btn-outline-primary{
-  border: none;
-  outline: none;
-  font-weight: 500;
-  color: var(--theme-white-color);
-  background-color: var(--theme-primary-color);
-}
-.transaction_history_table .btn-outline-primary:hover,
-.btn-outline-primary:hover{
-  background-color: var(--theme-second-color);
-  transition: all 0.3s linear infinite;
+    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
 }
 .breadcrumb{
     background-color: transparent;
@@ -535,9 +516,6 @@ button.dash_view_more {
 .table th,.table td{
 
     border-top: none;
-}
-.test-head{
-color: red;
 }
 .table thead th{
     border-bottom: none;
@@ -551,9 +529,6 @@ color: red;
 .table-striped tbody tr:hover{
     color: var(--theme-primary-color);
     background-color: var(--theme-forms-color);
-}
-.table-striped tbody tr:nth-of-type(odd){
-  background-color: none !important;
 }
 
 .transaction_history_table .tabel_status{
@@ -588,6 +563,7 @@ Chargeback Page Styles
     overflow: auto;
     border-radius: 10px;
     background-color: var(--theme-white-color);
+    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
 }
 .cahrgeback_main_tab .charge_box{
     width: 185px;
@@ -618,6 +594,7 @@ Chargeback Page Styles
     overflow: auto;
     margin-bottom: 100px;
     background-color: var(--theme-white-color);
+    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
 }
 .cargeback_table .fas{
     color: var(--theme-primary-color);
@@ -629,6 +606,7 @@ Virtual Terminal Page Styles
     width: 75%;
     margin: 0 auto;
     background-color: var(--theme-white-color);
+    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
 }
 .client_form  form{
     padding: 14px 34px;
@@ -642,7 +620,8 @@ Virtual Terminal Page Styles
 .form-control{
     outline: none;
     border: none;
-    border-radius: 2px;
+    border-radius: 10px;
+    height: calc(1.5em + .75rem + 9px) !important;
     background-color: var(--theme-forms-color);
 }
 .form-control:hover{
@@ -672,6 +651,7 @@ Transaction Details Page Styles
     padding: 20px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
+    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
 }
 .tran_det_head{
     font-size: 28px;
@@ -717,7 +697,7 @@ Transaction Details Page Styles
     outline: inherit;
     text-align: center;
     width: 130px;
-    border-radius: 3px;
+    border-radius: 10px;
     background-color: var(--theme-color-red);
 }
 .btn-refund-modal:hover,
@@ -831,9 +811,6 @@ Account Details Page Styles
     font-size: 13px;
     font-weight: 600;
 }
-.main_account_list .fund_head {
-  width: 12rem;
-}
 .main_account_box .fund_head .lite_text{
     font-size: 12px;
     font-weight: 400;
@@ -900,6 +877,7 @@ Fee Structure Page Styles
     padding: 20px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
+    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
 }
 .fee_structure_box .box_main .box-data{
     font-weight: 500;
@@ -922,6 +900,7 @@ Api Key Page Styles
     padding: 20px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
+    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
 }
 .api_key_section .api_key_head{
     font-size: 18px;
@@ -973,52 +952,66 @@ Api Key Page Styles
     color: var(--theme-third-color);
     background-color: var(--theme-white-color);
 }
-/* Merchant Dashboard Profile Data*/
- .user_account_data{
-   margin: 20px 0 20px 90px;
- }
- .user_account_data .card{
-   width: 95%;
-   padding: 20px;
-   overflow-x: hidden;
-   border: none;
-   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
- }
- .user_account_data .btn-outline-primary{
-   width: 160px;
-   border-radius: 5px;
+/*==========================
+My Profile Page Styles
+==========================*/
+section.my_profile{
+    margin: 100px 0;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-color: var(--theme-white-color);
+}
+.my_profile .my_profile_card .user_profile{
+    width: 60px;
+    height: 55px;
+    display: block;
+    border-radius: 10px;
     background-color: var(--theme-primary-color);
-    color: var(--theme-white-color) !important;
- }
- .user_account_data .btn-outline-primary a{
-   color: var(--theme-white-color);
- }
-  .user_account_data .btn-outline-primary:hover{
+}
+.my_profile .my_profile_card .user_profile .fa-user-circle{
+    font-size: 40px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    line-height: 55px;
+    color: var(--theme-white-color);
+}
+.my_profile .my_profile_card .user_profile_tilte{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 14px;
+}
+.my_profile .my_profile_card .user_profile_id{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-primary-color);
+}
+.my_profile .my_profile_card .active-dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    background-color: var(--theme-color-green);
+}
+.my_profile .my_profile_card .active-text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--theme-color-green);
+}
+.my_profile .iti{
+    display: flex !important;
+}
+.my_profile .btn_submit_profile{
+    width: 130px;
+    height: 43px;
+    border-radius: 50px;
+    color: var(--theme-white-color);
+    background-color: var(--theme-primary-color);
+    transition: 0.3s ease-in-out;
+}
+.my_profile .btn_submit_profile:hover{
     background-color: var(--theme-second-color);
-    transition: all 0.3s linear infinite;
-  }
-.user_account_data .user_data{
-  width: 550px;
-  line-height: 50px;
 }
-.custom-select-one select{
-    border: none;
-    outline: none;
-    padding: 3px 3px;
-    width: 100%;
-    background-color: #f2f2f2;
-    border-radius: 2px;
-}
-select .dropdown-menu{
-  border: none;
-  background-color: red;
-}
-.card-add-bank{
-  border: none;
-}
-.transaction_history_table{
-  overflow: auto;
-}
+
 /** Media Queries **/
 @media (max-width: 480px){
     .cahrgeback_main_tab {
@@ -1027,6 +1020,9 @@ select .dropdown-menu{
     }
     .client_form{
         margin-left: 50px;
+    }
+    section.my_profile{
+        margin: 100px 0 0 55px;
     }
 }
 
@@ -1039,7 +1035,4 @@ select .dropdown-menu{
         margin-left: 50px;
         padding: 10px 0px;
     }
-}
-[data-href] {
-    cursor: pointer;
 }
