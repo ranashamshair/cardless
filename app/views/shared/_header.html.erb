@@ -1,40 +1,100 @@
-<!-- Header Section Start -->
-    <header id="header_section">
-        <div class="container">
-          <div class="main_nav">
-            <div class="row align-content-center">
-              <div class="brand_identity"><%= image_tag("logo.png", alt: "logo") %></div>
 
-              <!-- Toggle Navigation -->
-              <div class="toggle_navigation">
-                <i class="fas fa-bars"></i>
-              </div>
-              <!-- Toggle Navigation -->
-              <%= render partial: "shared/menu" %>
-              
-            </div>
+<!-- Header Section -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="#"><span>d</span>istropayment.</a>
+        <a id="sidebar-btn" class="btn btn-sidebar" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+          aria-controls="offcanvasExample">
+          <%= image_tag 'menu-icon.png', class: "img-fluid" %>
+
+        </a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/faq">Faq</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <% if current_user.blank? %>
+              <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
+              <%= link_to "Sign Up", new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+            <% else %>
+              <a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>" class="login-link">Dashboard</a>
+              <%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+            <% end %>
           </div>
+        </div>
+      </div>
 
-          <!-- Hero Area Start -->
-          <div class="row">
-            <div class="col-md-4 col-xs-12">
-              <div class="hero_area_left">
-                
-                <h1>Made for<br>payment process<br>online with no limits</h1>
-                <p>DistroPayment makes it easy to collect Direct Debit<br> payments from customers worldwide, even for<br> one-off or variable amounts.
-                </p>
-                <button class="btn_start_now">Start Now<i class="fas fa-arrow-right"></i></button> 
-              </div>
-            </div>
-            <div class="col-md-8 col-xs-12"> 
-              <div class="hero_area_right">
-                <div class="laptop_img"><%= image_tag "mackbook_mockup.png" %></div>
-                <div class="btn_play"><a href="#"><i class="fas fa-play"></i></a></div>
-              </div>
-            </div>
-            <!-- /.Hero Area End -->
-        
-          </div>  
-        </div>  
+
+
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">distropayment</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/faq">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center mt-5">
+            <% if current_user.blank? %>
+              <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
+              <%= link_to "Sign Up", new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+            <% else %>
+              <a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>" class="login-link">Dashboard</a>
+              <%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="vertical-center">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <h1>Effortless <br>payment process</h1>
+            <p>DistroPayment makes it easy to collect Direct Debit
+              payments from customers worldwide, even for
+              one-off or variable amounts.</p>
+            <a href="#" class="btn btn-start">Start Now</a>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <%= image_tag 'illustration_main.svg', class: "img-fluid" %>
+
+          </div>
+        </div>
+      </div>
+      <div class="clients_profiles d-flex align-items-center">
+        <%= image_tag 'client_image_one.svg',class: "img-fluid" %>
+        <%= image_tag 'client_image_two.svg',class: "img-fluid" %>
+        <%= image_tag 'client_image_three.svg',class: "img-fluid" %>
+        <p>50,000+ clients around the world</p>
+      </div>
+    </div>
   </header>
-<!-- /.Header Section End -->
+  <!-- /.Header Section -->

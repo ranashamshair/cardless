@@ -1,64 +1,55 @@
 <%= form_with(model: payment_gateway, url: url, local: true) do |form| %>
     <div class="card-body">
-          <div class="form-group">
-            <label for="type">Gateway Type </label>
-            <%= form.select :gateway_type, PaymentGateway.types.keys.map { |w| [w.humanize, w] }, include_blank: true ,  class: "form-control" %>
-          </div>
+      <div class="form-group">
+        <label for="type">Gateway Type </label>
+        <%= form.select :gateway_type, PaymentGateway.gateway_types.map { |w| [w.first.humanize, w.second] }, include_blank: true ,
+          class: "form-control", selected:  default_gateway_type(form.object.gateway_type) %>
+      </div>
+      <div class="form-group" id="name" >
+        <label for="name"> Name</label>
+        <%= form.text_field :name, class: "form-control", requried: true %>
+      </div>
+      <div class="form-group"  id="merchant_id">
+        <label for="merchant_id">Merchant ID</label>
+        <%= form.text_field :merchant_id, class: "form-control" %>
+      </div>
 
-          <div class="form-group" id="name" >
-            <label for="name"> Name</label>
-            <%= form.text_field :name, class: "form-control", requried: true %>
-          </div>
-
-          <div class="form-group"  id="merchant_id">
-            <label for="merchant_id">Merchant ID</label>
-            <%= form.text_field :merchant_id, class: "form-control" %>
-          </div>
-
-          <div class="form-group"  id="client_key">
-            <label for="client_key">Client Key</label>
-            <%= form.text_field :client_id, class: "form-control" %>
-          </div>
-          <div class="form-group"  id="client_secret">
-            <label for="client_secret">Client Secret</label>
-            <%= form.text_field :client_secret, class: "form-control" %>
-          </div>
-          <div class="form-group"  id="secret_word" >
-            <label for="secret_word">Secret Word </label>
-            <%= form.text_field :secret_word, class: "form-control" %>
-          </div>
-          <div class="form-group"  id="redirect_url" >
-            <label for="redirect_url">Redirect url</label>
-            <%= form.text_field :redirect_url, class: "form-control" %>
-          </div>
-          <div class="form-group"  id="base_url" >
-            <label for="base_url">Base url</label>
-            <%= form.text_field :base_url, class: "form-control" %>
-          </div>
+      <div class="form-group"  id="client_key">
+        <label for="client_key">Client Key</label>
+        <%= form.text_field :client_id, class: "form-control" %>
+      </div>
+      <div class="form-group"  id="client_secret">
+        <label for="client_secret">Client Secret</label>
+        <%= form.text_field :client_secret, class: "form-control" %>
+      </div>
+      <div class="form-group"  id="secret_word" >
+        <label for="secret_word">Secret Word </label>
+        <%= form.text_field :secret_word, class: "form-control" %>
+      </div>
+      <div class="form-group"  id="redirect_url" >
+        <label for="redirect_url">Redirect url</label>
+        <%= form.text_field :redirect_url, class: "form-control" %>
+      </div>
+      <div class="form-group"  id="base_url" >
+        <label for="base_url">Base url</label>
+        <%= form.text_field :base_url, class: "form-control" %>
+      </div>
     </div>
     <!-- /.card-body -->
-
+    <% @gateway_t = payment_gateway.gateway_type %>
     <div class="card-footer">
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+
+
+
 <% end %>
 
 <script>
 
-
-
- var hide_arguments = [ "redirect_url", "base_url", "client_key", "name", "merchant_id","secret_word", "client_secret" ];
-  for(var i=0; i < hide_arguments.length; i++){
-    document.getElementById(hide_arguments[i]).style.display = "none";
-  }
-
-
-
-  document.addEventListener('input', function (event) {
-    if (event.target.id !== 'payment_gateway_gateway_type') return;
-
-    let type = event.target.value;
-    if(type == 'stripe' || 'dwolla' || 'securion_pay', 'raoyd'){
+  var gateway_type ='<%=@gateway_t  %>'
+  if (gateway_type.length > 0 ){
+    if(gateway_type == 'dowlla' || 'securion_pay' || 'rapyd' || 'stripe' ){
       let hide_arguments = ["merchant_id", "redirect_url", "base_url","secret_word"];
       for(var i=0; i < hide_arguments.length; i++){
         document.getElementById(hide_arguments[i]).style.display = "none";
@@ -70,7 +61,82 @@
       }
     }
 
-    if(type == 'gocardless') {
+  if(gateway_type == 'gocardless'){
+    let hide_arguments = [ "client_key", "redirect_url", "base_url", "secret_word"];
+    for(var i=0; i < hide_arguments.length; i++){
+      document.getElementById(hide_arguments[i]).style.display = "none";
+    }
+
+    let show_arguments = ["name", "merchant_id", "client_secret"];
+    for(var i=0; i < show_arguments.length; i++){
+      document.getElementById(show_arguments[i]).style.display = "block";
+    }
+  }
+
+  if(gateway_type == 'brain_tree_payments'){
+    let hide_arguments = [  "redirect_url", "base_url"];
+    for(var i=0; i < hide_arguments.length; i++){
+      document.getElementById(hide_arguments[i]).style.display = "none";
+    }
+
+    let show_arguments = ["name", "merchant_id","client_key", "client_secret"];
+
+    for(var i=0; i < show_arguments.length; i++){
+      document.getElementById(show_arguments[i]).style.display = "block";
+    }
+  }
+
+  if(gateway_type =='checkout' ){
+    let hide_arguments = [ "redirect_url", "merchant_id", "secret_word"];
+    for(var i=0; i < hide_arguments.length; i++){
+      document.getElementById(hide_arguments[i]).style.display = "none";
+    }
+
+    let show_arguments = [ "name", "client_key", "client_secret", "base_url"];
+
+    for(var i=0; i < show_arguments.length; i++){
+      document.getElementById(show_arguments[i]).style.display = "block";
+    }
+
+  }
+
+  if(gateway_type == 'two_checkout'){
+    let hide_arguments = [ "redirect_url", "base_url", "client_key" ];
+    for(var i=0; i < hide_arguments.length; i++){
+      document.getElementById(hide_arguments[i]).style.display = "none";
+    }
+
+    let show_arguments = [ "name", "merchant_id","secret_word", "client_secret" ];
+
+    for(var i=0; i < show_arguments.length; i++){
+      document.getElementById(show_arguments[i]).style.display = "block";
+    }
+  }
+}
+else{
+
+  var hide_arguments = [ "redirect_url", "base_url", "client_key", "name", "merchant_id","secret_word", "client_secret" ];
+  for(var i=0; i < hide_arguments.length; i++){
+    document.getElementById(hide_arguments[i]).style.display = "none";
+  }
+  document.addEventListener('input', function (event) {
+    if (event.target.id !== 'payment_gateway_gateway_type') return;
+
+    let type = event.target.value;
+
+    if(type == '3' || '4' || '6' || '7'){
+      let hide_arguments = ["merchant_id", "redirect_url", "base_url","secret_word"];
+      for(var i=0; i < hide_arguments.length; i++){
+        document.getElementById(hide_arguments[i]).style.display = "none";
+      }
+
+      let show_arguments = ["name", "client_key", "client_secret"];
+      for(var i=0; i < show_arguments.length; i++){
+        document.getElementById(show_arguments[i]).style.display = "block";
+      }
+    }
+
+    if(type == '0') {
       let hide_arguments = [ "client_key", "redirect_url", "base_url", "secret_word"];
       for(var i=0; i < hide_arguments.length; i++){
         document.getElementById(hide_arguments[i]).style.display = "none";
@@ -82,7 +148,7 @@
       }
     }
 
-    if(type == 'brain_tree_payments') {
+    if(type == '1') {
       let hide_arguments = [  "redirect_url", "base_url"];
       for(var i=0; i < hide_arguments.length; i++){
         document.getElementById(hide_arguments[i]).style.display = "none";
@@ -94,8 +160,7 @@
         document.getElementById(show_arguments[i]).style.display = "block";
       }
     }
-
-    if(type == 'checkout') {
+      if(type == '2') {
       let hide_arguments = [ "redirect_url", "merchant_id", "secret_word"];
       for(var i=0; i < hide_arguments.length; i++){
         document.getElementById(hide_arguments[i]).style.display = "none";
@@ -107,7 +172,8 @@
         document.getElementById(show_arguments[i]).style.display = "block";
       }
     }
-    if(type == '_2_checkout') {
+
+    if(type == '5') {
     let hide_arguments = [ "redirect_url", "base_url", "client_key" ];
     for(var i=0; i < hide_arguments.length; i++){
       document.getElementById(hide_arguments[i]).style.display = "none";
@@ -126,5 +192,5 @@
     }
   }
 }, false);
-
+}
 </script>

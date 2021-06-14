@@ -78,4 +78,5 @@ end
 gem 'rest-client'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'aes'
+gem 'authorizenet'
 gem 'turnout'

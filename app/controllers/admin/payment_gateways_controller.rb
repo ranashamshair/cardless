@@ -49,6 +49,6 @@ class Admin::PaymentGatewaysController < AdminBaseController
   end
 
   def payment_gateway_params
-    params.require(:payment_gateway).permit(:name, :type, :client_secret, :client_id, :is_block, :is_deleted, :merchant_id, :base_url, :secret_word, :redirect_url)
+    params.require(:payment_gateway).permit( :gateway_type, :name, :client_secret, :client_id, :is_block, :is_deleted, :merchant_id, :base_url, :secret_word, :redirect_url)
   end
 end

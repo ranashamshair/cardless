@@ -17,4 +17,6 @@ class VisitorsController < ApplicationController
 
   def contact; end
 
+  def docs ; end
+
 end
