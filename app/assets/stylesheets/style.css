@@ -186,6 +186,9 @@ section.featured-section .service-box .title {
   margin: 10px 0;
   color: #040304;
 }
+#btn-sumb{
+  display: none ;
+}
 
 /*
 =======================
@@ -447,7 +450,8 @@ section.faq .sub-title,
 section.contact-us .sub-title,
 section.privacy-section .sub-title,
 section.privacy-section .sub-title-terms,
-section.about .sub-title-about{
+section.about .sub-title-about,
+section.sign-up .sub-title{
   width: 136px;
   height: 30px;
   line-height: 30px;
@@ -464,11 +468,13 @@ section.faq .title,
 section.contact-us .title,
 section.privacy-section .title,
 section.about .title,
-section.about .popular-title{
+section.about .popular-title,
+section.sign-up .title{
   font-size: 28px;
   font-weight: 700;
   margin: 5px 0;
   color: #040304;
+  text-align: center;
 }
 
 section.faq .question-bg {
@@ -645,6 +651,99 @@ section.about .social img{
   padding: 0 5px;
 }
 /*
+=========================
+SIGN UP FORM STYLES
+=========================
+*/
+section.sign-up{
+  padding: 0px 0;
+}
+
+section.sign-up  #registrationForm,
+section.sign-up form#Login {
+  margin: 0 auto;
+  padding: 50px;
+  width: 70%;
+  min-width: 300px;
+  border-radius: 10px;
+  background-color: rgba(242, 242, 242);
+  box-shadow: 0.5rem 0.5rem 1rem rgba(22, 87, 255, 0.09) !important;
+}
+
+section.sign-up input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  margin: 25px 0;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+section.sign-up input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+section.sign-up .tab {
+  display: none;
+}
+
+section.sign-up  .btn-custom{
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 50px;
+  background-color: #1657FF;
+}
+
+section.sign-up button:hover {
+  opacity: 0.8;
+}
+
+section.sign-up #prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+section.sign-up .step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgba(22, 87, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+section.sign-up .step.active {
+  background-color: rgba(22, 87, 255, 0.9);
+}
+
+/* Mark the steps that are finished and valid: */
+section.sign-up .step.finish {
+  color: #fff;
+  border-radius: 50px;
+  background-color: #1657FF;;
+}
+section.sign-up .tab-title{
+  font-size: 18px;
+  color: #181C33;
+  margin-bottom: 20px;
+}
+section.sign-up .dark_side{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1657FF;
+}
+
+
+/*
 =======================
 FOOTER SECTION STYLES
 =======================
@@ -792,6 +891,16 @@ RESPONSIVE STYLES
 }
 
 @media (max-width: 480px) {
+  section.sign-up #registrationForm, section.sign-up form#Login{
+    width: 95%;
+    padding: 30px;
+  }
+  section.sign-up .dark_side{
+    display: none;
+  }
+  section.sign-up .dark_side img{
+    padding-top: 100px;
+  }
   header .vertical-center {
     margin-top: 0px !important;
   }

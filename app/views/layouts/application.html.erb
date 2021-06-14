@@ -23,8 +23,8 @@
     <!-- End Preloader Area -->
     <%= render partial: "shared/header" %>
     <%= yield %>
-    <% if controller.controller_name != "sessions" && controller.controller_name != "registrations" %>
+
     <%= render partial: "shared/footer" %>
-    <% end %>
+    
   </body>
 </html>

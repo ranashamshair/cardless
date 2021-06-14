@@ -1,6 +1,6 @@
 
 <!-- Header Section -->
-  <header>
+  <header class="<%= controller.controller_name == "sessions" || controller.controller_name == "registrations" ? 'inner' : '' %>">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
         <a class="navbar-brand" href="#"><span>d</span>istropayment.</a>
@@ -72,29 +72,30 @@
         </div>
       </div>
     </nav>
+    <% if controller.controller_name != "sessions"  && controller.controller_name != "registrations" %>
+      <div class="container">
+        <div class="vertical-center">
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+              <h1>Effortless <br>payment process</h1>
+              <p>DistroPayment makes it easy to collect Direct Debit
+                payments from customers worldwide, even for
+                one-off or variable amounts.</p>
+              <a href="#" class="btn btn-start">Start Now</a>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+              <%= image_tag 'illustration_main.svg', class: "img-fluid" %>
 
-    <div class="container">
-      <div class="vertical-center">
-        <div class="row align-items-center">
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <h1>Effortless <br>payment process</h1>
-            <p>DistroPayment makes it easy to collect Direct Debit
-              payments from customers worldwide, even for
-              one-off or variable amounts.</p>
-            <a href="#" class="btn btn-start">Start Now</a>
-          </div>
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <%= image_tag 'illustration_main.svg', class: "img-fluid" %>
-
+            </div>
           </div>
         </div>
+        <div class="clients_profiles d-flex align-items-center">
+          <%= image_tag 'client_image_one.svg',class: "img-fluid" %>
+          <%= image_tag 'client_image_two.svg',class: "img-fluid" %>
+          <%= image_tag 'client_image_three.svg',class: "img-fluid" %>
+          <p>50,000+ clients around the world</p>
+        </div>
       </div>
-      <div class="clients_profiles d-flex align-items-center">
-        <%= image_tag 'client_image_one.svg',class: "img-fluid" %>
-        <%= image_tag 'client_image_two.svg',class: "img-fluid" %>
-        <%= image_tag 'client_image_three.svg',class: "img-fluid" %>
-        <p>50,000+ clients around the world</p>
-      </div>
-    </div>
+    <% end %>
   </header>
   <!-- /.Header Section -->
