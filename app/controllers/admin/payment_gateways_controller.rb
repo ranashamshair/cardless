@@ -18,8 +18,6 @@ class Admin::PaymentGatewaysController < AdminBaseController
   end
 
   def create
-
-    params[:payment_gateway][:gateway_type] = params[:payment_gateway][:gateway_type].to_i
     @payment_gateway = PaymentGateway.new(payment_gateway_params)
     respond_to do |format|
       if @payment_gateway.save
@@ -34,7 +32,6 @@ class Admin::PaymentGatewaysController < AdminBaseController
 
   def update
     respond_to do |format|
-     params[:payment_gateway][:gateway_type] = params[:payment_gateway][:gateway_type].to_i
       if @payment_gateway.update(payment_gateway_params)
         format.html { redirect_to admin_payment_gateways_path, notice: 'Payment Gateway was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment_gateway }
