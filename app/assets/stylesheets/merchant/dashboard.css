@@ -463,7 +463,7 @@ Chargeback Page Styles
     margin: 100px 0;
     padding: 20px 15px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+    /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 
 .dashboard_main_box .title {
@@ -508,7 +508,7 @@ button.dash_view_more {
     padding: 20px 10px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+    /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .breadcrumb{
     background-color: transparent;
@@ -563,7 +563,7 @@ Chargeback Page Styles
     overflow: auto;
     border-radius: 10px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+    /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .cahrgeback_main_tab .charge_box{
     width: 185px;
@@ -594,7 +594,7 @@ Chargeback Page Styles
     overflow: auto;
     margin-bottom: 100px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+    /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .cargeback_table .fas{
     color: var(--theme-primary-color);
@@ -606,7 +606,7 @@ Virtual Terminal Page Styles
     width: 75%;
     margin: 0 auto;
     background-color: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+    /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .client_form  form{
     padding: 14px 34px;
@@ -651,7 +651,7 @@ Transaction Details Page Styles
     padding: 20px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+    /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .tran_det_head{
     font-size: 28px;
@@ -877,7 +877,7 @@ Fee Structure Page Styles
     padding: 20px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+    /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .fee_structure_box .box_main .box-data{
     font-weight: 500;
@@ -900,7 +900,7 @@ Api Key Page Styles
     padding: 20px;
     border-radius: 10px;
     background-color: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+    /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .api_key_section .api_key_head{
     font-size: 18px;
