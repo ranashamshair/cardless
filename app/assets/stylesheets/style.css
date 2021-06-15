@@ -23,7 +23,7 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   color: #181C33 !important;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /*
@@ -52,8 +52,8 @@ header .navbar-brand span {
 }
 
 header .navbar-nav .nav-link {
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 400;
   color: #ffffff !important;
 }
 
@@ -72,11 +72,11 @@ header #sidebar-btn {
 header .btn-sign-up {
   font-size: 18px;
   padding: 8px 25px;
-  color: #040304;
+  color: #ffffff;
   border-radius: 50px;
   outline: none;
   text-transform: uppercase;
-  background-color: #FDBE34;
+  background-color: #469D89;
 }
 
 header .login-link {
@@ -88,25 +88,25 @@ header .login-link {
 }
 
 header h1 {
-  font-size: 68px;
+  font-size: 56px;
   color: #ffffff !important;
 }
 
 header p {
   width: 80%;
-  font-size: 22px;
+  font-size: 19px;
   color: #ffffff !important;
 }
 
 header .btn-start {
-  font-size: 22px;
-  font-weight: 700;
-  color: #040304;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
   border-radius: 50px;
   outline: none;
   padding: 8px 25px;
   text-transform: capitalize;
-  background-color: #FDBE34;
+  background-color: #469D89;
 }
 
 header .btn:focus {
@@ -148,7 +148,7 @@ section.featured-section .feature-title {
   height: 30px;
   line-height: 30px;
   border-radius: 50px;
-  font-weight: 700;
+  font-weight: 600;
   color: #1657FF;
   margin: 0 auto;
   border: 2px dashed rgba(22, 87, 255, 0.5);
@@ -156,7 +156,7 @@ section.featured-section .feature-title {
 }
 
 section.featured-section h2 {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
   color: #040304;
   margin: 5px 0;
@@ -181,10 +181,13 @@ section.featured-section .service-box .custom-margin {
 }
 
 section.featured-section .service-box .title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   margin: 10px 0;
   color: #040304;
+}
+section.featured-section .service-box p{
+  font-size: 14px;
 }
 #btn-sumb{
   display: none ;
@@ -216,14 +219,14 @@ section.virtual-terminal p {
 }
 
 section.virtual-terminal .btn-quote {
-  font-size: 22px;
-  font-weight: 700;
-  color: #040304;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
   border-radius: 50px;
   outline: none;
   padding: 8px 25px;
   text-transform: capitalize;
-  background-color: #FDBE34;
+  background-color: #469D89;
 }
 
 /*
@@ -281,7 +284,7 @@ section.how-working .step-box .num-bg-1 {
 }
 
 section.how-working .step-box .num-bg-2 {
-  background-color: #FDBE34;
+  background-color: #469D89;
 }
 
 section.how-working .step-box .num-bg-3 {
@@ -323,9 +326,9 @@ section.cashless .nocards-title {
   text-align: center;
   line-height: 30px;
   border-radius: 50px;
-  font-weight: 700;
-  color: #FDBE34;
-  border: 2px dashed #FDBE34;
+  font-weight: 600;
+  color: #469D89;
+  border: 2px dashed #469D89;
   text-transform: uppercase;
 }
 
@@ -361,7 +364,7 @@ section.cashless .btn-get-account {
   border-radius: 50px;
   outline: none;
   text-transform: uppercase;
-  background-color: #FDBE34;
+  background-color: #469D89;
 }
 
 /*
@@ -451,7 +454,8 @@ section.contact-us .sub-title,
 section.privacy-section .sub-title,
 section.privacy-section .sub-title-terms,
 section.about .sub-title-about,
-section.sign-up .sub-title{
+section.sign-up .sub-title,
+section.api-docs .sub-title{
   width: 136px;
   height: 30px;
   line-height: 30px;
@@ -469,7 +473,8 @@ section.contact-us .title,
 section.privacy-section .title,
 section.about .title,
 section.about .popular-title,
-section.sign-up .title{
+section.sign-up .title,
+section.api-docs .title{
   font-size: 28px;
   font-weight: 700;
   margin: 5px 0;
@@ -575,13 +580,23 @@ section.privacy-section{
   max-width: 800px;
   margin: 0 auto;
 }
-section.privacy-section .policy-box{
+section.privacy-section .policy-box,
+section.api-docs .api-box{
   padding: 20px;
+  margin: 20px 0;
   border-radius: 16px;
   background-color: #ffffff;
   box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.07) !important;
 }
-section.privacy-section .number{
+section.privacy-section .box-title,
+section.api-docs .api-box .box-title{
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  border-bottom: 2px solid #1657FF;
+}
+section.privacy-section .number,
+section.api-docs .api-box .number{
   width: 30px;
   height: 30px;
   color: #ffffff;
@@ -590,16 +605,8 @@ section.privacy-section .number{
   margin-left: auto;
   background-color: #1657FF;
 }
-section.privacy-section .policy-box{
-  margin: 20px 0;
-}
-.box-title{
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 22px;
-  border-bottom: 2px solid #1657FF;
-}
-.policy-box p{
+section.privacy-section .policy-box p,
+section.api-docs .api-box p{
   text-align: left;
 }
 /*
@@ -613,6 +620,9 @@ section.about {
 section.about .sub-title-about{
   margin: 0;
   padding-bottom: 20px;
+}
+section.about .title{
+  text-align: left;
 }
 section.about .popular-title{
   text-align: center;
@@ -643,6 +653,7 @@ section.about .clients-info .box{
 }
 section.about .clients-info .box .title{
   color: #ffffff;
+  text-align: center;
 }
 section.about .clients-info .box .number{
   font-size: 18px;
@@ -666,7 +677,7 @@ section.sign-up form#Login {
   width: 70%;
   min-width: 300px;
   border-radius: 10px;
-  background-color: rgb(242, 242, 242);
+  background-color: rgba(242, 242, 242);
   box-shadow: 0.5rem 0.5rem 1rem rgba(22, 87, 255, 0.09) !important;
 }
 
@@ -741,7 +752,50 @@ section.sign-up .dark_side{
   justify-content: center;
   background-color: #1657FF;
 }
-
+/*
+======================
+API KEYS PAGE STYLES
+======================
+*/
+section.api-docs{
+  padding: 100px 0;
+}
+section.api-docs h4{
+  padding: 10px 5px;
+}
+section.api-docs p{
+  padding: 5px 0;
+}
+section.api-docs .api-box{
+  max-width: 1040px;
+  margin: 30px auto;
+  box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.1) !important;
+}
+section.api-docs .higlighted-text {
+  padding: .9rem .6rem;
+  color: #fff;
+  text-align: left;
+  background-color: #181C33;
+  border-bottom: 2px solid #1657FF;
+}
+section.api-docs span{
+  color: #7fba4b;
+}
+section.api-docs .list-span{
+  padding: 5px 25px;
+}
+section.api-docs .arg-errors{
+  padding: 5px 25px;
+}
+section.api-docs .api-code{
+  color: #1657FF;
+}
+section.api-docs .text-accent{
+  padding: .9rem .5rem;
+  text-align: left;
+  background-color: #f2f2f2;
+  border-left: 2px solid #1657FF;
+}
 
 /*
 =======================
@@ -773,6 +827,7 @@ footer ul li {
 }
 
 footer ul li a {
+  font-size: 14px;
   font-weight: 400;
   color: #ffffff !important;
   text-decoration: none;
@@ -891,6 +946,15 @@ RESPONSIVE STYLES
 }
 
 @media (max-width: 480px) {
+  section.api-docs .arg-errors{
+    font-size: 14px;
+  }
+  section.api-docs .list-span{
+    font-size: 14px;
+  }
+  span.link{
+    font-size: 14px;
+  }
   section.sign-up #registrationForm, section.sign-up form#Login{
     width: 95%;
     padding: 30px;
