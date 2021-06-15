@@ -1,6 +1,6 @@
 
 <!-- Header Section -->
-  <header class="<%= controller.controller_name == "sessions" || controller.action_name == "docs"  || controller.controller_name == "registrations" ? 'inner' : '' %>">
+  <header class="<%= controller.controller_name == "visitors" && controller.action_name != "index" ? 'inner' : '' %>">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
         <a class="navbar-brand" href="#"><span>d</span>istropayment.</a>
@@ -72,7 +72,7 @@
         </div>
       </div>
     </nav>
-    <% if controller.controller_name != "sessions" && controller.action_name != "docs" && controller.controller_name != "registrations" %>
+    <% if controller.controller_name == "visitors" && controller.action_name == "index" %>
       <div class="container">
         <div class="vertical-center">
           <div class="row align-items-center">
