@@ -677,7 +677,7 @@ section.sign-up form#Login {
   width: 70%;
   min-width: 300px;
   border-radius: 10px;
-  background-color: rgba(242, 242, 242);
+  background-color: rgba(242, 242, 242, 0);
   box-shadow: 0.5rem 0.5rem 1rem rgba(22, 87, 255, 0.09) !important;
 }
 
