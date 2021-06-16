@@ -4,33 +4,30 @@ module Payment
     attr_reader :authentication_token
 
     def initialize(payment_gateway = nil)
-      # username = payment_gateway.client_id
-      # password = payment_gateway.client_secret
-      username = 'API_16230693843681027299010'
-      password = 'Testing123!'
+      username = username(payment_gateway) # 'API_16230693843681027299010'
+      password = password(payment_gateway) # 'Testing123!'
       @authentication_token = Base64.strict_encode64("#{username}:#{password}")
     end
 
-    def charge(amount, card)
+    def charge(args)
       data = {
-        "cardTransactionType": "AUTH_CAPTURE",
-        "softDescriptor": "DescTest",
-        "amount": "11.00",
-        "currency": "USD",
+        "cardTransactionType": transaction_type,
+        "amount": args[:amount], "currency": currency, # 11.00
         "cardHolderInfo": {
-          "firstName": "test first name",
-          "lastName": "test last name",
-          "zip": "123456"
+          "firstName": first_name(args[:card_name]), "lastName": last_name(args[:card_name])
         },
         "creditCard": {
-          "cardNumber": "4263982640269299",
-          "securityCode": "837",
-          "expirationMonth": "02",
-          "expirationYear": "2023"
+          "cardNumber": args[:card_number], "securityCode": args[:cvv],
+          "expirationMonth": expiry_month(args[:expiry_date]),
+          "expirationYear": complete_exp_year(args[:expiry_date])
         }
       }
       url = 'https://sandbox.bluesnap.com/services/2/transactions'
       post_request(url, data)
+    end
+
+    def handle_charge_response(response)
+      handle_response(response)
     end
 
     def refund
@@ -54,6 +51,14 @@ module Payment
 
     private
 
+    def password(payment_gateway)
+      payment_gateway.client_secret
+    end
+
+    def username(payment_gateway)
+      payment_gateway.client_id
+    end
+
     def post_request(url, params)
       if authentication_token.present?
         curlObj = Curl::Easy.new(url)
@@ -68,8 +73,16 @@ module Payment
       end
     end
 
+    def handle_response(response)
+      response
+    end
 
+    def transaction_type
+      'AUTH_CAPTURE'
+    end
 
-
+    def currency
+      'EUR'
+    end
   end
 end
