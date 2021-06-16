@@ -1,67 +1,212 @@
 <!-- Sign Up Section Start-->
-
-<div id="sign_up">
-  <div class="container">
-    <div class="row align-content-center">
-      <div class="col-md-12 col-12">
-        <!-- MultiStep Form -->
+<section class="sign-up">
 
 
-        
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {id: "signupForm"}) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>  
-          <!-- progressbar -->
-          <ul id="progressbar">
-            <li class="active">Personal Details</li>
-            <li>Password</li>
-            <li>Business Details</li>
-          </ul>
-          <!-- fieldsets -->
-          
-          <fieldset>
-            <h2 class="fs-title">Sign Up</h2>
-            <h3 class="fs-subtitle">Already Have An Account <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}%> / <a href="/">Go to Home</a></h3>
-            <%= f.text_field :first_name, placeholder: "First Name", required: true %>
-            <%= f.text_field :last_name, placeholder: "Last Name", required: true %>
-            <%= f.email_field :email, autocomplete: "off", placeholder: "Email", required: true %>
-            
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %>
-            <%= f.password_field :password, autocomplete: "new-password", required: true, placeholder: "Password" %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, placeholder: "Confirm Password" %>
-            <input type="button" name="next" class="next action-button" value="Next" />
-          </fieldset>
-          <fieldset>
-            <h2 class="fs-title">Business Details</h2>
-            <h3 class="fs-subtitle">Fill in your business details</h3>
-            <%= f.text_field :phone_number, placeholder: "Phone Number", required: true %>
-            <div class="form-group">
-              <%= f.select :business_type, User.business_types.map{|e| [e.first.humanize, e.second]}, {include_blank: "Choose your business type"}, {class: "form-control", id: "sel1",  required: true} %>
+        <div class="row g-0 align-items-center text-center flex-column-reverse flex-lg-row">
+
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <div class="dark_side">
+                    <%= image_tag "sign_up_illustration.svg", class: "img-fluid"%>
+                    <!-- <img src="./assets/images/sign_up_illustration.svg" class="img-fluid" alt=""> -->
+                </div>
             </div>
-            <%= f.text_field :org_name,  placeholder: "Organization Name", required: true %>
-            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-          </fieldset>
-          <fieldset>
-            <h2 class="fs-title">Business Details</h2>
-            <h3 class="fs-subtitle">Fill in your business details</h3>
-            <%= f.text_field :street_address,  placeholder: "Street Address", required: true %>
-            <%= f.text_field :city,  placeholder: "City", required: true %>
-            <%= f.text_field :state, placeholder: "State/Province", required: true %>
-            <%= f.text_field :zip_code, placeholder: "Postal/Zip Code", required: true %>
-            <%= f.text_field :country, placeholder: "Country", required: true %>
-            <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-            <%= f.submit "Submit", class: "submit action-button" %>
-            <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
-          </fieldset>
-        <% end %>
 
-        <!-- /.MultiStep Form -->
-  
+            <div class="col-lg-7 col-md-12 col-sm-12 mt-5 mb-5">
+                <div class="sub-title">Sign Up</div>
+                 <div class="title">Registration Form</div>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {id: "registrationForm"}) do |f| %>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <!-- One "tab" for each step in the form: -->
+                    <div class="tab">
+                        <div class="tab-title">Account Details</div>
+                        <div class="row">
+                            <div class="col-md-6">
+                              <%= f.text_field :first_name, placeholder: "First Name", class: "form-control", required: true %>
 
-      </div>
-    </div>
-  </div>
-</div>
 
+
+                            </div>
+                            <div class="col-md-6">
+                                <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control", required: true %>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <%= f.email_field :email, autocomplete: "off", placeholder: "Email", class: "form-control", required: true %>
+                            </div>
+                            <div class="col-md-6">
+                              <% if @minimum_password_length %>
+                                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                              <% end %>
+                              <%= f.password_field :password, autocomplete: "new-password", class: "form-control", required: true, placeholder: "Password" %>
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", required: true, placeholder: "Confirm Password" %>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="tab">
+                        <div class="tab-title">Business Details</div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <%= f.text_field :phone_number, placeholder: "Phone Number", class: "form-control", required: true %>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                              <%= f.select :business_type, User.business_types.map{|e| [e.first.humanize, e.second]}, {include_blank: "Choose your business type"}, {class: "form-select",  required: true} %>
+
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <%= f.text_field :org_name,  placeholder: "Organization Name", class: "form-control", required: true %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-title">Business Details</div>
+                        <div class="row">
+
+
+
+
+
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                              <%= f.text_field :street_address,  placeholder: "Street Address", class: "form-control", required: true %>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <%= f.text_field :city,  placeholder: "City", class: "form-control", required: true %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <%= f.text_field :state, placeholder: "State/Province", class: "form-control", required: true %>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <%= f.text_field :zip_code, placeholder: "Postal/Zip Code", class: "form-control", required: true %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <%= f.text_field :country, placeholder: "Country", class: "form-control", required: true %>
+                            </div>
+                            <!-- <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control" placeholder="Country" oninput="this.className = ''"
+                                    name="Country">
+                            </div> -->
+                        </div>
+                    </div>
+                    <div style="overflow:auto;">
+                      <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, style: "float: left;"%>
+                        <!-- <a href="login.html" style="float: left;">Login</a> -->
+                        <div style="float:right;">
+                            <a type="button" class="btn btn-custom" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
+                            <a type="button"  class="btn btn-custom" id="nextBtn" onclick="nextPrev(1)">Next</a>
+                            <%= f.submit "Submit", class: "btn btn-custom", id: "btn-sumb", style: "margin: 0px;" %>
+                            <!-- <a type="button"  class="btn btn-custom" id="btn-sumb">Submit</a> -->
+                        </div>
+                    </div>
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div style="text-align:center; margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+                <% end %>
+
+            </div>
+        </div>
+
+
+    </section>
+<script>
+  var counter = 0;
+  var currentTab = 0; // Current tab is set to be the first tab (0)
+      showTab(currentTab); // Display the current tab
+
+      function showTab(n) {
+        // This function will display the specified tab of the form...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        //... and fix the Previous/Next buttons:
+        if (n == 0) {
+          document.getElementById("prevBtn").style.display = "none";
+        } else {
+          document.getElementById("prevBtn").style.display = "inline";
+        }
+
+        if (n == (x.length - 1) ) {
+          document.getElementById("nextBtn").style.display = "none";
+          document.getElementById("btn-sumb").style.display = "block";
+        } else {
+          document.getElementById("nextBtn").style.display = "inline";
+
+          document.getElementById("nextBtn").innerHTML = "Next";
+          document.getElementById("btn-sumb").style.display = "none";
+
+        }
+
+
+        //... and run a function that will display the correct step indicator:
+        fixStepIndicator(n)
+      }
+      function nextPrev(n) {
+        if (n==1)
+        {
+          counter ++;
+        }
+         else
+         {
+           counter --;
+         }
+
+
+        // This function will figure out which tab to display
+        var x = document.getElementsByClassName("tab");
+        // Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !validateForm()) return false;
+        // Hide the current tab:
+        // if (counter <3)
+        x[currentTab].style.display = "none";
+        //  document.getElementById("nextBtn")
+
+        // Increase or decrease the current tab by 1:
+        currentTab = currentTab + n;
+        showTab(currentTab);
+      }
+
+      function validateForm() {
+        // This function deals with validation of the form fields
+       var x, y, i, valid = true;
+        x = document.getElementsByClassName("tab");
+        //y = x[currentTab].getElementsByTagName("input");
+        // A loop that checks every input field in the current tab:
+       /* for (i = 0; i < y.length; i++) {
+          // If a field is empty...
+          if (y[i].value == "") {
+            // add an "invalid" class to the field:
+            y[i].className += " invalid";
+            // and set the current valid status to false
+            valid = false;
+          }
+        }*/
+        // If the valid status is true, mark the step as finished and valid:
+         /*if (valid) {
+          document.getElementsByClassName("step")[currentTab].className += " finish";
+        }*/
+        return valid; // return the valid status
+      }
+
+      function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+          x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class on the current step:
+        x[n].className += " active";
+      }
+</script>

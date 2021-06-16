@@ -1,31 +1,50 @@
-<!-- Sign Up Section Start-->
-<div id="login_section">
-  <div class="container">
-      <div class="row align-content-center">
-          <div class="login_form">
-              <div class="heading">Login To Your Account</div>
-              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="input_fiealds_one">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-                  <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-              </div>
-              <div class="wrap d-flex">
-                  <% if devise_mapping.rememberable? %>
-                    
-                    <label><%= f.check_box :remember_me %> Remember Me</label>
-                  <% end %>
-                  <label class="forgotPassword"><%= link_to "Forgot your password?", new_password_path(resource_name), data: {turbolinks: "false"} %></label>
-              </div>
-                <%= f.submit "Log in",class: "btn_login" %>
-              
-              <% end %>
-              <div class="d-flex">
-                <label class="signup_txt mt-2"><%= link_to "Sign Up", new_user_registration_path %></label>
-                <label class="ml-auto mt-2 hom_txt"><a href="/">Go to Home</a></label>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+<!-- Sign Up Form -->
+    <section class="sign-up">
 
-<!-- Sign Up Section Start-->
+
+        <div class="row g-0 align-items-center text-center flex-column-reverse flex-lg-row">
+
+            <div class="col-lg-5 col-md-12 col-sm-12 ">
+                <div class="dark_side">
+                    <%= image_tag "sign_up_illustration.svg", class: "img-fluid" %>
+                    <!-- <img src="./assets/images/sign_up_illustration.svg" class="img-fluid" alt=""> -->
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-12 col-sm-12 mt-5 mb-5">
+                <div class="sub-title">Login</div>
+                 <div class="title">Welcome Back</div>
+                 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: "Login"}) do |f| %>
+                <!-- <form id="Login"> -->
+                    <!-- One "tab" for each step in the form: -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+                              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
+
+                            </div>
+                            <div class="col-md-12">
+                              <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control" %>
+
+                            </div>
+                        </div>
+
+
+
+
+                    <div style="overflow:auto;">
+                        <%= link_to "Sign Up", new_user_registration_path, style: "float: left;" %>
+                        <div style="float:right;">
+                          <%= f.submit "Log in",class: "btn btn-custom" %>
+                        </div>
+                    </div>
+
+                <!-- </form> -->
+                <% end %>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- /.Sign Up Form -->

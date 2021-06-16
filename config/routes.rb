@@ -64,6 +64,6 @@ Rails.application.routes.draw do
   get 'terms', to: 'visitors#terms'
   get 'privacy', to: 'visitors#privacy'
   get 'contact', to: 'visitors#contact'
-  # get 'docs', to: 'visitors#docs'
+  get 'docs', to: 'visitors#docs'
 
 end
