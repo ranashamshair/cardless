@@ -102,10 +102,10 @@
                     <div style="overflow:auto;">
                       <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, style: "float: left;"%>
                         <!-- <a href="login.html" style="float: left;">Login</a> -->
-                        <div style="float:right;">
+                        <div class="sumb-buttons">
                             <a type="button" class="btn btn-custom" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
                             <a type="button"  class="btn btn-custom" id="nextBtn" onclick="nextPrev(1)">Next</a>
-                            <%= f.submit "Submit", class: "btn btn-custom", id: "btn-sumb", style: "margin: 0px;" %>
+                            <%= f.submit "Submit", class: "btn btn-custom ml-2", id: "btn-sumb", style: "margin: 0px;" %>
                             <!-- <a type="button"  class="btn btn-custom" id="btn-sumb">Submit</a> -->
                         </div>
                     </div>

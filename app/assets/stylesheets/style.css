@@ -1033,7 +1033,7 @@ section.pricing {
   margin: 20px 0;
   border-radius: 2px;
   background-color: #ffffff;
-  box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+  /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 
 .pricing-header-area .box .title {
@@ -1109,7 +1109,7 @@ section.pricing {
   padding: 20px;
   margin: 30px auto;
   background-color: #ffffff;
-  box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important;
+  /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .price-box .number{
   width: 40px;
@@ -1145,4 +1145,8 @@ section.pricing {
 .price-box .custom-flex{
   display: flex;
   justify-content: space-between;
+}
+.sumb-buttons{
+  float: right;
+  display: flex;
 }
