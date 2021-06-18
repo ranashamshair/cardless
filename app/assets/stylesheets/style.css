@@ -3,10 +3,6 @@
 GLOBAL STYLES
 ====================
 */
-.col {
-  padding: 40px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +12,15 @@ GLOBAL STYLES
 html,
 body {
   overflow-x: hidden !important;
+  scroll-behavior: smooth;
+}
+
+.col {
+  padding: 40px;
+}
+
+ul {
+  list-style: none;
 }
 
 body {
@@ -31,15 +36,67 @@ body {
 HEADER STYLES
 ====================
 */
-header {
+header.main-header {
   width: 100%;
   min-height: 100vh;
-  background-color: #181C33;
+  position: relative;
+  z-index: 999;
 }
 
-header.inner{
+header.main-header::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  /*clip-path: polygon(0 0, 100% 0, 100% 23%, 77% 66%, 39% 97%, 0 100%, 0% 70%, 0% 30%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 23%, 77% 66%, 39% 97%, 0 100%, 0% 70%, 0% 30%);*/
+  background: linear-gradient(150deg, #59C173, #A17FE0, #5D26C1);
+  z-index: -1;
+}
+
+header.inner,
+header.inner-search{
   width: 100%;
   min-height: 100%;
+  background: linear-gradient(150deg, #59C173, #A17FE0, #5D26C1);
+}
+
+header.inner-search{
+  min-height: 500px;
+}
+
+header .main-image img{
+  position: relative;
+  max-width: 822px;
+  margin-top: 60px;
+}
+
+header .header-search{
+  width: 90%;
+  outline: none;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 10px;
+}
+header .btn-search{
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #59C173;
+  padding: 13px 15px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-left: -50px;
+}
+header .feed{
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+header .feed .feed-list a{
+  font-weight: 400;
+  padding-left: 20px;
+  color: #ffffff;
 }
 
 header .navbar-brand {
@@ -76,7 +133,9 @@ header .btn-sign-up {
   border-radius: 50px;
   outline: none;
   text-transform: uppercase;
-  background-color: #469D89;
+  border: 2px solid #5D26C1;
+  position: relative;
+  z-index: 999;
 }
 
 header .login-link {
@@ -89,6 +148,7 @@ header .login-link {
 
 header h1 {
   font-size: 56px;
+  text-transform: uppercase;
   color: #ffffff !important;
 }
 
@@ -106,7 +166,7 @@ header .btn-start {
   outline: none;
   padding: 8px 25px;
   text-transform: capitalize;
-  background-color: #469D89;
+  background-color: #59C173;
 }
 
 header .btn:focus {
@@ -115,7 +175,7 @@ header .btn:focus {
 
 header .vertical-center {
   min-width: 100%;
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
 }
@@ -124,14 +184,11 @@ header .clients_profiles {
   margin-top: -150px;
 }
 
-header .clients_profiles img {
-  border: 2px solid #181C33;
-}
 
 header .clients_profiles p {
   font-size: 18px;
   font-weight: 400;
-  padding-top: 26px;
+  padding-top: 10px;
 }
 
 /*
@@ -140,7 +197,7 @@ FEATURED SECTION STYLES
 =======================
 */
 section.featured-section {
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 section.featured-section .feature-title {
@@ -149,9 +206,9 @@ section.featured-section .feature-title {
   line-height: 30px;
   border-radius: 50px;
   font-weight: 600;
-  color: #1657FF;
+  color: #5D26C1;
   margin: 0 auto;
-  border: 2px dashed rgba(22, 87, 255, 0.5);
+  border: 2px dashed rgba(93, 38, 193, 0.5);
   text-transform: uppercase;
 }
 
@@ -181,16 +238,23 @@ section.featured-section .service-box .custom-margin {
 }
 
 section.featured-section .service-box .title {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   margin: 10px 0;
   color: #040304;
 }
-section.featured-section .service-box p{
-  font-size: 14px;
+
+section.featured-section .service-box p {
+  font-size: 16px;
 }
-#btn-sumb{
-  display: none ;
+
+#btn-sumb {
+  display: none;
+}
+
+.sumb-buttons {
+  float: right;
+  display: flex;
 }
 
 /*
@@ -209,7 +273,7 @@ section.virtual-terminal .bg {
 }
 
 section.virtual-terminal .title {
-  font-size: 28px;
+  font-size: 38px;
   font-weight: 700;
   color: #040304;
 }
@@ -226,7 +290,7 @@ section.virtual-terminal .btn-quote {
   outline: none;
   padding: 8px 25px;
   text-transform: capitalize;
-  background-color: #469D89;
+  background-color: #59C173;
 }
 
 /*
@@ -235,7 +299,7 @@ WORKING SECTION STYLES
 =======================
 */
 section.how-working {
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 section.how-working .title-step {
@@ -244,13 +308,14 @@ section.how-working .title-step {
   line-height: 30px;
   border-radius: 50px;
   font-weight: 700;
-  color: #1657FF;
+  color: #5D26C1;
   margin: 0 auto;
-  border: 2px dashed rgba(22, 87, 255, 0.5);
+  border: 2px dashed rgba(93, 38, 193, 0.5);
   text-transform: uppercase;
 }
 
 section.how-working h3 {
+  font-size: 38px;
   margin: 10px 0;
 }
 
@@ -316,7 +381,7 @@ section.cashless {
 section.cashless .bg-cahsless {
   border-radius: 18px;
   padding: 30px 25px;
-  background-color: #181C33;
+  background: linear-gradient(150deg, #59C173, #A17FE0, #5D26C1);
 }
 
 section.cashless .nocards-title {
@@ -327,8 +392,8 @@ section.cashless .nocards-title {
   line-height: 30px;
   border-radius: 50px;
   font-weight: 600;
-  color: #469D89;
-  border: 2px dashed #469D89;
+  color: #ffffff;
+  border: 2px dashed #ffffff;
   text-transform: uppercase;
 }
 
@@ -360,11 +425,11 @@ section.cashless .btn-get-account {
   margin-top: 5px;
   font-size: 18px;
   padding: 8px 25px;
-  color: #040304;
+  color: #ffffff;
   border-radius: 50px;
   outline: none;
   text-transform: uppercase;
-  background-color: #469D89;
+  background-color: #59C173;
 }
 
 /*
@@ -373,13 +438,14 @@ DEVELOPER SECTION STYLES
 ========================
 */
 section.developer {
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 section.developer .sub-title {
   font-size: 18px;
+  color: #5D26C1;
   text-transform: capitalize;
-  color: #1657FF;
+
 }
 
 section.developer .title {
@@ -396,7 +462,8 @@ section.developer p {
 section.developer .box {
   padding: 10px 25px;
   border-radius: 10px;
-  background-color: #181C33;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.07);
 }
 
 section.developer .box .init_code .color_three {
@@ -409,7 +476,7 @@ GATEWAY SECTION STYLES
 =======================
 */
 section.gateway-section {
-  padding: 50px 0;
+  padding: 30px 0;
   text-align: center;
   overflow-x: hidden;
 }
@@ -455,16 +522,16 @@ section.privacy-section .sub-title,
 section.privacy-section .sub-title-terms,
 section.about .sub-title-about,
 section.sign-up .sub-title,
-section.api-docs .sub-title{
+section.api-docs .sub-title {
   width: 136px;
   height: 30px;
   line-height: 30px;
   border-radius: 50px;
   font-weight: 700;
-  color: #1657FF;
+  color: #5D26C1;
   margin: 0 auto;
   text-align: center;
-  border: 2px dashed rgba(22, 87, 255, 0.5);
+  border: 2px dashed rgba(93, 38, 193, 0.5);
   text-transform: uppercase;
 }
 
@@ -474,7 +541,7 @@ section.privacy-section .title,
 section.about .title,
 section.about .popular-title,
 section.sign-up .title,
-section.api-docs .title{
+section.api-docs .title {
   font-size: 28px;
   font-weight: 700;
   margin: 5px 0;
@@ -485,7 +552,7 @@ section.api-docs .title{
 section.faq .question-bg {
   padding: 50px 0;
   margin-top: 50px;
-  background-color: #1657FF;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
 }
 
 section.faq .question-bg .accordion {
@@ -543,72 +610,81 @@ section.faq .question-bg .accordion .accordion-button.collapsed::after {
 section.faq .question-bg .accordion .accordion-body {
   background-color: #ffffff !important;
 }
+
 /*
 =======================
 CONTACT SECTION STYLES
 =======================
 */
-section.contact-us{
-  padding-top:50px;
+section.contact-us {
+  padding-top: 50px;
 }
-section.contact-us .contact-bg{
+
+section.contact-us .contact-bg {
   padding: 50px 0;
 }
-section.contact-us .contact-wrapper{
+
+section.contact-us .contact-wrapper {
   padding: 35px;
   border-radius: 15px;
   background-color: #ffffff;
   box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.10) !important;
 }
-section.contact-us .form-control{
+
+section.contact-us .form-control {
   border-radius: 16px;
   border: 1px solid #dadada !important;
 }
-section.contact-us .btn-contact-us{
+
+section.contact-us .btn-contact-us {
   color: #ffffff;
-  padding: 5px 25px;
+  padding: 10px 25px;
   border-radius: 50px;
-  background-color: #181C33;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
 }
+
 /*
 =======================
 PRIVACY SECTION STYLES
 =======================
 */
-section.privacy-section{
+section.privacy-section {
   padding: 50px 0;
   max-width: 800px;
   margin: 0 auto;
 }
-section.privacy-section .policy-box,
-section.api-docs .api-box{
+
+section.privacy-section .policy-box {
   padding: 20px;
   margin: 20px 0;
   border-radius: 16px;
   background-color: #ffffff;
   box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.07) !important;
 }
+
 section.privacy-section .box-title,
-section.api-docs .api-box .box-title{
+section.api-docs .api-box .box-title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 22px;
   border-bottom: 2px solid #1657FF;
 }
-section.privacy-section .number,
-section.api-docs .api-box .number{
+
+section.privacy-section .number{
   width: 30px;
   height: 30px;
   color: #ffffff;
   line-height: 30px;
   border-radius: 50px;
   margin-left: auto;
-  background-color: #1657FF;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
 }
+
 section.privacy-section .policy-box p,
-section.api-docs .api-box p{
+section.api-docs .api-box p {
   text-align: left;
 }
+
 /*
 =========================
 ABOUT PAGE SECTION STYLES
@@ -617,67 +693,79 @@ ABOUT PAGE SECTION STYLES
 section.about {
   padding-top: 80px;
 }
-section.about .sub-title-about{
+
+section.about .sub-title-about {
   margin: 0;
   padding-bottom: 20px;
 }
-section.about .title{
+
+section.about .title {
   text-align: left;
 }
-section.about .popular-title{
+
+section.about .popular-title {
   text-align: center;
 }
-section.about p.popular-content{
+
+section.about p.popular-content {
   width: 50%;
   text-align: center;
   margin: 0 auto;
 }
-section.about .brands-images{
+
+section.about .brands-images {
   margin-top: 30px;
   text-align: center;
 }
-section.about .brands-images img{
+
+section.about .brands-images img {
   padding: 0 50px;
   margin-bottom: 50px;
 }
+
 section.about .clients-info {
   margin: 100px 0;
   color: #ffffff;
   padding: 25px;
   border-radius: 16px;
-  background-color: #1657FF;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
 }
-section.about .clients-info .box{
+
+section.about .clients-info .box {
   text-align: center;
   margin: 0 auto;
 }
-section.about .clients-info .box .title{
+
+section.about .clients-info .box .title {
   color: #ffffff;
   text-align: center;
 }
-section.about .clients-info .box .number{
+
+section.about .clients-info .box .number {
   font-size: 18px;
 }
-section.about .social img{
+
+section.about .social img {
   padding: 0 5px;
 }
+
 /*
 =========================
 SIGN UP FORM STYLES
 =========================
 */
-section.sign-up{
+section.sign-up {
   padding: 0px 0;
 }
 
-section.sign-up  #registrationForm,
+section.sign-up #registrationForm,
 section.sign-up form#Login {
   margin: 0 auto;
   padding: 50px;
   width: 70%;
   min-width: 300px;
   border-radius: 10px;
-  background-color: rgba(242, 242, 242, 0);
+  background-color: rgba(242, 242, 242);
   box-shadow: 0.5rem 0.5rem 1rem rgba(22, 87, 255, 0.09) !important;
 }
 
@@ -699,14 +787,14 @@ section.sign-up .tab {
   display: none;
 }
 
-section.sign-up  .btn-custom{
+section.sign-up .btn-custom {
   color: #ffffff;
   border: none;
   padding: 10px 20px;
   font-size: 17px;
   cursor: pointer;
   border-radius: 50px;
-  background-color: #1657FF;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
 }
 
 section.sign-up button:hover {
@@ -714,7 +802,9 @@ section.sign-up button:hover {
 }
 
 section.sign-up #prevBtn {
-  background-color: #bbbbbb;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
+  opacity: .60;
+  margin-right: 10px;
 }
 
 /* Make circles that indicate the steps of the form: */
@@ -737,65 +827,361 @@ section.sign-up .step.active {
 section.sign-up .step.finish {
   color: #fff;
   border-radius: 50px;
-  background-color: #1657FF;;
+  background-color: #1657FF;
+  ;
 }
-section.sign-up .tab-title{
+
+section.sign-up .tab-title {
   font-size: 18px;
   color: #181C33;
   margin-bottom: 20px;
 }
-section.sign-up .dark_side{
+
+section.sign-up .dark_side {
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1657FF;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
 }
+
 /*
 ======================
 API KEYS PAGE STYLES
 ======================
 */
-section.api-docs{
-  padding: 100px 0;
+section.api-docs {
+  padding: 30px 0;
 }
-section.api-docs h4{
+
+section.api-inner-width{
+  width: 88%;
+}
+
+section.api-docs h4 {
   padding: 10px 5px;
 }
-section.api-docs p{
+
+section.api-docs p {
   padding: 5px 0;
 }
-section.api-docs .api-box{
-  max-width: 1040px;
+
+section.api-docs .api-box {
+  max-width: 1100px;
   margin: 30px auto;
-  box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.1) !important;
+  padding: 30px 10px;
 }
+
+section.api-docs .api-box .box-title {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
 section.api-docs .higlighted-text {
   padding: .9rem .6rem;
   color: #fff;
   text-align: left;
-  background-color: #181C33;
-  border-bottom: 2px solid #1657FF;
+  border-radius: 5px;
+  background-color: rgba(24, 28, 51, 0.9);
+  border-bottom: 2px solid  #A17FE0;
 }
-section.api-docs span{
-  color: #7fba4b;
+
+section.api-docs span {
+  color: #59C173 !important;
 }
-section.api-docs .list-span{
+
+section.api-docs .list-span {
   padding: 5px 25px;
 }
-section.api-docs .arg-errors{
+
+section.api-docs .arg-errors {
   padding: 5px 25px;
 }
-section.api-docs .api-code{
-  color: #1657FF;
+
+section.api-docs .api-code {
+  color:  #A17FE0;
 }
-section.api-docs .text-accent{
+
+section.api-docs .text-accent {
   padding: .9rem .5rem;
   text-align: left;
   background-color: #f2f2f2;
-  border-left: 2px solid #1657FF;
+  border-left: 2px solid #5D26C1;
 }
+.api-sidebar-desktop{
+  position: fixed;
+  width: 12%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-right: 2px solid #F2F2F2;
+}
+.api-sidebar-desktop .api-title{
+  font-size: 18px;
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 14px;
+  text-transform: uppercase;
+}
+.api-nav ul {
+  margin-left: auto;
+  margin-top: 10px;
+}
+.api-nav ul li a{
+  color: #5D26C1;
+  padding-left: 15px;
+  text-decoration: none;
+}
+.api-sidebar-desktop ul{
+  margin-top: 80%;
+  padding-left: 14px;
+}
+.api-sidebar-desktop ul li{
+  padding-bottom: 20px;
+}
+.api-sidebar-desktop ul li a{
+  font-size: 14px;
+  font-weight: 600;
+  color: #040304;
+  text-decoration: none;
+  opacity: .70;
+}
+.api-sidebar-desktop .ft{
+    margin-top: 55%;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.api-sidebar-desktop .ft a{
+  color: #5D26C1;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 20px 10px;
+}
+.sidebar-mobile-btn{
+   margin-left: 20px;
+   display: none;
+
+}
+.sidebar-mobile-btn .btn-primary-side .fa-bars{
+  color: #ffffff;
+}
+.sidebar-mobile-btn .btn-primary-side{
+  border: none;
+  padding: 5px 12px;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
+}
+.api-offcanvas ul {
+  padding-left: 0px;
+}
+.api-offcanvas ul li{
+  margin-bottom: 20px;
+}
+.api-offcanvas ul li a{
+  color: #FFF;
+  text-decoration: none;
+}
+
+/*
+=======================
+PRICING SECTION STYLES
+=======================
+*/
+section.pricing {
+  padding: 50px 0;
+}
+
+
+section.pricing .pricing-header-area .box {
+  max-width: 550px;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+section.pricing .pricing-header-area .box .title {
+  font-size: 18px;
+  font-weight: 400;
+  color: #1657FF;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #1657FF;
+}
+
+section.pricing .pricing-header-area .box p {
+  color: #040304 !important;
+  margin-bottom: 0;
+  font-weight: 300;
+  text-align: center;
+  width: 100% !important;
+  margin-top: 20px;
+}
+
+section.pricing .pricing-header-area .numbers {
+  font-size: 28px;
+  font-weight: 600;
+  color: #181C33;
+}
+
+section.pricing .pricing-header-area .numbers>span {
+  font-size: 18px;
+}
+
+section.pricing .pricing-header-area ul li {
+  list-style: none;
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+section.pricing .pricing-header-area ul li .circle {
+  font-size: 22px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  color: #ffffff !important;
+  margin-bottom: 15px;
+}
+
+section.pricing .pricing-header-area ul li .circle.bg-one,
+.bg-two {
+  background-color: #181C33 !important;
+}
+
+section.pricing .pricing-header-area ul li .circle.bg-two {
+  background-color: #1657FF;
+}
+
+section.pricing .pricing-header-area ul li .circle.bg-three,
+.bg-three {
+  background-color: #469D89 !important;
+}
+
+section.pricing .ft-title {
+  padding: 10px;
+  background-color: rgba(22, 87, 255, 0.1);
+}
+
+section.pricing .ft-title a {
+  font-size: 18px;
+  color: #181C33;
+  text-decoration: none;
+}
+
+section.pricing .price-box {
+  padding: 20px;
+  margin: 30px auto;
+  background-color: #ffffff;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+section.pricing .price-box .number {
+  width: 35px;
+  height: 35px;
+  font-size: 23px;
+  line-height: 36px;
+  border-radius: 50px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #1657FF;
+}
+
+section.pricing .price-box .title {
+  font-size: 18px;
+  color: #181C33;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+section.pricing .price-box p {
+  margin-top: 15px;
+  padding-left: 25px;
+}
+
+section.pricing .price-box img {
+  max-width: 20px;
+  color: #fff;
+}
+
+section.pricing .price-box ul li {
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+section.pricing .percentage {
+  color: #469D89;
+  text-align: center;
+}
+
+section.pricing .price-box .custom-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section.pricing .custom-flex .fa-check {
+  color: #469D89;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: rgba(70, 157, 137, 0.3);
+}
+
+section.pricing .box-info {
+  width: 400px;
+  text-align: center;
+  color: #fff;
+  padding: 20px 35px;
+  background: #181C33;
+  margin-left: -61px;
+  min-height: 431px;
+  border-radius: 10px;
+}
+
+section.pricing .box-info img {
+  max-width: 65px;
+}
+
+section.pricing .box-info .title {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  margin: 14px 0;
+}
+
+section.pricing .box-info ul {
+  margin: 30px 0;
+  padding-left: 0px !important;
+}
+
+section.pricing .box-info ul li {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+section.pricing .box-info .btn-api {
+  color: #ffffff;
+  border-radius: 0px !important;
+  border-bottom: 2px solid #1657FF;
+}
+
+/*
+=======================
+FOOTER SECTION STYLES
+=======================
+*/
+.search-section{
+  max-width: 600px;
+  margin: 150px auto;
+}
+
+
+
+
 
 /*
 =======================
@@ -848,306 +1234,321 @@ footer .link {
 RESPONSIVE STYLES
 =======================
 */
+@media (max-width: 1440px) {
+  section.sign-up .dark_side {
+    min-height: 110vh;
+  }
+}
+
 @media (max-width: 1380px) {
   header h1 {
     font-size: 48px;
   }
+
   header p {
     width: 100%;
   }
+
   .col {
     padding: 10px;
   }
+
   section.featured-section .service-box {
     padding: 35px;
   }
+
   section.featured-section .service-box img {
     max-width: 100%;
   }
+
+  section.pricing .box-info {
+    margin-left: -25px;
+  }
+
 }
+
 
 @media (max-width: 1024px) {
   header h1 {
-    font-size: 48px;
+    font-size: 42px;
   }
+  header .main-image img{
+    max-width: 100%;
+  }
+
   header p {
     width: 100%;
   }
+
+
   header .clients_profiles {
     display: none !important;
   }
+
   section.featured-section .service-box {
     min-height: 470px;
     padding: 35px;
   }
+
   section.featured-section .service-box img {
     max-width: 100%;
   }
+
   section.how-working .step-box .title {
     font-size: 24px;
   }
+
   section.gateway-section .title {
     font-size: 27px;
   }
 }
 
 @media (max-width: 768px) {
+  .sidebar-mobile-btn{
+    display: block;
+  }
+  .api-sidebar-desktop{
+    display: none;
+  }
+  .api-nav{
+    background-color: #ffffff;
+  }
   header .vertical-center {
     margin-top: 30px;
   }
+
   header p {
     width: 87%;
   }
+
   section.developer .title {
     font-size: 26px;
   }
+
   section.developer p {
     width: 100%;
   }
+
   section.gateway-section .title {
     width: 50%;
     text-align: center;
   }
+
   section.gateway-section p {
     width: 50%;
     text-align: center;
   }
+
   section.virtual-terminal {
     padding: 0 25px;
   }
+
   section.virtual-terminal p {
     width: 100%;
   }
+
   section.cashless .btn-get-account {
     padding: 5px 5px;
   }
+
   .btn-close {
     opacity: 100%;
-    background-color: #FDBE34;
+    background-color: #59C173;
   }
+
   #sidebar-btn {
     display: block !important;
   }
+
   .offcanvas {
-    background: #181C33;
+    background: linear-gradient(150deg, #A17FE0, #5D26C1);
   }
+
   .offcanvas-title {
     color: #ffffff !important;
   }
+
   .btn-sidebar {
-    background: #FDBE34;
+    background: #59C173;
   }
-  section.faq .title, section.contact-us .title, section.privacy-section .title, section.about .title, section.about .popular-title{
+
+  .btn-sidebar .fa-bars{
+    font-size: 22px;
+    color: #ffffff;
+  }
+
+  section.faq .title,
+  section.contact-us .title,
+  section.privacy-section .title,
+  section.about .title,
+  section.about .popular-title {
     font-size: 18px;
   }
-  section.about p.popular-content{
+
+  section.about p.popular-content {
     width: 75%;
   }
+
+  section.sign-up .dark_side {
+    display: none;
+  }
+
+  section.pricing .box-info {
+    width: 100%;
+    margin: 20px auto !important;
+  }
+
+  .pricing-header-area .box {
+    max-width: 100% !important;
+    margin: 30px auto !important;
+  }
+
+
 }
 
 @media (max-width: 480px) {
-  .price-box .custom-flex{
+  header .main-image img{
+    max-width: 100%;
+  }
+  header .main-image img{
+    margin-left: 0px;
+  }
+  header .header-search{
+    width: 90%;
+  }
+  .price-box .custom-flex {
     display: block;
   }
-  .pricing-header-area ul li{
+
+  .pricing-header-area ul li {
     display: block;
     font-size: 16px;
   }
-  .price-box ul li{
+
+  .price-box ul li {
     display: block;
   }
-  section.api-docs .arg-errors{
+
+  section.api-docs .arg-errors {
     font-size: 14px;
   }
-  section.api-docs .list-span{
+
+  section.api-docs .list-span {
     font-size: 14px;
   }
-  span.link{
+
+  span.link {
     font-size: 14px;
   }
-  section.sign-up #registrationForm, section.sign-up form#Login{
+
+  section.sign-up #registrationForm,
+  section.sign-up form#Login {
     width: 95%;
     padding: 30px;
   }
-  section.sign-up .dark_side{
+
+  section.pricing .pricing-header-area ul li {
+    display: block;
+  }
+
+  ul {
+    padding-left: 0px !important;
+  }
+
+  section.sign-up .dark_side {
     display: none;
   }
-  section.sign-up .dark_side img{
+
+  section.sign-up .dark_side img {
     padding-top: 100px;
   }
+
   header .vertical-center {
-    margin-top: 0px !important;
+    margin-top: 42px !important;
   }
+
   header h1 {
     font-size: 38px;
   }
-  .custom-mr{
+
+  .custom-mr {
     margin-top: 70px;
   }
+
   header p {
     font-size: 18px;
-    width: 100%;
+    width: 95%;
   }
+
   section.featured-section h2 {
     font-size: 26px;
   }
+
   section.featured-section .custom-margin {
     margin-top: 0px;
   }
+
   section.how-working p {
     width: 100%;
   }
+
   section.gateway-section .title {
     font-size: 18px;
   }
+
   section.gateway-section img {
     margin-top: -10px;
     padding-right: 0px;
   }
+
   section.gateway-section p {
     width: 98%;
   }
+
   section.faq .question-bg .accordion .accordion-button {
     font-size: 18px;
   }
-  section.about p.popular-content{
+
+  section.about p.popular-content {
     width: 100%;
   }
+
   footer .copyright-warpper {
     display: block !important;
   }
 
 }
-/*
-=======================
-PRICING SECTION STYLES
-=======================
-*/
-section.pricing {
-  padding: 50px 0;
+
+@media (max-width: 425px){
+  header p{
+    width: 80%;
+  }
+  header .header-search{
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
-.pricing-header-area .box {
-  max-width: 550px;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 2px;
-  background-color: #ffffff;
-  box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.07) !important;
-
+@media (max-width: 375px){
+  header.main-header::before {
+    clip-path: none !important;
+    background: linear-gradient(150deg, #59C173, #A17FE0, #5D26C1);
+  }
+  header .feed{
+    display: block !important;
+    margin-left: 20px;
+  }
 }
 
-.pricing-header-area .box .title {
-  font-size: 18px;
-  font-weight: 400;
-  color: #1657FF;
-  text-align: center;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #1657FF;
+@media (max-width: 375px){
+  header h1{
+    font-size: 34px;
+  }
+  header p{
+   width: 66%;
+  }
 }
-
-.pricing-header-area .box p {
-  color: #040304 !important;
-  margin-bottom: 0;
-  font-weight: 300;
-  text-align: center;
-  width: 100% !important;
-  margin-top: 20px;
-}
-
-.pricing-header-area .numbers {
-  font-size: 28px;
-  font-weight: 600;
-  color: #181C33;
-}
-
-.pricing-header-area .numbers>span {
-  font-size: 18px;
-}
-
-.pricing-header-area ul li {
-  list-style: none;
-  display: flex;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.pricing-header-area ul li .circle {
-  font-size: 22px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50px;
-  color: #ffffff !important;
-  margin-bottom: 15px;
-}
-
-.pricing-header-area ul li .circle.bg-one {
-  background-color: #181C33;
-}
-
-.pricing-header-area ul li .circle.bg-two {
-  background-color: #1657FF;
-}
-
-.pricing-header-area ul li .circle.bg-three {
-  background-color: #469D89;
-}
-
-.ft-title {
-  padding: 10px;
-  background-color: rgba(22, 87, 255, 0.1);
-}
-
-.ft-title a {
-  font-size: 18px;
-  color: #181C33;
-  text-decoration: none;
-}
-.price-box {
-  padding: 20px;
-  margin: 30px auto;
-  background-color: #ffffff;
-  box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.07) !important;
-}
-.price-box .number{
-  width: 40px;
-  height: 40px;
-  font-size: 30px;
-  line-height: 40px;
-  border-radius: 50px;
-  text-align: center;
-  color: #ffffff;
-  background-color: #1657FF;
-}
-.price-box .title{
-  font-size: 18px;
-  color: #181C33;
-  font-weight: 600;
-  padding-left: 10px;
-}
-.price-box p{
-  margin-top: 15px;
-  padding-left: 25px;
-}
-.price-box  img{
-  max-width: 20px;
-  color: #fff;
-}
-.price-box ul li{
-  margin-bottom: 20px;
-  padding-right: 20pxs;
-}
-.percentage{
-  color: #469D89;
-}
-.price-box .custom-flex{
-  display: flex;
-  justify-content: space-between;
-}
-.sumb-buttons{
-  float: right;
-  display: flex;
+section.sign-up #registrationForm label{
+  float: left;
 }

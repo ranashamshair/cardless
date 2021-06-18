@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_111818) do
+ActiveRecord::Schema.define(version: 2021_06_18_120142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,11 @@ ActiveRecord::Schema.define(version: 2021_05_05_111818) do
     t.string "unconfirmed_email"
     t.string "stripe_customer_id"
     t.string "brain_tree_id"
+    t.string "tax_id"
+    t.string "nic"
+    t.string "business_license"
+    t.string "business_tax_id"
+    t.string "website"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["payment_gateway_id"], name: "index_users_on_payment_gateway_id"

@@ -100,18 +100,26 @@
                         <div class="tab-title">Business Details</div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                <%= f.file_field :nic, placeholder: "Driving license or Government Issue ID", class: "form-control", required: true %>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Driving license or Government Issue ID</label>
+                                    <%= f.file_field :nic, placeholder: "Driving license or Government Issue ID", class: "form-control", required: true %>
+                                </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                              <%= f.file_field :business_license, placeholder: "Business License", class: "form-control", required: true %>
-
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Business License</label>
+                                    <%= f.file_field :business_license, placeholder: "Business License", class: "form-control", required: true %>
+                                </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">
+                                <label for="OrgnizationName" class="form-label">Organization website</label>
                                 <%= f.text_field :website,  placeholder: "Organization website", class: "form-control", required: true %>
                             </div>
-
                         </div>
                     </div>
+                    
                     <div style="overflow:auto;">
                       <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, style: "float: left;"%>
                         <div class="sumb-buttons">

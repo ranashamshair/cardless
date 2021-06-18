@@ -21,10 +21,12 @@
       </div>
     </div> -->
     <!-- End Preloader Area -->
-    <%= render partial: "shared/header" %>
+    <% if controller.action_name  != "docs"%>
+      <%= render partial: "shared/header" %>
+    <% end %>
     <%= yield %>
-
-    <%= render partial: "shared/footer" %>
-
+    <% if controller.action_name  != "docs"%>
+      <%= render partial: "shared/footer" %>
+    <% end %>
   </body>
 </html>
