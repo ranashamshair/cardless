@@ -14,11 +14,12 @@ module Payment
 
     def charge(arg)
       # arg = {
-      #   amount: '',
-      #   cvv: '',
-      #   card_name: '',
-      #   card_number: '',
-      #   expiry_date: ''
+      #   amount: '', 24.44$
+      #   cvv: '', 231
+      #   card_name: '', John Sins
+      #   card_number: '', 4242424242424242
+      #   expiry_date: '' 0728
+      #   email: '' abc@gmail.com
       # }
       response = gateway.charge(arg)
       gateway.handle_charge_response(response)
@@ -50,6 +51,14 @@ module Payment
 
     def gateway_class
       payment_gateway.gateway_type.split('_').map(&:titleize).join
+    end
+
+    def currency
+      'EUR'
+    end
+
+    def dollar_to_cents(dollar_amount)
+      dollar_amount * 100
     end
   end
 end

@@ -1,25 +1,26 @@
 module Payment
-  class SmartPay
+  class SmartPay < Gateway
 
     attr_reader :authentication_token
 
     def initialize(payment_gateway = nil)
+
       api_key = 'AFWP6d6jEycu6QNXrq839oGWtxWTJJkrMO2+se4yDzEehFDjKS'
       @authentication_token = api_key
     end
 
-    def charge(amount, card)
+    def charge(args)
       data = {
         "Payment": {
-          "MerchantTransactionID": "s2ptest_h2",
-          "Amount": 2000,
-          "Currency": "EUR",
+          # "MerchantTransactionID": 's2p_test_h2',
+          "Amount": dollar_to_cents(args[:amount]),
+          "Currency": currency,
           "Card": {
-            "HolderName": "John Doe",
-            "Number": "4111111111111111",
-            "ExpirationMonth": "01",
-            "ExpirationYear": "2022",
-            "SecurityCode": "312"
+            "HolderName": args[:card_name],
+            "Number": args[:card_number],
+            "ExpirationMonth": expiry_month(args[:expiry_date]),
+            "ExpirationYear": complete_exp_year(args[:expiry_date]),
+            "SecurityCode": args[:cvv]
           },
           "Capture": true
         }

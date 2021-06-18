@@ -1,11 +1,11 @@
 module Payment
-  class BlueSnap
+  class BlueSnap < Gateway
 
     attr_reader :authentication_token
 
-    def initialize(payment_gateway = nil)
-      username = username(payment_gateway) # 'API_16230693843681027299010'
-      password = password(payment_gateway) # 'Testing123!'
+    def initialize
+      username = gateway_username # 'API_16230693843681027299010'
+      password = gateway_password # 'Testing123!'
       @authentication_token = Base64.strict_encode64("#{username}:#{password}")
     end
 
@@ -51,11 +51,11 @@ module Payment
 
     private
 
-    def password(payment_gateway)
+    def gateway_password
       payment_gateway.client_secret
     end
 
-    def username(payment_gateway)
+    def gateway_username
       payment_gateway.client_id
     end
 
@@ -79,10 +79,6 @@ module Payment
 
     def transaction_type
       'AUTH_CAPTURE'
-    end
-
-    def currency
-      'EUR'
     end
   end
 end

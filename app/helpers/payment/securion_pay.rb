@@ -1,37 +1,33 @@
 module Payment
-  class SecurionPay
+  class SecurionPay < Gateway
 
     attr_accessor :authentication_token
 
-    def initialize(payment_gateway = nil)
-      # username = payment_gateway.client_id
-      # password = payment_gateway.client_secret
-      public_key = 'pk_test_diacsoPPDXgcEL3b50h3lLYU'
-      secret_key = 'sk_test_lz57hE9I5ezpuS7lj4ZulvAu'
+    def initialize
+      secret_key = gateway_secret_key #'sk_test_lz57hE9I5ezpuS7lj4ZulvAu'
       @authentication_token = "#{secret_key}:"
     end
 
-    def charge(amount, card)
-      cus_token = create_customer
-      card_token = create_card(cus_token)
-      amount = '1100' # amount is in cents
-      currency = 'USD'
+    def charge(args)
+      cus_token = create_customer(args[:email])
+      card_token = create_card(cus_token, args)
+      amount = dollar_to_cents(args[:amount]) # amount is in cents
       data = "amount=#{amount}&currency=#{currency}&card=#{card_token}&customerId=#{cus_token}"
       url = 'https://api.securionpay.com/charges'
       post_request(url, data)
     end
 
-    def create_customer
+    def create_customer(email)
       url = 'https://api.securionpay.com/customers'
-      data = "email=shahbaz.brainarc@gmail.com"
+      data = "email=#{email}"
       response = post_request(url, data)
       json_res = JSON response
       json_res['id']
     end
 
-    def create_card(customer_token)
+    def create_card(customer_token, args)
       url = "https://api.securionpay.com/customers/#{customer_token}/cards"
-      data = "number=4242424242424242&expMonth=02&expYear=2023&cvc=1234"
+      data = "number=#{args[:card_number]}&expMonth=#{expiry_month(args[:expiry_date])}&expYear=#{complete_exp_year(args[:expiry_date])}&cvc=#{args[:cvv]}"
       response = post_request(url, data)
       json_res = JSON response
       json_res['id']
@@ -45,6 +41,10 @@ module Payment
     end
 
     private
+
+    def gateway_secret_key
+      payment_gateway.client_secret
+    end
 
     def post_request(url, params = '')
       if authentication_token.present?
