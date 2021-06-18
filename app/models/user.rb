@@ -19,6 +19,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   has_many :reserve_schedules, dependent: :destroy
   after_create :create_wallets
+  has_one_attached :business_license
+  has_one_attached :nic
 
   def create_wallets
     Wallet.create(name: "#{first_name} Primary Wallet", wallet_type: :primary, user_id: id)
