@@ -47,12 +47,19 @@ header.main-header::before {
   content: '';
   position: absolute;
   width: 100%;
-  min-height: 100vh;
+  min-height: 120vh;
   /*clip-path: polygon(0 0, 100% 0, 100% 23%, 77% 66%, 39% 97%, 0 100%, 0% 70%, 0% 30%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 23%, 77% 66%, 39% 97%, 0 100%, 0% 70%, 0% 30%);*/
   background: linear-gradient(150deg, #59C173, #A17FE0, #5D26C1);
   z-index: -1;
 }
+
+@media (min-width: 1200px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1300px !important;
+  }
+}
+
 
 header.inner,
 header.inner-search{
@@ -67,8 +74,9 @@ header.inner-search{
 
 header .main-image img{
   position: relative;
-  max-width: 822px;
-  margin-top: 60px;
+  max-width: 850px;
+  margin-top: 28px;
+  margin-left: -90px;
 }
 
 header .header-search{
@@ -175,7 +183,7 @@ header .btn:focus {
 
 header .vertical-center {
   min-width: 100%;
-  min-height: 95vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
 }
@@ -234,7 +242,7 @@ section.featured-section .service-box img {
 }
 
 section.featured-section .service-box .custom-margin {
-  margin-top: -35px;
+  margin-top: -48px;
 }
 
 section.featured-section .service-box .title {
@@ -541,7 +549,8 @@ section.privacy-section .title,
 section.about .title,
 section.about .popular-title,
 section.sign-up .title,
-section.api-docs .title {
+section.api-docs .title,
+section.partners .title{
   font-size: 28px;
   font-weight: 700;
   margin: 5px 0;
@@ -713,12 +722,14 @@ section.about p.popular-content {
   margin: 0 auto;
 }
 
-section.about .brands-images {
+section.about .brands-images,
+section.partners .brands-images{
   margin-top: 30px;
   text-align: center;
 }
 
-section.about .brands-images img {
+section.about .brands-images img,
+section.partners .brands-images img{
   padding: 0 50px;
   margin-bottom: 50px;
 }
@@ -765,8 +776,12 @@ section.sign-up form#Login {
   width: 70%;
   min-width: 300px;
   border-radius: 10px;
-  background-color: rgba(242, 242, 242, 0);
-  box-shadow: 0.5rem 0.5rem 1rem rgba(22, 87, 255, 0.09) !important;
+  background-color: #ffffff;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+section.sign-up #registrationForm label{
+  float: left;
 }
 
 section.sign-up input {
@@ -787,7 +802,10 @@ section.sign-up .tab {
   display: none;
 }
 
-section.sign-up .btn-custom {
+section.sign-up .btn-custom{
+  width: 100%;
+  height: 45px;
+  margin-top: 10px;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -853,6 +871,8 @@ API KEYS PAGE STYLES
 */
 section.api-docs {
   padding: 30px 0;
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 section.api-inner-width{
@@ -868,9 +888,10 @@ section.api-docs p {
 }
 
 section.api-docs .api-box {
-  max-width: 1100px;
-  margin: 30px auto;
-  padding: 30px 10px;
+  width: 1400px;
+  margin: 35px 30px 0 80px;
+  padding: 30px 17px 30px 0px;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 
 section.api-docs .api-box .box-title {
@@ -917,12 +938,14 @@ section.api-docs .text-accent {
   top: 0;
   bottom: 0;
   border-right: 2px solid #F2F2F2;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
 }
 .api-sidebar-desktop .api-title{
   font-size: 18px;
   text-align: left;
   padding-top: 10px;
   padding-left: 14px;
+  color: #ffffff;
   text-transform: uppercase;
 }
 .api-nav ul {
@@ -944,9 +967,9 @@ section.api-docs .text-accent {
 .api-sidebar-desktop ul li a{
   font-size: 14px;
   font-weight: 600;
-  color: #040304;
+  color: #ffffff;
   text-decoration: none;
-  opacity: .70;
+  opacity: .90;
 }
 .api-sidebar-desktop .ft{
     margin-top: 55%;
@@ -954,7 +977,7 @@ section.api-docs .text-accent {
     border-bottom: 1px solid #eee;
 }
 .api-sidebar-desktop .ft a{
-  color: #5D26C1;
+  color: #ffffff;
   font-size: 18px;
   text-decoration: none;
   padding: 20px 10px;
@@ -982,7 +1005,18 @@ section.api-docs .text-accent {
   color: #FFF;
   text-decoration: none;
 }
-
+/*
+=======================
+PARTNERS SECTION STYLES
+=======================
+*/
+section.partners{
+  margin: 30px 150px;
+  padding: 30px 0;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+}
 /*
 =======================
 PRICING SECTION STYLES
@@ -991,7 +1025,6 @@ PRICING SECTION STYLES
 section.pricing {
   padding: 50px 0;
 }
-
 
 section.pricing .pricing-header-area .box {
   max-width: 550px;
@@ -1125,7 +1158,7 @@ section.pricing .price-box .custom-flex {
 }
 
 section.pricing .custom-flex .fa-check {
-  color: #469D89;
+  color: #ffffff;
   padding: 5px;
   border-radius: 50px;
   background-color: rgba(70, 157, 137, 0.3);
@@ -1136,10 +1169,10 @@ section.pricing .box-info {
   text-align: center;
   color: #fff;
   padding: 20px 35px;
-  background: #181C33;
   margin-left: -61px;
   min-height: 431px;
   border-radius: 10px;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);
 }
 
 section.pricing .box-info img {
@@ -1171,17 +1204,13 @@ section.pricing .box-info .btn-api {
 
 /*
 =======================
-FOOTER SECTION STYLES
+SEARCH SECTION STYLES
 =======================
 */
 .search-section{
   max-width: 600px;
   margin: 150px auto;
 }
-
-
-
-
 
 /*
 =======================
@@ -1274,6 +1303,10 @@ RESPONSIVE STYLES
   }
   header .main-image img{
     max-width: 100%;
+    margin-left: 20px;
+  }
+  section.featured-section{
+    margin-top: 30px;
   }
 
   header p {
@@ -1307,8 +1340,21 @@ RESPONSIVE STYLES
   .sidebar-mobile-btn{
     display: block;
   }
+  header .main-image img{
+    margin: 0 auto !important;
+  }
   .api-sidebar-desktop{
     display: none;
+  }
+  section.api-docs .api-box {
+    margin: 35px 0px;
+    padding: 0px 17px 0 0px;
+  }
+  section.api-docs .g-5, .gy-5 {
+    --bs-gutter-y: 2.5rem;
+  }
+  section.api-docs .g-5, .gx-5 {
+    --bs-gutter-x: 2rem;
   }
   .api-nav{
     background-color: #ffffff;
@@ -1403,6 +1449,10 @@ RESPONSIVE STYLES
     margin: 30px auto !important;
   }
 
+  section.api-docs{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 
 }
 
@@ -1546,9 +1596,6 @@ RESPONSIVE STYLES
     font-size: 34px;
   }
   header p{
-   width: 66%;
+   width: 100%;
   }
-}
-section.sign-up #registrationForm label{
-  float: left;
 }
