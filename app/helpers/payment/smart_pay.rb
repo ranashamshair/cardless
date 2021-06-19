@@ -71,8 +71,8 @@ module Payment
     end
 
     def gateway_api_key
-      # payment_gateway.client_secret
-      'AFWP6d6jEycu6QNXrq839oGWtxWTJJkrMO2+se4yDzEehFDjKS'
+      payment_gateway.client_secret
+      # 'AFWP6d6jEycu6QNXrq839oGWtxWTJJkrMO2+se4yDzEehFDjKS'
     end
   end
 end
