@@ -22,7 +22,7 @@
                 <a class="nav-link" href="/faq">FAQ'S</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/">MARTKETPLACE</a>
+                <a class="nav-link" href="/marketplace">MARTKETPLACE</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/docs">API DOCS</a>
@@ -67,7 +67,7 @@
                 <a class="nav-link" href="/faq">FAQ'S</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/">MARTKETPLACE</a>
+                <a class="nav-link" href="/marketplace">MARTKETPLACE</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/docs">API DOCS</a>
@@ -92,31 +92,50 @@
         </div>
       </nav>
       <% if controller.controller_name == "visitors" && controller.action_name == "index" %>
-      <div class="container">
-        <div class="vertical-center">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-5 col-md-12 col-sm-12">
-              <h1>Effortless <br>Payment rocess</h1>
-              <p>DistroPayment makes it easy to collect Direct Debit
-                payments from customers worldwide, even for
-                one-off or variable amounts.</p>
-                <a href="#" class="btn btn-start">Get Started</a>
-            </div>
-            <div class="col-lg-7 col-md-12 col-sm-12">
-              <div class="main-image">
-                <%= image_tag "dashboard_main_image.webp", class: "img-fluid" %>
+        <div class="container">
+          <div class="vertical-center">
+            <div class="row align-items-center g-5">
+              <div class="col-lg-5 col-md-12 col-sm-12">
+                <h1>Effortless <br>Payment rocess</h1>
+                <p>DistroPayment makes it easy to collect Direct Debit
+                  payments from customers worldwide, even for
+                  one-off or variable amounts.</p>
+                  <a href="#" class="btn btn-start">Get Started</a>
+              </div>
+              <div class="col-lg-7 col-md-12 col-sm-12">
+                <div class="main-image">
+                  <%= image_tag "dashboard_main_image.webp", class: "img-fluid" %>
 
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="clients_profiles">
-          <a href="#">
-            <%= image_tag "clients_image.svg", class: "img-fluid" %>
+          <div class="clients_profiles">
+            <a href="#">
+              <%= image_tag "clients_image.svg", class: "img-fluid" %>
 
-          </a>
-          <p>50,000+ clients around the world</p>
+            </a>
+            <p>50,000+ clients around the world</p>
+          </div>
         </div>
-      </div>
+      <% elsif controller.controller_name == "visitors" && controller.action_name == "marketplace" %>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="search-section">
+                        <form class="d-flex align-items-center">
+                            <input type="search" class="header-search form-comtrol" placeholder="Search Anything">
+                            <a href="#" class="btn btn-search">Search</a>
+                          </form>
+                          <div class="feed d-flex mt-3 mb-3">
+                            Feed:
+                           <div class="feed-list"><a href="/search">api</a></div>
+                           <div class="feed-list"><a href="/search">withdraw</a></div>
+                           <div class="feed-list"><a href="/search">virtual terminal</a></div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
       <% end %>
     </header>
