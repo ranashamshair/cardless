@@ -14,6 +14,7 @@ class PaymentGateway < ApplicationRecord
     authorize_pay: 8,
     blue_snap: 9,
     cardinity: 10,
-    smart_pay: 11
+    smart_pay: 11,
+    red_sys:12
   }
 end

@@ -4,7 +4,7 @@ module Payment
   # this is comment
   class Gateway
 
-    class_attribute :payment_gateway
+    cattr_accessor :payment_gateway
     attr_accessor :gateway
 
     def initialize(payment_gateway)

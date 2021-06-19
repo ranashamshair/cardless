@@ -1,21 +1,30 @@
 module Payment
   class StripeGateway < Gateway
 
-    def initialize(payment_gateway)
-
+    def initialize
+      Stripe.api_key = gateway_api
     end
 
-    def tokenize_card(customer, card_info, card_cvv)
+    def charge(args)
+      customer = args[:customer]
+      stripe_customer = stripe_customer(customer,customer.stripe_customer_id,customer.email)
+      stripe_charge = stripe_charge(
+        args,
+        stripe_customer.id
+      )
+    end
+
+    def tokenize_card(stripe_customer_id, args)
       token = Stripe::Token.create(
         card: {
-          number: card_info.number,
-          exp_month: card_info.month,
-          exp_year: card_info.year,
-          cvc: card_cvv,
-          customer: customer
+          number: args[:card_number],
+          exp_month: expiry_month(args[:expiry_date]),
+          exp_year: complete_exp_year(args[:expiry_date]),
+          cvc: args[:cvv],
+          customer: stripe_customer_id
         }
       )
-      stripe_customer = Stripe::Customer.retrieve(customer)
+      stripe_customer = Stripe::Customer.retrieve(stripe_customer_id)
       stripe_customer.sources.create(source: token) if stripe_customer.present?
       raise StandardError, 'Stripe Card Tokenization Failed' if token.nil? || !token.card
 
@@ -39,16 +48,14 @@ module Payment
       end
     end
 
-    def stripe_charge(amount,card, key,user_id,customer_id,card_cvv)
-      Stripe.api_key = key if key.present?
+    # def stripe_charge(amount,customer_id,card_cvv)
+    def stripe_charge(args,stripe_customer_id)
       begin
-        card_info = Payment::DistroCard.new({ fingerprint: card.fingerprint }, card.distro_token, user_id)
-        customer = Stripe::Customer.retrieve(customer_id)
-        card = tokenize_card(customer_id, card_info, card_cvv)
+        card = tokenize_card(stripe_customer_id, args)
         charge = Stripe::Charge.create({
-                                         amount: (dollars_to_cents(amount).to_i),
-                                         currency: "usd",
-                                         customer: customer_id,
+                                         amount: (dollars_to_cents(args[:amount]).to_i),
+                                         currency: currency,
+                                         customer: stripe_customer_id,
                                          card: card[:id],
                                          capture: true
                                        })
@@ -87,6 +94,10 @@ module Payment
                                        cvc: card_cvv
                                      })
       return card
+    end
+
+    def gateway_api
+      payment_gateway.client_secret
     end
   end
 end
