@@ -64,16 +64,14 @@
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <%= f.text_field :org_name,  placeholder: "Organization Name", class: "form-control", required: true %>
                             </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <%= f.text_field :business_tax_id,  placeholder: "Organization Tax ID", class: "form-control", required: true %>
+                            </div>
                         </div>
                     </div>
                     <div class="tab">
                         <div class="tab-title">Business Details</div>
                         <div class="row">
-
-
-
-
-
                             <div class="col-lg-6 col-md-6 col-sm-12">
                               <%= f.text_field :street_address,  placeholder: "Street Address", class: "form-control", required: true %>
                             </div>
@@ -93,24 +91,46 @@
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <%= f.text_field :country, placeholder: "Country", class: "form-control", required: true %>
                             </div>
-                            <!-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                <input type="text" class="form-control" placeholder="Country" oninput="this.className = ''"
-                                    name="Country">
-                            </div> -->
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <%= f.text_field :tax_id, placeholder: "Personal Tax Id", class: "form-control", required: true %>
+                            </div>
                         </div>
                     </div>
+                    <div class="tab">
+                        <div class="tab-title">Business Details</div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Driving license or Government Issue ID</label>
+                                    <%= f.file_field :nic, placeholder: "Driving license or Government Issue ID", class: "form-control", required: true %>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Business License</label>
+                                    <%= f.file_field :business_license, placeholder: "Business License", class: "form-control", required: true %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <label for="OrgnizationName" class="form-label">Organization website</label>
+                                <%= f.text_field :website,  placeholder: "Organization website", class: "form-control", required: true %>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div style="overflow:auto;">
                       <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, style: "float: left;"%>
-                        <!-- <a href="login.html" style="float: left;">Login</a> -->
-                        <div style="float:right;">
+                        <div class="sumb-buttons">
                             <a type="button" class="btn btn-custom" id="prevBtn" onclick="nextPrev(-1)">Previous</a>
                             <a type="button"  class="btn btn-custom" id="nextBtn" onclick="nextPrev(1)">Next</a>
-                            <%= f.submit "Submit", class: "btn btn-custom", id: "btn-sumb", style: "margin: 0px;" %>
-                            <!-- <a type="button"  class="btn btn-custom" id="btn-sumb">Submit</a> -->
+                            <%= f.submit "Submit", class: "btn btn-custom ml-2", id: "btn-sumb", style: "margin: 0px;" %>
                         </div>
                     </div>
                     <!-- Circles which indicates the steps of the form: -->
                     <div style="text-align:center; margin-top:40px;">
+                        <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>

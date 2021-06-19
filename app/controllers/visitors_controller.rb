@@ -19,4 +19,10 @@ class VisitorsController < ApplicationController
 
   def docs ; end
 
+  def marketplace
+  end
+
+  def search
+  end
+
 end
