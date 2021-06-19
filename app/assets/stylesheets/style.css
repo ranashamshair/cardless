@@ -47,7 +47,7 @@ header.main-header::before {
   content: '';
   position: absolute;
   width: 100%;
-  min-height: 100vh;
+  min-height: 120vh;
   /*clip-path: polygon(0 0, 100% 0, 100% 23%, 77% 66%, 39% 97%, 0 100%, 0% 70%, 0% 30%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 23%, 77% 66%, 39% 97%, 0 100%, 0% 70%, 0% 30%);*/
   background: linear-gradient(150deg, #59C173, #A17FE0, #5D26C1);
@@ -67,8 +67,8 @@ header.inner-search{
 
 header .main-image img{
   position: relative;
-  max-width: 900px;
-  margin-top: 60px;
+  max-width: 850px;
+  margin-top: 0px;
   margin-left: -100px;
 }
 
