@@ -5,8 +5,8 @@ module Payment
     attr_reader :gateway_transaction, :gateway_request
 
     def initialize
-      api_login_id = gateway_api_login_id # '3DTub79c'
-      api_transaction_key = gateway_api_transaction_key # '5w2tXY47wR97VnNk'
+      api_login_id = gateway_api_login_id
+      api_transaction_key = gateway_api_transaction_key
       environment = sandbox
 
       @gateway_transaction = AuthorizeNet::API::Transaction.new(api_login_id, api_transaction_key, gateway: environment)
@@ -42,46 +42,52 @@ module Payment
     private
 
     def handle_response(response)
+      response_to_return = { message: 'something went wrong', charge: nil, error_code: "unknown #{payment_gateway.id} #{payment_gateway.gateway_type}", response: '' }
+
       if !response.nil?
         if response.messages.resultCode == MessageTypeEnum::Ok
           if !response.transactionResponse.nil? && !response.transactionResponse.messages.nil?
-            puts "Successful charge (auth + capture) (authorization code: #{response.transactionResponse.authCode})"
-            puts "Transaction ID: #{response.transactionResponse.transId}"
-            puts "Transaction Response Code: #{response.transactionResponse.responseCode}"
-            puts "Code: #{response.transactionResponse.messages.messages[0].code}"
-            puts "Description: #{response.transactionResponse.messages.messages[0].description}"
+            charge_response = {
+              authorization_code: response.transactionResponse.authCode,
+              charge_id: response.transactionResponse.transId,
+              response_code: response.transactionResponse.responseCode,
+              message_code: response.transactionResponse.messages.messages[0].code,
+              detail_description: response.transactionResponse.messages.messages[0].description
+            }
+            response_to_return = { message: nil,charge: response.transactionResponse.transId,error_code: nil, response: charge_response.to_json }
           else
-            puts 'Transaction Failed'
             if !response.transactionResponse.errors.nil?
-              puts "Error Code: #{response.transactionResponse.errors.errors[0].errorCode}"
-              puts "Error Message: #{response.transactionResponse.errors.errors[0].errorText}"
+              failure_response = {
+                message: response.transactionResponse.errors.errors[0].errorText,
+                error_code: response.transactionResponse.errors.errors[0].errorCode
+              }
+              response_to_return = { message: response.transactionResponse.errors.errors[0].errorText, charge: nil, error_code: response.transactionResponse.errors.errors[0].errorCode, response: failure_response.to_json }
             end
-            raise 'Failed to charge card.'
           end
         else
           puts 'Transaction Failed'
           if !response.transactionResponse.nil? && !response.transactionResponse.errors.nil?
-            puts "Error Code: #{response.transactionResponse.errors.errors[0].errorCode}"
-            puts "Error Message: #{response.transactionResponse.errors.errors[0].errorText}"
+            failure_response = {
+              message: response.transactionResponse.errors.errors[0].errorText,
+              error_code: response.transactionResponse.errors.errors[0].errorCode
+            }
+            response_to_return = { message: response.transactionResponse.errors.errors[0].errorText, charge: nil, error_code: response.transactionResponse.errors.errors[0].errorCode, response: failure_response.to_json }
           else
-            puts "Error Code: #{response.messages.messages[0].code}"
-            puts "Error Message: #{response.messages.messages[0].text}"
+            failure_response = {error_code: response.messages.messages[0].code, message: response.messages.messages[0].text}
+            response_to_return = { message: response.messages.messages[0].text, charge: nil, error_code: response.messages.messages[0].code, response: failure_response.to_json }
           end
-          raise 'Failed to charge card.'
         end
-      else
-        puts 'Response is null'
-        raise 'Failed to charge card.'
       end
-
-      return response
+      return response_to_return
     end
 
     def gateway_api_transaction_key
+      # '5w2tXY47wR97VnNk'
       payment_gateway.client_secret
     end
 
     def gateway_api_login_id
+      # '3DTub79c'
       payment_gateway.client_id
     end
   end
