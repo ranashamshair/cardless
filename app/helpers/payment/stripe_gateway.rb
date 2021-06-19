@@ -71,6 +71,10 @@ module Payment
       return { message: nil,charge: charge,error_code: nil }
     end
 
+    def handle_charge_response(response)
+      response
+    end
+
     def refund(id, key)
       Stripe.api_key = key if key.present?
       refund = Stripe::Refund.create({
@@ -97,7 +101,8 @@ module Payment
     end
 
     def gateway_api
-      payment_gateway.client_secret
+      # payment_gateway.client_secret
+      ENV["STRIPE_SECRET"]
     end
   end
 end
