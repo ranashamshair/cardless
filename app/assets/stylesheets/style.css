@@ -1015,7 +1015,7 @@ section.partners{
   padding: 30px 0;
   border-radius: 10px;
   background: #ffffff;
-  box-shadow: 0 0.5rem 1rem rgb(205 209 214) !important;
+  box-shadow: 0 0.5rem 2rem rgba(205, 209, 214, 0.6) !important;
 }
 /*
 =======================
