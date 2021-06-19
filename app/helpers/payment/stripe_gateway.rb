@@ -103,9 +103,9 @@ module Payment
     end
 
     def gateway_api
-      # payment_gateway.client_secret
       # ENV["STRIPE_SECRET"]
-      'sk_test_51J47MyHW0K48LBP7ZHZqH4CKDVLRQvnnhPTHtzO3EMTe2AeT1cfm9MkHqg1EogjR05v34x97XbpaSTrWmKD3Hwd4002kXhVzBD'
+      # 'sk_test_51J47MyHW0K48LBP7ZHZqH4CKDVLRQvnnhPTHtzO3EMTe2AeT1cfm9MkHqg1EogjR05v34x97XbpaSTrWmKD3Hwd4002kXhVzBD'
+      payment_gateway.client_secret
     end
   end
 end
