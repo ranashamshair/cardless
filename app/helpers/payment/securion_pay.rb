@@ -4,17 +4,30 @@ module Payment
     attr_accessor :authentication_token
 
     def initialize
-      secret_key = gateway_secret_key #'sk_test_lz57hE9I5ezpuS7lj4ZulvAu'
+      secret_key = gateway_secret_key
       @authentication_token = "#{secret_key}:"
     end
 
     def charge(args)
       cus_token = create_customer(args[:email])
       card_token = create_card(cus_token, args)
-      amount = dollar_to_cents(args[:amount]) # amount is in cents
+      amount = dollar_to_cents(args[:amount].to_i) # amount is in cents
       data = "amount=#{amount}&currency=#{currency}&card=#{card_token}&customerId=#{cus_token}"
       url = 'https://api.securionpay.com/charges'
       post_request(url, data)
+    end
+
+    def handle_charge_response(response)
+      handle_response(response)
+    end
+
+    def handle_response(response)
+      parsed_response = JSON.parse response
+      if parsed_response && parsed_response["error"].present?
+        return { message: parsed_response["error"]["message"], charge: nil,error_code: parsed_response["error"]["type"], response: response }
+      else
+        return { message: nil, charge: parsed_response["id"], error_code: nil, response: response }
+      end
     end
 
     def create_customer(email)
@@ -43,6 +56,7 @@ module Payment
     private
 
     def gateway_secret_key
+      # 'sk_test_lz57hE9I5ezpuS7lj4ZulvAu'
       payment_gateway.client_secret
     end
 

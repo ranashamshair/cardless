@@ -26,7 +26,8 @@ module Payment
         response = gateway.charge(arg)
         gateway.handle_charge_response(response)
       rescue Exception => e
-        return { message: e.message, charge: nil, error_code: "unknown", response: e }
+        binding.pry
+        return { message: e.message, charge: nil, error_code: "unknown #{payment_gateway.id} #{payment_gateway.gateway_type}", response: e }
       end
     end
 

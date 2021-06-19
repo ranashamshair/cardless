@@ -3,9 +3,9 @@ module Payment
 
     attr_reader :authentication_token
 
-    def initialize(payment_gateway = nil)
+    def initialize
 
-      api_key = 'AFWP6d6jEycu6QNXrq839oGWtxWTJJkrMO2+se4yDzEehFDjKS'
+      api_key = gateway_api_key
       @authentication_token = api_key
     end
 
@@ -27,6 +27,18 @@ module Payment
       }
       url = 'https://securetest.smart2pay.com/v1/payments'
       post_request(url, data)
+    end
+
+    def handle_charge_response(response)
+      handle_response(response)
+    end
+
+    def handle_response(response)
+      parsed_response = JSON.parse response
+      if parsed_response == ''
+        return { message: 'invalid request',charge: nil,error_code: 'invalid', response: response }
+      end
+      return { message: nil,charge: parsed_response["id"],error_code: nil, response: response }
     end
 
     def refund
@@ -58,5 +70,9 @@ module Payment
       end
     end
 
+    def gateway_api_key
+      # payment_gateway.client_secret
+      'AFWP6d6jEycu6QNXrq839oGWtxWTJJkrMO2+se4yDzEehFDjKS'
+    end
   end
 end

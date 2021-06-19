@@ -56,7 +56,7 @@ module Payment
                 end
 
       if result.success?
-        return { message: nil, charge: result.transaction.id, error: nil, response: result.transaction}
+        return { message: nil, charge: result.transaction.id, error: nil, response: result.transaction.to_json}
       else
         return { message: result.errors.first.message, charge: nil, error: result.errors.first.code, response: result.errors}
       end
@@ -66,7 +66,7 @@ module Payment
 
     def handle_response(result)
       if result.success?
-        return { message: nil, charge: result.transaction.id, error: nil, response: result.transaction }
+        return { message: nil, charge: result.transaction.id, error: nil, response: result.transaction.to_json }
       else
         return { message: result.errors.first.message, charge: nil, error: result.errors.first.code,
                  response: result.errors }

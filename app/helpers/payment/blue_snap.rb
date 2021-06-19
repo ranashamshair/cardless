@@ -4,7 +4,7 @@ module Payment
     attr_reader :authentication_token
 
     def initialize
-      username = gateway_username # 'API_16230693843681027299010'
+      username = gateway_username #
       password = gateway_password # 'Testing123!'
       @authentication_token = Base64.strict_encode64("#{username}:#{password}")
     end
@@ -27,6 +27,12 @@ module Payment
     end
 
     def handle_charge_response(response)
+      parsed_response = JSON.parse response
+      if parsed_response.present? && parsed_response["processingInfo"] && parsed_response["processingInfo"]["processingStatus"] == 'success'
+        return { message: nil,charge: parsed_response["transactionId"] ,error_code: nil, response: response }
+      else
+        return { message: parsed_response["message"][0]["description"],charge: nil ,error_code: parsed_response["message"][0]["code"], response: response }
+      end
       handle_response(response)
     end
 
@@ -52,11 +58,13 @@ module Payment
     private
 
     def gateway_password
-      payment_gateway.client_secret
+      # payment_gateway.client_secret
+      'Testing123!'
     end
 
     def gateway_username
-      payment_gateway.client_id
+      # payment_gateway.client_id
+      'API_16230693843681027299010'
     end
 
     def post_request(url, params)
