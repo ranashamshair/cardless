@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Merchant::SaleController < MerchantBaseController
+  before_action :check_active, only: [:create]
+
+
   def index
     @transaction = Transaction.new
   end
