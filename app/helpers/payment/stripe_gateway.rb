@@ -8,10 +8,7 @@ module Payment
     def charge(args)
       customer = args[:customer]
       stripe_customer = stripe_customer(customer,customer.stripe_customer_id,customer.email)
-      stripe_charge = stripe_charge(
-        args,
-        stripe_customer.id
-      )
+      stripe_charge(args, stripe_customer.id)
     end
 
     def tokenize_card(stripe_customer_id, args)
@@ -24,25 +21,29 @@ module Payment
           customer: stripe_customer_id
         }
       )
-      stripe_customer = Stripe::Customer.retrieve(stripe_customer_id)
-      stripe_customer.sources.create(source: token) if stripe_customer.present?
+      Stripe::Customer.create_source(stripe_customer_id,
+                                     {source: token.id }
+      )
+      # stripe_customer = Stripe::Customer.retrieve(stripe_customer_id)
+      # stripe_customer.sources.create(source: token) if stripe_customer.present?
+
       raise StandardError, 'Stripe Card Tokenization Failed' if token.nil? || !token.card
 
-      { id: token.card.id, token: token.id }
+      token.card.id
     end
 
     def stripe_customer(user,user_stripe_id=nil,email)
       email = email || user.email
       begin
-        customer = Stripe::Customer.retrieve(user_stripe_id, ENV["STRIPE_SECRET"]) if user_stripe_id.present?
+        customer = Stripe::Customer.retrieve(user_stripe_id, gateway_api) if user_stripe_id.present?
         if customer.nil?
-          customer = Stripe::Customer.create({ email: email }, { api_key: ENV["STRIPE_SECRET"] })
+          customer = Stripe::Customer.create({ email: email }, { api_key: gateway_api })
           user.update(stripe_customer_id: customer.id)
         end
         return customer
       rescue StandardError => e
         my_string = e.message.try(:downcase)
-        customer = Stripe::Customer.create({ email: email }, { api_key: ENV["STRIPE_SECRET"] }) if my_string.include? "no such customer:"
+        customer = Stripe::Customer.create({ email: email }, { api_key: gateway_api }) if my_string.include? "no such customer:"
         # SlackService.notify("Stripe Customer retrieval failed : #{e.message.to_s}") if customer.blank?
         raise StandardError, 'Stripe Customer retrieval failed' if customer.blank?
       end
@@ -51,24 +52,25 @@ module Payment
     # def stripe_charge(amount,customer_id,card_cvv)
     def stripe_charge(args,stripe_customer_id)
       begin
-        card = tokenize_card(stripe_customer_id, args)
+        card_token = tokenize_card(stripe_customer_id, args)
         charge = Stripe::Charge.create({
-                                         amount: (dollars_to_cents(args[:amount]).to_i),
+                                         amount: dollar_to_cents(args[:amount].to_i),
                                          currency: currency,
                                          customer: stripe_customer_id,
-                                         card: card[:id],
+                                         card: card_token,
                                          capture: true
                                        })
       rescue Stripe::CardError, Stripe::InvalidRequestError => e
         body = e.json_body
         err  = body[:error]
         if err[:code].present?
-          return { message: e.message, charge: nil,error_code: err[:decline_code].present? ? err[:decline_code].try(:humanize) : err[:code].try(:humanize) }
+          return { message: e.message, charge: nil,error_code: err[:decline_code].present? ? err[:decline_code].try(:humanize) : err[:code].try(:humanize), response: err }
         else
-          return { message: e.message, charge: nil,error_code: "unknown" }
+          return { message: e.message, charge: nil,error_code: "unknown", response: err }
         end
+
       end
-      return { message: nil,charge: charge,error_code: nil }
+      return { message: nil,charge: charge.id,error_code: nil, response: charge.to_json }
     end
 
     def handle_charge_response(response)
@@ -102,7 +104,8 @@ module Payment
 
     def gateway_api
       # payment_gateway.client_secret
-      ENV["STRIPE_SECRET"]
+      # ENV["STRIPE_SECRET"]
+      'sk_test_51J47MyHW0K48LBP7ZHZqH4CKDVLRQvnnhPTHtzO3EMTe2AeT1cfm9MkHqg1EogjR05v34x97XbpaSTrWmKD3Hwd4002kXhVzBD'
     end
   end
 end

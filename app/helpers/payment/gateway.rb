@@ -20,9 +20,14 @@ module Payment
       #   card_number: '', 4242424242424242
       #   expiry_date: '' 0728
       #   email: '' abc@gmail.com
+      #   customer: User.last
       # }
-      response = gateway.charge(arg)
-      gateway.handle_charge_response(response)
+      begin
+        response = gateway.charge(arg)
+        gateway.handle_charge_response(response)
+      rescue Exception => e
+        return { message: e.message, charge: nil, error_code: "unknown", response: e }
+      end
     end
 
     def sandbox

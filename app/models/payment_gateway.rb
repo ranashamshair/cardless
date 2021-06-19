@@ -10,7 +10,7 @@ class PaymentGateway < ApplicationRecord
     securion_pay: 4,
     two_checkout: 5,
     rapyd: 6,
-    stripe: 7,
+    stripe_gateway: 7,
     authorize_pay: 8,
     blue_snap: 9,
     cardinity: 10,
