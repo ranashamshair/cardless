@@ -860,10 +860,14 @@ section.sign-up .tab {
   display: none;
 }
 
+.sumb-buttons{
+  float: right;
+  display: flex;
+}
+
 section.sign-up .btn-custom {
-  width: 100%;
+  width: 100px;
   height: 45px;
-  margin-top: 10px;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -1414,7 +1418,7 @@ RESPONSIVE STYLES
 */
 @media (max-width: 1440px) {
   section.sign-up .dark_side {
-    min-height: 110vh;
+    min-height: 750px;
   }
 }
 
