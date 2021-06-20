@@ -1,31 +1,44 @@
 module Payment
-  class SmartPay
+  class SmartPay < Gateway
 
     attr_reader :authentication_token
 
-    def initialize(payment_gateway = nil)
-      api_key = 'AFWP6d6jEycu6QNXrq839oGWtxWTJJkrMO2+se4yDzEehFDjKS'
+    def initialize
+
+      api_key = gateway_api_key
       @authentication_token = api_key
     end
 
-    def charge(amount, card)
+    def charge(args)
       data = {
         "Payment": {
-          "MerchantTransactionID": "s2ptest_h2",
-          "Amount": 2000,
-          "Currency": "EUR",
+          # "MerchantTransactionID": 's2p_test_h2',
+          "Amount": dollar_to_cents(args[:amount]),
+          "Currency": currency,
           "Card": {
-            "HolderName": "John Doe",
-            "Number": "4111111111111111",
-            "ExpirationMonth": "01",
-            "ExpirationYear": "2022",
-            "SecurityCode": "312"
+            "HolderName": args[:card_name],
+            "Number": args[:card_number],
+            "ExpirationMonth": expiry_month(args[:expiry_date]),
+            "ExpirationYear": complete_exp_year(args[:expiry_date]),
+            "SecurityCode": args[:cvv]
           },
           "Capture": true
         }
       }
       url = 'https://securetest.smart2pay.com/v1/payments'
       post_request(url, data)
+    end
+
+    def handle_charge_response(response)
+      handle_response(response)
+    end
+
+    def handle_response(response)
+      parsed_response = JSON.parse response
+      if parsed_response == ''
+        return { message: 'invalid request',charge: nil,error_code: 'invalid', response: response }
+      end
+      return { message: nil,charge: parsed_response["id"],error_code: nil, response: response }
     end
 
     def refund
@@ -57,5 +70,9 @@ module Payment
       end
     end
 
+    def gateway_api_key
+      payment_gateway.client_secret
+      # 'AFWP6d6jEycu6QNXrq839oGWtxWTJJkrMO2+se4yDzEehFDjKS'
+    end
   end
 end
