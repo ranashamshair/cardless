@@ -131,6 +131,9 @@ header .navbar-light .navbar-toggler {
   border-color: #ffffff !important;
 }
 
+header .navbar-nav{
+margin-top: 12px;
+}
 
 header #sidebar-btn {
   display: none;
@@ -177,6 +180,7 @@ header .btn-start {
   border-radius: 50px;
   outline: none;
   padding: 8px 25px;
+  margin-top: 20px;
   text-transform: capitalize;
   background-color: #59C173;
 }
@@ -230,7 +234,7 @@ header .main-tablet .secure img {
 }
 
 header .brands {
-  margin-top: -130px;
+  margin-top: -105px;
 }
 
 header .brands img {
@@ -1902,4 +1906,7 @@ RESPONSIVE STYLES
   footer .brand-title img{
     max-width: 225px;
   }
+}
+.splide__arrows{
+  display: none;
 }

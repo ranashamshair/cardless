@@ -32,7 +32,7 @@
                     <a class="nav-link" href="contact.html">CONTACT US</a>
                 </li>
               </ul>
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center mt-2">
                 <% if current_user.blank? %>
                   <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
                   <%= link_to "Sign Up", new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
@@ -120,18 +120,69 @@
                 </div>
               </div>
             </div>
-            <div class="brands">
-              <div class="flex-custom align-items-center">
-                <div class="mySwiper">
-                  <%= image_tag "brand_one.svg", class: "swiper-slide" %>
-                  <%= image_tag "brand_three.svg", class: "swiper-slide" %>
+            <div class="brands d-flex">
+
+                <div id="splide">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide"><%= image_tag "brand_one.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_three.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_five.svg" %></li>
+                    </ul>
+                  </div>
                 </div>
-                <%= image_tag "brand_two.svg" %>
-                <%= image_tag "brand_three.svg" %>
-                <%= image_tag "brand_four.svg" %>
-                <%= image_tag "brand_five.svg" %>
-                <%= image_tag "brand_two.svg" %>
-              </div>
+
+                <div id="splideTwo">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide"><%= image_tag "brand_two.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_five.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_one.svg" %></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div id="splideThree">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide"><%= image_tag "brand_three.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_five.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_four.svg" %></li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <div id="splideFour">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide"><%= image_tag "brand_two.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_five.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_one.svg" %></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div id="splideFive">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide"><%= image_tag "brand_one.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_five.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_three.svg" %></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div id="splideSix">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide"><%= image_tag "brand_three.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_four.svg" %></li>
+                      <li class="splide__slide"><%= image_tag "brand_five.svg" %></li>
+                    </ul>
+                  </div>
+                </div>
+
             </div>
           </div>
         <% elsif controller.controller_name == "visitors" && controller.action_name == "marketplace" %>
