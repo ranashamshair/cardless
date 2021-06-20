@@ -2,7 +2,7 @@
     <div class="card-body">
       <div class="form-group">
         <label for="type">Gateway Type </label>
-        <%= form.select :gateway_type, PaymentGateway.gateway_types.map { |w| [w.first.humanize, w.first] }, include_blank: true ,
+        <%= form.select :gateway_type, PaymentGateway.gateway_types.map { |w| [w.first.humanize, w.second] }, include_blank: true ,
           class: "form-control", selected:  default_gateway_type(form.object.gateway_type) %>
       </div>
       <div class="form-group" id="name" >

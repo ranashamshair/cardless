@@ -1,39 +1,36 @@
 module Payment
-  class BlueSnap < Gateway
+  class BlueSnap
 
     attr_reader :authentication_token
 
-    def initialize
-      username = gateway_username #
-      password = gateway_password # 'Testing123!'
+    def initialize(payment_gateway = nil)
+      # username = payment_gateway.client_id
+      # password = payment_gateway.client_secret
+      username = 'API_16230693843681027299010'
+      password = 'Testing123!'
       @authentication_token = Base64.strict_encode64("#{username}:#{password}")
     end
 
-    def charge(args)
+    def charge(amount, card)
       data = {
-        "cardTransactionType": transaction_type,
-        "amount": args[:amount], "currency": currency, # 11.00
+        "cardTransactionType": "AUTH_CAPTURE",
+        "softDescriptor": "DescTest",
+        "amount": "11.00",
+        "currency": "USD",
         "cardHolderInfo": {
-          "firstName": first_name(args[:card_name]), "lastName": last_name(args[:card_name])
+          "firstName": "test first name",
+          "lastName": "test last name",
+          "zip": "123456"
         },
         "creditCard": {
-          "cardNumber": args[:card_number], "securityCode": args[:cvv],
-          "expirationMonth": expiry_month(args[:expiry_date]),
-          "expirationYear": complete_exp_year(args[:expiry_date])
+          "cardNumber": "4263982640269299",
+          "securityCode": "837",
+          "expirationMonth": "02",
+          "expirationYear": "2023"
         }
       }
       url = 'https://sandbox.bluesnap.com/services/2/transactions'
       post_request(url, data)
-    end
-
-    def handle_charge_response(response)
-      parsed_response = JSON.parse response
-      if parsed_response.present? && parsed_response["processingInfo"] && parsed_response["processingInfo"]["processingStatus"] == 'success'
-        return { message: nil,charge: parsed_response["transactionId"] ,error_code: nil, response: response }
-      else
-        return { message: parsed_response["message"][0]["description"],charge: nil ,error_code: parsed_response["message"][0]["code"], response: response }
-      end
-      handle_response(response)
     end
 
     def refund
@@ -57,16 +54,6 @@ module Payment
 
     private
 
-    def gateway_password
-      # payment_gateway.client_secret
-      'Testing123!'
-    end
-
-    def gateway_username
-      # payment_gateway.client_id
-      'API_16230693843681027299010'
-    end
-
     def post_request(url, params)
       if authentication_token.present?
         curlObj = Curl::Easy.new(url)
@@ -81,12 +68,8 @@ module Payment
       end
     end
 
-    def handle_response(response)
-      response
-    end
 
-    def transaction_type
-      'AUTH_CAPTURE'
-    end
+
+
   end
 end
