@@ -1,9 +1,9 @@
 module Payment
-  class Cardinity < Gateway
+  class Cardinity
 
     attr_reader :authentication_token
 
-    def initialize
+    def initialize(payment_gateway = nil)
       your_consumer_key = ''
       computed_oauth_signature = ''
       @authentication_token = "oauth_consumer_key='#{your_consumer_key}',
@@ -17,7 +17,7 @@ module Payment
     def charge()
       data = {
         "amount": "50.00",
-        "currency": currency,
+        "currency": "EUR",
         "settle": false,
         "description": "some description",
         "order_id": "12345678",
@@ -43,6 +43,16 @@ module Payment
       transaction_id = ''
       url = "https://api.cardinity.com/v1/payments/#{transaction_id}/refunds"
       post_request(url, params)
+
+      # refund response
+      # "{\"refundTransactionId\":1027616102}"
+
+      # partial_refund response
+      # "{\"refundTransactionId\":1027615300,\"amount\":10}"
+
+
+      # second partial refund with more then refundable amount
+      #  "{\"message\":[{\"errorName\":\"REFUND_MAX_AMOUNT_FAILURE\",\"code\":\"14006\",\"description\":\"Refund amount cannot be more than the refundable order amount.\",\"invalidProperty\":{\"name\":\"amount\",\"messageValue\":\"1.00\"}}]}"
     end
 
     private
