@@ -1910,3 +1910,6 @@ RESPONSIVE STYLES
 .splide__arrows{
   display: none;
 }
+img.saly-illust{
+  max-width: 680px;
+}
