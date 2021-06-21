@@ -9,7 +9,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
   </head>
 
   <body>
@@ -28,5 +30,73 @@
     <% if controller.action_name  != "docs"%>
       <%= render partial: "shared/footer" %>
     <% end %>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script>
+      new Splide( '#splide', {
+        direction: 'ttb',
+        height   : '10rem',
+        type    : 'loop',
+        perPage : 1,
+        autoplay: true,
+        interval: 5000,
+        pagination: false,
+        speed: 1500
+      } ).mount();
+
+      new Splide( '#splideTwo', {
+        direction: 'ttb',
+        height   : '10rem',
+        type    : 'loop',
+        perPage : 1,
+        autoplay: true,
+        interval: 4900,
+        pagination: false,
+        speed: 1500
+      } ).mount();
+
+      new Splide( '#splideThree', {
+        direction: 'ttb',
+        height   : '10rem',
+        type    : 'loop',
+        perPage : 1,
+        autoplay: true,
+        interval: 4800,
+        pagination: false,
+        speed: 1500
+      } ).mount();
+
+      new Splide( '#splideFour', {
+        direction: 'ttb',
+        height   : '10rem',
+        type    : 'loop',
+        perPage : 1,
+        autoplay: true,
+        interval: 4700,
+        pagination: false,
+        speed: 1500
+      } ).mount();
+
+      new Splide( '#splideFive', {
+        direction: 'ttb',
+        height   : '10rem',
+        type    : 'loop',
+        perPage : 1,
+        autoplay: true,
+        interval: 4600,
+        pagination: false,
+        speed: 1500
+      } ).mount();
+
+      new Splide( '#splideSix', {
+        direction: 'ttb',
+        height   : '10rem',
+        type    : 'loop',
+        perPage : 1,
+        autoplay: true,
+        interval: 4500,
+        pagination: false,
+        speed: 1500
+      } ).mount();
+    </script>
   </body>
 </html>

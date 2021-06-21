@@ -58,13 +58,13 @@ module Payment
     private
 
     def gateway_password
-      # payment_gateway.client_secret
-      'Testing123!'
+      payment_gateway.client_secret
+      # 'Testing123!'
     end
 
     def gateway_username
-      # payment_gateway.client_id
-      'API_16230693843681027299010'
+      payment_gateway.client_id
+      # 'API_16230693843681027299010'
     end
 
     def post_request(url, params)

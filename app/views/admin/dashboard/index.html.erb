@@ -9,7 +9,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
@@ -26,22 +26,22 @@
             <div class="card">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Online Store Visitors</h3>
-                  <a href="javascript:void(0);">View Report</a>
+                  <h3 class="card-title">Company Balance</h3>
+                  <!-- <a href="javascript:void(0);">View Report</a> -->
                 </div>
               </div>
               <div class="card-body">
                 <div class="d-flex">
                   <p class="d-flex flex-column">
-                    <span class="text-bold text-lg">820</span>
-                    <span>Visitors Over Time</span>
+                    <span class="text-bold text-lg"><%= number_with_precision(Wallet.distro.first.balance, precision: 2) %></span>
+                    <!-- <span>Visitors Over Time</span> -->
                   </p>
-                  <p class="ml-auto d-flex flex-column text-right">
+                  <!-- <p class="ml-auto d-flex flex-column text-right">
                     <span class="text-success">
                       <i class="fas fa-arrow-up"></i> 12.5%
                     </span>
                     <span class="text-muted">Since last week</span>
-                  </p>
+                  </p> -->
                 </div>
                 <!-- /.d-flex -->
 
@@ -107,7 +107,7 @@
                   <tr>
                     <td>
                         <%= image_tag "default-150x150", class: "img-circle img-size-32 mr-2" %>
-                      
+
                       Another Product
                     </td>
                     <td>$29 USD</td>
@@ -127,7 +127,7 @@
                   <tr>
                     <td>
                         <%= image_tag "default-150x150", class: "img-circle img-size-32 mr-2" %>
-                      
+
                       Amazing Product
                     </td>
                     <td>$1,230 USD</td>
@@ -147,7 +147,7 @@
                   <tr>
                     <td>
                         <%= image_tag "default-150x150", class: "img-circle img-size-32 mr-2" %>
-                      
+
                       Perfect Item
                       <span class="badge bg-danger">NEW</span>
                     </td>

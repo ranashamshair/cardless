@@ -1,141 +1,152 @@
 
-<!-- Header Section -->
-
-  <!-- /.Header Section -->
-  <header class="<%= (controller.controller_name == "visitors" && controller.action_name != "index" ) || controller.controller_name == "sessions" || controller.controller_name == "registrations" ? 'inner' : 'main-header' %>">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand" href="/"><span>d</span>istropayment.</a>
-          <a id="sidebar-btn" class="btn btn-sidebar" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-            aria-controls="offcanvasExample">
-            <i class="fas fa-bars"></i>
-          </a>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="/">HOME</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">ABOUT</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/faq">FAQ'S</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/marketplace">MARTKETPLACE</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/docs">API DOCS</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/pricing">PRICING</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="contact.html">CONTACT US</a>
-              </li>
-            </ul>
-            <div class="d-flex align-items-center">
-              <% if current_user.blank? %>
-                <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
-                <%= link_to "Sign Up", new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
-              <% else %>
-                <a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>" class="login-link">Dashboard</a>
-                <%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-
-
-
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-          aria-labelledby="offcanvasExampleLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">distropayment</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="/">HOME</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">ABOUT</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/faq">FAQ'S</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/marketplace">MARTKETPLACE</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/docs">API DOCS</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/pricing">PRICING</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="contact.html">CONTACT US</a>
-              </li>
-            </ul>
-            <div class="d-flex align-items-center mt-5">
-              <% if current_user.blank? %>
-                <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
-                <%= link_to "Sign Up", new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
-              <% else %>
-                <a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>" class="login-link">Dashboard</a>
-                <%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <% if controller.controller_name == "visitors" && controller.action_name == "index" %>
-        <div class="container">
-          <div class="vertical-center">
-            <div class="row align-items-center g-5">
-              <div class="col-lg-5 col-md-12 col-sm-12">
-                <h1>Effortless <br>Payment rocess</h1>
-                <p>DistroPayment makes it easy to collect Direct Debit
-                  payments from customers worldwide, even for
-                  one-off or variable amounts.</p>
-                  <a href="#" class="btn btn-start">Get Started</a>
-              </div>
-              <div class="col-lg-7 col-md-12 col-sm-12">
-                <div class="main-image">
-                  <%= image_tag "dashboard_main_image.png", class: "img-fluid" %>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="clients_profiles">
-            <a href="#">
-              <%= image_tag "clients_image.svg", class: "img-fluid" %>
-
+    <!-- Header Section -->
+      <header class="<%= (controller.controller_name == "visitors" && controller.action_name != "index" ) || controller.controller_name == "sessions" || controller.controller_name == "registrations" ? 'inner' : 'main-header' %>">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <a class="navbar-brand" href="/"><%= image_tag "distro-logo.svg" %></a>
+            <a id="sidebar-btn" class="btn btn-sidebar" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+              aria-controls="offcanvasExample">
+              <i class="fas fa-bars"></i>
             </a>
-            <p>50,000+ clients around the world</p>
-          </div>
-        </div>
-      <% elsif controller.controller_name == "visitors" && controller.action_name == "marketplace" %>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="search-section">
-                        <form class="d-flex align-items-center">
-                            <input type="search" class="header-search form-comtrol" placeholder="Search Anything">
-                            <a href="/search" class="btn btn-search">Search</a>
-                          </form>
-                          <div class="feed d-flex mt-3 mb-3">
-                            Feed:
-                           <div class="feed-list"><a href="/search">api</a></div>
-                           <div class="feed-list"><a href="/search">withdraw</a></div>
-                           <div class="feed-list"><a href="/search">virtual terminal</a></div>
-                          </div>
-                    </div>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/faq">FAQ'S</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/marketplace">MARTKETPLACE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/docs">API DOCS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pricing">PRICING</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">CONTACT US</a>
+                </li>
+              </ul>
+              <div class="d-flex align-items-center mt-2">
+                <% if current_user.blank? %>
+                  <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
+                  <%= link_to "Sign Up", new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+                <% else %>
+                  <a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>" class="login-link">Dashboard</a>
+                  <%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+                <% end %>
+              </div>
             </div>
-        </div>
-      <% end %>
-    </header>
+          </div>
+
+
+
+
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">distropayment</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/faq">FAQ'S</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/marketplace">MARTKETPLACE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/docs">API DOCS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pricing">PRICING</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">CONTACT US</a>
+                </li>
+              </ul>
+              <div class="d-flex align-items-center mt-5">
+                <% if current_user.blank? %>
+                  <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
+                  <%= link_to "Sign Up", new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+                <% else %>
+                  <a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>" class="login-link">Dashboard</a>
+                  <%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <% if controller.controller_name == "visitors" && controller.action_name == "index" %>
+          <div class="container">
+            <div class="vertical-center">
+              <div class="row align-items-center">
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                  <h1>Effortless <br>Payment rocess</h1>
+                  <p>DistroPayment makes it easy to collect Direct Debit
+                    payments from customers worldwide, even for
+                    one-off or variable amounts.</p>
+                    <a href="#" class="btn btn-start">Get Started</a>
+                </div>
+                <div class="col-lg-7 col-md-12 col-sm-12">
+
+                  <div class="main-images-wrapper">
+                    <div class="main-tablet animate-this">
+                      <%= image_tag "header-tablet.svg", class: "img-zoom" %>
+
+                      <div class="mobile">
+                        <%= image_tag "header-mobile.svg", class: "img-zoom" %>
+
+                      </div>
+                      <div class="secure">
+                        <%= image_tag "secure-card.svg", class: "img-zoom" %>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="brands d-flex">
+              <%= image_tag "brand_one.svg" %>
+              <%= image_tag "brand_two.svg" %>
+              <%= image_tag "brand_three.svg" %>
+              <%= image_tag "brand_four.svg" %>
+              <%= image_tag "brand_five.svg" %>
+            </div>
+          </div>
+        <% elsif controller.controller_name == "visitors" && controller.action_name == "marketplace" %>
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="search-section">
+                          <form class="d-flex align-items-center">
+                              <input type="search" class="header-search form-comtrol" placeholder="Search Anything">
+                              <a href="/search" class="btn btn-search">Search</a>
+                            </form>
+                            <div class="feed d-flex mt-3 mb-3">
+                              Feed:
+                             <div class="feed-list"><a href="/search">api</a></div>
+                             <div class="feed-list"><a href="/search">withdraw</a></div>
+                             <div class="feed-list"><a href="/search">virtual terminal</a></div>
+                            </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        <% end %>
+  </header>
+      <!-- /.Header Section -->

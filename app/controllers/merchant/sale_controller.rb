@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Merchant::SaleController < MerchantBaseController
+  before_action :check_active, only: [:create]
+
+
   def index
     @transaction = Transaction.new
   end
@@ -24,7 +27,7 @@ class Merchant::SaleController < MerchantBaseController
     end
     customer_wallet = customer.wallets.primary.first
     card_number = params[:transaction][:card_number]
-    
+
     # card_bin = Card.neutrino_post(card_number.first(6))
     card_info = {
             number: params[:transaction][:card_number],
@@ -68,7 +71,7 @@ class Merchant::SaleController < MerchantBaseController
       card_id: card.id
     )
 
-    transaction_creator = TransactionCreator.new(current_user,customer,card,params[:transaction][:amount],params[:transaction][:name],params[:transaction][:cvc])
+    transaction_creator = TransactionCreator.new(current_user,customer,card,params[:transaction][:amount],params[:transaction][:cvc])
     charge = transaction_creator.charge_on_gateway
 
     return redirect_to merchant_dashboard_index_path, notice: charge[:message] if charge[:error_code].present?

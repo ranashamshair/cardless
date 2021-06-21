@@ -25,11 +25,13 @@ class TransactionCreator
     charge_gateway.charge({
                             amount: amount, #24.44$
                             cvv: cvv, # 231
-                            card_name: customer.name, # John Sins
+                            card_name: customer.first_name, # John Sins
                             card_number: card_info.number, # 4242424242424242
                             expiry_date: "#{card_info.month}#{card_info.year.last(2)}", # 0728
                             email: customer.email, # abc@gmail.com
-                            customer: customer
+                            customer: customer,
+                            exp_month:  card_info.month,
+                            exp_year: card_info.year
                           })
 
   end
