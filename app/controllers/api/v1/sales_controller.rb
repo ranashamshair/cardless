@@ -81,9 +81,16 @@ class Api::V1::SalesController < ApplicationController
       action: 1,
       card_id: card.id
     )
-    stripe = Payment::StripeGateway.new
-    stripe_customer = stripe.stripe_customer(customer,customer.stripe_customer_id,customer.email)
-    charge = stripe.stripe_charge(params[:transaction][:amount],card,ENV["STRIPE_SECRET"],customer.id, customer.stripe_customer_id,params[:transaction][:cvc])
+
+    transaction_creator = TransactionCreator.new(
+      @user,
+      customer,
+      card,
+      params[:transaction][:amount],
+      params[:transaction][:cvc]
+    )
+    charge = transaction_creator.charge_on_gateway
+
     raise StandardError.new(charge[:message]) if charge[:error_code].present?
     issue_tx.update(charge_id: charge[:charge][:id], status: 1)
     customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
