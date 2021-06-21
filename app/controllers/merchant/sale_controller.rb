@@ -70,7 +70,9 @@ class Merchant::SaleController < MerchantBaseController
       action: 1,
       card_id: card.id
     )
-    charge = charge_on_gateway(card, customer)
+
+    transaction_creator = TransactionCreator.new(current_user,customer,card,params[:transaction][:amount],params[:transaction][:cvc])
+    charge = transaction_creator.charge_on_gateway
 
     return redirect_to merchant_dashboard_index_path, notice: charge[:message] if charge[:error_code].present?
     issue_tx.update(charge_id: charge[:charge], status: 1)
@@ -149,30 +151,4 @@ class Merchant::SaleController < MerchantBaseController
     @fee = Fee.last
   end
 
-  private
-
-  def charge_on_gateway(card, customer)
-    merchant = current_user
-
-    trans_payment_gateway = if merchant.payment_gateway.present?
-                              merchant.payment_gateway
-                            else
-                              PaymentGateway.red_sys.first
-                            end
-
-    card_info = Payment::DistroCard.new({ fingerprint: card.fingerprint }, card.distro_token, customer.id)
-
-    charge_gateway = Payment::Gateway.new(trans_payment_gateway)
-
-    charge_gateway.charge({
-                            amount: params[:transaction][:amount], #24.44$
-                            cvv: params[:transaction][:cvc], # 231
-                            card_name: params[:transaction][:name], # John Sins
-                            card_number: card_info.number, # 4242424242424242
-                            expiry_date: "#{card_info.month}#{card_info.year.last(2)}", # 0728
-                            email: customer.email, # abc@gmail.com
-                            customer: customer
-                                   })
-
-  end
 end
