@@ -71,7 +71,7 @@ class Merchant::SaleController < MerchantBaseController
       card_id: card.id
     )
 
-    transaction_creator = TransactionCreator.new(current_user,customer,card,params[:transaction][:amount],params[:transaction][:name],params[:transaction][:cvc])
+    transaction_creator = TransactionCreator.new(current_user,customer,card,params[:transaction][:amount],params[:transaction][:cvc])
     charge = transaction_creator.charge_on_gateway
 
     return redirect_to merchant_dashboard_index_path, notice: charge[:message] if charge[:error_code].present?
