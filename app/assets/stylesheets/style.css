@@ -239,12 +239,16 @@ header .brands {
 
 header .brands img {
   max-width: 125px;
+  padding-right: 60px;
 }
 
 header .brands .flex-custom{
   display: flex;
 }
-
+header .brands img:hover{
+  transform: scale(1.2);
+    transition: 0.3s ease-in-out;
+}
 /*
 =======================
 FEATURED SECTION STYLES
@@ -1806,7 +1810,8 @@ RESPONSIVE STYLES
   }
 
   section.sign-up .dark_side img {
-    padding-top: 100px;
+    margin-bottom: 80px;
+    max-width: 595px;
   }
 
   header .vertical-center {
