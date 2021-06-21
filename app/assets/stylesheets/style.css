@@ -239,7 +239,6 @@ header .brands {
 
 header .brands img {
   max-width: 125px;
-  padding-right: 65px;
 }
 
 header .brands .flex-custom{
@@ -1915,5 +1914,9 @@ RESPONSIVE STYLES
   display: none;
 }
 img.saly-illust{
-  max-width: 680px;
+  max-width: 580px;
+  margin-bottom: 80px;
+}
+#splide, #splideTwo, #splideThree, #splideFour, #splideFive, #splideSix{
+  padding-right: 60px;
 }
