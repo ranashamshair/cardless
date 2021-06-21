@@ -4,8 +4,8 @@
 =================
 */
 :root {
-    --theme-primary-color: #181C33;
-    --theme-second-color: #1657FF;
+    --theme-primary-color: linear-gradient(150deg, #A17FE0, #5D26C1);
+    --theme-second-color: #59C173;
     --theme-third-color: #02152C;
     --theme-white-color: #ffffff;
     --theme-color-light: #F3F4F5;
@@ -70,7 +70,7 @@ body{
     line-height: 1.5;
     color: var(--theme-third-color);
     font-family: 'Red Hat Display', sans-serif;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 
 .dash_body {
@@ -103,7 +103,7 @@ body{
     line-height: 50px;
     margin-left: 20px;
     border-radius: 10px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
     z-index: 99;
 }
 
@@ -133,7 +133,7 @@ body{
     align-items: center;
     border-radius: 10px;
     padding: 4px 12px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 
 .search_input {
@@ -143,7 +143,7 @@ body{
     border-radius: 10px;
     font-weight: 500;
     color: var(--theme-third-color);
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 
 .search .fa-search {
@@ -160,7 +160,7 @@ body{
     width: 75px;
     height: 100%;
     overflow: hidden;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
     z-index: 1;
 }
 
@@ -178,11 +178,11 @@ body{
 }
 
 .sidebar_left ul li:hover {
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 
 .sidebar_left ul li.active {
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 
 .sidebar_left ul li a {
@@ -243,7 +243,7 @@ body{
     right: 0;
     width: 0px;
     height: 100%;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     z-index: 999;
     transition: all ease-in-out;
 }
@@ -255,7 +255,7 @@ body{
     cursor: pointer;
     top: 0px;
     left: 0px;
-    background-color: transparent;
+    background: transparent;
 }
 
 .sidebar_right .btn_close .fa-times{
@@ -272,7 +272,7 @@ body{
     height: 100px;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .sidebar_right .user_profile{
     width: 50px;
@@ -281,7 +281,7 @@ body{
     margin-top: -20px;
     margin-left: 60px;
     border-radius: 10px;
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 .sidebar_right .user_profile .fa-user-circle,
 .notify_sidebar  .notify_profile .fa-bell{
@@ -317,19 +317,19 @@ body{
     width: 8px;
     height: 8px;
     border-radius: 50px;
-    background-color: var(--theme-color-green);
+    background: var(--theme-color-green);
 }
 .sidebar_right .my_profile,
 .sidebar_right .my_log_out{
     width: 100%;
     height: 80px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .sidebar_right .profile_my,
 .sidebar_right .log_out_my {
     padding: 10px 14px;
     border-radius: 50%;
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 .sidebar_right .profile_my .fa-id-badge,
 .sidebar_right .log_out_my .fa-sign-out-alt{
@@ -347,7 +347,7 @@ body{
     width: 1005;
     height: 1px;
     margin-top: 80px;
-    background-color: #e6e6e6;
+    background: #e6e6e6;
 }
 .sidebar_right .line2{
    margin-top: 2px;
@@ -372,7 +372,7 @@ body{
     right: 0;
     width: 0px;
     height: 100vh;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     z-index: 999;
     transition: all ease-in-out;
 }
@@ -383,14 +383,14 @@ body{
     top: 8px;
     left: 12px;
     color: var(--theme-white-color);
-    background-color: transparent;
+    background: transparent;
 }
 .notify_sidebar .notify_head{
     width: 100%;
     height: 100px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .notify_sidebar .fa-times{
     font-size: 22px;
@@ -402,7 +402,7 @@ body{
     margin-top: -20px;
     margin-left: 154px;
     border-radius: 10px;
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 .notify_sidebar .notify_text{
     font-size: 22px;
@@ -420,7 +420,7 @@ body{
     width: 100%;
     height: 162px;
     margin: 27px 0;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .notify_sidebar  .content_right{
     margin-top: -100px;
@@ -447,7 +447,7 @@ body{
     padding: 4px 8px;
     border-radius: 3px;
     color: var(--theme-second-color);
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 
 
@@ -462,7 +462,7 @@ Chargeback Page Styles
     border-radius: 10px;
     margin: 100px 0;
     padding: 20px 15px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 
@@ -478,7 +478,7 @@ Chargeback Page Styles
 .dashboard_main_box .line{
     width: 90%;
     height: 1px;
-    background-color: #e6e6e6;
+    background: #e6e6e6;
 }
 
 .dashboard_main_box .balance_one {
@@ -496,7 +496,7 @@ button.dash_view_more {
     padding: 2px 8px;
     margin: 20px 0;
     border-radius: 4px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 
 .dash_view_more a {
@@ -507,11 +507,11 @@ button.dash_view_more {
     font-size: 16px;
     padding: 20px 10px;
     border-radius: 10px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .breadcrumb{
-    background-color: transparent;
+    background: transparent;
 }
 .table th,.table td{
 
@@ -524,11 +524,11 @@ button.dash_view_more {
 .table-striped tbody tr:nth-of-type(odd) {
     color: var(--theme-white-color);
     line-height:18px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .table-striped tbody tr:hover{
     color: var(--theme-primary-color);
-    background-color: var(--theme-forms-color);
+    background: var(--theme-forms-color);
 }
 
 .transaction_history_table .tabel_status{
@@ -536,7 +536,7 @@ button.dash_view_more {
     height: 30px;
     border: none;
     border-radius: 5px;
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 .transaction_history_table .tabel_status a{
     font-size: 16px;
@@ -550,7 +550,7 @@ button.dash_view_more {
 /* Pagination Styles */
 .page-link{
     color:var(--theme-second-color);
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 .page-item{
     color: var(--theme-third-color);
@@ -562,7 +562,7 @@ Chargeback Page Styles
     padding: 12px;
     overflow: auto;
     border-radius: 10px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .cahrgeback_main_tab .charge_box{
@@ -572,7 +572,7 @@ Chargeback Page Styles
     width: 50px;
     height: 50px;
     border-radius: 10px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .charge_box .icon .fa-suitcase-rolling{
     font-size: 34px;
@@ -593,7 +593,7 @@ Chargeback Page Styles
     padding: 20px;
     overflow: auto;
     margin-bottom: 100px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .cargeback_table .fas{
@@ -605,7 +605,7 @@ Virtual Terminal Page Styles
 .client_form{
     width: 75%;
     margin: 0 auto;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .client_form  form{
@@ -622,7 +622,7 @@ Virtual Terminal Page Styles
     border: none;
     border-radius: 10px;
     height: calc(1.5em + .75rem + 9px) !important;
-    background-color: var(--theme-forms-color);
+    background: var(--theme-forms-color);
 }
 .form-control:hover{
     transition: 0.4s ease-in-out;
@@ -642,7 +642,7 @@ Virtual Terminal Page Styles
     color: var(--theme-white-color);
     border: none;
 
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 /*==========================
 Transaction Details Page Styles
@@ -650,7 +650,7 @@ Transaction Details Page Styles
 .transaction_detail_box{
     padding: 20px;
     border-radius: 10px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .tran_det_head{
@@ -664,13 +664,13 @@ Transaction Details Page Styles
     padding: 5px;
     border-radius: 5px;
     color: var(--theme-white-color);
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .refund_modal_dialog .modal-header,
 .modal_withdraw_fund .modal-header,
 .acc_trans_dialog  .modal-header{
     color: var(--theme-white-color);
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .modal-header .close{
     font-size: 24px;
@@ -698,14 +698,14 @@ Transaction Details Page Styles
     text-align: center;
     width: 130px;
     border-radius: 10px;
-    background-color: var(--theme-color-red);
+    background: var(--theme-color-red);
 }
 .btn-refund-modal:hover,
 .btn_refund_cancel:hover,
 .btn_refund_final:hover,
 .btn-refund-modal:hover{
     transition: .2s ease-in-out;
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 .refund_modal_dialog{
    margin-top: 10%;
@@ -715,19 +715,19 @@ Transaction Details Page Styles
     width: 100px;
     border: none;
     outline: inherit;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .btn_refund_final{
     width: 100px;
     border: none;
     outline: inherit;
-    background-color: var(--theme-color-red);
+    background: var(--theme-color-red);
 }
 .alert-success{
     border: none;
     color: var(--theme-color-red);
     border-bottom: 2px solid var(--theme-color-red);
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 .alert-heading{
     font-size: 20px;
@@ -741,7 +741,7 @@ Transaction Details Page Styles
   .tooltip .tooltiptext {
     visibility: hidden;
     width: 140px;
-    background-color: #555;
+    background: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
@@ -793,13 +793,13 @@ Account Details Page Styles
     margin: 20px 0;
     border-radius: 5px;
     color: var(--theme-white-color);
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
     border-bottom: 2px solid var(--theme-second-color);
 }
 .main_account_box .child{
     border-bottom: none;
     color: var(--theme-third-color);
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 .main_account_list .fund_amount{
     font-weight: 500;
@@ -820,17 +820,17 @@ Account Details Page Styles
     font-size: 14px;
     border-radius: 6px;
     color: var(--theme-white-color);
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .main_account_box .btn-withdraw_fund:hover,
 .main_account_box .btn-account_transfer:hover,
 .acc_trans_dialog .btn_actrans_sub:hover{
     transition: .2s ease-in-out;
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 .modal_withdraw_fund .btn-withdraw_submit{
     color: var(--theme-white-color);
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 .form-check{
     width: 130px;
@@ -844,7 +844,7 @@ Account Details Page Styles
     padding: 8px;
     outline: inherit;
     border-radius: 10px;
-    background-color: var(--theme-forms-color);
+    background: var(--theme-forms-color);
 }
 .acc_trans_dialog .text-area:hover,
 .acc_trans_dialog  .balance:hover{
@@ -854,13 +854,13 @@ Account Details Page Styles
 .acc_trans_dialog .btn_actrans_sub{
     width: 130px;
     border-radius:10px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .acc_trans_dialog  .balance{
     padding: 10px 15px;
     border-radius: 10px;
     border-bottom: 2px solid var(--theme-primary-color);
-    background-color: var(--theme-forms-color);
+    background: var(--theme-forms-color);
 }
 /*==========================
 Fee Structure Page Styles
@@ -876,18 +876,18 @@ Fee Structure Page Styles
 .fee_structure_box .box_main{
     padding: 20px;
     border-radius: 10px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .fee_structure_box .box_main .box-data{
     font-weight: 500;
     border-radius: 10px;
     color: var(--theme-white-color);
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .box_main .box-data.child{
     color: var(--theme-third-color);
-    background-color: var(--theme-forms-color) !important;
+    background: var(--theme-forms-color) !important;
 }
 /*==========================
 Api Key Page Styles
@@ -899,7 +899,7 @@ Api Key Page Styles
 .api_key_section .api_key_tab{
     padding: 20px;
     border-radius: 10px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
     /* box-shadow: 0 0.5rem 1rem rgb(22 87 255 / 7%) !important; */
 }
 .api_key_section .api_key_head{
@@ -915,11 +915,11 @@ Api Key Page Styles
 .api_key_section .api_key_box{
     border-radius: 2px;
     color: var(--theme-white-color);
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .api_key_section .api_key_box.active{
     color: var(--theme-third-color);
-    background-color: var(--theme-forms-color) !important;
+    background: var(--theme-forms-color) !important;
 }
 .api_key_section .sub_head_two{
     font-size: 18px;
@@ -950,7 +950,7 @@ Api Key Page Styles
     font-weight: 600;
     left: 100px;
     color: var(--theme-third-color);
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 /*==========================
 My Profile Page Styles
@@ -959,14 +959,14 @@ section.my_profile{
     margin: 100px 0;
     padding: 15px 25px;
     border-radius: 10px;
-    background-color: var(--theme-white-color);
+    background: var(--theme-white-color);
 }
 .my_profile .my_profile_card .user_profile{
     width: 60px;
     height: 55px;
     display: block;
     border-radius: 10px;
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
 }
 .my_profile .my_profile_card .user_profile .fa-user-circle{
     font-size: 40px;
@@ -990,7 +990,7 @@ section.my_profile{
     width: 8px;
     height: 8px;
     border-radius: 50px;
-    background-color: var(--theme-color-green);
+    background: var(--theme-color-green);
 }
 .my_profile .my_profile_card .active-text{
     font-size: 16px;
@@ -1005,11 +1005,11 @@ section.my_profile{
     height: 43px;
     border-radius: 50px;
     color: var(--theme-white-color);
-    background-color: var(--theme-primary-color);
+    background: var(--theme-primary-color);
     transition: 0.3s ease-in-out;
 }
 .my_profile .btn_submit_profile:hover{
-    background-color: var(--theme-second-color);
+    background: var(--theme-second-color);
 }
 
 /** Media Queries **/
