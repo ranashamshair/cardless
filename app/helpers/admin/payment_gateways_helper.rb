@@ -3,21 +3,21 @@
 module Admin::PaymentGatewaysHelper
     def default_gateway_type(type)
       case type
-        when 'gocardless'
-          return 0
         when 'brain_tree_payments'
+          return 0
+        when 'authorize_pay'
           return 1
-        when 'checkout'
+        when 'blue_snap'
           return 2
-        when 'dwolla'
-          return 3
         when 'securion_pay'
+          return 3
+        when 'cardinity'
           return 4
-        when 'two_checkout'
+        when 'smart_pay'
           return 5
-        when 'rapyd'
-          return 6
         when 'stripe'
+          return 6
+        when 'red_sys'
           return 7
       end
 
