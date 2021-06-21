@@ -2,6 +2,6 @@
 
 class PaymentGateway < ApplicationRecord
   has_many :merchants
-  enum gateway_type: { gocardless: 0, brain_tree_payments: 1, checkout: 2, dwolla: 3,  securion_pay: 4,
-              two_checkout: 5,  rapyd: 6,  stripe:7 }
+  enum gateway_type: { brain_tree_payments: 0, authorize_pay: 1, blue_snap: 2,  securion_pay: 3,
+              cardinity: 4,  smart_pay: 5,  stripe: 6 }
 end

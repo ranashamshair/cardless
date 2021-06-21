@@ -4,29 +4,29 @@ module Payment
     attr_reader :authentication_token
 
     def initialize(payment_gateway = nil)
-      # username = payment_gateway.client_id
-      # password = payment_gateway.client_secret
-      username = 'API_16230693843681027299010'
-      password = 'Testing123!'
+      username = payment_gateway.client_id
+      password = payment_gateway.client_secret
+      # username = 'API_16230693843681027299010'
+      # password = 'Testing123!'
       @authentication_token = Base64.strict_encode64("#{username}:#{password}")
     end
 
-    def charge(amount, card)
+    def charge(amount, card, user)
       data = {
         "cardTransactionType": "AUTH_CAPTURE",
         "softDescriptor": "DescTest",
-        "amount": "11.00",
-        "currency": "USD",
+        "amount": amount,
+        "currency": "EUR",
         "cardHolderInfo": {
-          "firstName": "test first name",
-          "lastName": "test last name",
-          "zip": "123456"
+          "firstName": user.first_name,
+          "lastName": user.last_name,
+          "email": user.email
         },
         "creditCard": {
-          "cardNumber": "4263982640269299",
-          "securityCode": "837",
-          "expirationMonth": "02",
-          "expirationYear": "2023"
+          "cardNumber": card.card_number,
+          "securityCode": card.cvv,
+          "expirationMonth": card.exp_month,
+          "expirationYear": card.exp_year
         }
       }
       url = 'https://sandbox.bluesnap.com/services/2/transactions'

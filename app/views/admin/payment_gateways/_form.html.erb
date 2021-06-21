@@ -47,9 +47,9 @@
 
 <script>
 
-  var gateway_type ='<%=@gateway_t  %>'
+  var gateway_type ='<%= @gateway_t  %>'
   if (gateway_type.length > 0 ){
-    if(gateway_type == 'dowlla' || 'securion_pay' || 'rapyd' || 'stripe' ){
+    if(gateway_type == 'dowlla' || 'securion_pay' || 'rapyd' || 'stripe' || 'blue_snap'){
       let hide_arguments = ["merchant_id", "redirect_url", "base_url","secret_word"];
       for(var i=0; i < hide_arguments.length; i++){
         document.getElementById(hide_arguments[i]).style.display = "none";
@@ -124,7 +124,7 @@ else{
 
     let type = event.target.value;
 
-    if(type == '3' || '4' || '6' || '7'){
+    if(type == '2' || '6'){
       let hide_arguments = ["merchant_id", "redirect_url", "base_url","secret_word"];
       for(var i=0; i < hide_arguments.length; i++){
         document.getElementById(hide_arguments[i]).style.display = "none";
@@ -160,18 +160,18 @@ else{
         document.getElementById(show_arguments[i]).style.display = "block";
       }
     }
-      if(type == '2') {
-      let hide_arguments = [ "redirect_url", "merchant_id", "secret_word"];
-      for(var i=0; i < hide_arguments.length; i++){
-        document.getElementById(hide_arguments[i]).style.display = "none";
-      }
-
-      let show_arguments = [ "name", "client_key", "client_secret", "base_url"];
-
-      for(var i=0; i < show_arguments.length; i++){
-        document.getElementById(show_arguments[i]).style.display = "block";
-      }
-    }
+    //   if(type == '2') {
+    //   let hide_arguments = [ "redirect_url", "merchant_id", "secret_word"];
+    //   for(var i=0; i < hide_arguments.length; i++){
+    //     document.getElementById(hide_arguments[i]).style.display = "none";
+    //   }
+    //
+    //   let show_arguments = [ "name", "client_key", "client_secret", "base_url"];
+    //
+    //   for(var i=0; i < show_arguments.length; i++){
+    //     document.getElementById(show_arguments[i]).style.display = "block";
+    //   }
+    // }
 
     if(type == '5') {
     let hide_arguments = [ "redirect_url", "base_url", "client_key" ];
