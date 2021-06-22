@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <title>Email</title>
+    <style>
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            height: auto !important;
+            width: 100% !important;
+            line-height: 20px;
+            background-color: #fff;
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        th {
+            padding: 15px 0;
+            text-align: left;
+            border-collapse: collapse;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+
+        td {
+            text-align: left;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0" cellpadding="0" style="width: 800px; margin: 0 auto; background: #ffff;">
+        <tbody>
+            <tr>
+                <td>
+                    <div style="display:flex;">
+                        <div style="padding-top: 20px;"><img src="https://www.distropayment.com/distro-logo-black.png" width="250px" height="auto"
+                                alt=""></div>
+                        <div style="margin-left: auto; padding-top: 15px;">
+                            <ul style="list-style: none; font-weight: 600; padding-left: 0px;">
+                                <li style="font-size: 22px;">DistroPayment</li>
+                                <li style="margin-top: 2px; font-size: 14px;">Oak Mills, Jarak Lane</li>
+                                <li style="margin-top: 2px; font-size: 14px;">Leeds, Freedom Hills</li>
+                                <li style="margin-top: 2px; font-size: 14px;">Tell 011 4589 4789 45</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul style="list-style: none; padding-left: 0; margin: 0 0;">
+                        <li>Transaction Id: <%= @transaction.ref_id %></li>
+                        <li>Transaction Date: <%= @transaction.created_at.strftime("%m/%d/%Y") %></li>
+
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td style="display: flex;">
+                    <div>
+                        <div style="font-weight: 600;">Customer Information:</div>
+                        <ul style="list-style: none; font-weight: 400; padding-left: 0px; margin-top: 0px;">
+                            <li style="margin-top: 2px; font-size: 14px;"><%= @customer.first_name %> <%= @customer.last_name %></li>
+                            <li style="margin-top: 2px; font-size: 14px;"><%= @customer.street_address %></li>
+                            <li style="margin-top: 2px; font-size: 14px;">Tell <%= @customer.phone_number %></li>
+                            <li><a href="mailto:<%= @customer.email %>"><%= @customer.email %></a></li>
+                        </ul>
+                    </div>
+                    <!-- <div style="margin-left: 120px;">
+                        <div style="font-weight: 600;">SHIP TO:</div>
+                        <ul style="list-style: none; font-weight: 400; padding-left: 0px; margin-top: 0px;">
+                            <li style="margin-top: 2px; font-size: 14px;">Oak Mills, Jarak Lane</li>
+                            <li style="margin-top: 2px; font-size: 14px;">Leeds, Freedom Hills</li>
+                            <li style="margin-top: 2px; font-size: 14px;">Tell 011 4589 4789 45</li>
+                        </ul>
+                    </div> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table cellspacing="0" cellpadding="0" style="width: 800px; margin: 30px auto; background: #ffff;">
+        <thead>
+            <tr>
+                <th>Card Number</th>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+                <th>Fee</th>
+                <th>Bank Fee</th>
+                <th>Reserve Money</th>
+                <th>Net Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= @transaction.card.first6 %>****<%= @transaction.card.last4 %></td>
+                <td><%= @transaction.main_type.humanize %></td>
+                <td><%= @transaction.amount %></td>
+                <td><%= @transaction.fee %></td>
+                <td><%= @transaction.bank_fee %></td>
+                <td><%= @transaction.reserve_money %></td>
+                <td><%= @transaction.net_amount %></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <table cellspacing="0" cellpadding="0" style="width: 800px; margin: 30px auto; background: #ffff;">
+        <tbody>
+            <tr>
+                <td style="font-size: 12px; font-weight: 600;">
+                  This email is intended for <%= @merchant.email %>. If you have received this message in error, please return it to the sender at the above address.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
