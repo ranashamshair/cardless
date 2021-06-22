@@ -160,6 +160,8 @@ class Api::V1::SalesController < ApplicationController
       end
       customer_wallet.update(balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f)
       merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
+      TransactionMailer.customer_email(customer, @user, transfer_tx).deliver_now
+      TransactionMailer.merchant_email(customer, @user, transfer_tx).deliver_now
       render json: { message: 'Payment successful ', success: true, status: 200, ref_id: issue_tx[:ref_id] }
     else
       render json: { message: 'Invalid Card', success: false, status: 200, ref_id: "" }
