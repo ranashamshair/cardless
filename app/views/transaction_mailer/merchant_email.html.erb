@@ -97,7 +97,6 @@
                 <th>Transaction Type</th>
                 <th>Amount</th>
                 <th>Fee</th>
-                <th>Bank Fee</th>
                 <th>Reserve Money</th>
                 <th>Net Amount</th>
             </tr>
@@ -107,8 +106,7 @@
                 <td><%= @transaction.card.first6 %>****<%= @transaction.card.last4 %></td>
                 <td><%= @transaction.main_type.humanize %></td>
                 <td><%= @transaction.amount %></td>
-                <td><%= @transaction.fee %></td>
-                <td><%= @transaction.bank_fee %></td>
+                <td><%= @transaction.fee.to_f + @transaction.bank_fee.to_f %></td>
                 <td><%= @transaction.reserve_money %></td>
                 <td><%= @transaction.net_amount %></td>
             </tr>
