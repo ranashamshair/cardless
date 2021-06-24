@@ -112,12 +112,16 @@ class Merchant::VerificationController < MerchantBaseController
     @company = current_user.company
     respond_to do |format|
       if @company.update(docs_params)
-        format.html { redirect_to merchant_dashboard_index_path }
+        format.html { redirect_to thankyou_merchant_verification_index }
       else
         format.html { redirect_to verification_status_merchant_verification_index_path }
       end
     end
   end
+
+  def thankyou
+  end
+
 
   private
 

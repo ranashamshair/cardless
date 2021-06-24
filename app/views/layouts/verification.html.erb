@@ -40,6 +40,7 @@
     <section class="profile-sidebar">
         <div class="container">
             <div class="row">
+               <% if controller.action_name != "thankyou"%>
                 <div class="col-lg-4 col-md-12 col-sm-12 pl-0">
                     <div class="bg shadow">
                         <ul>
@@ -88,6 +89,7 @@
                         </ul>
                     </div>
                 </div>
+                <% end %>
                 <%= yield %>
             </div>
         </div>

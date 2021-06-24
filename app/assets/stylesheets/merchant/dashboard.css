@@ -1678,3 +1678,27 @@ footer.ft-profile {
         padding: 10px 0px;
     }
 }
+.thanks-section .thanks-box{
+    border: 1px solid #FFEEBA;
+    background-color: #FFF3CD;
+    max-width: 100%;
+    padding: 20px;
+    margin: 50px 0;
+    border-radius: 20px;
+}
+.thanks-section .thanks-box .thanks-content{
+   text-align: center;
+}
+.thanks-section .thanks-box .thanks-content P{
+    color: #6C757D;
+}
+.thanks-section .thanks-box  .thanks-content img{
+    max-width: 150px;
+    margin: 0 auto;
+}
+.thanks-section .thanks-box .thanks-content .title{
+    color: #02152C;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 10px 0;
+}
