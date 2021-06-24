@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     resources :account_transfers do
       get :check_email, on: :collection
     end
+    resources :verification, only: [:index]
   end
   namespace :admin do
     resources :dashboard, only: [:index]

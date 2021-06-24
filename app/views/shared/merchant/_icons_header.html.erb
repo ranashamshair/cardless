@@ -2,7 +2,10 @@
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="dash_header_left ml-5">
-          <% user= current_user %>
+            <div class="toggle-btn">
+              <i class="fas fa-bars"></i>
+            </div>
+            <% user= current_user %>
             <div class="welcom_heading">
               Welcome, <%= user.first_name + " " + user.last_name %>  </div>
             <div class="small_head pl-2">Your Accounts Dashboard</div>

@@ -1,6 +1,13 @@
 $(document).on("turbolinks:load", function() {
 // $(function () {
   /* right Sidebar */
+  $('.toggle-btn').click(function () {
+    $('.sidebar_left').toggleClass("siderbar-open");
+  });
+
+  $('.toggle-btn').click(function () {
+    $('.dash_body').toggleClass("epend");
+  });
 $('.user_icon').click(function(){
 $('.sidebar_right').css("width", "230px");
 });
