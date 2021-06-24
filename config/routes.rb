@@ -43,7 +43,15 @@ Rails.application.routes.draw do
     resources :account_transfers do
       get :check_email, on: :collection
     end
-    resources :verification, only: [:index]
+    resources :verification, only: [:index] do
+      get :company_info, on: :collection
+      get :contact_details, on: :collection
+      get :brand_info, on: :collection
+      get :bank_details, on: :collection
+      get :verify_bank, on: :collection
+      get :verification_status, on: :collection
+      post :save_company_detail, on: :collection
+    end
   end
   namespace :admin do
     resources :dashboard, only: [:index]

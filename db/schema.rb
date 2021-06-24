@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_120142) do
+ActiveRecord::Schema.define(version: 2021_06_24_124419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,27 @@ ActiveRecord::Schema.define(version: 2021_06_18_120142) do
     t.string "card_type"
     t.text "fingerprint"
     t.text "distro_token"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "address"
+    t.string "country"
+    t.string "city"
+    t.string "postcode"
+    t.string "logo"
+    t.string "business_type"
+    t.string "industry"
+    t.string "buisness_work"
+    t.string "name"
+    t.string "vat"
+    t.string "website"
+    t.string "support_email"
+    t.string "phone"
+    t.string "legal_doc"
+    t.string "id_doc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "fees", force: :cascade do |t|

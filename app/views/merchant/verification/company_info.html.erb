@@ -1,0 +1,112 @@
+<div class="col-lg-8 col-md-12 col-sm-12 pr-0">
+    <div class="company-info">
+        <div class="detail-box shadow mx-auto">
+            <h3>Tell us about your company</h3>
+            <p>DistroPayment makes it easy to collect Direct Debit payments from customers worldwide,
+                even for one-off or variable amounts.</p>
+            <p>Create slale transaction api for real time tracking your slaes record and manage your
+                onboard</p>
+            <%= form_for @company, url: save_company_detail_merchant_verification_index_path, method: :post do |form| %>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Country <span>*</span></label>
+                    <%= form.country_select :country, {}, {class: "form-control", id: "exampleFormControlSelect1"} %>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Business Type <span>*</span></label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Choose Your Business</option>
+                        <option>Limited Company</option>
+                        <option>Charity/Non Profit</option>
+                        <option>Individual/Sole Trader</option>
+                        <option>Prtnership</option>
+                        <option>Trust</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Serach Your Company</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Type Your Company Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Industry <span>*</span></label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Agriculture Services</option>
+                        <option>Contracted Services</option>
+                        <option>Charity/Non Profit</option>
+                        <option>Transportation</option>
+                        <option>Utilities</option>
+                        <option>Clothing Outlets</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">What Does Your Busines do ?
+                        <span>*</span></label>
+                    <textarea class="form-control" placeholder="e.g provides monthly subscriptions"
+                        id="exampleFormControlTextarea1" rows="3" columns="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">What is your trading name ?</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                        placeholder="e.g Coffee monthly">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">What is your vat registration number ?</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                        placeholder="ESX67345987">
+                </div>
+
+            <div class="personal-details">
+                <h4>Your details</h4>
+                <p>
+                    Please enter your details as they appear in any official records.<br> Avoid
+                    abbreviations, and make sure to check for misspellings.
+                </p>
+                <p class="mt-2">This must be your home address, rather than business address <br>(if
+                    they’re different).</p>
+                <!-- <form> -->
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <label for="validationCustom01">Date off Birth <span>*</span></label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="02">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="06">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" placeholder="1998">
+                        </div>
+                    </div>
+                <!-- </form> -->
+            </div>
+
+            <!-- <form> -->
+                <div class="form-group mt-4">
+                    <label for="exampleFormControlInput1">Street Address <span>*</span></label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                        placeholder="your Address">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">City <span>*</span></label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                        placeholder="e.g Barcelona  ">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Postcode <span>*</span></label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                        placeholder="54000">
+                </div>
+            <!-- </form> -->
+
+            <div class="d-flex align-items-center mt-5">
+                <a href="#" class="btn btn-continue">Continue</a>
+                <a href="#" class="go-back ml-3"><i class="fas fa-arrow-left"></i> go back a step</a>
+            </div>
+            <% end %>
+
+        </div>
+    </div>
+
+
+</div>

@@ -21,8 +21,8 @@
         <div class="container">
           <div class="row">
             <div class="d-flex align-items-center mx-auto">
-              <p>Hi Brainarcs, we need some details to verify your identity</p>
-              <a href="#">Verify Your Profile</a>
+              <p>Hi <%= current_user.first_name %>, we need some details to verify your identity</p>
+              <%= link_to "Verify Your Profile", merchant_verification_index_path %>
             </div>
           </div>
         </div>

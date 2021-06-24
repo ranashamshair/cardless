@@ -21,6 +21,7 @@ class User < ApplicationRecord
   after_create :create_wallets
   has_one_attached :business_license
   has_one_attached :nic
+  has_one :company
 
   def create_wallets
     Wallet.create(name: "#{first_name} Primary Wallet", wallet_type: :primary, user_id: id)
