@@ -51,6 +51,10 @@ Rails.application.routes.draw do
       get :verify_bank, on: :collection
       get :verification_status, on: :collection
       post :save_company_detail, on: :collection
+      post :save_brand_info, on: :collection
+      post :save_bank_details, on: :collection
+      post :save_contact_details, on: :collection
+      post :complete_verification, on: :collection
     end
   end
   namespace :admin do

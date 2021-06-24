@@ -50,4 +50,14 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
+  def country_name
+    country = ISO3166::Country[self.country]
+    if country.present?
+      country.translations[I18n.locale.to_s] || country.name
+    else
+      self.country
+    end
+
+  end
 end

@@ -12,11 +12,10 @@
                                 <p>popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker</p>
 
                                 <div class="account-detail-data">
-                                    <div class="ammount">Ammount: <span>€0.01</span></div>
-                                    <div class="payeName">Payee name: <span>DistroPayment</span></div>
-                                    <div class="iban">IBAN: <span>GB45 BARC 2017 5542 9099 77</span></div>
-                                    <div class="bic">BIC: <span>BARCGB22XXX</span></div>
-                                    <div class="refrence">Reference: <span>VE0001PZCAEHN7</span></div>
+                                    <div class="payeName">Account Holder name: <span><%= @bank&.user_name %></span></div>
+                                    <div class="iban">IBAN: <span><%= @bank&.iban %></span></div>
+                                    <div class="bic">Country Code: <span><%= @bank&.country %></span></div>
+                                    <div class="refrence">Bank Name: <span><%= @bank&.bank_name %></span></div>
                                 </div>
 
                                 <p class="mt-4">popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker</p>
@@ -24,8 +23,8 @@
                             </div>
 
                             <div class="d-flex align-items-center mt-5">
-                                <a href="#" class="btn btn-continue">Continue</a>
-                                <a href="#" class="go-back ml-3"><i class="fas fa-arrow-left"></i> go back a step</a>
+                                <a href="<%= verification_status_merchant_verification_index_path %>" class="btn btn-continue" data-turbolinks="false">Continue</a>
+                                <a href="<%= bank_details_merchant_verification_index_path %>" class="go-back ml-3" data-turbolinks="false"><i class="fas fa-arrow-left"></i> go back a step</a>
                             </div>
 
 

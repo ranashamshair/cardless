@@ -4,26 +4,22 @@
                             <h4>What your customers will see when using DistroPayment</h4>
                             <p>DistroPayment makes it easy to collect Direct Debit payments from customers worldwide,
                                 even for one-off or variable amounts.</p>
-
-                            <div class="client-box">
-                                <div class="field">
-                                    <input type="file" id="files" name="files[]" multiple />
-                                </div>
-                            </div>
-
-                            <div class="client-box">
-                                <div class="field">
-                                    <input type="file" id="files" name="files[]" multiple> </div>
-                                </div>
-                            </div>
+                            <%= form_for @company, url: save_brand_info_merchant_verification_index_path, method: :post do |form| %>
+                              <%= form.hidden_field :id, value: @company.id %>
+                              <div class="client-box">
+                                  <div class="field">
+                                      <%= form.file_field :logo, required: true %>
+                                  </div>
+                              </div>
 
 
 
-                            <div class="d-flex align-items-center mt-3">
-                                <a href="#" class="btn btn-continue">Continue</a>
-                                <a href="#" class="go-back ml-3"><i class="fas fa-arrow-left"></i> go back a step</a>
-                            </div>
 
+                              <div class="d-flex align-items-center mt-3">
+                                  <%= form.submit "Continue", class: "btn btn-continue" %>
+                                  <a href="<%= contact_details_merchant_verification_index_path %>" class="go-back ml-3" data-turbolinks="false"><i class="fas fa-arrow-left"></i> go back a step</a>
+                              </div>
+                            <% end %>
 
                         </div>
                     </div>

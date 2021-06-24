@@ -7,64 +7,46 @@
             <p>Create slale transaction api for real time tracking your slaes record and manage your
                 onboard</p>
             <%= form_for @company, url: save_company_detail_merchant_verification_index_path, method: :post do |form| %>
+                <%= form.hidden_field :id, value: @company&.id%>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Select Country <span>*</span></label>
-                    <%= form.country_select :country, {}, {class: "form-control", id: "exampleFormControlSelect1"} %>
+                    <%= form.country_select :country, {}, {class: "form-control", id: "exampleFormControlSelect1", required: true} %>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Business Type <span>*</span></label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Choose Your Business</option>
-                        <option>Limited Company</option>
-                        <option>Charity/Non Profit</option>
-                        <option>Individual/Sole Trader</option>
-                        <option>Prtnership</option>
-                        <option>Trust</option>
-                    </select>
+                    <%= form.select :business_type, Company.business_types.map{|e| [e.first.humanize, e.second]}, {include_blank: "Choose your business type"}, {class: "form-control",  required: true} %>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Serach Your Company</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Type Your Company Name">
-                </div>
+
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Industry <span>*</span></label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Agriculture Services</option>
-                        <option>Contracted Services</option>
-                        <option>Charity/Non Profit</option>
-                        <option>Transportation</option>
-                        <option>Utilities</option>
-                        <option>Clothing Outlets</option>
-                    </select>
+                    <%= form.select :industry, Company.industries.map{|e| [e.first.humanize, e.first]}, {include_blank: "Choose your industry type"}, {class: "form-control",  required: true} %>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">What Does Your Busines do ?
-                        <span>*</span></label>
-                    <textarea class="form-control" placeholder="e.g provides monthly subscriptions"
-                        id="exampleFormControlTextarea1" rows="3" columns="5"></textarea>
+                        </label>
+                    <%= form.text_area :buisness_work, class: "form-control"  %>
+
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">What is your trading name ?</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="e.g Coffee monthly">
+                    <label for="exampleFormControlInput1">What is your company name ?</label>
+                    <%= form.text_field :name, class: "form-control", id: "exampleFormControlInput1", required: true %>
+
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">What is your vat registration number ?</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="ESX67345987">
+                    <label for="exampleFormControlInput1">What is your vat registration number ? <span>*</span></label>
+                    <%= form.text_field :vat, class: "form-control", id: "exampleFormControlInput1", required: true %>
+
                 </div>
 
-            <div class="personal-details">
+            <!-- <div class="personal-details">
                 <h4>Your details</h4>
                 <p>
                     Please enter your details as they appear in any official records.<br> Avoid
                     abbreviations, and make sure to check for misspellings.
                 </p>
-                <p class="mt-2">This must be your home address, rather than business address <br>(if
-                    they’re different).</p>
+                <p class="mt-2">This must be your business address</p> -->
                 <!-- <form> -->
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="col-md-12">
                             <label for="validationCustom01">Date off Birth <span>*</span></label>
                         </div>
@@ -77,31 +59,32 @@
                         <div class="col-md-4">
                             <input type="text" class="form-control" placeholder="1998">
                         </div>
-                    </div>
+                    </div> -->
                 <!-- </form> -->
-            </div>
+            <!-- </div> -->
 
             <!-- <form> -->
                 <div class="form-group mt-4">
                     <label for="exampleFormControlInput1">Street Address <span>*</span></label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="your Address">
+                    <%= form.text_field :address, class: "form-control", id: "exampleFormControlInput1", required: true %>
+
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">City <span>*</span></label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="e.g Barcelona  ">
+                    <%= form.text_field :city, class: "form-control", id: "exampleFormControlInput1", required: true %>
+
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Postcode <span>*</span></label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="54000">
+                    <%= form.text_field :postcode, class: "form-control", id: "exampleFormControlInput1", required: true %>
+
                 </div>
             <!-- </form> -->
 
             <div class="d-flex align-items-center mt-5">
-                <a href="#" class="btn btn-continue">Continue</a>
-                <a href="#" class="go-back ml-3"><i class="fas fa-arrow-left"></i> go back a step</a>
+                <!-- <a href="#" class="btn btn-continue">Continue</a> -->
+                <%= form.submit "Continue", class: "btn btn-continue" %>
+                <!-- <a href="#" class="go-back ml-3"><i class="fas fa-arrow-left"></i> go back a step</a> -->
             </div>
             <% end %>
 
