@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_24_143435) do
+ActiveRecord::Schema.define(version: 2021_06_25_122912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_06_24_143435) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "fee", default: 0.0
+    t.integer "tx_id"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
