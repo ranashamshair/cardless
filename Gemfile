@@ -82,3 +82,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'aes'
 gem 'authorizenet'
 gem 'turnout'
+gem 'active_storage_validations'
+gem 'mini_magick'

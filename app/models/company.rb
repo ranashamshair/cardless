@@ -7,6 +7,12 @@ class Company < ApplicationRecord
   enum industry: {'agriculter_service'=>'Agriculture Service','it_service'=> 'IT Services','health_care' => 'Health Care','utilities' => 'Utilities'}
 
   has_one_attached :logo
+  has_one_attached :id_doc
+  has_one_attached :legal_doc
+
+  validates :logo, content_type: [:png, :jpg, :jpeg]
+  validates :id_doc, content_type: [:png, :jpg, :jpeg, :pdf]
+  validates :legal_doc, content_type: [:png, :jpg, :jpeg, :pdf]
 
   def country_name
     country = ISO3166::Country[self.country]
