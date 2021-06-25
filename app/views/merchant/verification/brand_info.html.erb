@@ -8,7 +8,7 @@
                               <%= form.hidden_field :id, value: @company.id %>
                               <div class="client-box">
                                   <div class="field">
-                                      <%= form.file_field :logo, required: true %>
+                                      <%= form.file_field :logo, required: true, accept:'.png, .jpeg, .jpg' %>
                                   </div>
                               </div>
 
