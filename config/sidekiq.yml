@@ -4,6 +4,7 @@
 :logfile: ./log/sidekiq.log
 :queues:
   - critical
+  - default
   - [indexer, 10]
   - [mails, 5]
 :daemon: true

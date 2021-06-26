@@ -2,7 +2,7 @@
 
 class ReserveScheduleWorker
   include Sidekiq::Worker
-
+  sidekiq_options queue: 'default', :retry => 3, backtrace: 8
   def perform(*_args)
     ReserveSchedule.where(reserve_status: :pending).try(:each) do |reserve_schedule|
       if reserve_schedule.release_date >= DateTime.now
@@ -13,7 +13,8 @@ class ReserveScheduleWorker
           receiver_wallet_id: reserve_schedule.reserve_tx.sender_wallet_id,
           action: :transfer,
           main_type: :reserve_return,
-          status: :pending
+          status: :pending,
+          ref_id: SecureRandom.hex
         )
         if tx.save
           reserve_schedule.update(reserve_status: :transfered)

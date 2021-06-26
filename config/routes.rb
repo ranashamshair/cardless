@@ -2,6 +2,10 @@
 
 Rails.application.routes.draw do
 
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   namespace :api do
     namespace :v1 do
       resources :sales, only: [:virtual_terminal] do
