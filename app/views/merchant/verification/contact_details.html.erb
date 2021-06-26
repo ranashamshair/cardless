@@ -9,15 +9,15 @@
                                 <%= form.hidden_field :id, value: @company.id   %>
                                 <div class="form-group">
                                     <label for="supportEmail">Support Email <span>*</span></label>
-                                    <%= form.email_field :support_email,class: "form-control", required: true %>
+                                    <%= form.email_field :support_email,class: "form-control", required: true, placeholder: "support email" %>
                                 </div>
                                 <div class="form-group">
                                     <label for="phoneNumber">Phone Number <span>*</span></label>
-                                    <%= form.text_field :phone,class: "form-control", required: true %>
+                                    <%= form.telephone_field :phone,class: "form-control", required: true %>
                                 </div>
                                 <div class="form-group">
                                     <label for="website">Website <span>*</span></label>
-                                    <%= form.text_field :website,class: "form-control", required: true %>
+                                    <%= form.text_field :website,class: "form-control", required: true, placeholder: "https://example.com" %>
                                 </div>
 
 

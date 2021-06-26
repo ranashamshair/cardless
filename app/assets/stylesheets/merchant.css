@@ -13,6 +13,7 @@
  *= require merchant/bootstrap.min
  *= require merchant/dashboard
  *= require merchant/account_transfers
+ *= require merchant/intlTelInput
  * require_tree .
  *= require_self
  */

@@ -44,6 +44,7 @@ class Merchant::VerificationController < MerchantBaseController
     @company = Company.find(params[:company][:id])
     respond_to do |format|
       if @company.update(contact_details_params)
+        @company.update(phone: params[:company][:full_phone])
         format.html { redirect_to brand_info_merchant_verification_index_path}
       else
         format.html { redirect_to contact_details_merchant_verification_index_path }
