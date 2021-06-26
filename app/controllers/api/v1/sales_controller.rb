@@ -136,6 +136,7 @@ class Api::V1::SalesController < ApplicationController
           receiver_id: wallet.user_id,
           receiver_balance: wallet.balance.to_f + total_fee.to_f
         )
+        wallet.update(balance: wallet.balance.to_f + total_fee.to_f)
       end
       if fee.reserve.to_f > 0
         reserve_tx = Transaction.create(
@@ -162,6 +163,15 @@ class Api::V1::SalesController < ApplicationController
       merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
       TransactionMailer.customer_email(customer, @user, transfer_tx).deliver_now
       TransactionMailer.merchant_email(customer, @user, transfer_tx).deliver_now
+      reward = @user.rewards.where(payed: false).first
+      if reward.present?
+        reward.update(amount: reward.amount + params[:transaction][:amount].to_f)
+      else
+        Reward.create(
+          amount: params[:transaction][:amount].to_f,
+          user_id: @user.id
+        )
+      end
       render json: { message: 'Payment successful ', success: true, status: 200, ref_id: issue_tx[:ref_id] }
     else
       render json: { message: 'Invalid Card', success: false, status: 200, ref_id: "" }

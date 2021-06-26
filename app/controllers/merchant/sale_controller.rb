@@ -119,6 +119,7 @@ class Merchant::SaleController < MerchantBaseController
           receiver_id: wallet.user_id,
           receiver_balance: wallet.balance.to_f + total_fee.to_f
         )
+        wallet.update(balance: wallet.balance.to_f + total_fee.to_f)
       end
       if fee.reserve.to_f > 0
         reserve_tx = Transaction.create(
