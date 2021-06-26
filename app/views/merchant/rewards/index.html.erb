@@ -1,0 +1,67 @@
+
+
+<div class="dashboard_main_page">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <nav aria-label="breadcrumb bg-info">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Rewards</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="col-md-6">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="transaction_history_table">
+                <table class="table table-striped shadow">
+                    <thead>
+                        <tr>
+                            <th scope="col">Reward Id</th>
+                            <th scope="col">Payed</th>
+                            <th scope="col">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @rewards&.each do |reward|%>
+                            <tr>
+                                <th scope="row"><%= reward.id %></th>
+
+
+
+                                <td><button class="tabel_status"><a href="#"><%= reward.payed ? "Paid" : "No" %></a></button></td>
+                                <td><%= number_with_precision(number_to_currency(reward.amount.to_f), precision: 2, delimiter: ',') %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Pagination Start -->
+    <%== pagy_bootstrap_nav(@pagy) %>
+    <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center p-0 mt-3 mr-3">
+          <li class="page-item shadow-sm">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">1</a></li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">2</a></li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">3</a></li>
+          <li class="page-item shadow-sm">
+            <a class="page-link shadow-sm" href="#">Next</a>
+          </li>
+        </ul>
+      </nav> -->
+         <!-- Pagination End -->
+
+</div>
+</div>

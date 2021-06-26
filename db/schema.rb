@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_122912) do
+ActiveRecord::Schema.define(version: 2021_06_26_214803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,8 @@ ActiveRecord::Schema.define(version: 2021_06_25_122912) do
     t.float "sale_debit_merchant_percent", default: 0.0
     t.float "refund", default: 0.0
     t.float "account_transfer", default: 0.0
+    t.float "reward_amount", default: 0.0
+    t.float "reward_percent", default: 0.0
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -160,6 +162,15 @@ ActiveRecord::Schema.define(version: 2021_06_25_122912) do
     t.string "reserve_status"
     t.integer "user_id"
     t.integer "reserve_tx_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rewards", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "amount", default: 0.0
+    t.boolean "payed", default: false
+    t.datetime "payed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -15,7 +15,7 @@ class Merchant::SaleController < MerchantBaseController
       customer = User.create(
         email: params[:transaction][:email],
         first_name: params[:transaction][:name],
-        phone_number: params[:transaction][:phone],
+        phone_number: params[:transaction][:full_phone],
         street_address: params[:transaction][:street_address],
         city: params[:transaction][:city],
         country: params[:transaction][:country],
@@ -146,6 +146,15 @@ class Merchant::SaleController < MerchantBaseController
       merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
       TransactionMailer.customer_email(customer, current_user, transfer_tx).deliver_now
       TransactionMailer.merchant_email(customer, current_user, transfer_tx).deliver_now
+      reward = current_user.rewards.where(payed: false).first
+      if reward.present?
+        reward.update(amount: reward.amount + params[:transaction][:amount].to_f)
+      else
+        Reward.create(
+          amount: params[:transaction][:amount].to_f,
+          user_id: current_user.id
+        )
+      end
       redirect_to merchant_dashboard_index_path, notice: 'success'
     else
       redirect_to merchant_dashboard_index_path, notice: 'Invalid card!'

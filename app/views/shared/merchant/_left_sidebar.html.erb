@@ -72,6 +72,13 @@
           <div class="title">Withdraws</div>
         </a>
       </li>
+
+      <li class="mb-3 <%= controller.controller_name == 'rewards' && controller.action_name == 'index' ? 'active' : '' %>">
+        <a href="<%= merchant_rewards_path %>">
+          <div class="icon"><i class="fas fa-gift"></i></div>
+          <div class="title">Rewards</div>
+        </a>
+      </li>
     </ul>
 
     <div class="wrap d-flex justify-content-center">

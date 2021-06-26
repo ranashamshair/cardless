@@ -62,8 +62,16 @@
             <%= form.text_field :refund, class: "form-control" %>
           </div>
           <div class="form-group">
-            <label for="first_name">Account Transfer</label>
+            <label for="first_name">Account Transfer Fee</label>
             <%= form.text_field :account_transfer, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="first_name">Reward Amount</label>
+            <%= form.number_field :reward_amount, min: 0, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <label for="first_name">Reward Percent</label>
+            <%= form.number_field :reward_percent, min: 0, class: "form-control" %>
           </div>
     </div>
     <!-- /.card-body -->

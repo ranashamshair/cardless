@@ -26,9 +26,12 @@ ActiveStorage.start()
 
 $(document).on('turbolinks:load', function(){
   var input = document.querySelector("#company_phone");
-    intlTelInput(input, {
-      hiddenInput: "full_phone",
-      separateDialCode: true,
-      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/utils.js",
-    });
+  if(input){
+    var iti = intlTelInput(input, {
+        hiddenInput: "full_phone",
+        separateDialCode: true,
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/utils.js",
+      });
+  }
+
 })

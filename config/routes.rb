@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   namespace :api do
     namespace :v1 do
       resources :sales, only: [:virtual_terminal] do
@@ -57,6 +58,7 @@ Rails.application.routes.draw do
       post :save_contact_details, on: :collection
       post :complete_verification, on: :collection
     end
+    resources :rewards, only: %i[index]
   end
   namespace :admin do
     resources :dashboard, only: [:index]
