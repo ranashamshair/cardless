@@ -37,3 +37,16 @@ ADMIN VERIFY STYLES
     margin: 10px 0;
     padding: 15px 5px;
 }
+
+.wrapper{
+    overflow-x: hidden;
+}
+section.content .card-body{
+    overflow-x: hidden;
+}
+.table.dataTable{
+    white-space: nowrap;
+}
+#example2_wrapper{
+    overflow-x: scroll;
+}
