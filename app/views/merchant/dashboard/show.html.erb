@@ -1,48 +1,70 @@
-<div class="user_account_data">
-  <div class="small_head pl-2">
+<div class="user_account_data container m-auto">
+  <div class="small_head shadow ml-4">
     <div class="card my-2  ">
+      <h5 class="ml-3 mb-3">Account Information </h5>
+      <div class="row bg-custom">
+        <div class="col-lg-4">
+          <div class="label"> <b>First Name:</b> </div>
+          <div class="data"><%= @user.first_name%> </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="label"> <b>Last Name:</b> </div>
+          <div class="data"> <%= @user.last_name %></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="label"> <b>Email:</b> </div>
+          <div class="data"><%= @user.email %></div>
+        </div>
+      </div>
+
       <div class="row">
+        <div class="col-lg-4">
+          <div class="label"> <b>Country:</b> </div>
+          <div class="data"><%= @user.country %></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="label"> <b>City:</b> </div>
+          <div class="data"><%= @user.city %></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="label"> <b>State:</b></div>
+          <div class="data"><%= @user.state %> </div>
+        </div>
+      </div>
 
+      <div class="row bg-custom">
+        <div class="col-lg-4">
+          <div class="label"> <b>Ph:</b> </div>
+          <div class="data"><%= @user.phone_number %></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="label"> <b>Company:</b> </div>
+          <div class="data"><%= @user.company %></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="label"> <b>Role:</b> </div>
+          <div class="data"><%= @user.role %></div>
+        </div>
+      </div>
 
- <h5 class="ml-3">Account Information </h5>
-          <div class="row align-items-end">
-
-            <div class="col-md-6">
-              <div class="user_data"> <b>First Name:</b> <%= @user.first_name%> </div>
-            </div>
-            <div class="col-md-6">
-              <div class="user_data"> <b>Last Name:</b> <%= @user.last_name %> </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6"><div class="user_data"> <b>Email:</b> <%= @user.email %> </div></div>
-            <div class="col-md-6"><div class="user_data"> <b>Country:</b> <%= @user.country %> </div></div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6"><div class="user_data"> <b>City:</b> <%= @user.city %> </div></div>
-            <div class="col-md-6"><div class="user_data"> <b>State:</b><%= @user.state %> </div></div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6"><div class="user_data"> <b>Ph:</b> <%= @user.phone_number %> </div></div>
-            <div class="col-md-6"><div class="user_data"> <b>Company:</b> <%= @user.company %> </div></div>
-          </div>
-          <div class="row">
-            <div class="col-md-6"><div class="user_data"> <b>Role:</b> <%= @user.role %> </div></div>
-            <div class="col-md-6"><div class="user_data"> <b>Status:</b> <%= @user.is_active %> </div></div>
-          </div>
-          <div class="row">
-            <div class="col-md-6"><div class="user_data"> <b>Address:</b> <%= @user.street_address %> </div></div>
-            <div class="col-md-6"><div class="user_data"> <b>Zip Code:</b> <%= @user.zip_code %> </div></div>
-          </div>
-
-
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="label"> <b>Status:</b> </div>
+          <div class="data"><%= @user.is_active %></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="label"> <b>Address:</b> </div>
+          <div class="data"><%= @user.street_address %></div>
+        </div>
+        <div class="col-lg-4">
+          <div class="label"> <b>Zip Code:</b> </div>
+          <div class="data"><%= @user.zip_code %></div>
+        </div>
       </div>
       <%if user_signed_in? %>
-      <span ><%=link_to 'Edit',  edit_merchant_dashboard_path(id: @user.id), class:"btn btn-outline-primary ml-3"  %> </span>
+      <span><%=link_to 'Edit',  edit_merchant_dashboard_path(id: @user.id), class:"btn btn-profile-edit ml-0"  %>
+      </span>
       <%end %>
     </div>
   </div>
 </div>
-
