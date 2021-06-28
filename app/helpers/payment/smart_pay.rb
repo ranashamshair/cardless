@@ -41,17 +41,21 @@ module Payment
       return { message: nil,charge: parsed_response["id"],error_code: nil, response: response }
     end
 
-    def refund
+    def refund(args)
       params = {
         "Refund": {
-          "MerchantTransactionID": "s2ptest_gi10",
-          "Amount": 100,
-          "Description": "Refund Test Description"
+          # "MerchantTransactionID": "s2ptest_gi10",
+          "Amount": dollar_to_cents(args[:amount]),
+          # "Description": "Refund Test Description"
         }
       }
-      transaction_id = ''
+      transaction_id = args[:charge_id]
       url = "https://paytest.smart2pay.com/v1/payments/#{transaction_id}/refunds"
       post_request(url, params)
+    end
+
+    def handle_refund_response(response)
+      handle_response(response)
     end
 
     private
