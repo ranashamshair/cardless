@@ -1,3 +1,39 @@
 .float-right {
     float: right !important;
 }
+/*
+=======================
+ADMIN VERIFY STYLES
+=======================
+*/
+.verify-wrapper{
+    margin-left: 60px;
+}
+.admin-verify-box{
+    margin: 30px 20px;
+    padding: 10px 15px;
+    border-radius: 0.25rem;
+    border: 1px solid #DEE2E1;
+}
+.admin-verify-box h3{
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0;
+}
+.admin-verify-box table{
+    border: 1px solid rgba(21, 74, 228, 0.2);
+    background: #f4f6f9;
+}
+.admin-verify-box .table th{
+    font-size: 14px;
+    font-weight: 600;
+}
+/**.admin-verify-box .table th, .table td{
+    white-space: nowrap;
+}**/
+.img-admin-side{
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    padding: 15px 5px;
+}

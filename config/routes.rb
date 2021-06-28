@@ -65,7 +65,9 @@ Rails.application.routes.draw do
     resources :rewards, only: %i[index]
   end
   namespace :admin do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: [:index] do
+        get :verify, on: :collection
+    end
     resources :merchants, only: %i[index edit update]
     resources :payment_gateways
     resources :wallets

@@ -2,4 +2,7 @@
 
 class Admin::DashboardController < AdminBaseController
   def index; end
+
+  def verify
+  end
 end
