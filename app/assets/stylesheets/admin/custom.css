@@ -6,8 +6,12 @@
 ADMIN VERIFY STYLES
 =======================
 */
-.verify-wrapper{
-    margin-left: 60px;
+.sidebar-mini.sidebar-collapse .verify-wrapper{
+    margin-left: -65px;
+}
+.sidebar-mini .verify-wrapper{
+  margin-left: 15.6rem;
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 .admin-verify-box{
     margin: 30px 20px;
@@ -49,4 +53,10 @@ section.content .card-body{
 }
 #example2_wrapper{
     overflow-x: scroll;
+}
+.btn-verify{
+  padding: 7px 25px;
+  color: #fff;
+  margin-right: 16px;
+  background: #007bff;
 }

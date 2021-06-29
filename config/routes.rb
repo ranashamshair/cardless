@@ -68,7 +68,10 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index] do
         get :verify, on: :collection
     end
-    resources :merchants, only: %i[index edit update]
+    resources :merchants, only: %i[index edit update] do
+      get :verification_detail, on: :member
+      get :verify, on: :member
+    end
     resources :payment_gateways
     resources :wallets
     resources :withdraws do
