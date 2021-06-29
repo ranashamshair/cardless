@@ -65,9 +65,7 @@ Rails.application.routes.draw do
     resources :rewards, only: %i[index]
   end
   namespace :admin do
-    resources :dashboard, only: [:index] do
-        get :verify, on: :collection
-    end
+    resources :dashboard, only: [:index]
     resources :merchants, only: %i[index edit update] do
       get :verification_detail, on: :member
       get :verify, on: :member
