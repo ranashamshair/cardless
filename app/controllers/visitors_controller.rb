@@ -5,7 +5,10 @@ class VisitorsController < ApplicationController
 
   def index; end
 
-  def about; end
+  def about
+    distro = Wallet.distro.first.id
+    @revenue = Transaction.where(receiver_wallet_id: distro)&.pluck(:amount)
+  end
 
   def pricing; end
 
