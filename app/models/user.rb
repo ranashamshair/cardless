@@ -24,6 +24,8 @@ class User < ApplicationRecord
   has_one :company
   has_many :rewards
 
+  scope :active_merchants, -> {where(is_active: :active)}
+
   def create_wallets
     Wallet.create(name: "#{first_name} Primary Wallet", wallet_type: :primary, user_id: id)
     Wallet.create(name: "#{first_name} Reserve Wallet", wallet_type: :reserve, user_id: id) if merchant?

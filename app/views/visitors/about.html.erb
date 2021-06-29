@@ -20,35 +20,30 @@
       </div>
 
       <div class="clients-info">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
-          <div class="col">
-            <div class="box">
-              <div class="title">Products</div>
-              <div class="number">02</div>
-            </div>
-          </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+
           <div class="col">
             <div class="box">
               <div class="title">Clients</div>
-              <div class="number">50,000</div>
+              <div class="number"><%= User.merchant.active_merchants.count %></div>
             </div>
           </div>
           <div class="col">
             <div class="box">
-              <div class="title">Budget</div>
-              <div class="number">$100,000</div>
+              <div class="title">Transaction Count</div>
+              <div class="number"><%= Transaction.all&.count %></div>
             </div>
           </div>
           <div class="col">
             <div class="box">
-              <div class="title">Team Mates</div>
-              <div class="number">200</div>
+              <div class="title">Withdraws</div>
+              <div class="number"><%= Withdraw.where(is_payed: true)&.count %></div>
             </div>
           </div>
           <div class="col">
             <div class="box">
               <div class="title">Revenue</div>
-              <div class="number">$200, M</div>
+              <div class="number"><%= @revenue&.sum %></div>
             </div>
           </div>
         </div>
