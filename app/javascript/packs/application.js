@@ -10,7 +10,7 @@ import "channels"
 
 require("jquery")
 window.jQuery = window.$ = require('jquery')
-import "src/bootstrap.min"
+import "src/bootstrap.bundle.min"
 import "src/main"
 import 'jquery.easing'
 import '@popperjs/core'

@@ -1686,7 +1686,92 @@ section.content {
     border: 1px solid #f2f2f2;
     background: var(--theme-primary-color);
 }
-
+/*
+=======================
+LANGUAGE POPUP STYLES
+=======================
+*/
+.merchant-langs{
+    width: 60px;
+    height: 60px;
+    display: block;
+    position: fixed;
+    top: 90%;
+    right: 4%;
+    border-radius: 10px;
+    background: var(--theme-primary-color);
+    box-shadow: 0 1rem 3rem rgba(0,0,0, 0.6)!important;
+}
+.merchant-langs .fa-language{
+    color: #ffffff !important;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+.fa-language{
+    font-size: 28px;
+    margin-right: 8px;
+  }
+  
+  .lang-popup{
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+ .lang-popup .lang-popup-content{
+    visibility: hidden;
+    width: 220px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 136%;
+    left: 50%;
+    margin-left: -154px;
+    box-shadow: 0 1rem 3rem rgba(0,0,0, .175)!important;
+  }
+  
+  .lang-popup .lang-popup-content::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 72%;
+    margin-right: -20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lang-popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  .lang-popup-content .flag-icon{
+    font-size: 30px;
+    margin-right: 8px;
+  }
+  .merchant-langs .lang-popup-content ul li{
+    margin-bottom: 14px;
+  }
+  .lang-popup-content ul li a{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    color: #040304 !important;
+  }
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
 
 
 
