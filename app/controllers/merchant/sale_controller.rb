@@ -179,6 +179,10 @@ class Merchant::SaleController < MerchantBaseController
 
     # refund[:refund] # contains refund charge_id
     # refund[:refunded_amount] # is the refunded amount
-
+    if refund[:error_code].present?
+      return transaction_detail_merchant_transactions_path(@transfer_transaction)
+    else
+      
+    end
   end
 end
