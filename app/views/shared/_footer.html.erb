@@ -4,41 +4,41 @@
       <div class="brand-title"><%= image_tag "distro-logo.svg" %></div>
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="widget-title">How it works?</div>
+          <div class="widget-title"><%= t('home.how_works')%></div>
           <ul>
-            <li><a href="/docs">Api documentation</a></li>
-            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/docs"><%= t('home.document')%></a></li>
+            <li><a href="/pricing"><%= t('home.pricing').capitalize%></a></li>
             <!-- <li><a href="#">Recuring payments</a></li>
             <li><a href="#">New payments</a></li> -->
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="widget-title">Help & Resources</div>
+          <div class="widget-title"><%= t('home.h&r')%></div>
           <ul>
-            <li><a href="/terms">Terms & Conditions</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/faq">Frequently asked questions</a></li>
+            <li><a href="/terms"><%= t('home.t&c')%></a></li>
+            <li><a href="/privacy"><%= t('home.privacy_policy')%></a></li>
+            <li><a href="/faq"><%= t('home.faq_full')%></a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="widget-title">About DistroPayment</div>
+          <div class="widget-title"><%= t('home.about_dist')%></div>
           <ul>
-            <li><a href="/about">About Us</a></li>
+            <li><a href="/about"><%= t('home.about_us')%></a></li>
             <!-- <li><a href="#">Career</a></li>
             <li><a href="#">Blog</a></li> -->
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="widget-title">Contact Us</div>
+          <div class="widget-title"><%= t('home.contact_us').capitalize%></div>
           <ul>
-            <li><a href="#">Sales</a></li>
+            <li><a href="#"><%= t('home.sales')%></a></li>
             <li><a href="#">+ 44 22 8484 000</a></li>
             <li><a href="#">info@distropayment.com</a></li>
           </ul>
         </div>
         <div class="border mt-2 mb-2"></div>
         <div class="copyright-warpper d-flex mt-3">
-          <div class="copyright">&copy; copyright distropayment <%= Date.today.year %></div>
+          <div class="copyright">&copy; <%= t('home.copyright')%> <%= Date.today.year %></div>
           <div class="link">distropayment.com</div>
         </div>
       </div>
