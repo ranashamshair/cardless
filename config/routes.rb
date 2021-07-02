@@ -90,5 +90,6 @@ Rails.application.routes.draw do
   get 'privacy', to: 'visitors#privacy'
   get 'contact', to: 'visitors#contact'
   get 'docs', to: 'visitors#docs'
+  get 'spinner', to: 'visitors#spinner'
 
 end
