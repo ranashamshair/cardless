@@ -13,6 +13,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
   </head>
 
   <body>
@@ -29,12 +30,34 @@
       </div>
     <!-- /.Profile Alert -->
       <div class="dash_body" >
-
         <%= render partial: "shared/merchant/icons_header" %>
         <%= render partial: "shared/merchant/left_sidebar" %>
         <%= render partial: "shared/merchant/right_sidebar" %>
         <%= render partial: "shared/merchant/notification_sidebar"%>
         <%= yield %>
+         <div class="merchant-langs">
+         <div class="lang-popup" onclick="myFunction()">
+              <i class="fas fa-language"></i>
+              <div class="lang-popup-content" id="langPopup">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <ul>
+                        <li><a href="#"><span class="flag-icon flag-icon-us"></span> English</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-es"></span> Spanish</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-de"></span> German</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Français</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-it"></span> Italiano</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-nl"></span> Netherlands</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-dk"></span> Deutsch</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-es"></span> Catalan</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
       </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
