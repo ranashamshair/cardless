@@ -1,0 +1,13 @@
+<%= form_with(model: reward_info, url: url, local: true) do |form| %>
+    <div class="card-body">
+          <div class="form-group">
+            <label for="first_name">Reward Amount</label>
+            <%= form.number_field :amount, min: 0, class: "form-control" %>
+          </div>
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+<% end %>

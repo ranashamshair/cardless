@@ -2,7 +2,3 @@ reserve_schedule:
   cron: "0 12 * * *"
   class: "ReserveScheduleWorker"
   queue: critical
-reward_schedule:
-  cron: "0 12 * * *"
-  class: "RewardReturnWorker"
-  queue: critical

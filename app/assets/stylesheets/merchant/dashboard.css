@@ -1711,7 +1711,7 @@ LANGUAGE POPUP STYLES
     font-size: 28px;
     margin-right: 8px;
   }
-  
+
   .lang-popup{
     position: relative;
     display: flex;
@@ -1733,7 +1733,7 @@ LANGUAGE POPUP STYLES
     margin-left: -154px;
     box-shadow: 0 1rem 3rem rgba(0,0,0, .175)!important;
   }
-  
+
   .lang-popup .lang-popup-content::after {
     content: "";
     position: absolute;
@@ -1767,7 +1767,7 @@ LANGUAGE POPUP STYLES
     from {opacity: 0;}
     to {opacity: 1;}
   }
-  
+
   @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity:1 ;}
@@ -1845,4 +1845,51 @@ LANGUAGE POPUP STYLES
     font-size: 22px;
     font-weight: 700;
     margin: 10px 0;
+}
+/*
+=======================
+SPINNER PAGE STYLES
+=======================
+*/
+section.spinner{
+  position: relative;
+  padding: 80px 0 80px 0;
+  background: #f2f2f2;
+}
+section.spinner .box{
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+section.spinner #chart{
+  position: relative;
+  width: 800px;
+  height: 500px;
+  top: 0;
+  left: 71%;
+  transform: translate(-50%, 0);
+}
+section.spinner #question{
+  text-align: center;
+  margin-bottom: 50px;
+}
+section.spinner #question h1{
+  font-size: 22px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+section.spinner .slicetxt{
+  font-size: 22px;
+  fill: #ffffff;
+}
+section.spinner #question a{
+  text-decoration: none;
+  margin-bottom: 50px;
+}
+section.spinner #question .btn-getreward{
+  color: #FFF;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50px;
+  background: linear-gradient(150deg, #A17FE0, #5D26C1);;
 }

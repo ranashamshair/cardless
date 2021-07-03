@@ -28,4 +28,7 @@ class VisitorsController < ApplicationController
   def search
   end
 
+  def spinner
+  end
+
 end
