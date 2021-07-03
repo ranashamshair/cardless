@@ -195,8 +195,12 @@
 
                 <!-- Button trigger modal -->
                 <!-- <a href="#" class="btn btn-primary btn-refund-modal mt-3" data-toggle="modal" data-target="#exampleModal">Refund</a> -->
-                <%= link_to "Refund",refund_merchant_sale_index_path(transaction_id: @transaction.ref_id), class: "btn btn-primary btn-refund-modal mt-3", remote: true %>
-                  
+                <% if !@transaction.refunded? %>
+                  <%= link_to "Refund",refund_merchant_sale_index_path(transaction_id: @transaction.ref_id), class: "btn btn-primary btn-refund-modal mt-3", remote: true %>
+                <% else %>
+                  <a href="#" class="btn btn-primary mt-3" >Refunded</a>
+                <% end %>
+
 
             </div>
             <!-- Customer Information End -->
