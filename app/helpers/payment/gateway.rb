@@ -30,6 +30,19 @@ module Payment
       end
     end
 
+    def refund(arg)
+      # arg = {
+      #   amount: '', 24.44$
+      #   charge_id: ''
+      # }
+      begin
+        response = gateway.refund(arg)
+        gateway.handle_refund_response(response)
+      rescue Exception => e
+        return { message: e.message, refund: nil, error_code: "unknown #{payment_gateway.id} #{payment_gateway.gateway_type}", response: e }
+      end
+    end
+
     def sandbox
       'sandbox'.to_sym
     end

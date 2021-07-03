@@ -35,7 +35,8 @@ module Payment
         amount: arg[:amount],
         credit_card: {
           cardholder_name: arg[:card_name], cvv: arg[:cvv],
-          number: arg[:card_number], expiration_date: arg[:expiry_date]
+          number: arg[:card_number],
+          expiration_date: "#{expiry_month(arg[:expiry_date])}/#{expiry_year(arg[:expiry_date])}"
         },
         options: {
           submit_for_settlement: true
@@ -43,35 +44,37 @@ module Payment
       )
     end
 
-    def handle_charge_response(response)
-      handle_response(response)
+    def handle_charge_response(result)
+      if result.success?
+        { message: nil, charge: result.transaction.id, error_code: nil, response: result.transaction.to_json }
+      else
+        { message: result.errors.first.message, charge: nil, error_code: result.errors.first.code,
+          response: result.errors }
+      end
     end
 
-    def refund(id)
-      trans = find_transaction(id)
+    def handle_refund_response(result)
+      if result.success?
+        { message: nil, refund: result.transaction.id, refunded_amount: result.transaction.amount.to_f, error_code: nil, response: result.transaction.to_json }
+      else
+        { message: result.errors.first.message, refund: nil, error_code: result.errors.first.code,
+          response: result.errors }
+      end
+    end
+
+    def refund(args)
+      trans = find_transaction(args[:charge_id])
       @result = if %w[authorized submitted_for_settlement settlement_pending].include?(trans.status)
-                  call_void(id)
+                  call_void(args)
+                elsif ['voided'].include?(trans.status)
+                  raise StandardError, 'already refunded'
                 else
-                  call_refund(id)
+                  call_refund(args)
                 end
 
-      if result.success?
-        return { message: nil, charge: result.transaction.id, error: nil, response: result.transaction.to_json}
-      else
-        return { message: result.errors.first.message, charge: nil, error: result.errors.first.code, response: result.errors}
-      end
     end
 
     private
-
-    def handle_response(result)
-      if result.success?
-        return { message: nil, charge: result.transaction.id, error: nil, response: result.transaction.to_json }
-      else
-        return { message: result.errors.first.message, charge: nil, error: result.errors.first.code,
-                 response: result.errors }
-      end
-    end
 
     def merchant_id
       payment_gateway.merchant_id
@@ -85,16 +88,16 @@ module Payment
       payment_gateway.client_secret
     end
 
-    def call_refund(charge_id)
-      @gateway.transaction.refund(charge_id)
+    def call_refund(args)
+      @brain_tree.transaction.refund(args[:charge_id], args[:amount])
     end
 
-    def call_void(charge_id)
-      @gateway.transaction.void(charge_id)
+    def call_void(args)
+      @brain_tree.transaction.void(args[:charge_id])
     end
 
     def find_transaction(charge_id)
-      @gateway.transaction.find(charge_id)
+      @brain_tree.transaction.find(charge_id)
     end
 
   end
