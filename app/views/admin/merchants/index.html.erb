@@ -21,16 +21,11 @@
                     <th>Email</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Country</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Address</th>
-                    <th>Zip Code</th>
-                    <th>Phone Number</th>
                     <th>Company</th>
                     <th>Active/Inactive</th>
                     <th>Payment Gateway</th>
                     <th>Edit</th>
+                    <th>Verification</th>
                     <th>Wallets</th>
                   </tr>
                   </thead>
@@ -41,16 +36,11 @@
                                 <td><%= merchant.email %></td>
                                 <td><%= merchant.first_name %></td>
                                 <td><%= merchant.last_name %></td>
-                                <td><%= merchant.country %></td>
-                                <td><%= merchant.city %></td>
-                                <td><%= merchant.state %></td>
-                                <td><%= merchant.street_address %></td>
-                                <td><%= merchant.zip_code %></td>
-                                <td><%= merchant.phone_number %></td>
-                                <td><%= merchant.company %></td>
+                                <td><%= merchant.company&.name %></td>
                                 <td><%= merchant.active? ? "Active" : "Inactive" %></td>
                                 <td><%= merchant.payment_gateway.try(:name) %></td>
                                 <td><%= link_to "Edit", edit_admin_merchant_path(merchant)%></td>
+                                <td><%= link_to "Verify", verification_detail_admin_merchant_path(merchant) %></td>
                                 <td><%= link_to "Wallets", admin_wallets_path(merchant_id: merchant.id) %></td>
                             </tr>
                         <% end %>
@@ -61,16 +51,11 @@
                     <th>Email</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Country</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Address</th>
-                    <th>Zip Code</th>
-                    <th>Phone Number</th>
                     <th>Company</th>
                     <th>Active/Inactive</th>
                     <th>Payment Gateway</th>
                     <th>Edit</th>
+                    <th>Verification</th>
                     <th>Wallets</th>
                   </tr>
                   </tfoot>
@@ -79,7 +64,7 @@
                     <div class="col-10"></div>
                     <div class="col-2"><%== pagy_bootstrap_nav(@pagy) %></div>
                 </div>
-                
+
               </div>
               <!-- /.card-body -->
             </div>

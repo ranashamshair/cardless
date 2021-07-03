@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::MerchantsController < AdminBaseController
-  before_action :find_merchant, only: %i[edit update]
+  before_action :find_merchant, only: %i[edit update verification_detail verify]
 
   def index
     @pagy, @merchants = pagy(User.merchant.includes(:payment_gateway))
@@ -17,6 +17,23 @@ class Admin::MerchantsController < AdminBaseController
       else
         format.html { render :edit }
         format.json { render json: @merchant.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def verification_detail
+    @company = @merchant.company
+    @bank = @merchant.banks.where(status: :active).first
+  end
+
+  def verify
+    respond_to do |format|
+      if @merchant.update(is_active: params[:status])
+        format.html { redirect_to verification_detail_admin_merchant_path(@merchant), notice: 'Merchant was successfully verified.' }
+        format.json { render :show, status: :ok, location: @merchant }
+      else
+        format.html { redirect_to verification_detail_admin_merchant_path(@merchant), notice: 'Something went wrong.' }
+        format.json { render :show, status: :ok, location: @merchant }
       end
     end
   end

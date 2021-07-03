@@ -1,47 +1,78 @@
 <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="brand-title"><%= image_tag "distro-logo.svg" %></div>
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="widget-title">How it works?</div>
-          <ul>
-            <li><a href="/docs">Api documentation</a></li>
-            <li><a href="/pricing">Pricing</a></li>
-            <!-- <li><a href="#">Recuring payments</a></li>
+<footer>
+  <div class="container">
+    <div class="brand-title"><%= image_tag "distro-logo.svg" %></div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="widget-title">How it works?</div>
+        <ul>
+          <li><a href="/docs">Api documentation</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <!-- <li><a href="#">Recuring payments</a></li>
             <li><a href="#">New payments</a></li> -->
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="widget-title">Help & Resources</div>
-          <ul>
-            <li><a href="/terms">Terms & Conditions</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-            <li><a href="/faq">Frequently asked questions</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="widget-title">About DistroPayment</div>
-          <ul>
-            <li><a href="/about">About Us</a></li>
-            <!-- <li><a href="#">Career</a></li>
+          <li>
+            <div class="lang-popup" onclick="myFunction()">
+              <i class="fas fa-language"></i> United Sates
+              <div class="lang-popup-content" id="langPopup">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <ul>
+                        <li><a href="#"><span class="flag-icon flag-icon-us"></span> English</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-es"></span> Spanish</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-de"></span> German</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Français</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-it"></span> Italiano</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-nl"></span> Netherlands</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-dk"></span> Deutsch</a> </li>
+                        <li><a href="#"><span class="flag-icon flag-icon-es"></span> Catalan</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="widget-title">Help & Resources</div>
+        <ul>
+          <li><a href="/terms">Terms & Conditions</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/faq">Frequently asked questions</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="widget-title">About DistroPayment</div>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <!-- <li><a href="#">Career</a></li>
             <li><a href="#">Blog</a></li> -->
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <div class="widget-title">Contact Us</div>
-          <ul>
-            <li><a href="#">Sales</a></li>
-            <li><a href="#">+ 44 22 8484 000</a></li>
-            <li><a href="#">info@distropayment.com</a></li>
-          </ul>
-        </div>
-        <div class="border mt-2 mb-2"></div>
-        <div class="copyright-warpper d-flex mt-3">
-          <div class="copyright">&copy; copyright distropayment <%= Date.today.year %></div>
-          <div class="link">distropayment.com</div>
-        </div>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="widget-title">Contact Us</div>
+        <ul>
+          <li><a href="#">Sales</a></li>
+          <li><a href="#">+ 44 22 8484 000</a></li>
+          <li><a href="#">info@distropayment.com</a></li>
+        </ul>
+      </div>
+      <div class="border mt-2 mb-2"></div>
+      <div class="copyright-warpper d-flex mt-3">
+        <div class="copyright">&copy; copyright distropayment <%= Date.today.year %></div>
+        <div class="link">distropayment.com</div>
       </div>
     </div>
-  </footer>
-  <!-- /.Footer -->
+  </div>
+</footer>
+<script>
+  // When the user clicks on <div>, open the popup
+  function myFunction() {
+    var popup = document.getElementById("langPopup");
+    popup.classList.toggle("show");
+  }
+</script>
+
+<!-- /.Footer -->

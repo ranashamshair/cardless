@@ -91,6 +91,7 @@ class Merchant::VerificationController < MerchantBaseController
         end
       else
         @bank.user_id = current_user.id
+        @bank.status = :active
         if @bank.save
           format.html { redirect_to verify_bank_merchant_verification_index_path(id: @bank)}
         else

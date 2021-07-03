@@ -14,6 +14,7 @@
     --theme-color-green: #7FBA4B;
     --theme-forms-color: #F2F2F2;
     --theme-color-red: #d00000;
+    --box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.07);
     --gradient-main: linear-gradient(90deg, rgba(95, 36, 210, 0.9), rgba(219, 63, 132, 0.9));
 }
 
@@ -84,13 +85,13 @@ body {
 
 }
 
-button.btn-close{
-  color: #fff;
-  font-size: 28px;
-  background: transparent;
-  border: none;
-  margin-top: -5px;
-  outline: none;
+button.btn-close {
+    color: #fff;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    margin-top: -5px;
+    outline: none;
 }
 
 /* Dashboard Header */
@@ -111,11 +112,17 @@ button.btn-close{
 .welcom_heading {
     font-size: 36px;
     font-weight: 700;
+    margin-top: 10px;
     color: var(--theme-third-color);
 }
 
 .dash_header_right ul li {
     display: inline-block;
+}
+
+.pagination {
+    margin-top: 40px;
+    justify-content: center;
 }
 
 .notify_icon,
@@ -135,6 +142,7 @@ button.btn-close{
 .user_icon .fa-user-circle {
     font-size: 28px;
     display: flex;
+    cursor: pointer;
     align-content: center;
     justify-content: center;
     line-height: 50px;
@@ -284,7 +292,6 @@ button.btn-close{
     height: 100%;
     background: var(--theme-white-color);
     z-index: 999;
-    transition: 0.2s ease-in-out;
 }
 
 .sidebar_right .btn_close {
@@ -522,7 +529,7 @@ button.btn-close{
 Chargeback Page Styles
 ====================*/
 .dashboard_main_page {
-    margin-left: 3rem;
+    margin-left: 4rem;
 }
 
 .dashboard_main_box {
@@ -530,7 +537,7 @@ Chargeback Page Styles
     margin: 100px 0;
     padding: 20px 15px;
     background: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.7) !important;
+    box-shadow: var(--box-shadow) !important;
 }
 
 .dashboard_main_box .title {
@@ -574,9 +581,7 @@ button.dash_view_more {
 .transaction_history_table .table {
     font-size: 16px;
     padding: 20px 10px;
-    border-radius: 10px;
     background: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.7) !important;
 }
 
 .breadcrumb {
@@ -590,6 +595,7 @@ button.dash_view_more {
 }
 
 .table thead th {
+    font-size: 14px;
     border-bottom: none;
     text-transform: uppercase;
 }
@@ -678,7 +684,7 @@ Chargeback Page Styles
     overflow: auto;
     margin-bottom: 100px;
     background: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.7) !important;
+    box-shadow: var(--box-shadow) !important;
 }
 
 .cargeback_table .fas {
@@ -692,7 +698,7 @@ Virtual Terminal Page Styles
     width: 75%;
     margin: 0 auto;
     background: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.7) !important;
+
 }
 
 .client_form form {
@@ -1006,12 +1012,10 @@ Fee Structure Page Styles
     padding: 20px;
     border-radius: 10px;
     background: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.7) !important;
 }
 
 .fee_structure_box .box_main .box-data {
     font-weight: 500;
-    border-radius: 10px;
     color: var(--theme-white-color);
     background: var(--theme-primary-color);
 }
@@ -1033,7 +1037,6 @@ Api Key Page Styles
     padding: 20px;
     border-radius: 10px;
     background: var(--theme-white-color);
-    box-shadow: 0 0.5rem 1rem rgba(22, 87, 255, 0.7) !important;
 }
 
 .api_key_section .api_key_head {
@@ -1280,7 +1283,7 @@ section.profile-sidebar .welcome-content .btn-continue,
 .verifyaccount-section .btn-continue,
 .verifystatus-section .verify-status-box .btn-continue,
 .verification .detail .btn-upload,
-.brand-section .btn-continue{
+.brand-section .btn-continue {
     padding: 8px 15px;
     border-radius: 50px;
     color: #ffffff;
@@ -1604,19 +1607,19 @@ CONNECT BANK STYLES
 }
 
 .verification .box,
-.verification  .box-two{
+.verification .box-two {
     margin: 30px 0;
     padding: 15px 25px;
     background: rgba(89, 193, 115, 0.1);
     border: 1px solid var(--theme-second-color);
 }
 
-.verification  .box-two{
+.verification .box-two {
     border: 1px solid #154AE4;
     background: rgba(21, 74, 228, 0.1);
 }
 
-.verification .detail .custom-control.custom-radio{
+.verification .detail .custom-control.custom-radio {
     padding: 12px 30px;
     margin: 5px 0;
     background-color: var(--theme-white-color);
@@ -1644,6 +1647,133 @@ footer.ft-profile {
 .ft-profile ul li a {
     color: var(--theme-color-blue);
 }
+
+/*
+============================
+MERCHANT DASH PROFILE EDIT
+============================
+*/
+section.content {
+    margin-left: 4rem !important;
+}
+
+.user_account_data .card {
+    padding: 24px 15px;
+}
+
+.user_account_data .label {
+    margin: 5px 0;
+}
+
+.user_account_data .data {
+    margin-bottom: 20px;
+}
+
+.user_account_data .bg-custom {
+    background: var(--theme-forms-color);
+}
+
+.user_account_data .btn-profile-edit,
+.btn-submit-profile {
+    padding: 10px 18px;
+    margin-top: 15px;
+    border-radius: 5px;
+    color: var(--theme-white-color);
+    background: var(--theme-primary-color);
+}
+
+.page-item.active .page-link {
+    border: 1px solid #f2f2f2;
+    background: var(--theme-primary-color);
+}
+/*
+=======================
+LANGUAGE POPUP STYLES
+=======================
+*/
+.merchant-langs{
+    width: 60px;
+    height: 60px;
+    display: block;
+    position: fixed;
+    top: 90%;
+    right: 4%;
+    border-radius: 10px;
+    background: var(--theme-primary-color);
+    box-shadow: 0 1rem 3rem rgba(0,0,0, 0.6)!important;
+}
+.merchant-langs .fa-language{
+    color: #ffffff !important;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+.fa-language{
+    font-size: 28px;
+    margin-right: 8px;
+  }
+  
+  .lang-popup{
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+ .lang-popup .lang-popup-content{
+    visibility: hidden;
+    width: 220px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 136%;
+    left: 50%;
+    margin-left: -154px;
+    box-shadow: 0 1rem 3rem rgba(0,0,0, .175)!important;
+  }
+  
+  .lang-popup .lang-popup-content::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 72%;
+    margin-right: -20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lang-popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  .lang-popup-content .flag-icon{
+    font-size: 30px;
+    margin-right: 8px;
+  }
+  .merchant-langs .lang-popup-content ul li{
+    margin-bottom: 14px;
+  }
+  .lang-popup-content ul li a{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    color: #040304 !important;
+  }
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
 
 /** Media Queries **/
 @media (max-width: 480px) {
@@ -1687,7 +1817,8 @@ footer.ft-profile {
         padding: 10px 0px;
     }
 }
-.thanks-section .thanks-box{
+
+.thanks-section .thanks-box {
     border: 1px solid #FFEEBA;
     background-color: #FFF3CD;
     max-width: 100%;
@@ -1695,17 +1826,21 @@ footer.ft-profile {
     margin: 50px 0;
     border-radius: 20px;
 }
-.thanks-section .thanks-box .thanks-content{
-   text-align: center;
+
+.thanks-section .thanks-box .thanks-content {
+    text-align: center;
 }
-.thanks-section .thanks-box .thanks-content P{
+
+.thanks-section .thanks-box .thanks-content P {
     color: #6C757D;
 }
-.thanks-section .thanks-box  .thanks-content img{
+
+.thanks-section .thanks-box .thanks-content img {
     max-width: 150px;
     margin: 0 auto;
 }
-.thanks-section .thanks-box .thanks-content .title{
+
+.thanks-section .thanks-box .thanks-content .title {
     color: #02152C;
     font-size: 22px;
     font-weight: 700;

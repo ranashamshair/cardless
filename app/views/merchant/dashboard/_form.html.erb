@@ -1,6 +1,6 @@
 <div>
 <%= notice %>
-<%= form_with(model: @merchant, url: merchant_dashboard_path, local: true, class:"m-5") do |form|  %>
+<%= form_with(model: @merchant, url: merchant_dashboard_path, local: true, class: "pl-3 pr-3 pt-3 pb-2") do |form|  %>
     <div class="card-body">
       <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
@@ -58,8 +58,8 @@
 
   <!-- /.card-body -->
 
-    <div class="ml-3">
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="ml-0  ">
+      <button type="submit" class="btn btn-submit-profile">Submit</button>
     </div>
 <% end %>
 </div>

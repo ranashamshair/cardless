@@ -1,0 +1,198 @@
+<div class="verify-wrapper">
+    <div class="container">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Profile Verification</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                            <li class="breadcrumb-item active">Verify</li>
+                            <li></li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+
+        </section>
+        <div class="mt-0 mb-5">
+          <% if @merchant.active? %>
+            <a href="<%= verify_admin_merchant_path(@merchant, status: :in_active) %>" class="btn btn-verify float-right">Block</a>
+          <% else %>
+            <a href="<%= verify_admin_merchant_path(@merchant, status: :active) %>" class="btn btn-verify float-right">Verify</a>
+          <% end %>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-7 col-md-6 col-sm-12 p-0 m-0">
+                <div class="admin-verify-box shadow-sm custom-margin">
+                    <h3>Company Info</h3>
+                    <table class="table table-bordered mt-3 mb-3">
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Country</th>
+                                <td><%=  @company.country_name %> </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Business Type</th>
+                                <td><%= @company.business_type %> </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Industry</th>
+                                <td><%= @company.industry.humanize %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">What Does Your Busines do ?</th>
+                                <td><%= @company.buisness_work %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">What is your company name</th>
+                                <td><%= @company.name %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Vat registration number ?</th>
+                                <td><%= @company.vat %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Street Address</th>
+                                <td><%= @company.address %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">City</th>
+                                <td><%= @company.city %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Postcode</th>
+                                <td><%= @company.postcode %></td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-6 col-sm-12 p-0 m-0">
+                <div class="admin-verify-box shadow-sm custom-margin">
+                    <h3>Bank Account Details</h3>
+                    <table class="table table-bordered mt-3 mb-3">
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Account Holder Name </th>
+                                <td><%= @bank.user_name %></td>
+                            </tr>
+                            <!-- <tr>
+                                <th scope="row">Country</th>
+                                <td>Pakistan</td>
+                            </tr> -->
+                            <tr>
+                                <th scope="row">Bank Name</th>
+                                <td><%= @bank.bank_name %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Iban</th>
+                                <td><%= @bank.iban %></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="admin-verify-box shadow-sm custom-margin">
+                    <h3>Support contact details</h3>
+                    <table class="table table-bordered mt-3 mb-3">
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Support Email</th>
+                                <td><%= @company.support_email %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Phone Number</th>
+                                <td><%= @company.phone %></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Website</th>
+                                <td><%= @company.website %></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="col-lg-7 col-md-6 col-sm-12 p-0 m-0">
+
+
+                <div class="admin-verify-box shadow-sm custom-margin">
+                    <h3>Brand Logo</h3>
+                    <table class="table table-bordered mt-3 mb-3">
+                        <tbody>
+                            <tr>
+                                <%#= image_tag "laptop.jpg", class:"img-admin-side" %>
+                                <%= image_tag @company.logo,class:"img-admin-side" %>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="admin-verify-box shadow-sm custom-margin">
+                    <h3>Legal Document</h3>
+                    <table class="table table-bordered mt-3 mb-3">
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Documents Method</th>
+                                <td><%= @company.legal_doc_type.humanize %></td>
+                            </tr>
+                            <tr>
+                              <% if @company.legal_doc.content_type == "application/pdf" %>
+                                <iframe src="<%= url_for(@company.legal_doc) %>" width="500px" height="500px"></iframe>
+                              <% else %>
+                                <%= image_tag @company.legal_doc, class: "img-admin-side" %>
+                              <% end %>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="col-lg-5 col-md-6 col-sm-12 p-0 m-0">
+                <div class="admin-verify-box shadow-sm custom-margin">
+                    <h3>Identity Confirm</h3>
+                    <table class="table table-bordered mt-3 mb-3">
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Identity Confirm Method</th>
+                                <td>Passport/ID</td>
+                            </tr>
+                            <tr>
+                              <% if @company.id_doc.content_type == "application/pdf" %>
+                                <iframe src="<%= url_for(@company.id_doc) %>" width="500px" height="500px"></iframe>
+                              <% else %>
+                                <%= image_tag @company.id_doc, class: "img-admin-side" %>
+                              <% end %>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>

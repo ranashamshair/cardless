@@ -24,11 +24,20 @@
 
                     <div class="line"></div>
                     <button class="dash_view_more"><a href="<%= merchant_account_path(wallet) %>">View More</a></button>
-
                 </div>
             </div>
           <% end %>
       </div>
+
+     
+
     </div>
   </div>
+  <script>
+  // When the user clicks on <div>, open the popup
+  function myFunction() {
+    var popup = document.getElementById("langPopup");
+    popup.classList.toggle("show");
+  }
+</script>
   <!-- Dashboard Main Start -->

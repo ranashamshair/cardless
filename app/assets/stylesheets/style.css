@@ -1367,6 +1367,73 @@ section.search-details .pagination-section ul {
 section.search-details .pagination-section ul li a {
   color: #5D26C1;
 }
+/*
+=======================
+LANGUAGE POPUP STYLES
+=======================
+*/
+.fa-language{
+  font-size: 28px;
+  margin-right: 8px;
+}
+
+.lang-popup{
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.lang-popup .lang-popup-content{
+  visibility: hidden;
+  width: 220px;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -154px;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+.lang-popup .lang-popup-content::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -58px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+.lang-popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+.lang-popup-content .flag-icon{
+  font-size: 30px;
+  margin-right: 8px;
+}
+.lang-popup-content ul li a{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  color: #040304 !important;
+}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
 
 /*
 =======================
