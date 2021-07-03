@@ -46,18 +46,27 @@ module Payment
       json_res['id']
     end
 
-    def refund
-      params = ''
-      charge_id = 'char_bcYAkTClxuh0wSE1YGQ7YjWq'
+    def refund(args)
+      params = "amount=#{dollar_to_cents(args[:amount].to_i)}"
+      charge_id = args[:charge_id]
       url = "https://api.securionpay.com/charges/#{charge_id}/refund"
       post_request(url, params)
+    end
+
+    def handle_refund_response(response)
+      parsed_response = JSON.parse response
+      if parsed_response && parsed_response["id"].present?
+        return { message: nil, refund: parsed_response["id"],refunded_amount: parsed_response["amountRefunded"], error_code: nil, response: response }
+      else
+        return { message: parsed_response["error"]["message"], refund: nil,error_code: parsed_response["error"]["type"], response: response }
+      end
     end
 
     private
 
     def gateway_secret_key
-      # 'sk_test_lz57hE9I5ezpuS7lj4ZulvAu'
-      payment_gateway.client_secret
+      'sk_test_lz57hE9I5ezpuS7lj4ZulvAu'
+      # payment_gateway.client_secret
     end
 
     def post_request(url, params = '')

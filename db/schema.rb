@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_214803) do
+ActiveRecord::Schema.define(version: 2021_07_03_102550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,18 @@ ActiveRecord::Schema.define(version: 2021_06_26_214803) do
     t.string "secret_word"
   end
 
+  create_table "refunds", force: :cascade do |t|
+    t.float "amount"
+    t.string "reason"
+    t.integer "transfer_id"
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.integer "refund_tx_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "charge_id"
+  end
+
   create_table "reserve_schedules", force: :cascade do |t|
     t.integer "transaction_id"
     t.datetime "release_date"
@@ -199,6 +211,9 @@ ActiveRecord::Schema.define(version: 2021_06_26_214803) do
     t.float "net_amount", default: 0.0
     t.float "total_fee", default: 0.0
     t.bigint "bank_id"
+    t.integer "payment_gateway_id"
+    t.integer "issue_transaction_id"
+    t.integer "refund_transaction_id"
     t.index ["bank_id"], name: "index_transactions_on_bank_id"
   end
 

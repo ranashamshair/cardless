@@ -3,7 +3,6 @@
 class Merchant::SaleController < MerchantBaseController
   before_action :check_active, only: [:create]
 
-
   def index
     @transaction = Transaction.new
   end
@@ -41,7 +40,7 @@ class Merchant::SaleController < MerchantBaseController
       fee = Fee.first
 
 
-      if card.card_type.downcase == 'credit'
+      if card&.card_type&.downcase == 'credit'
         bank_fee = fee.sale_credit_bank.to_f
         bank_fee_percent = params[:transaction][:amount].to_f * fee.sale_credit_bank_percent.to_f / 100
         total_bank_fee = bank_fee.to_f + bank_fee_percent.to_f
@@ -75,6 +74,7 @@ class Merchant::SaleController < MerchantBaseController
       transaction_creator = TransactionCreator.new(current_user,customer,card,params[:transaction][:amount],params[:transaction][:cvc])
       charge = transaction_creator.charge_on_gateway
 
+      issue_tx.update(payment_gateway_id: charge[:payment_gateway_id])
       return redirect_to merchant_dashboard_index_path, notice: charge[:message] if charge[:error_code].present?
       issue_tx.update(charge_id: charge[:charge], status: 1)
       customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
@@ -86,8 +86,10 @@ class Merchant::SaleController < MerchantBaseController
         amount: params[:transaction][:amount],
         receiver_wallet_id: merchant_wallet.id,
         receiver_id: current_user.id,
+        issue_transaction_id: issue_tx.id,
         sender_id: customer.id,
         charge_id: charge[:charge],
+        payment_gateway_id: charge[:payment_gateway_id],
         sender_wallet_id: customer_wallet.id,
         receiver_balance: merchant_wallet.balance.to_f + net_amount.to_f,
         sender_balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f,
@@ -163,9 +165,79 @@ class Merchant::SaleController < MerchantBaseController
 
   end
 
-
   def refund
     @fee = Fee.last
   end
+
+  def do_payment_refund
+    @transfer_transaction = Transaction.find_by(ref_id: params[:id])
+    amount = params[:amount]
+    merchant = current_user
+    old_refunds = @transfer_transaction.refunds&.pluck(:amount).sum
+    if amount.to_f <= @transfer_transaction.amount.to_f && old_refunds.to_f < @transfer_transaction.amount.to_f
+      transaction_refund = TransactionRefund.new(@transfer_transaction, merchant, amount)
+      refund = transaction_refund.refund_on_gateway
+
+      # refund[:refund] # contains refund charge_id
+      # refund[:refunded_amount] # is the refunded amount
+      if refund[:refund].blank?
+        return redirect_to transaction_detail_merchant_transactions_path(id: @transfer_transaction.ref_id)
+      else
+        receiver_wallet = @transfer_transaction.receiver_wallet
+        distro_wallet = Wallet.distro.first
+        total_amount = params[:amount].to_f + params[:fee].to_f
+        refund_tx = Transaction.create(
+          amount: amount.to_f,
+          sender_id: current_user.id,
+          receiver_id: @transfer_transaction.receiver_id,
+          charge_id: refund[:refund],
+          status: :success,
+          action: :transfer,
+          main_type: :refund,
+          sender_wallet_id: @transfer_transaction.receiver_wallet_id,
+          receiver_wallet_id: @transfer_transaction.sender_wallet_id,
+          fee: params[:fee],
+          net_amount: amount.to_f + params[:fee].to_f,
+          total_fee: params[:fee],
+          payment_gateway_id: @transfer_transaction.payment_gateway_id,
+          ref_id: SecureRandom.hex,
+          sender_balance: receiver_wallet.balance.to_f - total_amount,
+          issue_transaction_id: @transfer_transaction.id
+        )
+        fee_tx = Transaction.create(
+          amount: params[:fee],
+          sender_id: current_user.id,
+          receiver_id: distro_wallet.user.id,
+          status: :success,
+          action: :transfer,
+          main_type: :refund_fee,
+          sender_wallet_id: @transfer_transaction.receiver_wallet_id,
+          receiver_wallet_id: distro_wallet.id,
+          net_amount: params[:fee].to_f,
+          ref_id: SecureRandom.hex,
+          sender_balance: receiver_wallet.balance.to_f - params[:fee].to_f,
+          receiver_balance: distro_wallet.balance.to_f + params[:fee].to_f
+        )
+        refund = Refund.create(
+          amount: refund[:refunded_amount],
+          reason: params[:reason],
+          transfer_id: @transfer_transaction.id,
+          sender_id: current_user.id,
+          receiver_id: @transfer_transaction.sender_id,
+          charge_id: refund[:refund],
+          refund_tx_id: refund_tx.id
+        )
+        old_refunds = @transfer_transaction.refunds&.pluck(:amount).sum
+        if old_refunds.to_f == @transfer_transaction.amount
+          @transfer_transaction.update(status: :refunded)
+        end
+        receiver_wallet.update(balance: receiver_wallet.balance.to_f - total_amount)
+        return redirect_to transaction_detail_merchant_transactions_path(id: @transfer_transaction.ref_id)
+      end
+    else
+      return redirect_to transaction_detail_merchant_transactions_path(id: @transfer_transaction.ref_id)
+    end
+  end
+
 
 end
