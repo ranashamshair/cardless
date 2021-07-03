@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
@@ -63,7 +62,9 @@ Rails.application.routes.draw do
       post :save_contact_details, on: :collection
       post :complete_verification, on: :collection
     end
-    resources :rewards, only: %i[index]
+    resources :rewards, only: %i[index] do
+      get :get_reward, on: :member
+    end
   end
   namespace :admin do
     resources :dashboard, only: [:index]
@@ -77,6 +78,7 @@ Rails.application.routes.draw do
       post :accept, on: :member
     end
     resources :fees
+    resources :reward_info
   end
   root to: 'visitors#index'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
