@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     end
     resources :rewards, only: %i[index] do
       get :get_reward, on: :member
+      get :save_reward, on: :member
     end
   end
   namespace :admin do
