@@ -14,13 +14,13 @@ class Api::V1::SalesController < ApplicationController
 
   def virtual_terminal
     validate_params(
-      name: params[:transaction][:name],
-      email: params[:transaction][:email],
-      phone: params[:transaction][:phone],
-      amount: params[:transaction][:amount],
-      card_number: params[:transaction][:card_number],
-      exp_date: params[:transaction][:exp_date],
-      cvc: params[:transaction][:cvc]
+      name: params[:transaction].try(:[],:name),
+      email: params[:transaction].try(:[],:email),
+      phone: params[:transaction].try(:[],:phone),
+      amount: params[:transaction].try(:[],:amount),
+      card_number: params[:transaction].try(:[],:card_number),
+      exp_date: params[:transaction].try(:[],:exp_date),
+      cvc: params[:transaction].try(:[],:cvc)
     )
 
     customer = User.customer.where(email: params[:transaction][:email]).first
