@@ -1442,20 +1442,27 @@ SPINNER PAGE STYLES
 section.spinner{
   position: relative;
   padding: 80px 0 80px 0;
-  background: #f2f2f2;
+  /* background: #000; */
 }
 section.spinner .box{
   max-width: 800px;
   margin: 0 auto;
+  padding-top: 35px;
   border-radius: 20px;
+  /* background-color: #040304; */
 }
 section.spinner #chart{
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   top: 0;
-  left: 50%;
+  left: 53%;
+  padding-left: 39px;
+  padding-top: 12px;
+  border: 5px solid #5D26C1;
+  border-radius: 100%;
   transform: translate(-50%, 0);
+  background-color: #001219;
 }
 section.spinner #question{
   text-align: center;
@@ -1464,11 +1471,18 @@ section.spinner #question{
 section.spinner #question h1{
   font-size: 22px;
   margin-top: 50px;
-  margin-bottom: 30px;
+  color: #000;
+  margin-bottom: 40px;
+}
+section.spinner .slice{
+  border: 2px solid #ffffff;
 }
 section.spinner .slicetxt{
-  font-size: 22px;
+  font-size: 18px;
   fill: #ffffff;
+}
+.circle-border{
+  border: 2px solid #ffffff;
 }
 section.spinner #question a{
   text-decoration: none;
@@ -1477,7 +1491,7 @@ section.spinner #question a{
 section.spinner #question .btn-getreward{
   color: #FFF;
   border: none;
-  padding: 12px 18px;
+  padding: 18px 16px;
   border-radius: 50px;
   background: linear-gradient(150deg, #A17FE0, #5D26C1);;
 }

@@ -3,12 +3,14 @@
 <section class="spinner">
     <div class="container">
         <div class="row">
-            <div class="box shadow">
+            <div class="box">
+
                 <div id="chart"></div>
                 <div id="question">
                     <h1></h1>
                     <a href="https://distropayment.com/"></a>
                 </div>
+
             </div>
         </div>
     </div>
@@ -29,7 +31,7 @@
         picked = 100000,
         oldpick = [],
         color = d3.scale.category20(); //category20c()
-    randomNumbers = getRandomNumbers();
+    //randomNumbers = getRandomNumbers();
     //http://osric.com/bingo-card-generator/?title=HTML+and+CSS+BINGO!&words=padding%2Cfont-family%2Ccolor%2Cfont-weight%2Cfont-size%2Cbackground-color%2Cnesting%2Cbottom%2Csans-serif%2Cperiod%2Cpound+sign%2C%EF%B9%A4body%EF%B9%A5%2C%EF%B9%A4ul%EF%B9%A5%2C%EF%B9%A4h1%EF%B9%A5%2Cmargin%2C%3C++%3E%2C{+}%2C%EF%B9%A4p%EF%B9%A5%2C%EF%B9%A4!DOCTYPE+html%EF%B9%A5%2C%EF%B9%A4head%EF%B9%A5%2Ccolon%2C%EF%B9%A4style%EF%B9%A5%2C.html%2CHTML%2CCSS%2CJavaScript%2Cborder&freespace=true&freespaceValue=Web+Design+Master&freespaceRandom=false&width=5&height=5&number=35#results
     var data = [{
             "label": "10.000",
@@ -72,7 +74,7 @@
             "color": "#0353a4",
             "anchor": "Get your reward",
             "question": "Congratulation you win 500.000"
-        }, //background-color
+        }
     ];
     var svg = d3.select('#chart')
         .append("svg")
@@ -94,7 +96,8 @@
         .data(pie)
         .enter()
         .append("g")
-        .attr("class", "slice");
+        .attr("class", "slice")
+
 
     // Cahange Individual fill Colors
     arcs.append("svg:path")
@@ -123,13 +126,13 @@
         })
         .attr("text-anchor", "end")
         .attr("class", "slicetxt")
+        .attr("stroke", "none")
         .text(function (d, i) {
             return data[i].label;
         });
     container.on("click", spin);
 
     function spin(d) {
-
         container.on("click", null);
         //all slices have been seen, all done
         //console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
@@ -154,7 +157,7 @@
         }
         rotation += 90 - Math.round(ps / 2);
         vis.transition()
-            .duration(1600)
+            .duration(1200)
             .attrTween("transform", rotTween)
             .each("end", function () {
                 //mark question as seen
@@ -184,17 +187,22 @@
         .append("path")
         .attr("d", "M-" + (r * .15) + ",0L0," + (r * .05) + "L0,-" + (r * .05) + "Z")
         .style({
-            "fill": "black"
+            "fill": "#001219"
         });
     //draw spin circle
     container.append("circle")
         .attr("cx", 0)
         .attr("cy", 0)
-        .attr("r", 60)
+        .attr("r", 80)
+        .attr("class", "circle-border")
         .style({
-            "fill": "white",
-            "cursor": "pointer"
+            "fill": "#001219",
+            "cursor": "pointer",
+            "stroke": "white",
+            "stroke-width": "5px"
         });
+
+
     //spin text
     container.append("text")
         .attr("x", 0)
@@ -202,6 +210,7 @@
         .attr("text-anchor", "middle")
         .text("SPIN")
         .style({
+            "fill": "#fff",
             "font-weight": "bold",
             "font-size": "30px",
             "cursor": "pointer"
