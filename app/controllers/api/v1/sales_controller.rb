@@ -92,6 +92,7 @@ class Api::V1::SalesController < ApplicationController
       )
       charge = transaction_creator.charge_on_gateway
 
+      issue_tx.update(payment_gateway_id: charge[:payment_gateway_id])
       raise StandardError.new(charge[:message]) if charge[:error_code].present?
       issue_tx.update(charge_id: charge[:charge][:id], status: 1)
       customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
@@ -104,7 +105,8 @@ class Api::V1::SalesController < ApplicationController
         receiver_wallet_id: merchant_wallet.id,
         receiver_id: @user.id,
         sender_id: customer.id,
-        charge_id: charge[:charge][:id],
+        charge_id: charge[:charge],
+        payment_gateway_id: charge[:payment_gateway_id],
         sender_wallet_id: customer_wallet.id,
         receiver_balance: merchant_wallet.balance.to_f + net_amount.to_f,
         sender_balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f,
@@ -172,7 +174,7 @@ class Api::V1::SalesController < ApplicationController
           user_id: @user.id
         )
       end
-      render json: { message: 'Payment successful ', success: true, status: 200, ref_id: issue_tx[:ref_id] }
+      render json: { message: 'Payment successful ', success: true, status: 200, ref_id: transfer_tx.ref_id }
     else
       render json: { message: 'Invalid Card', success: false, status: 200, ref_id: "" }
     end
