@@ -11,34 +11,34 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="/"><%= t('home.home')%></a>
+                  <a class="nav-link" href="/"><%= t('head.home')%></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/about"><%= t('home.about')%></a>
+                  <a class="nav-link" href="/about"><%= t('head.about')%></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/faq"><%= t('home.faq')%></a>
+                  <a class="nav-link" href="/faq"><%= t('head.faq')%></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/marketplace"><%= t('home.marketplace')%></a>
+                  <a class="nav-link" href="/marketplace"><%= t('head.marketplace')%></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/docs"><%= t('home.api_docs')%></a>
+                  <a class="nav-link" href="/docs"><%= t('head.api_docs')%></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pricing"><%= t('home.pricing')%></a>
+                    <a class="nav-link" href="/pricing"><%= t('head.pricing')%></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact"><%= t('home.contact_us')%></a>
+                    <a class="nav-link" href="/contact"><%= t('head.contact_us')%></a>
                 </li>
               </ul>
               <div class="d-flex align-items-center mt-2">
                 <% if current_user.blank? %>
-                  <%= link_to t('home.sign_in'), new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
-                  <%= link_to t('home.sign_up'), new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+                  <%= link_to t('head.sign_in'), new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
+                  <%= link_to t('head.sign_up'), new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
                 <% else %>
                   <a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>" class="login-link">Dashboard</a>
-                  <%= link_to t('home.log_out'),destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+                  <%= link_to t('head.log_out'),destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
                 <% end %>
               </div>
             </div>
@@ -56,34 +56,34 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="/"><%= t('home.home')%></a>
+                  <a class="nav-link" href="/"><%= t('head.home')%></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/about"><%= t('home.about')%></a>
+                  <a class="nav-link" href="/about"><%= t('head.about')%></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/faq"><%= t('home.faq')%></a>
+                  <a class="nav-link" href="/faq"><%= t('head.faq')%></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/marketplace"><%= t('home.marketplace')%></a>
+                  <a class="nav-link" href="/marketplace"><%= t('head.marketplace')%></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/docs"><%= t('home.api_docs')%></a>
+                  <a class="nav-link" href="/docs"><%= t('head.api_docs')%></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pricing"><%= t('home.pricing')%></a>
+                    <a class="nav-link" href="/pricing"><%= t('head.pricing')%></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact"><%= t('home.contact_us')%></a>
+                    <a class="nav-link" href="/contact"><%= t('head.contact_us')%></a>
                 </li>
               </ul>
               <div class="d-flex align-items-center mt-5">
                 <% if current_user.blank? %>
-                  <%= link_to t('home.sign_in'), new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
-                  <%= link_to t('home.sign_up'), new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+                  <%= link_to t('head.sign_in'), new_user_session_path, data: {turbolinks: "false"}, class: "login-link"%>
+                  <%= link_to t('head.sign_up'), new_user_registration_path, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
                 <% else %>
                   <a href="<%= current_user.admin? ? admin_dashboard_index_path : merchant_dashboard_index_path %>" class="login-link">Dashboard</a>
-                  <%= link_to t('home.log_out'),destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
+                  <%= link_to t('head.log_out'),destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "btn btn-sign-up" %>
                 <% end %>
               </div>
             </div>
@@ -133,13 +133,13 @@
                       <div class="search-section">
                           <form class="d-flex align-items-center">
                               <input type="search" class="header-search form-comtrol" placeholder="Search Anything">
-                              <a href="/search" class="btn btn-search">Search</a>
+                              <a href="/search" class="btn btn-search"><%= t('head.search')%></a>
                             </form>
                             <div class="feed d-flex mt-3 mb-3">
-                              Feed:
-                             <div class="feed-list"><a href="/search">api</a></div>
-                             <div class="feed-list"><a href="/search">withdraw</a></div>
-                             <div class="feed-list"><a href="/search">virtual terminal</a></div>
+                              <%= t('head.feed')%>
+                             <div class="feed-list"><a href="/search"><%= t('head.api')%></a></div>
+                             <div class="feed-list"><a href="/search"><%= t('head.withdraw')%></a></div>
+                             <div class="feed-list"><a href="/search"><%= t('head.vt')%></a></div>
                             </div>
                       </div>
                   </div>

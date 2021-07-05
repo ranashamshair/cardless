@@ -13,9 +13,9 @@
 
                     <ul>
                         <li>
-                            <a href="/">Home</a>
-                            <%= link_to "Sign In", new_user_session_path, data: {turbolinks: "false"}%>
-                            <a href="/contact">Contact Us</a>
+                            <a href="/"><%= t('head.home').capitalize%></a>
+                            <%= link_to t('head.sign_in').capitalize, new_user_session_path, data: {turbolinks: "false"}%>
+                            <a href="/contact"><%= t('head.contact_us').capitalize%></a>
                         </li>
                     </ul>
                 </div>
@@ -28,17 +28,17 @@
 <!-- Sidebar Mobile -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Api Docs</h5>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel"><%= t('docs.api_docs')%></h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body api-offcanvas">
         <ul>
-            <li><a data-scroll href="#apiover">API Overview</a></li>
-            <li><a data-scroll href="#errors">Errors</a></li>
-            <li><a data-scroll href="#account-setup">Account Setup</a></li>
-            <li><a data-scroll href="#Authentication">Authentication Token</a></li>
-            <li><a data-scroll href="#virtual-terminal">Virtual Terminal</a></li>
-            <li><a data-scroll href="#response">Response</a></li>
+            <li><a data-scroll href="#apiover"><%= t('docs.api_overview')%></a></li>
+            <li><a data-scroll href="#errors"><%= t('docs.errors')%></a></li>
+            <li><a data-scroll href="#account-setup"><%= t('docs.account_setup')%></a></li>
+            <li><a data-scroll href="#Authentication"><%= t('docs.auth')%></a></li>
+            <li><a data-scroll href="#virtual-terminal"><%= t('head.vt')%></a></li>
+            <li><a data-scroll href="#response"><%= t('about.response')%></a></li>
         </ul>
     </div>
 </div>
@@ -46,14 +46,14 @@
 
 <!-- Api Sidebar -->
 <div class="api-sidebar-desktop">
-    <div class="api-title">Api Docs</div>
+    <div class="api-title"><%= t('docs.api_docs')%></div>
     <ul>
-        <li><a data-scroll href="#apiover">API Overview</a></li>
-        <li><a data-scroll href="#errors">Errors</a></li>
-        <li><a data-scroll href="#account-setup">Account Setup</a></li>
-        <li><a data-scroll href="#Authentication">Authentication Token</a></li>
-        <li><a data-scroll href="#virtual-terminal">Virtual Terminal</a></li>
-        <li><a data-scroll href="#response">Response</a></li>
+        <li><a data-scroll href="#apiover"><%= t('docs.api_overview')%></a></li>
+        <li><a data-scroll href="#errors"><%= t('docs.errors')%></a></li>
+        <li><a data-scroll href="#account-setup"><%= t('docs.account_setup')%></a></li>
+        <li><a data-scroll href="#Authentication"><%= t('docs.auth')%></a></li>
+        <li><a data-scroll href="#virtual-terminal"><%= t('head.vt')%></a></li>
+        <li><a data-scroll href="#response"><%= t('about.response')%></a></li>
     </ul>
 
     <div class="ft d-flex align-items-center">
@@ -78,25 +78,15 @@
                         <div class="row align-items-center">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="d-flex">
-                                    <div class="box-title">API Overview</div>
+                                    <div class="box-title"><%= t('docs.api_overview')%></div>
                                 </div>
-                                <p>The DistroPayment API uses API keys to authenticate requests. You can view and
-                                    manage
-                                    your
-                                    API keys in the DestroPyment Dashboard DistroPayment provides HTTP based API
-                                    which
-                                    follows
-                                    the essence of REST*. The HTTP protocol's rules are followed thereby enabling
-                                    simple
-                                    HTTP
-                                    client tools like "curl" to be used.</p>
+                                <p><%= t('docs.overview_para')%></p>
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12">
-                                <div class="higlighted-text">Here we are introducing a new way of handling payment
-                                    securely and
-                                    easily with DistroPayment API.
+                                <div class="higlighted-text">
+                                    <%= t('docs.overview_para2')%>
                                 </div>
-                                <p class="mt-3 mb-0">You can use it in an easy way</p>
+                                <p class="mt-3 mb-0"><%= t('docs.easy_way')%></p>
                             </div>
                         </div>
                     </div>
@@ -108,37 +98,29 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="d-flex">
-                                    <div class="box-title">Errors</div>
+                                    <div class="box-title"><%= t('docs.errors')%></div>
                                 </div>
-                                <p>Distropayment uses conventional HTTP response codes to indicate the success or
-                                    failure of an
-                                    API request. In general: Codes in the 2xx range indicate success. Codes in the
-                                    4xx
-                                    range
-                                    indicate an error that failed given the information provided</p>
+                                <p><%= t('docs.errors_para')%></p>
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="higlighted-text">
-                                    <h4>Summery of errors</h4>
-                                    <div class="list-span"> <span>200 -</span> OK Everything worked as expected.
+                                    <h4><%= t('docs.error_summary')%></h4>
+                                    <div class="list-span"> <span>200 -</span> <%= t('docs.err_200')%>
                                     </div>
-                                    <div class="list-span"> <span>401 -</span> Unable to retrieve auth token! please
-                                        check your
-                                        keys.</div>
-                                    <div class="list-span"> <span>401 -</span> Access token not found check it.
+                                    <div class="list-span"> <span>401 -</span>  <%= t('docs.err_401')%></div>
+                                    <div class="list-span"> <span>401 -</span>  <%= t('docs.err_401_a')%>
                                     </div>
-                                    <h4>Argument of errors</h4>
-                                    <div class="arg-errors"><span>__</span> Missing required parameter : perameter
-                                        name.
+                                    <h4><%= t('docs.error_arguments')%></h4>
+                                    <div class="arg-errors"><span>__</span> <%= t('docs.err_param')%>
                                     </div>
-                                    <div class="arg-errors"><span>__</span> Invalid Email: givin email.</div>
-                                    <div class="arg-errors"><span>__</span> Invalid Amount : given amount</div>
-                                    <div class="arg-errors"><span>__</span> Invalid Card number : given card_number
+                                    <div class="arg-errors"><span>__</span> <%= t('docs.err_email')%></div>
+                                    <div class="arg-errors"><span>__</span> <%= t('docs.err_amount')%></div>
+                                    <div class="arg-errors"><span>__</span> <%= t('docs.err_card_num')%>
                                     </div>
-                                    <div class="arg-errors"><span>__</span> Invalid Date : given date</div>
-                                    <div class="arg-errors"><span>__</span> Invalid CVC : given cvc</div>
-                                    <div class="arg-errors"><span>__</span> Invalid month : given month</div>
-                                    <div class="arg-errors"><span>__</span> Invalid year : given year</div>
+                                    <div class="arg-errors"><span>__</span> <%= t('docs.err_date')%></div>
+                                    <div class="arg-errors"><span>__</span> <%= t('docs.err_cvc')%></div>
+                                    <div class="arg-errors"><span>__</span> <%= t('docs.err_month')%></div>
+                                    <div class="arg-errors"><span>__</span> <%= t('docs.err_year')%></div>
                                 </div>
                             </div>
                         </div>
@@ -150,18 +132,9 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="d-flex">
-                                    <div class="box-title">Account setup</div>
+                                    <div class="box-title"><%= t('docs.account_setup')%></div>
                                 </div>
-                                <p>Sign Up configure your site and your API keys. It is a global configuration and
-                                    can
-                                    set up as
-                                    part of your server initialization. Your API keys carry many privileges, so be
-                                    sure
-                                    to keep
-                                    them secure! Do not share your secret API keys in publicly accessible areas such
-                                    as
-                                    GitHub,
-                                    client-side code, and so forth.</p>
+                                <p><%= t('docs.account_setup_para')%></p>
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12"></div>
                         </div>
@@ -173,12 +146,9 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="d-flex">
-                                    <div class="box-title">Authentication Token</div>
+                                    <div class="box-title"><%= t('docs.auth')%></div>
                                 </div>
-                                <p>The first step is to create a token by sending API keys by a server-to-server
-                                    POST
-                                    request to
-                                    DistroPayment.</p>
+                                <p><%= t('docs.auth_para')%></p>
                                 <p>Use the <span class="link">https://distropayment.com/api/v1/auth_token/token
                                     </span>
                                 </p>
@@ -190,10 +160,7 @@
                                     <div class="p-3"><span>"client_public": </span><span
                                             class="api-code">"IDa971f36df184f0ce0887cd55"</span></div>
                                 </div>
-                                <p class="pt-4 pb-4">The response is in JSON format. A successful response provides
-                                    the
-                                    token in
-                                    the location body, as follows:</p>
+                                <p class="pt-4 pb-4"><%= t('docs.side_down_para')%></p>
                                 <div class="higlighted-text p-5">
                                     <div><span>{</span></div>
                                     <div class="api-code p-3">"access_token": "2de7cbce1a775c2548835eb97b8a.."</div>
@@ -209,66 +176,46 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="d-flex">
-                                    <div class="box-title">Virtual Terminal</div>
+                                    <div class="box-title"><%= t('head.vt')%></div>
                                 </div>
-                                <p>Virtual terminal captures the shopper's sensitive card data via our Hosted
-                                    Payment
-                                    Fields,
-                                    and binds it to the token. Your PCI compliance is reduced to SAQ-A because
-                                    sensitive
-                                    data
-                                    never hits your sever. The second step is send token and card information
-                                    server-to-server
-                                    by POST request to Virtual terminal</p>
-                                <div class="text-accent"><span>access_token</span> <span class="api-code">-
+                                <p><%= t('docs.vt_para')%></p>
+                                <div class="text-accent"><span><%= t('docs.access_token')%></span> <span class="api-code">-
                                         required</span></div>
-                                <p class="pt-4 pb-0">Authentication token we have learn in privious section how to
-                                    genrate, for
-                                    successful sale transection access_token required</p>
-                                <div class="text-accent"><span>name</span> <span class="api-code">- required</span>
+                                <p class="pt-4 pb-0"><%= t('docs.auth_token')%></p>
+                                <div class="text-accent"><span><%= t('docs.name')%></span> <span class="api-code">- required</span>
                                 </div>
-                                <p class="pt-4 pb-0">Customer name is required to complete the transection</p>
-                                <div class="text-accent"><span>email</span> <span class="api-code">- required</span>
+                                <p class="pt-4 pb-0"><%= t('docs.cust_name')%></p>
+                                <div class="text-accent"><span><%= t('docs.email')%></span> <span class="api-code">- required</span>
                                 </div>
-                                <p class="pt-4 pb-0">User's Email Address is required to complete the transection
+                                <p class="pt-4 pb-0"><%= t('docs.user_email')%>
                                 </p>
-                                <div class="text-accent"><span>amount </span> <span class="api-code">-
+                                <div class="text-accent"><span><%= t('docs.amount_')%> </span> <span class="api-code">-
                                         required</span>
                                 </div>
-                                <p class="pt-4 pb-0">Amount intended to be collected by this payment. A positive
-                                    integer
-                                    representing how much to charge in the smallest currency unit $1 US. The minimum
-                                    amount is
-                                    $1 US or equivalent in charge currency. The amount value supports up to eight
-                                    digits
-                                    (e.g.,
-                                    a value of $99999999 US).</p>
-                                <div class="text-accent"><span>card_number </span> <span class="api-code">-
+                                <p class="pt-4 pb-0"><%= t('docs.amount_intend')%></p>
+                                <div class="text-accent"><span><%= t('docs.card_num')%> </span> <span class="api-code">-
                                         required</span>
                                 </div>
-                                <p class="pt-4 pb-0">A valid card number is required to verify the source and
-                                    complete
-                                    the
-                                    transection</p>
-                                <div class="text-accent"><span>exp_date </span> <span class="api-code">-
+                                <p class="pt-4 pb-0"><%= t('docs.card_validity')%></p>
+                                <div class="text-accent"><span><%= t('docs.expiry_date')%> </span> <span class="api-code">-
                                         required</span>
                                 </div>
-                                <p class="pt-4 pb-0">To complete the transection the valid future date is must.s</p>
-                                <div class="text-accent"><span>cvc </span> <span class="api-code">- required</span>
+                                <p class="pt-4 pb-0"><%= t('docs.trans_compeletion')%></p>
+                                <div class="text-accent"><span><%= t('docs.cvc_')%> </span> <span class="api-code">- required</span>
                                 </div>
-                                <p class="pt-4 pb-0">Card Verification Code is also required</p>
-                                <div class="text-accent"><span>phone </span> <span class="api-code">-
+                                <p class="pt-4 pb-0"><%= t('docs.card_verification')%></p>
+                                <div class="text-accent"><span><%= t('docs.phone')%> </span> <span class="api-code">-
                                         optional</span>
                                 </div>
-                                <p class="pt-4 pb-0">Phone Number is optional</p>
-                                <div class="text-accent mb-4"><span>street_address </span> <span class="api-code">-
+                                <p class="pt-4 pb-0"><%= t('docs.optional_phone')%></p>
+                                <div class="text-accent mb-4"><span><%= t('docs.street_address')%>  </span> <span class="api-code">-
                                         optional</span></div>
-                                <div class="text-accent mb-4"><span>city </span> <span class="api-code">-
+                                <div class="text-accent mb-4"><span><%= t('docs.city')%></span> <span class="api-code">-
                                         optional</span></div>
-                                <div class="text-accent mb-4"><span>country </span> <span class="api-code">-
+                                <div class="text-accent mb-4"><span><%= t('docs.country')%></span> <span class="api-code">-
                                         optional</span>
                                 </div>
-                                <div class="text-accent mb-1"><span>zip_code </span> <span class="api-code">-
+                                <div class="text-accent mb-1"><span><%= t('docs.zip_code')%></span> <span class="api-code">-
                                         optional</span></div>
                                 <p class="pt-4 pb-0">Use the <span
                                         class="link">https://distropayment.com/api/v1/sales/virtual_terminal</span>
@@ -281,28 +228,28 @@
                                                 <div class="pl-3">
                                                     <pre class="color_three"> {</pre>
                                                     <pre
-                                                        class="color_three">    <span>"access_token":</span>"2de7cbce1a775c2548835eb97b8a.."</pre>
+                                                        class="color_three">    <span>"<%= t('docs.access_token')%>":</span>"2de7cbce1a775c2548835eb97b8a.."</pre>
                                                     <pre class="color_three">    "transaction": {</pre>
                                                     <pre
-                                                        class="color_three">      <span>" name":</span>"Jhon",</pre>
+                                                        class="color_three">      <span>"<%= t('docs.name')%>":</span>"Jhon",</pre>
                                                     <pre
-                                                        class="color_three">      <span>"email":</span>"jhonkozak@example.com",</pre>
+                                                        class="color_three">      <span>"<%= t('docs.email')%>":</span>"jhonkozak@example.com",</pre>
                                                     <pre
-                                                        class="color_three">      <span>"phone":</span>"+5434309242",</pre>
+                                                        class="color_three">      <span>"<%= t('docs.phone')%>":</span>"+5434309242",</pre>
                                                     <pre
-                                                        class="color_three">      <span>"amount":</span>"1000"</pre>
+                                                        class="color_three">      <span>"<%= t('docs.amount_')%>":</span>"1000"</pre>
                                                     <pre
-                                                        class="color_three">      <span>"card_number":</span>"4242424242424242",</pre>
+                                                        class="color_three">      <span>"<%= t('docs.card_num')%>":</span>"4242424242424242",</pre>
                                                     <pre
-                                                        class="color_three">      <span>"exp_date":</span>"05/22"</pre>
+                                                        class="color_three">      <span>"<%= t('docs.expiry_date')%>":</span>"05/22"</pre>
                                                     <pre
-                                                        class="color_three">      <span>"street_address":</span>"103  Iffley Road",</pre>
+                                                        class="color_three">      <span>"<%= t('docs.street_address')%>":</span>"103  Iffley Road",</pre>
                                                     <pre
-                                                        class="color_three">      <span>"city":</span>"BROADMERE",</pre>
+                                                        class="color_three">      <span>"<%= t('docs.city')%>":</span>"BROADMERE",</pre>
                                                     <pre
-                                                        class="color_three">      <span>"country":</span>"UK",</pre>
+                                                        class="color_three">      <span>"<%= t('docs.country')%>":</span>"UK",</pre>
                                                     <pre
-                                                        class="color_three">      <span>"zip-code":</span>"RG25 8FD"</pre>
+                                                        class="color_three">      <span>"<%= t('docs.zip_code')%>":</span>"RG25 8FD"</pre>
                                                     <pre class="color_three">    } </pre>
                                                     <pre class="color_three">  }</pre>
                                                 </div>
@@ -319,21 +266,18 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="d-flex">
-                                    <div class="box-title">RESPONSE</div>
+                                    <div class="box-title"><%= t('docs.response')%></div>
                                 </div>
-                                <p>The response is in JSON format. Currently Virtual_terminal does not support any
-                                    other
-                                    response format. The Virtual_terminal class wraps the response sent by the
-                                    server.
+                                <p><%= t('docs.response_para')%>
                                 </p>
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12">
                                 <div class="higlighted-text p-5">
                                     <span class="api-code">{ <br>
-                                        <span class="p-5">"message": </span>"Payment successful ", <br>
-                                        <span class="p-5">"success": </span> true, <br>
-                                        <span class="p-5">"status": </span> 200, <br>
-                                        <span class="p-5">"ref_id": </span> "5155dd393a380e22939015e690ba92cb"
+                                        <span class="p-5">"<%= t('docs.message')%>": </span>"Payment successful ", <br>
+                                        <span class="p-5">"<%= t('docs.success')%>": </span> true, <br>
+                                        <span class="p-5">"<%= t('docs.status')%>": </span> 200, <br>
+                                        <span class="p-5">"<%= t('docs.ref_id')%>": </span> "5155dd393a380e22939015e690ba92cb"
                                         <br> }
                                     </span>
                                 </div>

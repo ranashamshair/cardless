@@ -30,8 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  home:
-    hello: "Hello world"
+  head:
     home: "HOME"
     about: "ABOUT"
     about_us: "About Us"
@@ -42,6 +41,14 @@ en:
     contact_us: "CONTACT US"
     sign_in: "SIGN IN"
     sign_up: "SIGN UP"
+    search: "Search"
+    feed: "Feed:"
+    api: "api"
+    withdraw: "Withdraw"
+    vt: "Virtual Terminal"
+
+  home:
+    hello: "Hello world"
     get_started: "Get Started"
     virtual_terminal: "Virtual Terminal"
     withdraw: "Withdraw"
@@ -65,7 +72,7 @@ en:
     how_works_para: "The sky was cloudless and of a deep dark blue. The spectacle before us was indeed sublime."
     sign_ups: "Sign-up"
     sign_ups_para: "Apparently we had reached a great height in the, for the sky was a dead black."
-    get_api_key: "Get Api Keys"
+    get_api_key: "Get ApiAbout Keys"
     get_api_key_para: "Black, and the stars had ceased to twinkle. By the same illusion which lifts."
     configure_app: "Configure App"
     configure_app_para: "Level of the spectator on a hillside, the sable cloud beneath was dished out."
@@ -106,4 +113,152 @@ en:
     faq_full: "Frequently asked questions"
     about_dist: "About DistroPayment"
     sales: "Sales"
-    copyright: "copyright distropayment"
+    copyright: "copyright distropayment" 
+  about:
+    we_are: "Who we are ?"
+    we_are_para: "It is a long established fact that a reader will be distracted by the readable content of a page when
+            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
+            letters, as opposed to using 'Content here, content here', making it look like readable English."
+    clients: "Clients"
+    trans_count: "Transaction Count"
+    withdraws: "Withdraws"
+    revenue: "Revenue"
+    popularity: "Where We Popular ?"
+    popularity_para: "You can modify any of this with custom CSS or overriding our default variables.
+                      It's also worth noting that juFrequently Asked Questions"
+    faq: "F.A.Q"
+    faqs: "Frequently Asked Questions"
+    faqs_para: "Cloudless and of a deep dark blue spectacle before us was."
+  faqs:
+    faq1: "What do you mean by bank?"
+    faq1_ans: "It is shown by default, until the collapse
+                  plugin adds the appropriate classes that we use to style each element. These classes control the
+                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
+                  can go within the"
+    faq2: "How many types of bank are there?"              
+    faq2_ans: "It is shown by default, until the collapse
+                  plugin adds the appropriate classes that we use to style each element. These classes control the
+                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
+                  can go within the"
+    faq3: "What are the two meanings of bank?"
+    faq3_ans: It is shown by default, until the collapse
+                  plugin adds the appropriate classes that we use to style each element. These classes control the
+                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
+                  can go within the"
+    faq4: "How do banks work?"
+    faq4_ans: It is shown by default, until the collapse
+                  plugin adds the appropriate classes that we use to style each element. These classes control the
+                  overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this
+                  with custom CSS or overriding our default variables. It's also worth noting that just about any HTML
+                  can go within the"
+    
+    
+  docs:
+    api_overview: "API Overview"
+    api_docs: "API DOCS"
+    errors: "Errors"
+    account_setup: "Account Setup"
+    auth: "Authentication Token"
+    response: "Response"
+    overview_para: "The DistroPayment API uses API keys to authenticate requests. You can view and manage your API keys in the DestroPyment Dashboard DistroPayment provides HTTP based API which follows the essence of REST*. The HTTP protocol's rules are followed thereby enabling simple HTTP client tools like curl to be used."
+    overview_para2: "Here we are introducing a new way of handling payment
+                                    securely and
+                                    easily with DistroPayment API."                             
+    easy_way: "You can use it in an easy way"
+    errors_para: "Distropayment uses conventional HTTP response codes to indicate the success or
+                                    failure of an
+                                    API request. In general: Codes in the 2xx range indicate success. Codes in the
+                                    4xx
+                                    range
+                                    indicate an error that failed given the information provided"
+    account_setup_para: "Sign Up configure your site and your API keys. It is a global configuration and
+                                    can
+                                    set up as
+                                    part of your server initialization. Your API keys carry many privileges, so be
+                                    sure
+                                    to keep
+                                    them secure! Do not share your secret API keys in publicly accessible areas such
+                                    as
+                                    GitHub,
+                                    client-side code, and so forth."
+    auth_para: "The first step is to create a token by sending API keys by a server-to-server POST request to DistroPayment."
+    vt_para: "Virtual terminal captures the shopper's sensitive card data via our Hosted
+                                    Payment
+                                    Fields,
+                                    and binds it to the token. Your PCI compliance is reduced to SAQ-A because
+                                    sensitive
+                                    data
+                                    never hits your sever. The second step is send token and card information
+                                    server-to-server
+                                    by POST request to Virtual terminal"
+    auth_token: "Authentication token we have learn in privious section how to
+                                    genrate, for
+                                    successful sale transection access_token required"
+    cust_name: "Customer name is required to complete the transection"
+    user_email: "User's Email Address is required to complete the transection"
+    amount_intend: "Amount intended to be collected by this payment. A positive
+                                    integer
+                                    representing how much to charge in the smallest currency unit $1 US. The minimum
+                                    amount is
+                                    $1 US or equivalent in charge currency. The amount value supports up to eight
+                                    digits
+                                    (e.g.,
+                                    a value of $99999999 US)."
+    card_validity: "A valid card number is required to verify the source and
+                                    complete
+                                    the
+                                    transection"
+    trans_compeletion: "To complete the transection the valid future date is must.s"
+    card_verification: "Card Verification Code is also required"
+    optional_phone: "Phone Number is optional"
+    response: "RESPONSE"
+    response_para: "The response is in JSON format. Currently Virtual_terminal does not support any
+                                    other
+                                    response format. The Virtual_terminal class wraps the response sent by the
+                                    server."
+    error_summary: "Summary of errors"
+    err_200: "OK Everything worked as expected."
+    err_401: "Unable to retrieve auth token! please check your keys"
+    err_401_a: "Access token not found check it."
+    error_arguments: "Argument of errors"
+    err_param: "Missing required parameter : parameter name."
+    err_email: "Invalid Email: given email."
+    err_amount: "Invalid Amount : given amount"
+    err_card_num: "Invalid Card number : given card_number"
+    err_date: "Invalid Date : given date"
+    err_cvc: "Invalid CVC : given cvc"
+    err_month: "Invalid month : given month"
+    err_year: "Invalid year : given year"
+    side_down_para: "The response is in JSON format. A successful response provides
+                                    the
+                                    token in
+                                    the location body, as follows:"
+    access_token: "access_token"
+    name: "name"
+    email: "email"
+    phone: "phone"
+    amount_: "amount"
+    card_num: "card_number"
+    expiry_date: "exp_date"
+    cvc_: "cvc"
+    street_address: "street_address"
+    city: "city"
+    country: "country"
+    zip_code: "zip-code"
+    message: "message"
+    success: "success"
+    status: "status"
+    ref_id: "ref_id"
+  pricing:
+    simple_pricing: "Simple Pricing"
+    simple_pricing_text1: "Contrary to popular belief, Lorem Ipsum is not simply random text."
+    simple_pricing_pt1: "It uses a dictionary of over 200 Latin words,"
+    simple_pricing_pt2: "It uses a dictionary of over 200 Latin words,"
+    simple_pricing_pt3: "It uses a dictionary of over 200 Latin words,"
+    europian: "for European cards"
+    non_europian: "for Non European cards"
+
+    
