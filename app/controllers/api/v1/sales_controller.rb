@@ -8,8 +8,9 @@ class Api::V1::SalesController < ApplicationController
   before_action :validate_token
 
   def validate_token
+    raise ArgumentError, "Missing access token" if params[:access_token].blank?
     @user = User.where(authentication_token: params[:access_token]).last
-    render json: { message: 'Access token not found check it', status: 401 } unless @user.present?
+    raise ArgumentError, "Invalid access token" unless @user.present?
   end
 
   def virtual_terminal
@@ -94,7 +95,7 @@ class Api::V1::SalesController < ApplicationController
 
       issue_tx.update(payment_gateway_id: charge[:payment_gateway_id])
       raise StandardError.new(charge[:message]) if charge[:error_code].present?
-      issue_tx.update(charge_id: charge[:charge][:id], status: 1)
+      issue_tx.update(charge_id: charge[:charge], status: 1)
       customer_wallet.update(balance: customer_wallet.balance.to_f + params[:transaction][:amount].to_f)
       merchant_wallet = @user.wallets.primary.first
       reserve_wallet = @user.wallets.reserve.first
