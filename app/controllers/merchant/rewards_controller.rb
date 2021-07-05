@@ -3,7 +3,7 @@ class Merchant::RewardsController < MerchantBaseController
   before_action :check_reward_status, only: [:get_reward, :save_reward]
 
   def index
-    @reward_amounts = RewardInfo&.pluck(:amount)
+    @reward_amount = Fee.last.reward_amount
     @pagy, @rewards = pagy(current_user.rewards)
   end
 

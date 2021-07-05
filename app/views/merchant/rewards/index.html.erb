@@ -36,7 +36,7 @@
                                 <td><%= number_with_precision(number_to_currency(reward.amount.to_f), precision: 2, delimiter: ',') %></td>
                                 <% if reward.payed %>
                                   <td><button class="tabel_status"><a href="#"><%= reward.payed ? "Paid" : "No" %></a></button></td>
-                                <% elsif @reward_amounts.include?(reward.amount)  %>
+                                <% elsif !reward.payed && reward.amount >= @reward_amount  %>
                                   <td><button class="tabel_status"><%= link_to "Get Reward", get_reward_merchant_reward_path(reward) %></button></td>
                                 <% else %>
                                   <td><button class="tabel_status"><a href="#"><%= reward.payed ? "Paid" : "No" %></a></button></td>
