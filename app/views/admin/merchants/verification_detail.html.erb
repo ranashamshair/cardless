@@ -18,10 +18,12 @@
 
         </section>
         <div class="mt-0 mb-5">
-          <% if @merchant.active? %>
-            <a href="<%= verify_admin_merchant_path(@merchant, status: :in_active) %>" class="btn btn-verify float-right">Block</a>
-          <% else %>
-            <a href="<%= verify_admin_merchant_path(@merchant, status: :active) %>" class="btn btn-verify float-right">Verify</a>
+          <% if @company.present? && @bank.present? %>
+            <% if @merchant.active? %>
+              <a href="<%= verify_admin_merchant_path(@merchant, status: :in_active) %>" class="btn btn-verify float-right">Block</a>
+            <% else %>
+              <a href="<%= verify_admin_merchant_path(@merchant, status: :active) %>" class="btn btn-verify float-right">Verify</a>
+            <% end %>
           <% end %>
         </div>
 
