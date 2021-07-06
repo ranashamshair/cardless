@@ -20,6 +20,7 @@ class Merchant::VerificationController < MerchantBaseController
     respond_to do |format|
       if @company.id.present?
         if @company.update(company_info_params)
+          @company.update(phone: params[:company][:full_phone])
           format.html { redirect_to bank_details_merchant_verification_index_path}
         else
           format.html { redirect_to company_info_merchant_verification_index_path }
@@ -27,6 +28,7 @@ class Merchant::VerificationController < MerchantBaseController
       else
         @company.user_id = current_user.id
         if @company.save
+          @company.update(phone: params[:company][:full_phone])
           format.html { redirect_to bank_details_merchant_verification_index_path}
         else
           format.html { redirect_to company_info_merchant_verification_index_path }
