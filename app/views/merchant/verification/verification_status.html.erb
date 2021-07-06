@@ -1,19 +1,30 @@
 <div class="col-lg-8 col-md-12 col-sm-12 pr-0">
                     <div class="verifystatus-section">
                         <div class="verify-status-box shadow mx-auto">
-                            <div class="title">Verify Payout Account</div>
-                            <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
-                                <strong>VERIFICATION STATUS</strong>
-                                <p>Unable to verify your profile DistroPayment makes it easy to collect Direct Debit
-                                    payments from customers worldwide,
-                                    even for one-off or variable amounts. We are built our plateform for both clients
-                                    and
-                                    developers with clear and andvanced api system for payment gateway code with Ruby.
-                                </p>
-                            </div>
 
                             <%= form_for @company, url: complete_verification_merchant_verification_index_path, method: :post do |form| %>
                               <div class="verification">
+                                <div class="box">
+                                    <div class="">Company Logo</div>
+                                    <p>Please upload your company logo</p>
+                                    <div class="#">
+
+                                        <div class="detail">
+
+                                            <div class="custom-file mt-4 mb-3">
+                                                <!-- <input type="file" class="custom-file-input" id="customFile"> -->
+                                                <%= form.file_field :logo, required: true, accept:'.png, .jpeg, .jpg', class: "custom-file-input", id: "customFile" %>
+
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                            </div>
+                                            <div class="custom-file">
+                                              You can only upload .png, .jpeg, .jpg format files
+                                            </div>
+                                            <!-- <a href="#" class="btn btn-upload">Upload Documents</a> -->
+                                        </div>
+                                    </div>
+                                </div>
+
                                   <div class="title">REQUESTED INFORMATION</div>
                                   <div class="box">
                                       <div class="">Confirm Address</div>
@@ -105,7 +116,7 @@
 
                               <div class="d-flex align-items-center mt-5">
                                   <%= form.submit "Continue", class: "btn btn-continue" %>
-                                  <a href="<%= verify_bank_merchant_verification_index_path %>" class="go-back ml-3" data-turbolinks="false"><i class="fas fa-arrow-left"></i> go back a step</a>
+                                  <a href="<%= bank_details_merchant_verification_index_path %>" class="go-back ml-3" data-turbolinks="false"><i class="fas fa-arrow-left"></i> go back a step</a>
                               </div>
                             <% end %>
 

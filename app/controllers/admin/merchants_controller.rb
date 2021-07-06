@@ -29,6 +29,11 @@ class Admin::MerchantsController < AdminBaseController
   def verify
     respond_to do |format|
       if @merchant.update(is_active: params[:status])
+        if params[:status] == "active"
+          NotificationMailer.verified(current_user).deliver_now
+        else
+          NotificationMailer.rejected(current_user).deliver_now
+        end
         format.html { redirect_to verification_detail_admin_merchant_path(@merchant), notice: 'Merchant was successfully verified.' }
         format.json { render :show, status: :ok, location: @merchant }
       else

@@ -4,8 +4,6 @@
             <h3>Tell us about your company</h3>
             <p>DistroPayment makes it easy to collect Direct Debit payments from customers worldwide,
                 even for one-off or variable amounts.</p>
-            <p>Create slale transaction api for real time tracking your slaes record and manage your
-                onboard</p>
             <%= form_for @company, url: save_company_detail_merchant_verification_index_path, method: :post do |form| %>
                 <%= form.hidden_field :id, value: @company&.id%>
                 <div class="form-group">
@@ -38,30 +36,6 @@
 
                 </div>
 
-            <!-- <div class="personal-details">
-                <h4>Your details</h4>
-                <p>
-                    Please enter your details as they appear in any official records.<br> Avoid
-                    abbreviations, and make sure to check for misspellings.
-                </p>
-                <p class="mt-2">This must be your business address</p> -->
-                <!-- <form> -->
-                    <!-- <div class="form-row">
-                        <div class="col-md-12">
-                            <label for="validationCustom01">Date off Birth <span>*</span></label>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" placeholder="02">
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" placeholder="06">
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" placeholder="1998">
-                        </div>
-                    </div> -->
-                <!-- </form> -->
-            <!-- </div> -->
 
             <!-- <form> -->
                 <div class="form-group mt-4">
@@ -77,7 +51,20 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Postcode <span>*</span></label>
                     <%= form.text_field :postcode, class: "form-control", id: "exampleFormControlInput1", required: true %>
+                </div>
 
+                <div class="form-group">
+                    <label for="supportEmail">Support Email <span>*</span></label>
+                    <%= form.email_field :support_email,class: "form-control", required: true, placeholder: "support email" %>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number <span>*</span></label>
+                    <br>
+                    <%= form.telephone_field :phone,class: "form-control", required: true %>
+                </div>
+                <div class="form-group">
+                    <label for="website">Website <span>*</span></label>
+                    <%= form.text_field :website,class: "form-control", required: true, placeholder: "https://example.com" %>
                 </div>
             <!-- </form> -->
 

@@ -50,16 +50,11 @@ Rails.application.routes.draw do
     end
     resources :verification, only: [:index] do
       get :company_info, on: :collection
-      get :contact_details, on: :collection
-      get :brand_info, on: :collection
       get :bank_details, on: :collection
-      get :verify_bank, on: :collection
       get :verification_status, on: :collection
       get :thankyou, on: :collection
       post :save_company_detail, on: :collection
-      post :save_brand_info, on: :collection
       post :save_bank_details, on: :collection
-      post :save_contact_details, on: :collection
       post :complete_verification, on: :collection
     end
     resources :rewards, only: %i[index] do
