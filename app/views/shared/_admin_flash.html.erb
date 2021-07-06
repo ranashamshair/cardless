@@ -1,0 +1,8 @@
+<% flash.try(:each) do |name, msg| %>
+  <div class="alert-message">
+    <div class="alert alert-warning alert-dismissible fade shadow show" role="alert">
+      <%= msg %>
+      <a type="button" class="btn-close-alert" data-bs-dismiss="alert" aria-label="Close">&times</a>
+    </div>
+  </div>
+<% end %>
