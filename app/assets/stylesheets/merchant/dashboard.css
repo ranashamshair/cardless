@@ -1839,12 +1839,12 @@ THANKS PAGE STYLES
 FLASH MESSAGE STYLES
 =======================
 */
-.flash-message {
+.alert-message {
     max-width: 630px;
     margin-top: 18px;
 }
 
-.flash-message .btn-close-alert {
+.alert-message .btn-close-alert {
     float: right;
     font-size: 30px;
     color: #040304;
