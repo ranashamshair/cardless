@@ -1,27 +1,33 @@
 <div id="dash_header">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="dash_header_left ml-5">
-            <div class="toggle-btn">
-              <i class="fas fa-bars"></i>
-            </div>
-            <% user= current_user %>
-            <div class="welcom_heading">
-              Welcome, <%= user.first_name + " " + user.last_name %>  </div>
-            <div class="small_head pl-2">Your Accounts Dashboard</div>
-          </div>
-          <div class="dash_header_right ml-auto">
-            <div class="toggle"></div>
-            <ul>
-              <li>
-                  <div class="notify_icon shadow-sm"><i class="fas fa-bell"></i></div>
-
-                </li>
-              <li>
-                  <div class="user_icon shadow-sm"><i class="far fa-user-circle"></i></div>
-                </li>
-            </ul>
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="dash_header_left ml-5">
+        <div class="toggle-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+        <% user= current_user %>
+        <div class="welcom_heading">
+          Welcome, <%= user.first_name + " " + user.last_name %> </div>
+        <div class="small_head pl-1">Your Accounts Dashboard</div>
+        <div class="flash-message">
+          <div class="alert alert-warning alert-dismissible fade show shadow" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <a type="button" class="btn-close-alert" data-bs-dismiss="alert" aria-label="Close">&times</a>
           </div>
         </div>
       </div>
+      <div class="dash_header_right ml-auto">
+        <div class="toggle"></div>
+        <ul>
+          <li>
+            <div class="notify_icon shadow-sm"><i class="fas fa-bell"></i></div>
+
+          </li>
+          <li>
+            <div class="user_icon shadow-sm"><i class="far fa-user-circle"></i></div>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+</div>
