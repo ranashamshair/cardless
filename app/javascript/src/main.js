@@ -169,7 +169,3 @@ $('*[data-href]').on('click', function() {
 // });
   
 });
-
-
-
-

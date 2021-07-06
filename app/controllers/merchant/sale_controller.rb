@@ -147,8 +147,7 @@ class Merchant::SaleController < MerchantBaseController
 
       customer_wallet.update(balance: customer_wallet.balance.to_f - params[:transaction][:amount].to_f)
       merchant_wallet.update(balance: (merchant_wallet.balance.to_f + net_amount.to_f))
-      TransactionMailer.customer_email(customer, current_user, transfer_tx).deliver_now
-      TransactionMailer.merchant_email(customer, current_user, transfer_tx).deliver_now
+
       reward = current_user.rewards.where(payed: false).first
       if reward.present?
         reward.update(amount: reward.amount + params[:transaction][:amount].to_f)
@@ -158,6 +157,8 @@ class Merchant::SaleController < MerchantBaseController
           user_id: current_user.id
         )
       end
+      TransactionMailer.customer_email(customer, current_user, transfer_tx).deliver_now
+      TransactionMailer.merchant_email(customer, current_user, transfer_tx).deliver_now
       redirect_to merchant_dashboard_index_path, notice: 'success'
     else
       redirect_to merchant_dashboard_index_path, notice: 'Invalid card!'

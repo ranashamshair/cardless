@@ -23,20 +23,24 @@
                 <table class="table table-striped shadow">
                     <thead>
                         <tr>
-                            <th scope="col">Reward Id</th>
-                            <th scope="col">Payed</th>
+                            <!-- <th scope="col">Reward Id</th> -->
+                            <!-- <th scope="col">Payed</th> -->
                             <th scope="col">Amount</th>
+                            <th scope="col">Get Reward</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @rewards&.each do |reward|%>
                             <tr>
-                                <th scope="row"><%= reward.id %></th>
-
-
-
-                                <td><button class="tabel_status"><a href="#"><%= reward.payed ? "Paid" : "No" %></a></button></td>
+                                <!-- <td><button class="tabel_status"><a href="#"><%#= reward.payed ? "Paid" : "No" %></a></button></td> -->
                                 <td><%= number_with_precision(number_to_currency(reward.amount.to_f), precision: 2, delimiter: ',') %></td>
+                                <% if reward.payed %>
+                                  <td><button class="tabel_status"><a href="#"><%= reward.payed ? "Paid" : "No" %></a></button></td>
+                                <% elsif !reward.payed && reward.amount >= @reward_amount  %>
+                                  <td><button class="tabel_status"><%= link_to "Get Reward", get_reward_merchant_reward_path(reward) %></button></td>
+                                <% else %>
+                                  <td><button class="tabel_status"><a href="#"><%= reward.payed ? "Paid" : "No" %></a></button></td>
+                                <% end %>
                             </tr>
                         <% end %>
                     </tbody>

@@ -30,6 +30,11 @@
     <% if controller.action_name  != "docs"%>
       <%= render partial: "shared/footer" %>
     <% end %>
-    
+    <script type="text/javascript">
+      function myFunction() {
+        var popup = document.getElementById("langPopup");
+        popup.classList.toggle("show");
+      }
+    </script>
   </body>
 </html>
