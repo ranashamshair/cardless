@@ -9,12 +9,14 @@
         <div class="welcom_heading">
           Welcome, <%= user.first_name + " " + user.last_name %> </div>
         <div class="small_head pl-1">Your Accounts Dashboard</div>
-        <div class="alert-message">
-          <div class="alert alert-warning alert-dismissible fade show shadow" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            <a type="button" class="btn-close-alert" data-bs-dismiss="alert" aria-label="Close">&times</a>
+        <% flash.try(:each) do |name, msg| %>
+          <div class="alert-message">
+            <div class="alert alert-warning alert-dismissible fade shadow show" role="alert">
+              <%= msg %>
+              <a type="button" class="btn-close-alert" data-bs-dismiss="alert" aria-label="Close">&times</a>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <div class="dash_header_right ml-auto">
         <div class="toggle"></div>
