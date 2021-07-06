@@ -60,3 +60,33 @@ section.content .card-body{
   margin-right: 16px;
   background: #007bff;
 }
+/*
+=======================
+FLASH MESSAGE STYLES
+=======================
+*/
+.alert-message {
+    max-width: 100%;
+    margin-top: 18px;
+}
+
+.alert-message .btn-close-alert {
+    float: right;
+    font-size: 30px;
+    color: #040304;
+    margin-top: -10px;
+    padding-right: 10px;
+}
+
+.alert-dismissible {
+    padding-right: 0;
+}
+
+.alert-warning {
+    color: #02152C;
+    border-color: #fff;
+    background-color: #ffffff;
+}
+.alert a{
+    text-decoration: none;
+}

@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>DistroPayment</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'merchant', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<head>
+  <title>DistroPayment</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
-  </head>
+  <%= stylesheet_link_tag 'merchant', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <body>
-    <!-- Profile Alert -->
-      <div id="profile-notice">
-        <div class="container">
-          <div class="row">
-            <div class="d-flex align-items-center mx-auto">
-              <p>Hi <%= current_user.first_name %>, we need some details to verify your identity</p>
-              <%= link_to "Verify Your Profile", merchant_verification_index_path %>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
+</head>
+
+<body>
+  <!-- Profile Alert -->
+  <div id="profile-notice">
+    <div class="container">
+      <div class="row">
+        <div class="d-flex align-items-center mx-auto">
+          <p>Hi <%= current_user.first_name %>, we need some details to verify your identity</p>
+          <%= link_to "Verify Your Profile", merchant_verification_index_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- /.Profile Alert -->
+  <div class="dash_body">
+    <%= render partial: "shared/merchant/icons_header" %>
+    <%= render partial: "shared/merchant/left_sidebar" %>
+    <%= render partial: "shared/merchant/right_sidebar" %>
+    <%= render partial: "shared/merchant/notification_sidebar"%>
+    <%= yield %>
+    <div class="merchant-langs">
+      <div class="lang-popup" onclick="myFunction()">
+        <i class="fas fa-language"></i>
+        <div class="lang-popup-content" id="langPopup">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <ul>
+                  <li><a href="#"><span class="flag-icon flag-icon-us"></span> English</a> </li>
+                  <li><a href="#"><span class="flag-icon flag-icon-es"></span> Spanish</a> </li>
+                  <li><a href="#"><span class="flag-icon flag-icon-de"></span> German</a> </li>
+                  <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Français</a> </li>
+                  <li><a href="#"><span class="flag-icon flag-icon-it"></span> Italiano</a> </li>
+                  <li><a href="#"><span class="flag-icon flag-icon-nl"></span> Netherlands</a> </li>
+                  <li><a href="#"><span class="flag-icon flag-icon-dk"></span> Deutsch</a> </li>
+                  <li><a href="#"><span class="flag-icon flag-icon-es"></span> Catalan</a> </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <!-- /.Profile Alert -->
-      <div class="dash_body" >
-        <%= render partial: "shared/merchant/icons_header" %>
-        <%= render partial: "shared/merchant/left_sidebar" %>
-        <%= render partial: "shared/merchant/right_sidebar" %>
-        <%= render partial: "shared/merchant/notification_sidebar"%>
-        <%= yield %>
-         <div class="merchant-langs">
-         <div class="lang-popup" onclick="myFunction()">
-              <i class="fas fa-language"></i>
-              <div class="lang-popup-content" id="langPopup">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <ul>
-                        <li><a href="#"><span class="flag-icon flag-icon-us"></span> English</a> </li>
-                        <li><a href="#"><span class="flag-icon flag-icon-es"></span> Spanish</a> </li>
-                        <li><a href="#"><span class="flag-icon flag-icon-de"></span> German</a> </li>
-                        <li><a href="#"><span class="flag-icon flag-icon-fr"></span> Français</a> </li>
-                        <li><a href="#"><span class="flag-icon flag-icon-it"></span> Italiano</a> </li>
-                        <li><a href="#"><span class="flag-icon flag-icon-nl"></span> Netherlands</a> </li>
-                        <li><a href="#"><span class="flag-icon flag-icon-dk"></span> Deutsch</a> </li>
-                        <li><a href="#"><span class="flag-icon flag-icon-es"></span> Catalan</a> </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
       </div>
       </div>
   </body>
