@@ -3,8 +3,8 @@
     <div class="container">
         <nav aria-label="breadcrumb bg-info">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Accounts</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Api Key</li>
+                <li class="breadcrumb-item"><a href="#"><%= t('transactions.accounts')%></a></li>
+                <li class="breadcrumb-item active" aria-current="page"><%= t('merchant.api_key')%></li>
             </ol>
         </nav>
 
@@ -13,14 +13,14 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="api_key_tab shadow">
-                    <div class="api_key_head">Standard Api Key</div>
+                    <div class="api_key_head"><%= t('merchant.standard_key')%></div>
                     <div class="api_key_box">
                         <div class="row text-center mt-3">
                             <div class="col-lg-6">
-                                <div class="sub_head">Type</div>
+                                <div class="sub_head"><%= t('merchant.key_type')%></div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="sub_head">Api Key</div>
+                                <div class="sub_head"><%= t('merchant.api_key')%></div>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="api_key_box active">
                         <div class="row text-center mt-3">
                             <div class="col-lg-6">
-                                <div class="sub_head_two">Public Key</div>
+                                <div class="sub_head_two"><%= t('merchant.key_type1')%></div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="sub_head_two" id="btn_copy" data-clipboard-text="<%= current_user.public_key %>"><%= current_user.public_key %> <i class="far fa-copy"></i></div>
@@ -39,7 +39,7 @@
                     <div class="api_key_box">
                         <div class="row text-center mt-3">
                             <div class="col-lg-6">
-                                <div class="sub_head_two">Secret Key</div>
+                                <div class="sub_head_two"><%= t('merchant.key_type2')%></div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="secret">

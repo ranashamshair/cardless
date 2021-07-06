@@ -5,14 +5,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <%= form_with(model: @transaction, url: merchant_sale_index_path, class: "shadow", method: :post, local: true) do |form| %>
-                        <div class="heading">Customer Info</div>
+                        <div class="heading"><%= t('info_form.customer_info')%></div>
                         <div class="form-row">
                           <div class="form-group col-md-6">
-                            <label for="inputEmail4">Customer Name</label>
+                            <label for="inputEmail4"><%= t('info_form.customer_name')%></label>
                             <%= form.text_field :name, class: "form-control", id: "inputEmail4", placeholder: "Customer Name", required: true %>
                           </div>
                           <div class="form-group col-md-6">
-                            <label for="inputEmail4">Email</label>
+                            <label for="inputEmail4"><%= t('info_form.customer_email')%></label>
                             <%= form.email_field :email, class: "form-control", id: "inputEmail4", placeholder: "Customer Email", required: true %>
 
                           </div>
@@ -20,23 +20,23 @@
                         </div>
                         <div class="form-row">
                           <div class="form-group col-md-6">
-                            <label for="inputAddress">Client Address</label>
+                            <label for="inputAddress"><%= t('info_form.address')%></label>
                             <%= form.text_field :street_address, class: "form-control", id: "inputAddress", placeholder: "1234 Main st" %>
 
                           </div>
                           <div class="form-group col-md-6">
-                            <label for="inputPassword4">Mobile Number</label><br>
+                            <label for="inputPassword4"><%= t('info_form.mobile')%></label><br>
                             <%= form.text_field :phone, class: "form-control", required: true, id: "company_phone" %>
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-md-6">
-                            <label for="inputCity">City</label>
+                            <label for="inputCity"><%= t('info_form.city')%></label>
                             <%= form.text_field :city, class: "form-control", id: "inputCity", placeholder: "city" %>
 
                           </div>
                           <div class="form-group col-md-6">
-                            <label for="inputState">Country</label>
+                            <label for="inputState"><%= t('info_form.country')%></label>
                             <%= form.text_field :country, class: "form-control", id: "inputState", placeholder: "Country" %>
                           </div>
 
@@ -44,35 +44,35 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputState">State / province / region</label>
+                                <label for="inputState"><%= t('info_form.spr')%></label>
                                 <%= form.text_field :state, class: "form-control", id: "inputState", placeholder: "State" %>
                             </div>
                             <div class="form-group col-md-6">
-                              <label for="inputZip">Zip</label>
+                              <label for="inputZip"><%= t('info_form.zip')%></label>
                               <%= form.text_field :zip_code, class: "form-control", id: "inputZip", placeholder: "18045" %>
                             </div>
                           </div>
 
-                        <div class="heading">Payment Info</div>
+                        <div class="heading"><%= t('info_form.payment_info')%></div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputState">Amount</label>
+                                <label for="inputState"><%= t('info_form.amount')%></label>
                                 <%= form.text_field :amount, class: 'form-control', placeholder: "0.0", required: true %>
 
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputEmail4">Card Number</label>
+                                <label for="inputEmail4"><%= t('info_form.card_num')%></label>
                                 <%=  form.text_field :card_number, class: "form-control", maxlength: 19, placeholder: "xxxx xxxx xxxx xxxx", autocomplete: "cc-number", pattern: "[0-9]*" , required: true%>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputState">Expiry Date</label>
+                                <label for="inputState"><%= t('info_form.exp_date')%></label>
                                 <%= form.text_field :exp_date, class: "form-control", placeholder: "MM/YY", maxlength: 5, required: true %>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputEmail4">Cvc</label>
+                                <label for="inputEmail4"><%= t('info_form.cvc')%></label>
                                 <%= form.text_field :cvc, class: "form-control", pattern: "[0-9]*", autocomplete: "cc-number", maxlength: 3, placeholder: "456", required: true %>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
 
 
                         <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                        <%= form.submit "Submit", class: "btn btn-primary" %>
+                        <%= form.submit t('info_form.submit'), class: "btn btn-primary" %>
                       <% end %>
                 </div>
             </div>

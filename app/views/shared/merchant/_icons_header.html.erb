@@ -7,8 +7,8 @@
             </div>
             <% user= current_user %>
             <div class="welcom_heading">
-              Welcome, <%= user.first_name + " " + user.last_name %>  </div>
-            <div class="small_head pl-2">Your Accounts Dashboard</div>
+              <%= t('merchant.welcome')%>, <%= user.first_name + " " + user.last_name %>  </div>
+            <div class="small_head pl-2"><%= t('merchant.account_dash')%></div>
           </div>
           <div class="dash_header_right ml-auto">
             <div class="toggle"></div>

@@ -6,8 +6,8 @@
           <div class="col-md-6">
               <nav aria-label="breadcrumb bg-info">
                   <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="#">Accounts</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Withdraws</li>
+                      <li class="breadcrumb-item"><a href="#"><%= t('transactions.accounts')%></a></li>
+                      <li class="breadcrumb-item active" aria-current="page"><%= t('transactions.withdraws')%></li>
                   </ol>
               </nav>
           </div>
@@ -23,11 +23,11 @@
                   <table class="table table-striped shadow">
                       <thead>
                           <tr>
-                              <th scope="col">Id</th>
-                              <th scope="col">Amount</th>
-                              <th scope="col">Payed</th>
-                              <th scope="col">Created at</th>
-                              <th scope="col">Payed at</th>
+                              <th scope="col"><%= t('banks.withdraw_id')%></th>
+                              <th scope="col"><%= t('banks.withdraw_amount')%></th>
+                              <th scope="col"><%= t('banks.payed')%></th>
+                              <th scope="col"><%= t('banks.created_at')%></th>
+                              <th scope="col"><%= t('banks.payed_at')%></th>
                           </tr>
                       </thead>
                       <tbody>

@@ -18,7 +18,7 @@
                     <div class="title"><%=  wallet.wallet_type %></div>
                     <div class="line"></div>
                     <div class="balance_one">
-                    <div class="bal_title">Total Balance</div>
+                    <div class="bal_title"><%= t('merchant.total_blnc')%></div>
                     <div class="balance"><%= number_with_precision(number_to_currency(wallet.balance), precision: 2, delimiter: ',') %></div>
                     </div>
 

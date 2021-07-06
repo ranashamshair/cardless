@@ -5,19 +5,19 @@
     <div class="small_head pl-2">
       <div class="card p-3  ">
         <div class="row">
-          <h5 class="ml-3"> Bank Information </h5>
+          <h5 class="ml-3"> <%= t('banks.info')%> </h5>
           <div class="row align-items-end">
             <div class="col-md-6 my-2">
-              <div class=user-data><b>Bank Name: </b> <%= @bank.bank_name %> </div>
+              <div class=user-data><b><%= t('banks.bank_name')%>: </b> <%= @bank.bank_name %> </div>
             </div>
             <div class="col-md-6">
-              <div class=user-data><b>Bank User Name: </b> <%= @bank.user_name %> </div>
+              <div class=user-data><b><%= t('banks.bank_user')%>: </b> <%= @bank.user_name %> </div>
             </div>
             <div class="col-md-6 my-2">
-              <div class=user-data><b>Iban: </b> <%= @bank.iban %> </div>
+              <div class=user-data><b><%= t('banks.iban')%>: </b> <%= @bank.iban %> </div>
             </div>
             <div class="col-md-6">
-              <div class=user-data><b>Currency: </b> <%= @bank.currency %> </div>
+              <div class=user-data><b><%= t('banks.currency')%>: </b> <%= @bank.currency %> </div>
             </div>
             <div class="mx-auto mt-3">
               <%= link_to 'Edit', edit_merchant_bank_path(@bank), class:"btn btn-outline-primary ml-3" %>

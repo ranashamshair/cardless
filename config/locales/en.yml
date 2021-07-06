@@ -252,6 +252,7 @@ en:
     success: "success"
     status: "status"
     ref_id: "ref_id"
+
   pricing:
     simple_pricing: "Simple Pricing"
     simple_pricing_text1: "Contrary to popular belief, Lorem Ipsum is not simply random text."
@@ -293,6 +294,82 @@ en:
     sale_api_pt3: "It uses a dictionary of over 200"
     sale_api_pt4: "It uses a dictionary of over 200"
     sale_api_box_text: "0.5% predefined chunks as necessary"
+
+  merchant:
+    welcome: "Welcome"
+    account_dash: "Your Accounts Dashboard"
+    total_blnc: "Total Balance"
+    fee_structure: "Fee Structure"
+    bank_credit: "Bank - Credit Card"
+    bank_debit: "Bank - Debit Card"
+    merchant_credit: "Merchant - Credit Card"
+    merchant_debit: "Merchant - Debit Card"
+    withdraw_fee: "Withdraw Fee"
+    reserve_fee: "Reserve Fee"
+    api_key: "Api Key"
+    standard_key: "Standard Api Key"
+    key_type: "Type"
+    key_type1: "Public Key"
+    key_type2: "Secret Key"
+    rewards: "Rewards"
+    reward_id: "Reward Id"
+    reward_payed: "Payed"
+    reward_amount: "Amount"
+    
+  
+  info_form:
+    customer_info: "Customer Info"
+    customer_name: "Customer Name"
+    customer_email: "Email"
+    address: "Client Address"
+    mobile: "Mobile Number"
+    city: "City"
+    country: "Country"
+    spr: "State / province / region"
+    zip: "Zip"
+    payment_info: "Payment Info"
+    amount: "Amount"
+    card_num: "Card Number"
+    exp_date: "Expiry Date"
+    cvc: "CVC"
+    submit: "Submit"
+  
+  transactions:
+    accounts: "Accounts"
+    transactions: "Transactions"
+    id: "Id"
+    fee: "Fee"
+    date: "Date"
+    sender: "Sender Name"
+    reserve: "Reserve Money"
+    receiver: "Receiver Name"
+    tran_type: "Transaction Type"
+    net_amount: "Net Amount"
+    status: "Status"
+    action: "Action"
+    amount: "Amount"
+    withdraws: "Withdraws"
+
+  banks:
+    banks: "Banks"
+    bank_name: "Bank Name"
+    user_name: "User Name"
+    bank_user: "Bank User Name"
+    iban: "Iban"
+    currency: "Currency"
+    new_bank: "New Bank"
+    details: "Bank Details"
+    edit_bank: "Editing Bank"
+    info: "Bank Information"
+    withdraw_id: "Id"
+    withdraw_amount: "Amount"
+    payed: "Payed"
+    created_at: "Created at"
+    payed_at: "Payed at"
+
+
+  
+  
 
 
     
