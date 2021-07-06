@@ -10,15 +10,21 @@ class Merchant::RewardsController < MerchantBaseController
   def get_reward
     @reward_amounts = RewardInfo.all
     @reward_data = []
-    colors = ["#59C173","#1657FF", "#0353a4", "#181C33","#5D26C1","#A17FE0"]
+    colors = ["#5D26C1","#59C173"]
+    color = "#5D26C1"
     @reward_amounts&.each do |reward|
       @reward_data.push({
         "label" =>  "#{reward.amount}",
         "value" => "#{reward.id}",
-        "color" => colors.sample,
+        "color" => color,
         "anchor" =>  "Get your reward",
         "question" => "Congratulation you win #{reward.amount}"
         })
+        if color == "#5D26C1"
+          color = "#59C173"
+        else
+          color = "#5D26C1"
+        end
     end
   end
 
