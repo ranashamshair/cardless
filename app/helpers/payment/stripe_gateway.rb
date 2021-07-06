@@ -64,29 +64,33 @@ module Payment
         body = e.json_body
         err  = body[:error]
         if err[:code].present?
-          return { message: e.message, charge: nil,error_code: err[:decline_code].present? ? err[:decline_code].try(:humanize) : err[:code].try(:humanize), response: err }
+          return { message: e.message, charge: nil, error_code: err[:decline_code].present? ? err[:decline_code].try(:humanize) : err[:code].try(:humanize), response: err }
         else
-          return { message: e.message, charge: nil,error_code: "unknown", response: err }
+          return { message: e.message, charge: nil, error_code: "unknown", response: err }
         end
 
       end
-      return { message: nil,charge: charge.id,error_code: nil, response: charge.to_json }
+      return { message: nil,charge: charge.id, error_code: nil, response: charge.to_json }
     end
 
     def handle_charge_response(response)
       response
     end
 
-    def refund(id, key)
-      Stripe.api_key = key if key.present?
+    def refund(args)
       refund = Stripe::Refund.create({
-                                       charge: id,
+                                       charge: args[:charge_id],
+                                       amount: args[:amount]
                                      })
       if refund['status'] == 'succeeded'
-        return { message: nil, charge: refund.id }
+        return { message: nil, refund: refund.id, refunded_amount: refund.amount, error_code: nil, response: refund.to_json }
       else
-        return { message: refund, charge: nil }
+        return { message: refund, refund: nil, error_code: refund, response: refund.to_json }
       end
+    end
+
+    def handle_refund_response(response)
+      response
     end
 
     private
@@ -104,8 +108,8 @@ module Payment
 
     def gateway_api
       # ENV["STRIPE_SECRET"]
-      # 'sk_test_51J47MyHW0K48LBP7ZHZqH4CKDVLRQvnnhPTHtzO3EMTe2AeT1cfm9MkHqg1EogjR05v34x97XbpaSTrWmKD3Hwd4002kXhVzBD'
-      payment_gateway.client_secret
+      'sk_test_51J47MyHW0K48LBP7ZHZqH4CKDVLRQvnnhPTHtzO3EMTe2AeT1cfm9MkHqg1EogjR05v34x97XbpaSTrWmKD3Hwd4002kXhVzBD'
+      # payment_gateway.client_secret
     end
   end
 end

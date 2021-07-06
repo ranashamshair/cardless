@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get :fee_structure, on: :collection
       get :api_key, on: :collection
     end
+    post :do_payment_refund, to: 'sale#do_payment_refund'
     resources :sale, only: %i[index create] do
       get :refund, on: :collection
     end

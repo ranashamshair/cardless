@@ -33,14 +33,13 @@ module Payment
       else
         return { message: parsed_response["message"][0]["description"],charge: nil ,error_code: parsed_response["message"][0]["code"], response: response }
       end
-      handle_response(response)
     end
 
-    def refund
+    def refund(args)
       params = {
-        # 'amount' => 10
+        'amount' => args[:amount]
       }
-      transaction_id = '1027580818'
+      transaction_id = args[:charge_id]
       url = "https://sandbox.bluesnap.com/services/2/transactions/refund/#{transaction_id}"
       post_request(url, params)
 
@@ -53,6 +52,15 @@ module Payment
 
       # second partial refund with more then refundable amount
       #  "{\"message\":[{\"errorName\":\"REFUND_MAX_AMOUNT_FAILURE\",\"code\":\"14006\",\"description\":\"Refund amount cannot be more than the refundable order amount.\",\"invalidProperty\":{\"name\":\"amount\",\"messageValue\":\"1.00\"}}]}"
+    end
+
+    def handle_refund_response(response)
+      parsed_response = JSON.parse response
+      if parsed_response && parsed_response["refundTransactionId"].present?
+        return { message: nil, refund: parsed_response["refundTransactionId"], refunded_amount: parsed_response["amount"], error_code: nil, response: response }
+      else
+        return { message: parsed_response["description"], refund: parsed_response["transactionId"], error_code: parsed_response["code"], response: response }
+      end
     end
 
     private
