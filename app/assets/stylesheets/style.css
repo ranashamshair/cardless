@@ -1463,6 +1463,7 @@ section.spinner #chart{
   border-radius: 100%;
   transform: translate(-50%, 0);
   background-color: #001219;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
 }
 section.spinner #question{
   text-align: center;
