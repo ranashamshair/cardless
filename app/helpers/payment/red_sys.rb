@@ -10,7 +10,7 @@ module Payment
   class RedSys
 
     def withdraw
-      url = URI("https://apis-i.redsys.es:20443/psd2/xs2a/api-entrada-xs2a/services/caixabank/v1/payments/sepa-credit-transfers/REPLACE_PAYMENT-ID/authorisations")
+      url = URI("https://apis-i.redsys.es:20443/psd2/xs2a/api-entrada-xs2a/services/caixabank/v1/payments/sepa-credit-transfers/#{rand.to_s[2..6]}/authorisations")
 
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
@@ -20,7 +20,7 @@ module Payment
       request = Net::HTTP::Post.new(url)
       request["x-ibm-client-id"] = 'bb0a4ee8-41b3-459c-bcd9-6cb8b8e0de0c'
       request["content-type"] = 'application/json'
-      request["x-request-id"] = '1b3ab8e8-0fd5-43d2-946e-d75958b172e7'
+      request["x-request-id"] = SecureRandom.hex
       request["authorization"] = 'Bearer 6yBnsqnMQQ'
       request["psu-ip-address"] = '127.0.0.1'
 
@@ -76,16 +76,16 @@ module Payment
         "Ds_Merchant_Currency" => 978,
         "Ds_Merchant_ProductDescription" => "Jacket",
         "Ds_Merchant_MerchantCode" => 352263560,
-        "Ds_Merchant_MerchantURL" => "https://www.example.com/callback/",
-        "Ds_Merchant_UrlOK" => "https://www.example.com/payment/ok/",
-        "Ds_Merchant_UrlKO" => "https://www.example.com/payment/ko/",
+        "Ds_Merchant_MerchantURL" => "https://distropayment.com/callback/",
+        # "Ds_Merchant_UrlOK" => "https://www.example.com/payment/ok/",
+        # "Ds_Merchant_UrlKO" => "https://www.example.com/payment/ko/",
         "Ds_Merchant_MerchantName" => "ACME",
         "Ds_Merchant_Terminal" => 2,
-        "Ds_Merchant_TransactionType" => 2,
+        "Ds_Merchant_TransactionType" => 0,
         "Ds_Merchant_Order" =>  rand.to_s[2..6],
-        "DS_MERCHANT_PAN" => '454881********04',
-        "DS_MERCHANT_CVV2" => '123',
-        "DS_MERCHANT_EXPIRYDATE" => '1223',
+        # "DS_MERCHANT_PAN" => '454881********04',
+        # "DS_MERCHANT_CVV2" => '123',
+        # "DS_MERCHANT_EXPIRYDATE" => '1223',
       }
     end
 

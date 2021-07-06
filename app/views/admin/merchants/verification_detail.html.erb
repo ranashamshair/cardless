@@ -35,39 +35,39 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Country</th>
-                                <td><%=  @company.country_name %> </td>
+                                <td><%=  @company&.country_name %> </td>
                             </tr>
                             <tr>
                                 <th scope="row">Business Type</th>
-                                <td><%= @company.business_type %> </td>
+                                <td><%= @company&.business_type %> </td>
                             </tr>
                             <tr>
                                 <th scope="row">Industry</th>
-                                <td><%= @company.industry.humanize %></td>
+                                <td><%= @company&.industry&.humanize %></td>
                             </tr>
                             <tr>
                                 <th scope="row">What Does Your Busines do ?</th>
-                                <td><%= @company.buisness_work %></td>
+                                <td><%= @company&.buisness_work %></td>
                             </tr>
                             <tr>
                                 <th scope="row">What is your company name</th>
-                                <td><%= @company.name %></td>
+                                <td><%= @company&.name %></td>
                             </tr>
                             <tr>
                                 <th scope="row">Vat registration number ?</th>
-                                <td><%= @company.vat %></td>
+                                <td><%= @company&.vat %></td>
                             </tr>
                             <tr>
                                 <th scope="row">Street Address</th>
-                                <td><%= @company.address %></td>
+                                <td><%= @company&.address %></td>
                             </tr>
                             <tr>
                                 <th scope="row">City</th>
-                                <td><%= @company.city %></td>
+                                <td><%= @company&.city %></td>
                             </tr>
                             <tr>
                                 <th scope="row">Postcode</th>
-                                <td><%= @company.postcode %></td>
+                                <td><%= @company&.postcode %></td>
                         </tbody>
                     </table>
                 </div>
@@ -81,7 +81,7 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Account Holder Name </th>
-                                <td><%= @bank.user_name %></td>
+                                <td><%= @bank&.user_name %></td>
                             </tr>
                             <!-- <tr>
                                 <th scope="row">Country</th>
@@ -89,11 +89,11 @@
                             </tr> -->
                             <tr>
                                 <th scope="row">Bank Name</th>
-                                <td><%= @bank.bank_name %></td>
+                                <td><%= @bank&.bank_name %></td>
                             </tr>
                             <tr>
                                 <th scope="row">Iban</th>
-                                <td><%= @bank.iban %></td>
+                                <td><%= @bank&.iban %></td>
                             </tr>
                         </tbody>
 
@@ -106,15 +106,15 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Support Email</th>
-                                <td><%= @company.support_email %></td>
+                                <td><%= @company&.support_email %></td>
                             </tr>
                             <tr>
                                 <th scope="row">Phone Number</th>
-                                <td><%= @company.phone %></td>
+                                <td><%= @company&.phone %></td>
                             </tr>
                             <tr>
                                 <th scope="row">Website</th>
-                                <td><%= @company.website %></td>
+                                <td><%= @company&.website %></td>
                             </tr>
 
                         </tbody>
@@ -133,7 +133,7 @@
                         <tbody>
                             <tr>
                                 <%#= image_tag "laptop.jpg", class:"img-admin-side" %>
-                                <%= image_tag @company.logo,class:"img-admin-side" %>
+                                <%= image_tag @company.logo,class:"img-admin-side" if @company.present? %>
                             </tr>
                         </tbody>
                     </table>
@@ -146,13 +146,15 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Documents Method</th>
-                                <td><%= @company.legal_doc_type.humanize %></td>
+                                <td><%= @company&.legal_doc_type&.humanize %></td>
                             </tr>
                             <tr>
-                              <% if @company.legal_doc.content_type == "application/pdf" %>
-                                <iframe src="<%= url_for(@company.legal_doc) %>" width="500px" height="500px"></iframe>
-                              <% else %>
-                                <%= image_tag @company.legal_doc, class: "img-admin-side" %>
+                              <% if @company.present? %>
+                                <% if @company.legal_doc.content_type == "application/pdf" %>
+                                  <iframe src="<%= url_for(@company.legal_doc) %>" width="500px" height="500px"></iframe>
+                                <% else %>
+                                  <%= image_tag @company.legal_doc, class: "img-admin-side" %>
+                                <% end %>
                               <% end %>
                             </tr>
 
@@ -177,10 +179,12 @@
                                 <td>Passport/ID</td>
                             </tr>
                             <tr>
-                              <% if @company.id_doc.content_type == "application/pdf" %>
-                                <iframe src="<%= url_for(@company.id_doc) %>" width="500px" height="500px"></iframe>
-                              <% else %>
-                                <%= image_tag @company.id_doc, class: "img-admin-side" %>
+                              <% if @company.present? %>
+                                <% if @company.id_doc.content_type == "application/pdf" %>
+                                  <iframe src="<%= url_for(@company.id_doc) %>" width="500px" height="500px"></iframe>
+                                <% else %>
+                                  <%= image_tag @company.id_doc, class: "img-admin-side" %>
+                                <% end %>
                               <% end %>
                             </tr>
 
