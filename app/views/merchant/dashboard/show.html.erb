@@ -1,63 +1,63 @@
 <div class="user_account_data container m-auto">
   <div class="small_head shadow ml-4">
     <div class="card my-2  ">
-      <h5 class="ml-3 mb-3">Account Information </h5>
+      <h5 class="ml-3 mb-3"><%= t('merchant.account_info')%></h5>
       <div class="row bg-custom">
         <div class="col-lg-4">
-          <div class="label"> <b>First Name:</b> </div>
+          <div class="label"> <b><%= t('merchant.first_name')%></b> </div>
           <div class="data"><%= @user.first_name%> </div>
         </div>
         <div class="col-lg-4">
-          <div class="label"> <b>Last Name:</b> </div>
+          <div class="label"> <b><%= t('merchant.last_name')%></b> </div>
           <div class="data"> <%= @user.last_name %></div>
         </div>
         <div class="col-lg-4">
-          <div class="label"> <b>Email:</b> </div>
+          <div class="label"> <b><%= t('merchant.email')%></b> </div>
           <div class="data"><%= @user.email %></div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-4">
-          <div class="label"> <b>Country:</b> </div>
+          <div class="label"> <b><%= t('merchant.country')%></b> </div>
           <div class="data"><%= @user.country %></div>
         </div>
         <div class="col-lg-4">
-          <div class="label"> <b>City:</b> </div>
+          <div class="label"> <b><%= t('merchant.city')%></b> </div>
           <div class="data"><%= @user.city %></div>
         </div>
         <div class="col-lg-4">
-          <div class="label"> <b>State:</b></div>
+          <div class="label"> <b><%= t('merchant.state')%></b></div>
           <div class="data"><%= @user.state %> </div>
         </div>
       </div>
 
       <div class="row bg-custom">
         <div class="col-lg-4">
-          <div class="label"> <b>Ph:</b> </div>
+          <div class="label"> <b><%= t('merchant.phone')%></b> </div>
           <div class="data"><%= @user.phone_number %></div>
         </div>
         <div class="col-lg-4">
-          <div class="label"> <b>Company:</b> </div>
+          <div class="label"> <b><%= t('merchant.company')%></b> </div>
           <div class="data"><%= @user.company %></div>
         </div>
         <div class="col-lg-4">
-          <div class="label"> <b>Role:</b> </div>
+          <div class="label"> <b><%= t('merchant.role')%></b> </div>
           <div class="data"><%= @user.role %></div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-4">
-          <div class="label"> <b>Status:</b> </div>
+          <div class="label"> <b><%= t('merchant.status')%></b> </div>
           <div class="data"><%= @user.is_active %></div>
         </div>
         <div class="col-lg-4">
-          <div class="label"> <b>Address:</b> </div>
+          <div class="label"> <b><%= t('merchant.address')%></b> </div>
           <div class="data"><%= @user.street_address %></div>
         </div>
         <div class="col-lg-4">
-          <div class="label"> <b>Zip Code:</b> </div>
+          <div class="label"> <b><%= t('merchant.zip_code')%></b> </div>
           <div class="data"><%= @user.zip_code %></div>
         </div>
       </div>

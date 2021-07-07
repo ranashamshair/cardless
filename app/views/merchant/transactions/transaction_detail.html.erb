@@ -5,9 +5,9 @@
             <div class="col-md-6">
                 <nav aria-label="breadcrumb bg-info">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Accounts</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Transactions</li>
-                        <li class="breadcrumb-item active" aria-current="page">Transaction Details</li>
+                        <li class="breadcrumb-item"><a href="#"><%= t('transactions.accounts')%></a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><%= t('transactions.transactions')%></li>
+                        <li class="breadcrumb-item active" aria-current="page"><%= t('transactions.details')%></li>
                     </ol>
                 </nav>
             </div>
@@ -19,43 +19,43 @@
 
         <!-- Transaction Details Start -->
         <% if @transaction.present? %>
-        <div class="tran_det_head mt-1 mb-3">Transaction Details</div>
+        <div class="tran_det_head mt-1 mb-3"><%= t('transactions.details')%></div>
         <div class="row">
             <div class="col-md-7 mb-3">
                 <div class="transaction_detail_box shadow">
-                    <div class="head text-center">Transaction Overview</div>
+                    <div class="head text-center"><%= t('transactions.overview')%></div>
 
                     <div class="row">
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_head">Transaction Type</div>
+                            <div class="trans_type_head"><%= t('transactions.tran_type')%></div>
                             <div class="trans_type_data"><%= @transaction.main_type.humanize.titleize %></div>
                         </div>
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_head">Transaction Date / Time</div>
+                            <div class="trans_type_head"><%= t('transactions.date_time')%></div>
                             <div class="trans_type_data"><%= @transaction.created_at.strftime("%m/%d/%Y %H:%M %p") %></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_head">Transaction ID</div>
+                            <div class="trans_type_head"><%= t('transactions.tran_id')%></div>
                             <div class="trans_type_data" id="btn_copy" data-clipboard-text="<%= @transaction.ref_id %>"><%= @transaction.ref_id.first(25) %>... <i class="far fa-copy"></i></div>
                         </div>
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_head">Transaction Status</div>
+                            <div class="trans_type_head"><%= t('transactions.tran_status')%></div>
                             <div class="trans_type_data"><%= @transaction.status.titleize %></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_head">Transaction Action</div>
+                            <div class="trans_type_head"><%= t('transactions.tran_action')%></div>
                             <div class="trans_type_data"><%= @transaction.action.humanize.titleize %></div>
                         </div>
                     </div>
                     <!-- Payment Information Start -->
-                    <div class="head text-center mt-2 mb-2">Payment Information</div>
+                    <div class="head text-center mt-2 mb-2"><%= t('transactions.payment_information')%></div>
                     <div class="row">
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_data">Amount</div>
+                            <div class="trans_type_data"><%= t('transactions.amount')%></div>
                         </div>
                         <div class="col-lg-6 pt-2 pb-2">
                             <div class="trans_type_data"><%= number_with_precision(number_to_currency(@transaction.amount),precision: 2, delimeter: ',') %></div>
@@ -63,7 +63,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_data">Fee</div>
+                            <div class="trans_type_data"><%= t('transactions.fee')%></div>
                         </div>
                         <div class="col-lg-6 pt-2 pb-2">
                             <div class="trans_type_data">-<%= number_with_precision(number_to_currency(@transaction.fee.to_f),precision: 2, delimeter: ',') %></div>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_data">Bank Fee</div>
+                            <div class="trans_type_data"><%= t('transactions.bank_fee')%></div>
                         </div>
                         <div class="col-lg-6 pt-2 pb-2">
                             <div class="trans_type_data">-<%= number_with_precision(number_to_currency(@transaction.bank_fee.to_f),precision: 2, delimeter: ',') %></div>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_data">Reserve Money</div>
+                            <div class="trans_type_data"><%= t('transactions.reserve')%></div>
                         </div>
                         <div class="col-lg-6 pt-2 pb-2">
                             <div class="trans_type_data">-<%= number_with_precision(number_to_currency(@transaction.reserve_money.to_f),precision: 2, delimeter: ',') %></div>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 pt-2 pb-2">
-                            <div class="trans_type_data font-weight-bold">Total Net</div>
+                            <div class="trans_type_data font-weight-bold"><%= t('transactions.total_net')%></div>
                         </div>
                         <div class="col-lg-6 pt-2 pb-2">
                             <div class="trans_type_data font-weight-bold"><%= number_with_precision(number_to_currency(@transaction.net_amount),precision: 2, delimeter: ',') %></div>
@@ -96,32 +96,32 @@
                     <!-- Payment Information End -->
                     <% if @card.present? %>
                         <!-- Card Information Start -->
-                        <div class="head text-center mt-2 mb-2">Card Information</div>
+                        <div class="head text-center mt-2 mb-2"><%= t('transactions.card_info')%></div>
                         <div class="row">
                             <div class="col-lg-4">
-                                <div class="trans_card_head font-weight-bold">Cardholder Name</div>
+                                <div class="trans_card_head font-weight-bold"><%= t('transactions.cardholder')%></div>
                                 <div class="trans_card_data"><%= @card.user.first_name %></div>
                             </div>
                             <div class="col-lg-4">
-                                <div class="trans_card_head font-weight-bold">Card Brand</div>
+                                <div class="trans_card_head font-weight-bold"><%= t('transactions.card_brand')%></div>
                                 <div class="trans_card_data"><%= @card.brand %></div>
                             </div>
                             <div class="col-lg-4">
-                                <div class="trans_card_head font-weight-bold">Card Type</div>
+                                <div class="trans_card_head font-weight-bold"><%= t('transactions.card_type')%></div>
                                 <div class="trans_card_data"><%= @card.card_type %></div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-4">
-                                <div class="trans_card_head font-weight-bold">Expiration Date</div>
+                                <div class="trans_card_head font-weight-bold"><%= t('transactions.exp_date')%></div>
                                 <div class="trans_card_data"><%= @card.exp_date %></div>
                             </div>
                             <div class="col-lg-4">
-                                <div class="trans_card_head font-weight-bold">First 6</div>
+                                <div class="trans_card_head font-weight-bold"><%= t('transactions.first6')%></div>
                                 <div class="trans_card_data"><%= @card.first6 %></div>
                             </div>
                             <div class="col-lg-4">
-                                <div class="trans_card_head font-weight-bold">Last 4</div>
+                                <div class="trans_card_head font-weight-bold"><%= t('transactions.last4')%></div>
                                 <div class="trans_card_data"><%= @card.last4 %></div>
                             </div>
                         </div>
@@ -167,15 +167,15 @@
             <!-- Customer Information Start-->
             <div class="col-md-5">
                 <div class="transaction_detail_box shadow">
-                    <div class="head text-center mt-2 mb-2">Customer Information</div>
+                    <div class="head text-center mt-2 mb-2"><%= t('transactions.customer_info')%></div>
 
                     <div class="row mt-3 mb-3">
                         <div class="col-lg-6">
-                            <div class="trans_card_head font-weight-bold">Customer Name</div>
+                            <div class="trans_card_head font-weight-bold"><%= t('transactions.customer_name')%></div>
                             <div class="trans_card_data"><%= @sender.first_name %></div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="trans_card_head font-weight-bold">Phone Number</div>
+                            <div class="trans_card_head font-weight-bold"><%= t('transactions.cust_phone')%></div>
                             <div class="trans_card_data"><%= @sender.phone_number %></div>
                         </div>
 
@@ -183,11 +183,11 @@
 
                     <div class="row mt-3 mb-3">
                         <div class="col-lg-6">
-                            <div class="trans_card_head font-weight-bold">Email</div>
+                            <div class="trans_card_head font-weight-bold"><%= t('merchant.email')%></div>
                             <div class="trans_card_data"><%= @sender.email %></div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="trans_card_head font-weight-bold">Wallet ID</div>
+                            <div class="trans_card_head font-weight-bold"><%= t('transactions.wallet_id')%></div>
                             <div class="trans_card_data"><%= @sender.wallets.primary.first.id %></div>
                         </div>
                     </div>
@@ -195,7 +195,7 @@
 
                 <!-- Button trigger modal -->
                 <!-- <a href="#" class="btn btn-primary btn-refund-modal mt-3" data-toggle="modal" data-target="#exampleModal">Refund</a> -->
-                <%= link_to "Refund",refund_merchant_sale_index_path(transaction_id: @transaction.id), class: "btn btn-primary btn-refund-modal mt-3", remote: true %>
+                <%= link_to t('transactions.refund'), refund_merchant_sale_index_path(transaction_id: @transaction.id), class: "btn btn-primary btn-refund-modal mt-3", remote: true %>
                   
 
             </div>

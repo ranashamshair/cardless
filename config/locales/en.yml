@@ -46,6 +46,7 @@ en:
     api: "api"
     withdraw: "Withdraw"
     vt: "Virtual Terminal"
+    chargebacks: "Chargebacks"
 
   home:
     hello: "Hello world"
@@ -113,7 +114,11 @@ en:
     faq_full: "Frequently asked questions"
     about_dist: "About DistroPayment"
     sales: "Sales"
-    copyright: "copyright distropayment" 
+    copyright: "copyright distropayment"
+    cancel: "Cancel"
+    my_profile: "My Profile"
+
+
   about:
     we_are: "Who we are ?"
     we_are_para: "It is a long established fact that a reader will be distracted by the readable content of a page when
@@ -129,6 +134,8 @@ en:
     faq: "F.A.Q"
     faqs: "Frequently Asked Questions"
     faqs_para: "Cloudless and of a deep dark blue spectacle before us was."
+
+
   faqs:
     faq1: "What do you mean by bank?"
     faq1_ans: "It is shown by default, until the collapse
@@ -297,6 +304,7 @@ en:
 
   merchant:
     welcome: "Welcome"
+    account_info: "Account Information"
     account_dash: "Your Accounts Dashboard"
     total_blnc: "Total Balance"
     fee_structure: "Fee Structure"
@@ -315,7 +323,25 @@ en:
     reward_id: "Reward Id"
     reward_payed: "Payed"
     reward_amount: "Amount"
-    
+    first_name: "First Name:"
+    last_name: "Last Name:"
+    email: "Email:"
+    country: "Country:"
+    city: "City:"
+    state: "State:"
+    phone: "Ph:"
+    company: "Company:"
+    role: "Role:"
+    status: "Status:"
+    address: "Address:"
+    zip_code: "Zip Code:"
+    phone_number: "Phone Number:"
+    street_address: "Street Address:"
+    edit_prof: "Edit Profile"
+    verify_notice: "we need some details to verify your identity"
+    verify_profile: "Verify Your Profile"
+    notifications: "Notifications"
+    account_id: "Account ID"
   
   info_form:
     customer_info: "Customer Info"
@@ -336,7 +362,11 @@ en:
   
   transactions:
     accounts: "Accounts"
+    total: "Total"
     transactions: "Transactions"
+    details: "Transaction Details"
+    reserve_schedules: "Reserve Schedules"
+    release_date: "Release Date"
     id: "Id"
     fee: "Fee"
     date: "Date"
@@ -348,7 +378,39 @@ en:
     status: "Status"
     action: "Action"
     amount: "Amount"
+    overview: "Transaction Overview"
     withdraws: "Withdraws"
+    date_time: "Transaction Date / Time"
+    tran_id: "Transaction ID"
+    tran_status: "Transaction Status"
+    tran_action: "Transaction Action"
+    payment_information: "Payment Information"
+    bank_fee: "Bank Fee"
+    total_net: "Total Net"
+    card_info: "Card Information"
+    cardholder: "Cardholder Name"
+    card_brand: "Card Brand"
+    card_type: "Card Type"
+    exp_date: "Expiry Date"
+    first6: "First 6"
+    last4: "Last 4"
+    customer_info: "Customer Information"
+    customer_name: "Customer Name"
+    cust_phone: "Phone Number"
+    wallet_id: "Wallet ID"
+    refund: "Refund"
+    refund_transaction: "Refund Transaction"
+    enter_amount: "Enter Amount"
+    select_reason: "Select Reason"
+    duplicate: "Duplicate"
+    fraudlent: "Fraudlent"
+    imp_note: "Important Note"
+    imp_note_para: "Please allow 2-5 business days for the refund to reflect on
+                    your customer's card statement."
+    
+
+
+    
 
   banks:
     banks: "Banks"
@@ -366,10 +428,3 @@ en:
     payed: "Payed"
     created_at: "Created at"
     payed_at: "Payed at"
-
-
-  
-  
-
-
-    

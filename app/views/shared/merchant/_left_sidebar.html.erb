@@ -12,14 +12,14 @@
       <li class="mb-3 <%= controller.controller_name == 'dashboard' && controller.action_name == 'index' ? 'active' : '' %>">
         <a href="<%= merchant_dashboard_index_path %>">
           <div class="icon"><i class="fas fa-university"></i></div>
-          <div class="title">Accounts</div>
+          <div class="title"><%= t('transactions.accounts')%></div>
         </a>
       </li>
 
       <li class="mb-3">
         <a href="">
           <div class="icon"><i class="fas fa-undo-alt"></i></div>
-          <div class="title">Chargebacks</div>
+          <div class="title"><%= t('head.chargebacks')%></div>
         </a>
       </li>
       <li class="mb-3">
@@ -27,34 +27,34 @@
       <li class="mb-3 <%= controller.controller_name == 'sale' && controller.action_name == 'index' ? 'active' : '' %>">
         <a href="<%= merchant_sale_index_path %>">
           <div class="icon"><i class="fas fa-terminal"></i></div>
-          <div class="title">Virtual Terminal</div>
+          <div class="title"><%= t('head.vt')%></div>
         </a>
       </li>
 
       <li class="mb-3 <%= controller.controller_name == 'transactions' ? 'active' : '' %>">
         <a href="<%= merchant_transactions_path %>">
           <div class="icon"><i class="fas fa-money-check"></i></div>
-          <div class="title">Transactions</div>
+          <div class="title"><%= t('transactions.transactions')%></div>
         </a>
       </li>
         <li class="mb-3 <%= controller.controller_name == 'banks' ? 'active' : '' %>">
         <a href="<%= merchant_banks_path %>">
           <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
-          <div class="title">Banks</div>
+          <div class="title"><%= t('banks.banks')%></div>
         </a>
       </li>
 
       <li class="mb-3 <%= controller.controller_name == 'reserve_schedules' && controller.action_name == 'index' ? 'active' : '' %>">
         <a href="<%= merchant_reserve_schedules_path %>">
           <div class="icon"><i class="fas fa-money-check-alt"></i></div>
-          <div class="title">Reserve Schedules</div>
+          <div class="title"><%= t('transactions.reserve_schedules')%></div>
         </a>
       </li>
 
       <li class="mb-3 <%= controller.controller_name == 'dashboard' && controller.action_name == 'fee_structure' ? 'active' : '' %>">
         <a href="<%= fee_structure_merchant_dashboard_index_path %>">
           <div class="icon"><i class="fas fa-money-bill-alt"></i></div>
-          <div class="title">Fee Structure</div>
+          <div class="title"><%= t('merchant.fee_structure')%></div>
         </a>
       </li>
 
@@ -62,21 +62,21 @@
       <li class="mb-3 <%= controller.controller_name == 'dashboard' && controller.action_name == 'api_key' ? 'active' : '' %>">
         <a href="<%= api_key_merchant_dashboard_index_path %>">
           <div class="icon"><i class="fas fa-key"></i></div>
-          <div class="title">Api Keys</div>
+          <div class="title"><%= t('merchant.api_key')%></div>
         </a>
       </li>
 
       <li class="mb-3 <%= controller.controller_name == 'withdraws' && controller.action_name == 'index' ? 'active' : '' %>">
         <a href="<%= merchant_withdraws_path %>">
           <div class="icon"><i class="fas fa-money-check"></i></div>
-          <div class="title">Withdraws</div>
+          <div class="title"><%= t('transactions.withdraws')%></div>
         </a>
       </li>
 
       <li class="mb-3 <%= controller.controller_name == 'rewards' && controller.action_name == 'index' ? 'active' : '' %>">
         <a href="<%= merchant_rewards_path %>">
           <div class="icon"><i class="fas fa-gift"></i></div>
-          <div class="title">Rewards</div>
+          <div class="title"><%= t('merchant.rewards')%></div>
         </a>
       </li>
     </ul>

@@ -21,8 +21,8 @@
         <div class="container">
           <div class="row">
             <div class="d-flex align-items-center mx-auto">
-              <p>Hi <%= current_user.first_name %>, we need some details to verify your identity</p>
-              <%= link_to "Verify Your Profile", merchant_verification_index_path %>
+              <p>Hi <%= current_user.first_name %>, <%= t('merchant.verify_notice')%></p>
+              <%= link_to t('merchant.verify_profile'), merchant_verification_index_path %>
             </div>
           </div>
         </div>

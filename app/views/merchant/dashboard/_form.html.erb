@@ -3,43 +3,43 @@
 <%= form_with(model: @merchant, url: merchant_dashboard_path, local: true, class: "pl-3 pr-3 pt-3 pb-2") do |form|  %>
     <div class="card-body">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
+        <label for="exampleInputEmail1"><%= t('merchant.email')%></label>
         <%= form.email_field :email, class: "form-control", placeholder: "Enter Email", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="first_name">First Name</label>
+        <label for="first_name"><%= t('merchant.first_name')%></label>
         <%= form.text_field :first_name, class: "form-control", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="last_name">Last Name</label>
+        <label for="last_name"><%= t('merchant.last_name')%></label>
         <%= form.text_field :last_name, class: "form-control", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="phone_number">Phone Number</label>
+        <label for="phone_number"><%= t('merchant.phone_number')%></label>
         <%= form.text_field :phone_number, class: "form-control", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="company">Company</label>
+        <label for="company"><%= t('merchant.company')%></label>
         <%= form.text_field :company, class: "form-control", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="country">Country</label>
+        <label for="country"><%= t('merchant.country')%></label>
         <%= form.text_field :country, class: "form-control", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="city">City</label>
+        <label for="city"><%= t('merchant.city')%></label>
         <%= form.text_field :city, class: "form-control", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="state">State</label>
+        <label for="state"><%= t('merchant.state')%></label>
         <%= form.text_field :state, class: "form-control", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="street_address">Street Address</label>
+        <label for="street_address"><%= t('merchant.street_address')%></label>
         <%= form.text_field :street_address, class: "form-control", required: "true" %>
       </div>
       <div class="form-group">
-        <label for="zip_code">Zip Code</label>
+        <label for="zip_code"> <%= t('merchant.zip_code')%></label>
         <%= form.text_field :zip_code, class: "form-control", required: "true" %>
       </div>
     <div class="form-group">
