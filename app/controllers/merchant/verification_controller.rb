@@ -97,7 +97,12 @@ class Merchant::VerificationController < MerchantBaseController
     respond_to do |format|
       if @bank.id.present?
         if @bank.update(bank_details_params)
-          format.html { redirect_to verification_status_merchant_verification_index_path }
+          if IBANTools::IBAN.valid?(params[:bank][:iban])
+            format.html { redirect_to verification_status_merchant_verification_index_path }
+          else
+            @bank.update(iban: nil)
+            format.html { redirect_to bank_details_merchant_verification_index_path, notice: "IBAN not correct" }
+          end
         else
           format.html { redirect_to bank_details_merchant_verification_index_path }
         end
@@ -105,7 +110,12 @@ class Merchant::VerificationController < MerchantBaseController
         @bank.user_id = current_user.id
         @bank.status = :active
         if @bank.save
-          format.html { redirect_to verification_status_merchant_verification_index_path}
+          if IBANTools::IBAN.valid?(params[:bank][:iban])
+            format.html { redirect_to verification_status_merchant_verification_index_path }
+          else
+            @bank.update(iban: nil)
+            format.html { redirect_to bank_details_merchant_verification_index_path, notice: "IBAN not correct" }
+          end
         else
           format.html { redirect_to bank_details_merchant_verification_index_path }
         end

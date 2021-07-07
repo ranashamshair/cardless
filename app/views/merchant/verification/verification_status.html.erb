@@ -5,7 +5,7 @@
                             <%= form_for @company, url: complete_verification_merchant_verification_index_path, method: :post do |form| %>
                               <div class="verification">
                                 <div class="box">
-                                    <div class="">Company Logo</div>
+                                    <div class="">Company Logo (Optional)</div>
                                     <p>Please upload your company logo</p>
                                     <div class="#">
 
@@ -13,7 +13,7 @@
 
                                             <div class="custom-file mt-4 mb-3">
                                                 <!-- <input type="file" class="custom-file-input" id="customFile"> -->
-                                                <%= form.file_field :logo, required: true, accept:'.png, .jpeg, .jpg', class: "custom-file-input", id: "customFile" %>
+                                                <%= form.file_field :logo, accept:'.png, .jpeg, .jpg', class: "custom-file-input", id: "customFile" %>
 
                                                 <label class="custom-file-label" for="customFile">Choose file</label>
                                             </div>
