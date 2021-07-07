@@ -17,4 +17,15 @@ module ApplicationHelper
         "Available Funds"
       end
     end
+
+    def verify_phone_number(phone)
+      url = 'https://neutrinoapi.net/phone-validate'
+      parameters = {
+        'user-id' => ENV['CARD_BIN_USER'],
+        'api-key' => ENV['CARD_BIN_LIST_KEY'],
+        'number' => phone
+      }
+      response = RestClient.post(url, parameters, { content_type: :json, accept: :json })
+      response = JSON.parse(response)
+    end
 end

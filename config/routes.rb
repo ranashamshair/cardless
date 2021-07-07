@@ -53,6 +53,7 @@ Rails.application.routes.draw do
       get :bank_details, on: :collection
       get :verification_status, on: :collection
       get :thankyou, on: :collection
+      get :verify_phone, on: :collection
       post :save_company_detail, on: :collection
       post :save_bank_details, on: :collection
       post :complete_verification, on: :collection

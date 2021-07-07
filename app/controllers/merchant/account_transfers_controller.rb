@@ -1,5 +1,6 @@
 class Merchant::AccountTransfersController < MerchantBaseController
   def index
+    @pagy,@account_transfers = pagy(AccountTransfer.where('sender_id = ? OR receiver_id = ?', current_user.id, current_user.id).order(created_at: :desc))
   end
 
   def new
@@ -54,7 +55,8 @@ class Merchant::AccountTransfersController < MerchantBaseController
             sender_id: current_user.id,
             sender_wallet_id: sender_wallet.id,
             instruction: params[:account_transfer][:instruction],
-            reason: params[:account_transfer][:reason]
+            reason: params[:account_transfer][:reason],
+            ref_id: "AC-#{SecureRandom.hex.first(6)}"
           )
           if account_transfer.save
             transfer_tx.save

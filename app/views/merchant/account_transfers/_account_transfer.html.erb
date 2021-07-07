@@ -24,8 +24,8 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputState">Reason</label>
-                            <%= form.select :reason, [["Duplicate", "Duplicate"],["Fraudlent", "Fraudlent"], ["Other", "Other"]],{include_blank: true}, required: true, id: "inputState", class: "form-control" %>
+                            <label for="inputState">Payment Type</label>
+                            <%= form.select :reason, [["Truly Payment", "Truly Payment"],["Goods & Services Payment", "Goods & Services Payment"]],{include_blank: true}, required: true, id: "inputState", class: "form-control" %>
 
                         </div>
                     </div>
