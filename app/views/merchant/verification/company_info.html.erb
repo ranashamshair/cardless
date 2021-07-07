@@ -58,9 +58,23 @@
                     <%= form.email_field :support_email,class: "form-control", required: true, placeholder: "support email" %>
                 </div>
                 <div class="form-group">
+                  <div class="col-md-6 pl-0">
                     <label for="phoneNumber">Phone Number <span>*</span></label>
                     <br>
                     <%= form.telephone_field :phone,class: "form-control", required: true %>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <div class="row align-items-center">
+                  <div class="col-md-6 pl-0">
+                    <label for="phoneNumber">OTP (Please enter otp you received) <span>*</span></label>
+                    <br>
+                    <input type="text" name="otp" maxlength="6" class="form-control" required>
+                    </div>
+                      <!-- <div class="col-md-6 pl-0">
+                        <a href="#" class="btn btn-otp">Verify Otp</a>
+                      </div> -->
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="website">Website <span>*</span></label>
@@ -77,6 +91,13 @@
 
         </div>
     </div>
-
-
 </div>
+<script>
+  $("#company_phone").on('blur', function(){
+    var phone = $(".iti__selected-dial-code").text() + $(this).val();
+    $.ajax({
+      url: "/merchant/verification/verify_phone",
+      data: {phone: phone}
+    })
+  })
+</script>

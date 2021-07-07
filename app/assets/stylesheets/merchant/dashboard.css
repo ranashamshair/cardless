@@ -1861,7 +1861,17 @@ FLASH MESSAGE STYLES
     border-color: rgba(93, 38, 193, 0.6);
     background-color: #ffffff;
 }
-
+.iti.iti--allow-dropdown.iti--separate-dial-code{
+  width: 100%;
+}
+.btn-otp{
+  padding: 8px 15px;
+  color: #ffffff;
+  border: none;
+  margin-top: 30px;
+  border-radius: 0px;
+  background: var(--theme-primary-color);
+}
 
 
 /** Media Queries **/
