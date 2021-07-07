@@ -1,0 +1,33 @@
+<div class="card-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card-box shadow">
+                    <div class="box-img">
+                        <%= image_tag ('logo-white.png') %>
+                    </div>
+                    <form>
+                        <div class="card-inputs">
+                            <div class="card-input">
+                                <input type="text" class="form-control" placeholder="card number" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid card number.
+                                </div>
+                                <i class="far fa-credit-card"></i>
+                            </div>
+
+                            <input type="date" class="form-control" placeholder="02/05" required>
+                            <div class="card-input">
+                                <input type="text" class="form-control" placeholder="786" required>
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                        </div>
+                        <div class="btn-wrapper">
+                            <a type="submit" class="btn btn-pay">Pay Now</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

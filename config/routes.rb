@@ -95,5 +95,6 @@ Rails.application.routes.draw do
   get 'contact', to: 'visitors#contact'
   get 'docs', to: 'visitors#docs'
   get 'spinner', to: 'visitors#spinner'
+  get 'cardpage', to: 'visitors#cardpage'
 
 end
