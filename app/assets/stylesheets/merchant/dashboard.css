@@ -69,6 +69,8 @@ a {
     border: none;
 }
 
+
+
 body {
     font-size: 1rem;
     font-weight: 400;
@@ -97,6 +99,7 @@ button.btn-close {
 /* Dashboard Header */
 #dash_header {
     width: 100%;
+    margin-bottom: 20px;
     padding: 16px 32px;
 }
 
@@ -120,9 +123,8 @@ button.btn-close {
     color: var(--theme-third-color);
 }
 
-.dash_header_right{
+.dash_header_right {
     width: 145px;
-    margin-top: -50px;
 }
 
 .dash_header_right ul li {
@@ -135,7 +137,8 @@ button.btn-close {
 }
 
 .notify_icon,
-.user_icon {
+.user_icon,
+.bars-mobile {
     width: 50px;
     height: 50px;
     display: block;
@@ -147,8 +150,14 @@ button.btn-close {
 }
 
 
+.bars-mobile {
+    display: none;
+    margin-left: 50px;
+}
+
 .notify_icon .fa-bell,
-.user_icon .fa-user-circle {
+.user_icon .fa-user-circle,
+.bars-mobile .fa-bars {
     font-size: 28px;
     display: flex;
     cursor: pointer;
@@ -197,7 +206,7 @@ button.btn-close {
     position: fixed;
     top: 0;
     left: 0;
-    width: 75px;
+    width: 235px;
     min-height: 100vh;
     overflow: hidden;
     background: var(--theme-primary-color);
@@ -206,21 +215,9 @@ button.btn-close {
     z-index: 1;
 }
 
-.epend {
+.dash_body {
     padding-left: 150px;
 }
-
-.siderbar-open {
-    width: 235px;
-}
-
-.openclose {
-    margin-left: 150px;
-}
-
-/*.sidebar_left:hover {
-    width: 235px;
-}*/
 
 .sidebar_left ul {
     margin-top: 80px;
@@ -543,10 +540,9 @@ Chargeback Page Styles
 
 .dashboard_main_box {
     border-radius: 10px;
-    margin: 100px 0;
+    margin: 100px auto;
     padding: 20px 15px;
     background: var(--theme-white-color);
-    box-shadow: var(--box-shadow) !important;
 }
 
 .dashboard_main_box .title {
@@ -554,6 +550,7 @@ Chargeback Page Styles
     font-weight: 700;
     border-radius: 50px;
     padding: 6px 0;
+    margin-bottom: 10px;
     text-align: center;
     color: var(--theme-third-color);
 }
@@ -565,7 +562,7 @@ Chargeback Page Styles
 }
 
 .dashboard_main_box .balance_one {
-    margin: 8px 0;
+    margin: 26px 0;
 }
 
 .dashboard_main_box .balance {
@@ -577,7 +574,7 @@ Chargeback Page Styles
 button.dash_view_more {
     border: none;
     padding: 2px 8px;
-    margin: 20px 0;
+    margin-top: 30px;
     border-radius: 4px;
     background: var(--theme-primary-color);
 }
@@ -587,6 +584,11 @@ button.dash_view_more {
 }
 
 /* Transcation History Table */
+.transaction_history_table {
+    overflow-x: scroll;
+    margin-top: 30px;
+}
+
 .transaction_history_table .table {
     font-size: 16px;
     padding: 20px 10px;
@@ -599,7 +601,7 @@ button.dash_view_more {
 
 .table th,
 .table td {
-
+    white-space: nowrap;
     border-top: none;
 }
 
@@ -898,9 +900,17 @@ Transaction Details Page Styles
 Account Details Page Styles
 ==========================*/
 .main_account_box {
+    max-width: 100%;
+    min-height: 300px;
     padding: 20px;
     border-radius: 10px;
     border-bottom: 2px solid var(--theme-primary-color);
+}
+
+.custom-select-one select {
+    padding: 8px 8px;
+    outline: none;
+    border: none;
 }
 
 .main_account_box .main_account_heading {
@@ -916,12 +926,17 @@ Account Details Page Styles
 }
 
 .main_account_box .main_account_list {
-    padding: 2px;
+    padding: 10px 0;
     margin: 20px 0;
     border-radius: 5px;
     color: var(--theme-white-color);
     background: var(--theme-primary-color);
     border-bottom: 2px solid var(--theme-second-color);
+}
+
+.main_account_box .main_account_list .fund_head {
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .main_account_box .child {
@@ -951,15 +966,17 @@ Account Details Page Styles
 .main_account_box .btn-withdraw_fund,
 .main_account_box .btn-account_transfer {
     font-size: 14px;
+    font-weight: 500;
+    padding: 12px 18px;
     border-radius: 6px;
     color: var(--theme-white-color);
     background: var(--theme-primary-color);
+    transition: 0.3s ease-in-out;
 }
 
 .main_account_box .btn-withdraw_fund:hover,
 .main_account_box .btn-account_transfer:hover,
 .acc_trans_dialog .btn_actrans_sub:hover {
-    transition: .2s ease-in-out;
     background: var(--theme-second-color);
 }
 
@@ -987,6 +1004,7 @@ Account Details Page Styles
 
 .acc_trans_dialog .text-area:hover,
 .acc_trans_dialog .balance:hover {
+    background: #fff;
     transition: 0.4s ease-in-out;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important
 }
@@ -1040,6 +1058,7 @@ Api Key Page Styles
 
 .api_key_section {
     padding: auto;
+    margin-left: -75px;
 }
 
 .api_key_section .api_key_tab {
@@ -1666,25 +1685,41 @@ section.content {
     margin-left: 4rem !important;
 }
 
+.profile-edit-heading {
+    text-align: center;
+}
+
+.user_account_data {
+    max-width: 800px;
+    padding-left: 40px;
+}
+
 .user_account_data .card {
+    border: none;
     padding: 24px 15px;
 }
 
 .user_account_data .label {
+    color: #6c757d;
     margin: 5px 0;
 }
 
 .user_account_data .data {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    margin-left: 10px;
 }
 
-.user_account_data .bg-custom {
-    background: var(--theme-forms-color);
+.user_account_data .profile-data {
+    display: flex;
+    align-items: center;
+    margin-bottom: 36px;
+    border-bottom: 1px solid #6c757d;
+    justify-content: space-between;
 }
 
 .user_account_data .btn-profile-edit,
 .btn-submit-profile {
-    padding: 10px 18px;
+    padding: 10px 34px;
     margin-top: 15px;
     border-radius: 5px;
     color: var(--theme-white-color);
@@ -1710,7 +1745,7 @@ LANGUAGE POPUP STYLES
     right: 4%;
     border-radius: 10px;
     background: var(--theme-primary-color);
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3) !important;
 }
 
 .merchant-langs .fa-language {
@@ -1800,6 +1835,7 @@ LANGUAGE POPUP STYLES
         opacity: 1;
     }
 }
+
 /*
 =======================
 THANKS PAGE STYLES
@@ -1862,6 +1898,66 @@ FLASH MESSAGE STYLES
     background-color: #ffffff;
 }
 
+.fa-info-circle {
+    font-size: 16px;
+}
+
+.pop-message {
+    position: relative;
+}
+
+.modal-content {
+    border: none;
+}
+
+.popUp-content {
+    display: none;
+    position: absolute;
+    top: 8%;
+    right: 17%;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18) !important;
+}
+
+.popUp-content::after {
+    content: '';
+    position: absolute;
+    top: 18%;
+    left: -8%;
+    border-width: 10px;
+    border-style: solid;
+    transform: rotate(90deg);
+    border-color: #fff transparent transparent transparent;
+}
+
+.show-hide {
+    display: block;
+    animation: fadeIn 1s;
+}
+
+.popUp-content p {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: justify;
+    margin-bottom: 0px;
+}
+
+.withdraw-btn {
+    float: right;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 18px;
+    border-radius: 14px;
+    margin-top: -53px;
+    background: var(--theme-primary-color);
+}
+
+.withdraw-btn:hover {
+    color: #ffffff;
+}
 
 
 /** Media Queries **/
@@ -1892,23 +1988,41 @@ FLASH MESSAGE STYLES
     #profile-notice p {
         font-size: 12px;
     }
-    .dash_header_right{
+
+    .dash_header_right {
         position: absolute;
         top: 59px;
         right: 10px;
         margin-top: 0;
     }
-    .welcom_heading{
+
+    .welcom_heading {
         font-size: 24px;
         margin-top: 60px;
     }
-    .dashboard_main_box{
+
+    .dashboard_main_box {
         margin: 50px 0;
+    }
+
+    .user_account_data {
+        padding-left: 0px;
     }
 
 }
 
 @media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .siderbar-open {
+        width: 235px !important;
+        transition: 0.3s ease-in-out;
+    }
+
     .cahrgeback_main_tab .charge_box {
         width: 129px;
     }
@@ -1922,65 +2036,112 @@ FLASH MESSAGE STYLES
         margin-left: 50px;
         padding: 10px 0px;
     }
+
+    .bars-mobile {
+        position: relative;
+        display: block;
+        z-index: 9999;
+        transition: 0.3s ease-in-out;
+    }
+
+    .icon-mobile-sidebar {
+        margin-left: 195px !important;
+    }
+
+    .sidebar_left {
+        width: 0px;
+    }
+
+    .dash_body {
+        padding-left: 0px;
+    }
+
+    .dashboard_main_page {
+        margin-left: 0px;
+    }
+
+    .bars-mobile {
+        margin-left: 0px;
+    }
+
+    .main_account_box {
+        margin-bottom: 30px;
+    }
+
+
+    section.content {
+        margin-left: 1rem !important;
+    }
 }
+
 /*=======================
 SPINNER PAGE STYLES
 =======================
 */
-section.spinner{
-  position: relative;
-  padding: 80px 0 80px 0;
-  /* background: #000; */
+section.spinner {
+    position: relative;
+    padding: 80px 0 80px 0;
+    /* background: #000; */
 }
-section.spinner .box{
-  max-width: 800px;
-  margin: 0 auto;
-  padding-top: 35px;
-  border-radius: 20px;
-  /* background-color: #040304; */
+
+section.spinner .box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 35px;
+    border-radius: 20px;
+    /* background-color: #040304; */
 }
-section.spinner #chart{
-  position: relative;
-  width: 550px;
-  height: 550px;
-  top: 0;
-  left: 53%;
-  padding-left: 39px;
-  padding-top: 12px;
-  border: 5px solid #5D26C1;
-  border-radius: 100%;
-  transform: translate(-50%, 0);
-  background-color: #001219;
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+
+section.spinner #chart {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    top: 0;
+    left: 53%;
+    padding-left: 39px;
+    padding-top: 12px;
+    border: 5px solid #5D26C1;
+    border-radius: 100%;
+    transform: translate(-50%, 0);
+    background-color: #001219;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
 }
-section.spinner #question{
-  text-align: center;
-  margin-bottom: 50px;
+
+section.spinner #question {
+    text-align: center;
+    margin-bottom: 50px;
 }
-section.spinner #question h1{
-  font-size: 22px;
-  margin-top: 50px;
-  color: #000;
-  margin-bottom: 40px !important;
+
+section.spinner #question h1 {
+    font-size: 22px;
+    margin-top: 50px;
+    color: #000;
+    margin-bottom: 40px !important;
 }
-section.spinner .slice{
-  border: 2px solid #ffffff;
+
+section.spinner .slice {
+    border: 2px solid #ffffff;
 }
-section.spinner .slicetxt{
-  font-size: 18px;
-  fill: #ffffff;
+
+section.spinner .slicetxt {
+    font-size: 18px;
+    fill: #ffffff;
 }
-.circle-border{
-  border: 2px solid #ffffff;
+
+.circle-border {
+    border: 2px solid #ffffff;
 }
-section.spinner #question a{
-  text-decoration: none;
-  margin-bottom: 50px;
+
+section.spinner #question a {
+    text-decoration: none;
+    margin-bottom: 50px;
 }
-section.spinner #question .btn-getreward{
-  color: #FFF;
-  border: none;
-  padding: 18px 16px;
-  border-radius: 50px;
-  background: linear-gradient(150deg, #A17FE0, #5D26C1);;
+
+section.spinner #question .btn-getreward {
+    color: #FFF;
+    border: none;
+    padding: 18px 16px;
+    border-radius: 50px;
+    background: linear-gradient(150deg, #A17FE0, #5D26C1);
+    ;
 }

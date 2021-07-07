@@ -1,29 +1,17 @@
 <div id="dash_header">
   <div class="container-fluid">
     <div class="row align-items-center">
-      <div class="dash_header_left ml-5">
-        <div class="toggle-btn">
+      <div class="dash_header_left">
+        <div class="bars-mobile">
           <i class="fas fa-bars"></i>
         </div>
-        <% user= current_user %>
-        <div class="welcom_heading">
-          Welcome, <%= user.first_name + " " + user.last_name %> </div>
-        <div class="small_head pl-1">Your Accounts Dashboard</div>
-        <% flash.try(:each) do |name, msg| %>
-          <div class="alert-message">
-            <div class="alert alert-warning alert-dismissible fade shadow show" role="alert">
-              <%= msg %>
-              <a type="button" class="btn-close-alert" data-bs-dismiss="alert" aria-label="Close">&times</a>
-            </div>
-          </div>
-        <% end %>
       </div>
       <div class="dash_header_right ml-auto">
         <div class="toggle"></div>
+
         <ul>
           <li>
             <div class="notify_icon shadow-sm"><i class="fas fa-bell"></i></div>
-
           </li>
           <li>
             <div class="user_icon shadow-sm"><i class="far fa-user-circle"></i></div>

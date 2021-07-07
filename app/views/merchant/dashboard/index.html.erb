@@ -1,36 +1,42 @@
-<!-- dashboard header Start -->
-<!-- <div class="dash_body"> -->
-
-    <!-- dashboard header End -->
 <!-- Dashboard Main Start -->
 <div class="dashboard_main_page">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="container-fluid">
+    <div class="row text-center">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <% user= current_user %>
+        <div class="welcom_heading">
+          Welcome, <%= user.first_name + " " + user.last_name %> </div>
+        <div class="small_head pl-1">Your Accounts Dashboard</div>
+        <% flash.try(:each) do |name, msg| %>
+        <div class="alert-message">
+          <div class="alert alert-warning alert-dismissible fade shadow show" role="alert">
+            <%= msg %>
+            <a type="button" class="btn-close-alert" data-bs-dismiss="alert" aria-label="Close">&times</a>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <% current_user.wallets.each do |wallet|%>
+      <div class="col-md-3 col-sm-12 col-xs-12">
+        <div class="dashboard_main_box shadow text-center">
+          <div class="title">
+            <%=  wallet.wallet_type %>
+          </div>
+          <div class="line"></div>
+          <div class="balance_one">
+            <div class="balance">
+              <%= number_with_precision(number_to_currency(wallet.balance), precision: 2, delimiter: ',') %></div>
+          </div>
 
+          <div class="line"></div>
+          <button class="dash_view_more"><a href="<%= merchant_account_path(wallet) %>">View More</a></button>
         </div>
       </div>
-
-      <div class="row">
-          <% current_user.wallets.each do |wallet|%>
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <div class="dashboard_main_box shadow text-center">
-                    <div class="title"><%=  wallet.wallet_type %></div>
-                    <div class="line"></div>
-                    <div class="balance_one">
-                    <div class="bal_title">Total Balance</div>
-                    <div class="balance"><%= number_with_precision(number_to_currency(wallet.balance), precision: 2, delimiter: ',') %></div>
-                    </div>
-
-                    <div class="line"></div>
-                    <button class="dash_view_more"><a href="<%= merchant_account_path(wallet) %>">View More</a></button>
-                </div>
-            </div>
-          <% end %>
-      </div>
-
-
-
+      <% end %>
     </div>
+
   </div>
-  <!-- Dashboard Main Start -->
+</div>
+<!-- Dashboard Main Start -->

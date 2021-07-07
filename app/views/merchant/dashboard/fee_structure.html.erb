@@ -1,115 +1,131 @@
-<!-- dashboard header Start -->
+<div class="dash_body">
+    <div class="fee_structure_section">
+
+        <div class="container">
+            <nav aria-label="breadcrumb bg-info">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Fee Structure</li>
+                </ol>
+            </nav>
 
 
-      <!-- dashboard header End -->
-<div class="fee_structure_section">
-            <div class="container">
-                <nav aria-label="breadcrumb bg-info">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Accounts</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Fee Structure</li>
-                    </ol>
-                </nav>
+            <!-- Table Start -->
+            <div class="fee_structure_box">
+                <div class="heading mb-4">Fee Structure</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box_main shadow">
 
 
-                <!-- Table Start -->
-                <div class="fee_structure_box">
-                    <div class="heading mb-4">Fee Structure</div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="box_main shadow">
-
-
-                                <div class="box-data">
-                                    <div class="row text-center">
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">Credit Card</div>
+                            <div class="box-data">
+                                <div class="row text-center">
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">Credit Card</div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">
+                                            <%= number_to_currency(number_with_precision(@fee.sale_credit_merchant + @fee.sale_credit_bank, precision: 2, delimiter: ',')) %>
                                         </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data"><%= number_to_currency(number_with_precision(@fee.sale_credit_merchant + @fee.sale_credit_bank, precision: 2, delimiter: ',')) %></div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data"><%= number_with_precision(@fee.sale_credit_merchant_percent + @fee.sale_credit_bank_percent, precision: 2, delimiter: ',') %>%</div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">
+                                            <%= number_with_precision(@fee.sale_credit_merchant_percent + @fee.sale_credit_bank_percent, precision: 2, delimiter: ',') %>%
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="box-data child mt-3 mb-3">
-                                    <div class="row text-center">
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">Debit Card</div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data"><%= number_to_currency(number_with_precision(@fee.sale_debit_merchant + @fee.sale_debit_bank, precision: 2, delimiter: ',')) %></div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data"><%= number_with_precision(@fee.sale_debit_merchant_percent + @fee.sale_debit_bank_percent, precision: 2, delimiter: ',') %>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="box-data mt-3 mb-3">
-                                    <div class="row text-center">
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">Withdraw Fee</div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data"><%= number_to_currency(number_with_precision(@fee.withdraw, precision: 2, delimiter: ',')) %></div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">0.00%</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="box-data child mt-3 mb-3">
-                                    <div class="row text-center">
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">Reserve Fee</div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">$0.00</div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data"><%= number_with_precision(@fee.reserve, precision: 2, delimiter: ',') %>%</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="box-data  mt-3 mb-3">
-                                    <div class="row text-center">
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">Refund Fee</div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">$<%= number_with_precision(@fee.refund, precision: 2, delimiter: ',') %></div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">0.00%</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="box-data child mt-3 mb-3">
-                                    <div class="row text-center">
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">Account Transfer Fee</div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">$<%= number_with_precision(@fee.account_transfer, precision: 2, delimiter: ',') %></div>
-                                        </div>
-                                        <div class="col-lg-4 pt-2 pb-2">
-                                            <div class="trans_type_data">0.00%</div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
+
+                            <div class="box-data child mt-3 mb-3">
+                                <div class="row text-center">
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">Debit Card</div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">
+                                            <%= number_to_currency(number_with_precision(@fee.sale_debit_merchant + @fee.sale_debit_bank, precision: 2, delimiter: ',')) %>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">
+                                            <%= number_with_precision(@fee.sale_debit_merchant_percent + @fee.sale_debit_bank_percent, precision: 2, delimiter: ',') %>%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="box-data mt-3 mb-3">
+                                <div class="row text-center">
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">Withdraw Fee</div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">
+                                            <%= number_to_currency(number_with_precision(@fee.withdraw, precision: 2, delimiter: ',')) %>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">0.00%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="box-data child mt-3 mb-3">
+                                <div class="row text-center">
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">Reserve Fee</div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">$0.00</div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">
+                                            <%= number_with_precision(@fee.reserve, precision: 2, delimiter: ',') %>%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="box-data  mt-3 mb-3">
+                                <div class="row text-center">
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">Refund Fee</div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">
+                                            $<%= number_with_precision(@fee.refund, precision: 2, delimiter: ',') %>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">0.00%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="box-data child mt-3 mb-3">
+                                <div class="row text-center">
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">Account Transfer Fee</div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">
+                                            $<%= number_with_precision(@fee.account_transfer, precision: 2, delimiter: ',') %>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 pt-2 pb-2">
+                                        <div class="trans_type_data">0.00%</div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- Table End -->
-
             </div>
+            <!-- Table End -->
+
         </div>
+    </div>
+</div>
+</div>

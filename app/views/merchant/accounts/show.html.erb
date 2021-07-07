@@ -1,92 +1,101 @@
-
-      <!-- dashboard header End -->
+<!-- dashboard header End -->
 <div class="dashboard_main_page">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <nav aria-label="breadcrumb bg-info">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Accounts</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Accounts Details</li>
-                            </ol>
-                        </nav>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <nav aria-label="breadcrumb bg-info">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Accounts Details</li>
+                    </ol>
+                </nav>
+            </div>
 
-                    <div class="col-md-6">
+            <div class="col-md-6">
+
+            </div>
+        </div>
+
+        <!-- Transaction Details Start -->
+        <section class="accounts_details">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="main_account_box shadow">
+                        <div class="main_account_heading">Main Account <span>ID: <%= @wallet.id %></span></div>
+                        <div class="main_account_list shadow-sm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="fund_head">Total Funds In Account</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="fund_amount float-right">
+                                        <%= number_to_currency(number_with_precision(@wallet.balance.to_f, precision: 2, delimiter: ',')) %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="main_account_list child">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="fund_head"><a
+                                            href="<%= account_transactions_merchant_account_path(@wallet) %>">View
+                                            Transactions</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="d-flex justify-content-center">
+                            <!-- Withdrawl Funds Modal -->
+                            <%= link_to 'Withdraw Funds', new_merchant_withdraw_path, class: "btn btn-withdraw_fund mr-2",remote: true %>
+                            <!-- <a href="#" class="btn btn-withdraw_fund mr-2" data-toggle="modal"
+                                        data-target="#exampleModalCenter">Withdraw Fund</a> -->
+                            <!-- Account Transfer Modal -->
+                            <%= link_to 'Account Transfer', new_merchant_account_transfer_path, class: "btn btn-account_transfer mr-2",remote: true %>
+                            <!-- <a href="#" class="btn btn-account_transfer ml-2" data-toggle="modal"
+                                        data-target="#exampleModal">Account Transfer</a> -->
+                        </div>
 
                     </div>
                 </div>
-
-                <!-- Transaction Details Start -->
-                <section class="accounts_details">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="main_account_box shadow">
-                                <div class="main_account_heading">Main Account <span>ID: <%= @wallet.id %></span></div>
-                                <div class="main_account_list shadow-sm">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="fund_head">Total Funds In Account</div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="fund_amount float-right"><%= number_to_currency(number_with_precision(@wallet.balance.to_f, precision: 2, delimiter: ',')) %></div>
-                                        </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="main_account_box shadow">
+                        <div class="main_account_heading">Reserve <span>ID: <%= @reserve_wallet.id %></span>    <a type="button" id="popUp"><i class="fas fa-info-circle"></i></a></div>
+                        <div class="popUp-content">
+                            <p>Various versions have evolved <br> over the years, sometimes by accident</p>
+                        </div>
+                        <div class="main_account_list shadow-sm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="fund_head">Total In Reserve</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="fund_amount float-right">
+                                        <%= number_to_currency(number_with_precision(@reserve_wallet.balance.to_f, precision: 2, delimiter: ',')) %>
                                     </div>
                                 </div>
-
-
-
-
-                                <div class="main_account_list child">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="fund_head"><a href="<%= account_transactions_merchant_account_path(@wallet) %>">View Transactions</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="d-flex justify-content-center">
-                                    <!-- Withdrawl Funds Modal -->
-                                    <%= link_to 'Withdraw Funds', new_merchant_withdraw_path, class: "btn btn-withdraw_fund mr-2",remote: true %>
-                                    <!-- <a href="#" class="btn btn-withdraw_fund mr-2" data-toggle="modal"
-                                        data-target="#exampleModalCenter">Withdraw Fund</a> -->
-                                    <!-- Account Transfer Modal -->
-                                    <%= link_to 'Account Transfer', new_merchant_account_transfer_path, class: "btn btn-account_transfer mr-2",remote: true %>
-                                    <!-- <a href="#" class="btn btn-account_transfer ml-2" data-toggle="modal"
-                                        data-target="#exampleModal">Account Transfer</a> -->
-                                </div>
-
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="main_account_box shadow">
-                                <div class="main_account_heading">Reserve <span>ID: <%= @reserve_wallet.id %></span></div>
-                                <div class="main_account_list shadow-sm">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="fund_head">Total In Reserve</div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="fund_amount float-right"><%= number_to_currency(number_with_precision(@reserve_wallet.balance.to_f, precision: 2, delimiter: ',')) %></div>
-                                        </div>
+
+                           <div class="main_account_list child">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="fund_head"><a
+                                            href="<%= account_transactions_merchant_account_path(@reserve_wallet) %>">View
+                                            Transactions</a>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="main_account_list child">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="fund_head">Todays Funds Release</div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="fund_amount float-right"><%= number_to_currency(number_with_precision(@reserve_release_amount.to_f, precision: 2, delimiter: ',')) %></div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!-- <div class="main_account_list shadow-sm">
+                        <!-- <div class="main_account_list shadow-sm">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="fund_head">Next Release</div>
@@ -96,23 +105,35 @@
                                         </div>
                                     </div>
                                 </div> -->
-
-
-
-                                <div class="main_account_list child">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="fund_head"><a href="<%= account_transactions_merchant_account_path(@reserve_wallet) %>">View Transactions</a>
-                                            </div>
-                                        </div>
+                           <div class="main_account_list child">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="fund_head">Todays Funds Release</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="fund_amount float-right">
+                                        <%= number_to_currency(number_with_precision(@reserve_release_amount.to_f, precision: 2, delimiter: ',')) %>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+                     
                     </div>
+                </div>
             </div>
-            </section>
-            <!-- Transaction Details End -->
-        </div>
+    </div>
+    </section>
+    <!-- Transaction Details End -->
+</div>
 <section id=withdraw-modal></section>
 <section id="account-transfers"></section>
+
+<script>
+  $(document).ready(function () {
+    $('#popUp').click(function () {
+      $('.popUp-content').toggleClass("show-hide");
+    });
+  });
+</script>

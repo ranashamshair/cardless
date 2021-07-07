@@ -5,33 +5,33 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Withdraw Fund</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
         </button>
       </div>
       <% if @banks.present?  %>
-        <%= form_for [:merchant,@withdraw], method: :post do |form|  %>
-          <div class="modal-body ">
-            <div class="form-group col-md-12">
-              <div class="custom-select-one">
-               <label for="amount">Bank </label>
-                <%= form.select :bank_id, @banks.map{|e| [ e.bank_name, e.id]}, class:"form-select p-2 " %>
-              </div>
-            </div>
-            <div class="form-group col-md-12">
-              <label for="amount">Amount</label>
-              <%= form.number_field :amount, class: "form-control", id: "inputEmail4", step: :any, required: true %>
-            </div>
+      <%= form_for [:merchant,@withdraw], method: :post do |form|  %>
+      <div class="modal-body ">
+        <div class="form-group col-md-12">
+          <div class="custom-select-one">
+            <label for="amount">Bank </label>
+            <%= form.select :bank_id, @banks.map{|e| [ e.bank_name, e.id]}, class:"form-select p-2 " %>
           </div>
-          <div class="modal-footer justify-content-center">
-            <%= form.submit 'Submit', class: "btn btn-withdraw_submit" %>
-          </div>
-        <% end %>
-      <% else  %>
-        <div class="alert alert-danger m-3" role="alert">
-          Sorry! You haven't added any bnak. Pleas add one first
         </div>
-        <%= link_to 'Add Bank', new_merchant_bank_path, class:"btn btn-outline-primary m-5" %>
+        <div class="form-group col-md-12">
+          <label for="amount">Amount</label>
+          <%= form.number_field :amount, class: "form-control", id: "inputEmail4", step: :any, required: true %>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <%= form.submit 'Submit', class: "btn btn-withdraw_submit" %>
+      </div>
+      <% end %>
+      <% else  %>
+      <div class="alert alert-danger m-3" role="alert">
+        Sorry! You haven't added any bnak. Pleas add one first
+      </div>
+      <%= link_to 'Add Bank', new_merchant_bank_path, class:"btn btn-outline-primary m-5" %>
       <% end %>
     </div>
   </div>
