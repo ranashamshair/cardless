@@ -21,57 +21,16 @@ class Merchant::VerificationController < MerchantBaseController
     respond_to do |format|
       if @company.id.present?
         if @company.update(company_info_params)
-          begin
-            @client = Twilio::REST::Client.new('AC2877490025f56ffc028b9f9054be4ff0', 'e94557ebdb4d74257be5fc32f1b8bd74')
-            verification_check = @client.verify.services('VA8883c2d787b2f9375ac86302f40104c4').verification_checks.create(to: params[:company][:full_phone], code: params[:otp])
-            status = verification_status.status
-          rescue
-            status = "pending"
-          end
-          if status == "pending"
-            check = verify_phone_number(params[:company][:full_phone])
-            if check["valid"]
-              status = "approved"
-            else
-              status = "pending"
-            end
-          end
-
-          if status == "approved"
             @company.update(phone: params[:company][:full_phone])
             format.html { redirect_to bank_details_merchant_verification_index_path}
-          else
-            @company.update(phone: nil)
-            format.html { redirect_to company_info_merchant_verification_index_path, notice: "OTP is wrong!"}
-          end
         else
           format.html { redirect_to company_info_merchant_verification_index_path }
         end
       else
         @company.user_id = current_user.id
         if @company.save
-          begin
-            @client = Twilio::REST::Client.new('AC2877490025f56ffc028b9f9054be4ff0', 'e94557ebdb4d74257be5fc32f1b8bd74')
-            verification_check = @client.verify.services('VA8883c2d787b2f9375ac86302f40104c4').verification_checks.create(to: params[:company][:full_phone], code: params[:otp])
-            status = verification_status.status
-          rescue
-            status = "pending"
-          end
-          if status == "pending"
-            check = verify_phone_number(params[:company][:full_phone])
-            if check["valid"]
-              status = "approved"
-            else
-              status = "pending"
-            end
-          end
-          if verification_check.status == "approved"
             @company.update(phone: params[:company][:full_phone])
             format.html { redirect_to bank_details_merchant_verification_index_path}
-          else
-            @company.update(phone: nil)
-            format.html { redirect_to company_info_merchant_verification_index_path, notice: "OTP is wrong!"}
-          end
         else
           format.html { redirect_to company_info_merchant_verification_index_path }
         end
