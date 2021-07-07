@@ -2,11 +2,24 @@
 
 <div class="dashboard_main_page">
 <div class="container-fluid">
+  <div class="row">
+      <div class="col-md-6">
+          <nav aria-label="breadcrumb bg-info">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Withdraws</li>
+              </ol>
+          </nav>
+      </div>
 
+      <div class="col-md-6">
+
+      </div>
+  </div>
     <div class="row">
         <div class="col-md-12">
             <!-- <a href="#" class="account-btn">Account Transfer</a> -->
-            <%= link_to 'Account Transfer', new_merchant_account_transfer_path, class: "account-btn",remote: true %>
+            <%= link_to 'Account Transfer', new_merchant_account_transfer_path, class: "withdraw-btn",remote: true %>
             <div class="transaction_history_table">
                 <table class="table table-striped shadow">
                     <thead>
