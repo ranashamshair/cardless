@@ -16,9 +16,6 @@
             <div class="col-md-6 my-2">
               <div class=user-data><b>Iban: </b> <%= @bank.iban %> </div>
             </div>
-            <div class="col-md-6">
-              <div class=user-data><b>Currency: </b> <%= @bank.currency %> </div>
-            </div>
             <div class="mx-auto mt-3">
               <%= link_to 'Edit', edit_merchant_bank_path(@bank), class:"btn btn-outline-primary ml-3" %>
               <%= link_to 'Back', merchant_banks_path, class:"btn btn-outline-primary ml-3" %>
