@@ -546,7 +546,7 @@ Chargeback Page Styles
 }
 
 .dashboard_main_box .title {
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 700;
     border-radius: 50px;
     padding: 6px 0;
@@ -1910,7 +1910,8 @@ FLASH MESSAGE STYLES
     border: none;
 }
 
-.popUp-content {
+.popUp-content,
+.popUp-content-main{
     display: none;
     position: absolute;
     top: 8%;
@@ -1921,7 +1922,17 @@ FLASH MESSAGE STYLES
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.18) !important;
 }
 
-.popUp-content::after {
+.popUp-content-main{
+  top: 12%;
+  right: 1%;
+}
+.popUp-content-main::after{
+  top: 95% !important;
+    left: 59% !important;
+  transform: rotate(0deg) !important;
+}
+.popUp-content::after,
+.popUp-content-main::after{
     content: '';
     position: absolute;
     top: 18%;
@@ -1937,7 +1948,8 @@ FLASH MESSAGE STYLES
     animation: fadeIn 1s;
 }
 
-.popUp-content p {
+.popUp-content p,
+.popUp-content-main p{
     font-size: 14px;
     font-weight: 400;
     text-align: justify;

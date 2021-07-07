@@ -22,8 +22,15 @@
       <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="dashboard_main_box shadow text-center">
           <div class="title">
-            <%=  wallet.wallet_type %>
+            <%=  get_wallet_title(wallet.wallet_type) %>
+            <% if wallet.reserve? %>
+              <a type="button" id="popUp"><i class="fas fa-info-circle"></i></a>
+              <div class="popUp-content-main">
+                  <p>Various versions have evolved <br> over the years, sometimes by accident</p>
+              </div>
+            <% end %>
           </div>
+
           <div class="line"></div>
           <div class="balance_one">
             <div class="balance">
@@ -40,3 +47,10 @@
   </div>
 </div>
 <!-- Dashboard Main Start -->
+<script>
+  $(document).ready(function () {
+    $('#popUp').click(function () {
+      $('.popUp-content-main').toggleClass("show-hide");
+    });
+  });
+</script>

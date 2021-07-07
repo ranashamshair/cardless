@@ -2,7 +2,10 @@
 
 class Merchant::DashboardController < MerchantBaseController
   before_action :find_merchant, only: %i[edit update]
-  def index; end
+  def index
+    @reserve_wallet = current_user.wallets.reserve.first
+    @primary = current_user.wallets.primary.first
+  end
 
   def fee_structure
     @fee = Fee.last
