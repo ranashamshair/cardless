@@ -1,2 +1,63 @@
-<h1>AccountTransfers#index</h1>
-<p>Find me in app/views/account_transfers/index.html.erb</p>
+
+
+<div class="dashboard_main_page">
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <a href="#" class="account-btn">Account Transfer</a> -->
+            <%= link_to 'Account Transfer', new_merchant_account_transfer_path, class: "account-btn",remote: true %>
+            <div class="transaction_history_table">
+                <table class="table table-striped shadow">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Sender Name</th>
+                            <th scope="col">Receiver Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Fee</th>
+                            <th scope="col">Reason</th>
+                            <th scope="col">Instruction</th>
+                            <th scope="col">Created At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @account_transfers&.each do |account_transfer| %>
+                            <tr>
+                                <td><%= account_transfer.ref_id %></td>
+                                <td><%= account_transfer.sender.first_name %></td>
+                                <td><%= account_transfer.receiver&.first_name %></td>
+                                <td><%= number_with_precision(number_to_currency(account_transfer.amount.to_f), precision: 2, delimiter: ',') %></td>
+                                <td><%= number_with_precision(number_to_currency(account_transfer.fee.to_f), precision: 2, delimiter: ',') %></td>
+                                <td><%= account_transfer.reason %></td>
+                                <td><%= account_transfer.instruction %></td>
+                                <td><%= account_transfer.created_at.strftime("%m/%d/%Y %H:%M %p") %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Pagination Start -->
+    <%== pagy_bootstrap_nav(@pagy) %>
+    <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center p-0 mt-3 mr-3">
+          <li class="page-item shadow-sm">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">1</a></li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">2</a></li>
+          <li class="page-item shadow-sm"><a class="page-link" href="#">3</a></li>
+          <li class="page-item shadow-sm">
+            <a class="page-link shadow-sm" href="#">Next</a>
+          </li>
+        </ul>
+      </nav> -->
+         <!-- Pagination End -->
+
+</div>
+</div>
+<section id="account-transfers"></section>

@@ -79,6 +79,13 @@
           <div class="title">Rewards</div>
         </a>
       </li>
+
+      <li class="mb-3 <%= controller.controller_name == 'account_transfers' && controller.action_name == 'index' ? 'active' : '' %>">
+        <a href="<%= merchant_account_transfers_path %>">
+          <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+          <div class="title">Account Transfer</div>
+        </a>
+      </li>
     </ul>
 
     <div class="wrap d-flex justify-content-center">

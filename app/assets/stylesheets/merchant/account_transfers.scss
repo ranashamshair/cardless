@@ -4,3 +4,17 @@
 .email-error{
   color: red;
 }
+.account-btn{
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 12px 18px;
+    float: right;
+    margin-bottom: 30px;
+    background: var(--theme-primary-color);
+    border-radius: 14px;
+
+}
+.account-btn:hover{
+    color: #FFFFFF;
+}
