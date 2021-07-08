@@ -32,7 +32,11 @@ class Merchant::DashboardController < MerchantBaseController
     end
   end
 
-  def api_key; end
+  def api_key
+  end
+
+  def settings
+  end
 
   private
 

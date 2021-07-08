@@ -1,27 +1,60 @@
 <p id="notice"><%= notice %></p>
+<div class="user_account_data-bank">
+  <div class="small_head pl-2">
+    <div class="card pl-5">
+      <div class="dtborder-bank d-flex align-items-center justify-content-between mb-0">
+        <div>
+          <h5 class="ml-0"> Bank Information </h5>
+        </div>
+        <div class="mt-3 mb-3">
+          <%= link_to  edit_merchant_bank_path(@bank) do %>
+          <p class="btn btn-ibank-edit ml-3">Edit <i class="far fa-edit"></i></p>
+          <% end %>
+          <%= link_to  merchant_banks_path do %>
+          <p class="btn btn-ibank-back ml-3"><i class="fas fa-long-arrow-alt-left"></i> Back</p>
+          <% end %>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr class="solid-border">
+            <th class="label">Bank Name</th>
+            <th class="label">Bank User Name</th>
+            <th class="label">Iban</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="solid-border">
+            <td class="user-data"><%= @bank.bank_name %></td>
+            <td class="user-data"><%= @bank.user_name %></td>
+            <td class="user-data"><%= @bank.iban %></td>
+          </tr>
+        </tbody>
+      </table>
 
-<div class="user_account_data">
-  <div class="container">
-    <div class="small_head pl-2">
-      <div class="card p-3  ">
-        <div class="row">
-          <h5 class="ml-3"> Bank Information </h5>
-          <div class="row align-items-end">
-            <div class="col-md-6 my-2">
-              <div class=user-data><b>Bank Name: </b> <%= @bank.bank_name %> </div>
-            </div>
-            <div class="col-md-6">
-              <div class=user-data><b>Bank User Name: </b> <%= @bank.user_name %> </div>
-            </div>
-            <div class="col-md-6 my-2">
-              <div class=user-data><b>Iban: </b> <%= @bank.iban %> </div>
-            </div>
-            <div class="mx-auto mt-3">
-              <%= link_to 'Edit', edit_merchant_bank_path(@bank), class:"btn btn-outline-primary ml-3" %>
-              <%= link_to 'Back', merchant_banks_path, class:"btn btn-outline-primary ml-3" %>
-            </div>
+      <div class="calender-box">
+        <div class="head">
+          <h4>Calendario de transferencias</h4>
+          <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, </p>
+        </div>
+        <div class="content">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">Automatica Cada</label>
+          </div>
+           <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">Manuallyu Cada</label>
+          </div>
+        </div>
+        <div class="ft">
+          <div class="d-flex align-items-center float-right mt-3 mb-4">
+            <a href="#" class="btn btn-cal-one mr-2">Calendrea</a>
+            <a href="#" class="btn btn-cal-two mr-3">Guardar</a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
+</div>

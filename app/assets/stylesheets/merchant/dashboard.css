@@ -206,7 +206,7 @@ button.btn-close {
     position: fixed;
     top: 0;
     left: 0;
-    width: 235px;
+    width: 225px;
     min-height: 100vh;
     overflow: hidden;
     background: var(--theme-primary-color);
@@ -259,7 +259,7 @@ button.btn-close {
 }
 
 .sidebar_left ul li a .icon .fas {
-    font-size: 1.1rem;
+    font-size: 19px;
     color: var(--theme-white-color);
 }
 
@@ -268,9 +268,10 @@ button.btn-close {
     display: block;
     padding: 0 0;
     height: 40px;
-    line-height: 40px;
+    line-height: 44px;
     text-align: start;
     white-space: nowrap;
+    padding-left: -14px;
 }
 
 .sidebar_left .fa-home {
@@ -288,6 +289,52 @@ button.btn-close {
 .sidebar_left ul .fa-university {
     color: var(--theme-third-color);
 }
+.sidebar_left ul li{
+    position: relative;
+}
+.sidebar_left ul.submenu{
+   display: none;
+    position: absolute;
+    top: -34px;
+    right: 65px;
+}
+.sidebar_left ul.submenu li{
+    margin-bottom: 14px !important  ;
+}
+.submenu.active{
+    display: block;
+}
+.sidebar_left ul.submenu li a{
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: var(--theme-white-color);
+}
+li.dropdown-btn .icon,
+li.dropdown-btn .title{
+    position: relative;
+    cursor: pointer;
+    color: #fff !important;
+}
+.dropdown-container {
+    display: none;
+    position: absolute;
+    top: -74%;
+    left: -4%;
+    padding-left: 8px;  
+    transition: 0.3s ease-in-out;
+}
+
+.dropdown-container ul li{
+   background: none !important;
+}
+
+.dropdown-active{
+    display: block;
+}
+p#notice{
+    margin-left: 104px;
+}
 
 /* Right Sidebar */
 .sidebar_right {
@@ -298,6 +345,13 @@ button.btn-close {
     height: 100%;
     background: var(--theme-white-color);
     z-index: 999;
+}
+
+.sidebar_right ul{
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .sidebar_right .btn_close {
@@ -539,6 +593,8 @@ Chargeback Page Styles
 }
 
 .dashboard_main_box {
+    width: 430px;
+    min-height: 348px;
     border-radius: 10px;
     margin: 100px auto;
     padding: 20px 15px;
@@ -546,7 +602,7 @@ Chargeback Page Styles
 }
 
 .dashboard_main_box .title {
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 700;
     border-radius: 50px;
     padding: 6px 0;
@@ -713,7 +769,7 @@ Virtual Terminal Page Styles
 }
 
 .client_form form {
-    padding: 14px 34px;
+    padding: 20px 34px;
     margin-bottom: 50px;
     border-radius: 10px;
 }
@@ -747,9 +803,10 @@ Virtual Terminal Page Styles
 }
 
 .client_form .btn-primary {
+    padding: 11px 23px;
     color: var(--theme-white-color);
     border: none;
-    border-radius: 50px;
+    border-radius: 5px;
     background: var(--theme-primary-color);
 }
 
@@ -948,8 +1005,10 @@ Account Details Page Styles
 .main_account_list .fund_amount {
     font-weight: 500;
 }
-
-.main_account_box .child .fund_head a {
+.fund_head {
+    padding: 10px 0;
+}
+.fund_head a {
     color: var(--theme-second-color);
 }
 
@@ -964,7 +1023,9 @@ Account Details Page Styles
 }
 
 .main_account_box .btn-withdraw_fund,
-.main_account_box .btn-account_transfer {
+.main_account_box .btn-account_transfer,
+.btn-withdraw_fund,
+.btn-account_transfer{
     font-size: 14px;
     font-weight: 500;
     padding: 12px 18px;
@@ -1217,7 +1278,9 @@ PROFILE NOTICE BAR DESIGN
     color: #5D26C1;
     padding-left: 8px;
 }
-
+.plc{
+    padding-left: 16px !important;
+}
 /*
 ==========================
 PROFILE COMPELETION DESIGN
@@ -1686,12 +1749,18 @@ section.content {
 }
 
 .profile-edit-heading {
-    text-align: center;
+    text-align: left;
 }
 
-.user_account_data {
-    max-width: 800px;
-    padding-left: 40px;
+.aac-inf-head,
+.dtborder{
+    padding: 0 10px;
+    border-bottom: 1px solid rgba(108, 117, 125, 0.7);
+}
+
+.user_account_data{
+    max-width: 1160px;
+    padding-left: 50px;
 }
 
 .user_account_data .card {
@@ -1701,26 +1770,32 @@ section.content {
 
 .user_account_data .label {
     color: #6c757d;
-    margin: 5px 0;
+    padding: 16px;
 }
 
 .user_account_data .data {
     margin-bottom: 0px;
-    margin-left: 10px;
 }
 
-.user_account_data .profile-data {
+.user_account_data .profile-data,
+.user_account_data .user-data{
+    padding: 12px 0px;
     display: flex;
     align-items: center;
-    margin-bottom: 36px;
-    border-bottom: 1px solid #6c757d;
     justify-content: space-between;
 }
 
-.user_account_data .btn-profile-edit,
-.btn-submit-profile {
-    padding: 10px 34px;
-    margin-top: 15px;
+.two-step{
+    margin-top: 30px;
+}
+
+.btn-profile-edit,
+.btn-submit-profile,
+.btn-ibank-edit,
+.btn-ibank-back,
+.btn-banks-new,
+.btn-create-bank{
+    padding: 13px 25px;
     border-radius: 5px;
     color: var(--theme-white-color);
     background: var(--theme-primary-color);
@@ -1731,6 +1806,66 @@ section.content {
     background: var(--theme-primary-color);
 }
 
+/*
+=========================
+BANK ACCOUNT DATA STYLES
+=========================
+*/
+.user_account_data-bank{
+    max-width: 1160px;
+    padding-left: 70px;
+}
+
+.user_account_data-bank .dtborder-bank{
+    margin-bottom: 30px !important;
+    background: #f2f2f2;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(108, 117, 125, 0.2);
+}
+.user_account_data-bank .card{
+    border: none;
+}
+.user_account_data-bank table .label,
+.user_account_data-bank table .user-data{
+    padding: 16px;
+}
+.user_account_data-bank .calender-box {
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 1px solid rgba(108, 117, 125, 0.4);
+}
+.user_account_data-bank .calender-box .head{
+    padding: 26px 12px;
+}
+.user_account_data-bank .content{
+    padding: 12px 10px;
+    border-top: 1px solid rgba(108, 117, 125, 0.4);
+    border-bottom: 1px solid rgba(108, 117, 125, 0.4);
+    background: #f2f2f2;
+}
+.user_account_data-bank .form-check-label{
+    width: 600px;
+}
+.user_account_data-bank  .calender-box p{
+    margin-bottom: 0;
+    color: rgba(108, 117, 125, 0.9);
+}
+.user_account_data-bank .calender-box .ft{
+    margin: 18px 0;
+}
+.user_account_data-bank .ft .btn-cal-one,
+.user_account_data-bank .ft .btn-cal-two{
+    color: #ffffff;
+    padding: 12px 16px;
+    border: 1px solid #5D26C1;
+    background: rgba(93, 38, 193, 0.6);
+}
+.user_account_data-bank .ft .btn-cal-two{
+    color: #040304;
+    border: 1px solid #59C173;
+    background: rgba(89, 193, 115, 0.6);
+}
 /*
 =======================
 LANGUAGE POPUP STYLES
@@ -1923,8 +2058,8 @@ FLASH MESSAGE STYLES
 }
 
 .popUp-content-main{
-  top: 12%;
-  right: 1%;
+    top: 10%;
+    right: -33%;
 }
 .popUp-content-main::after{
   top: 95% !important;
@@ -1971,7 +2106,156 @@ FLASH MESSAGE STYLES
     color: #ffffff;
 }
 
+/*=======================
+SPINNER PAGE STYLES
+=======================
+*/
+section.spinner {
+    position: relative;
+    padding: 80px 0 80px 0;
+    /* background: #000; */
+}
 
+section.spinner .box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 35px;
+    border-radius: 20px;
+    /* background-color: #040304; */
+}
+
+section.spinner #chart {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    top: 0;
+    left: 53%;
+    padding-left: 39px;
+    padding-top: 12px;
+    border: 5px solid #5D26C1;
+    border-radius: 100%;
+    transform: translate(-50%, 0);
+    background-color: #001219;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+}
+
+section.spinner #question {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+section.spinner #question h1 {
+    font-size: 22px;
+    margin-top: 50px;
+    color: #000;
+    margin-bottom: 40px !important;
+}
+
+section.spinner .slice {
+    border: 2px solid #ffffff;
+}
+
+section.spinner .slicetxt {
+    font-size: 18px;
+    fill: #ffffff;
+}
+
+.circle-border {
+    border: 2px solid #ffffff;
+}
+
+section.spinner #question a {
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+section.spinner #question .btn-getreward {
+    color: #FFF;
+    border: none;
+    padding: 18px 16px;
+    border-radius: 50px;
+    background: linear-gradient(150deg, #A17FE0, #5D26C1);
+}
+/*=======================
+SEETINGS PAGE STYLES
+=======================
+*/
+.merchant-settings{
+    margin-left: 74px;
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .two-step .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(150deg, #A17FE0, #5D26C1);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .two-step .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .two-step input:checked + .slider {
+    background: #59C173;
+  }
+  
+  .two-step input:focus + .slider {
+    box-shadow: #59C173;
+  }
+  
+  .two-step input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .two-step .slider.round {
+    border-radius: 34px;
+  }
+  
+  .two-step .slider.round:before {
+    border-radius: 50%;
+  }
+  .content-twostep{
+      visibility: hidden;
+  }
+  .tsHs{
+    visibility: visible;
+  }
+  .btn-otp{
+    color: #fff;
+    padding: 10px 22px;
+    background: linear-gradient(150deg, #A17FE0, #5D26C1);
+  }
 /** Media Queries **/
 @media (max-width: 480px) {
     .cahrgeback_main_tab {
@@ -2084,76 +2368,16 @@ FLASH MESSAGE STYLES
     section.content {
         margin-left: 1rem !important;
     }
-}
 
-/*=======================
-SPINNER PAGE STYLES
-=======================
-*/
-section.spinner {
-    position: relative;
-    padding: 80px 0 80px 0;
-    /* background: #000; */
-}
+    .user_account_data{
+        padding-left: 0px;
+    }
 
-section.spinner .box {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-top: 35px;
-    border-radius: 20px;
-    /* background-color: #040304; */
-}
-
-section.spinner #chart {
-    position: relative;
-    width: 550px;
-    height: 550px;
-    top: 0;
-    left: 53%;
-    padding-left: 39px;
-    padding-top: 12px;
-    border: 5px solid #5D26C1;
-    border-radius: 100%;
-    transform: translate(-50%, 0);
-    background-color: #001219;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
-}
-
-section.spinner #question {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-section.spinner #question h1 {
-    font-size: 22px;
-    margin-top: 50px;
-    color: #000;
-    margin-bottom: 40px !important;
-}
-
-section.spinner .slice {
-    border: 2px solid #ffffff;
-}
-
-section.spinner .slicetxt {
-    font-size: 18px;
-    fill: #ffffff;
-}
-
-.circle-border {
-    border: 2px solid #ffffff;
-}
-
-section.spinner #question a {
-    text-decoration: none;
-    margin-bottom: 50px;
-}
-
-section.spinner #question .btn-getreward {
-    color: #FFF;
-    border: none;
-    padding: 18px 16px;
-    border-radius: 50px;
-    background: linear-gradient(150deg, #A17FE0, #5D26C1);
-    ;
+    .plc{
+        padding-left: 0px !important;
+    }
+    .user_account_data-bank{
+        padding-left: 0;
+        padding-right: 30px;
+    }
 }

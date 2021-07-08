@@ -19,15 +19,15 @@
     </div>
     <div class="row justify-content-center">
       <% current_user.wallets.each do |wallet|%>
-      <div class="col-md-3 col-sm-12 col-xs-12">
+      <div class="col-md-6 col-sm-12 col-xs-12 p-0 m-0">
         <div class="dashboard_main_box shadow text-center">
           <div class="title">
             <%=  get_wallet_title(wallet.wallet_type) %>
             <% if wallet.reserve? %>
-              <a type="button" id="popUp"><i class="fas fa-info-circle"></i></a>
-              <div class="popUp-content-main">
-                  <p>Various versions have evolved <br> over the years, sometimes by accident</p>
-              </div>
+            <a type="button" id="popUp"><i class="fas fa-info-circle"></i></a>
+            <div class="popUp-content-main">
+              <p>Various versions have evolved <br> over the years, sometimes by accident</p>
+            </div>
             <% end %>
           </div>
 
@@ -38,19 +38,49 @@
           </div>
 
           <div class="line"></div>
-          <button class="dash_view_more"><a href="<%= merchant_account_path(wallet) %>">View More</a></button>
+          <div class="main_account_list child mt-3 mb-3">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="fund_head"><a href="<%#= account_transactions_merchant_account_path(@wallet) %>">View
+                    Transactions</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <!-- Withdrawl Funds Modal -->
+            <%= link_to 'Withdraw Funds', new_merchant_withdraw_path, class: "btn btn-withdraw_fund mr-2",remote: true %>
+            <!-- <a href="#" class="btn btn-withdraw_fund mr-2" data-toggle="modal"
+                                        data-target="#exampleModalCenter">Withdraw Fund</a> -->
+            <!-- Account Transfer Modal -->
+            <%= link_to 'Account Transfer', new_merchant_account_transfer_path, class: "btn btn-account_transfer mr-2",remote: true %>
+            <!-- <a href="#" class="btn btn-account_transfer ml-2" data-toggle="modal"
+                                        data-target="#exampleModal">Account Transfer</a> -->
+          </div>
+
+          <div class="main_account_list child mt-4">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="fund_head">Todays Funds Release</div>
+              </div>
+              <div class="col-md-6">
+                <div class="fund_amount float-right mt-2">
+                  <%= number_to_currency(number_with_precision(@reserve_release_amount.to_f, precision: 2, delimiter: ',')) %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <% end %>
-    </div>
 
+    </div>
   </div>
-</div>
-<!-- Dashboard Main Start -->
-<script>
-  $(document).ready(function () {
-    $('#popUp').click(function () {
-      $('.popUp-content-main').toggleClass("show-hide");
+  <!-- Dashboard Main Start -->
+  <script>
+    $(document).ready(function () {
+      $('#popUp').click(function () {
+        $('.popUp-content-main').toggleClass("show-hide");
+      });
     });
-  });
-</script>
+  </script>

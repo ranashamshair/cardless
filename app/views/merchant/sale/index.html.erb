@@ -1,8 +1,16 @@
 <script src="https://sis-t.redsys.es:25443/sis/NC/sandbox/redsysV2.js"></script>
 <!-- Virtual Terminal Form -->
+
+    <div class="row text-center mb-3">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="welcom_heading">
+          Welcome, abdul qayyum </div>
+        <div class="small_head pl-1">Your Accounts Dashboard</div>
+      </div>
+    </div>
     <div class="client_form">
         <div class="container">
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-12">
                     <%= form_with(model: @transaction, url: merchant_sale_index_path, class: "shadow", method: :post, local: true) do |form| %>
                         <div class="heading">Customer Info</div>

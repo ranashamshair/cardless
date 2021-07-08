@@ -1,15 +1,26 @@
-<div class="user_account_data container m-auto">
-  <div class="small_head shadow ml-4">
+<div class="user_account_data ">
+  <div class="small_head ml-4">
     <div class="card my-2  ">
-      <h5 class="profile-edit-heading  ml-3 mb-3">Account Information </h5>
+      <div class="aac-inf-head d-flex align-items-center justify-content-between">
+        <h5 class="profile-edit-heading mb-3">Account Information </h5>
+        <div>
+          <%if user_signed_in? %>
+          <span class="d-flex justify-content-start ml-3 mb-3">
+            <%=link_to edit_merchant_dashboard_path(id: @user.id) do  %>
+            <p class="btn btn-profile-edit ml-0">Edit <i class="far fa-edit"></i></p>
+            <% end %>
+          </span>
+          <%end %>
+        </div>
+      </div>
       <div class="row align-items-center justify-content-center">
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0">
           <div class="profile-data">
             <div class="label"> <b>First Name</b> </div>
             <div class="data"><%= @user.first_name%> </div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0 plc">
           <div class="profile-data">
             <div class="label"> <b>Last Name</b> </div>
             <div class="data"> <%= @user.last_name %></div>
@@ -19,15 +30,15 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0">
           <div class="profile-data">
-            <div class="label"> <b>Email:</b> </div>
+            <div class="label"> <b>Email</b> </div>
             <div class="data"><%= @user.email %></div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0 plc">
           <div class="profile-data">
-            <div class="label"> <b>Country:</b> </div>
+            <div class="label"> <b>Country</b> </div>
             <div class="data"><%= @user.country %></div>
           </div>
         </div>
@@ -35,45 +46,45 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0">
           <div class="profile-data">
-            <div class="label"> <b>City:</b> </div>
+            <div class="label"> <b>City</b> </div>
             <div class="data"><%= @user.city %></div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0 plc">
           <div class="profile-data">
-            <div class="label"> <b>State:</b></div>
+            <div class="label"> <b>State</b></div>
             <div class="data"><%= @user.state %> </div>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0">
           <div class="profile-data">
-            <div class="label"> <b>Phone:</b> </div>
+            <div class="label"> <b>Phone</b> </div>
             <div class="data"><%= @user.phone_number %></div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0 plc">
           <div class="profile-data">
-            <div class="label"> <b>Company:</b> </div>
+            <div class="label"> <b>Company</b> </div>
             <div class="data"><%= @user.company.name %></div>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0">
           <div class="profile-data">
-            <div class="label"> <b>Role:</b> </div>
+            <div class="label"> <b>Role</b> </div>
             <div class="data"><%= @user.role %></div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0 plc">
           <div class="profile-data">
-            <div class="label"> <b>Status:</b> </div>
+            <div class="label"> <b>Status</b> </div>
             <div class="data"><%= @user.is_active %></div>
           </div>
         </div>
@@ -82,23 +93,62 @@
 
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0">
           <div class="profile-data">
-            <div class="label"> <b>Address:</b> </div>
+            <div class="label"> <b>Address</b> </div>
             <div class="data"><%= @user.street_address %></div>
           </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 pl-0 plc">
           <div class="profile-data">
-            <div class="label"> <b>Zip Code:</b> </div>
+            <div class="label"> <b>Zip Code</b> </div>
             <div class="data"><%= @user.zip_code %></div>
           </div>
         </div>
       </div>
-      <%if user_signed_in? %>
-      <span class="d-flex justify-content-center"><%=link_to 'Edit',  edit_merchant_dashboard_path(id: @user.id), class:"btn btn-profile-edit ml-0"  %>
-      </span>
-      <%end %>
+
+      <div class="aac-inf-head d-flex align-items-center justify-content-between">
+        <h5 class="profile-edit-heading mb-3">Enable Two Authantication</h5>
+        <div>
+
+          <span class="d-flex justify-content-start ml-3 mb-3">
+            <p class="btn btn-profile-edit ml-0">Two Authantication</p>
+          </span>
+
+        </div>
+      </div>
+
+      <div class="two-step">
+        <!-- Rounded switch -->
+        <label class="switch">
+          <input type="checkbox" class="switch" id="switch-id">
+          <span class="slider round"></span>
+        </label>
+
+        <div class="content-twostep">
+        <form class="d-flex mt-3 mb-5">
+           <input type="number" class="form-control w-25" placeholder="Verify Otp">
+          <a class="btn btn-otp ml-2">Verify Otp</a>
+        </form>
+         
+        </div>
+
+
+      </div>
+
     </div>
   </div>
 </div>
+
+<script>
+$(function () {
+        $("#switch-id").change(function () {
+            if ($(this).is(":checked")) {
+                $('.content-twostep').addClass('tsHs');
+            } else {
+                 $('.content-twostep').removeClass('tsHs');
+            }
+        });
+    });
+
+</script>
