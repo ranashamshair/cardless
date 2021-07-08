@@ -2,15 +2,15 @@
 <div class="card-body">
 
   <% if bank.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
 
-      <ul>
-        <% bank.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul>
+      <% bank.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
 
   <div class="form-group">
@@ -41,6 +41,6 @@
 
 
   <div class="actions">
-    <%= form.submit class:"btn btn-outline-primary " %>
+    <%= form.submit class:"btn btn-addnew-bank" %>
   </div>
-<% end %>
+  <% end %>

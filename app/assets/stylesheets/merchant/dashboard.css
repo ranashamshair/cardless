@@ -1653,6 +1653,16 @@ CONNECT BANK STYLES
     background-color: var(--theme-white-color);
 }
 
+.btn-new-bank {
+    background: var(--theme-primary-color);
+}
+
+.btn-addnew-bank {
+    padding: 12px 15px;
+    border-radius: 8px;
+    color: var(--theme-white-color);
+    background: var(--theme-primary-color);
+}
 
 /*
 ==========================
@@ -1869,7 +1879,77 @@ THANKS PAGE STYLES
     font-weight: 700;
     margin: 10px 0;
 }
+/*=======================
+SPINNER PAGE STYLES
+=======================
+*/
+section.spinner {
+    position: relative;
+    padding: 80px 0 80px 0;
+    /* background: #000; */
+}
 
+section.spinner .box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 35px;
+    border-radius: 20px;
+    /* background-color: #040304; */
+}
+
+section.spinner #chart {
+    position: relative;
+    width: 550px;
+    height: 550px;
+    top: 0;
+    left: 53%;
+    padding-left: 39px;
+    padding-top: 12px;
+    border: 5px solid #5D26C1;
+    border-radius: 100%;
+    transform: translate(-50%, 0);
+    background-color: #001219;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+}
+
+section.spinner #question {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+section.spinner #question h1 {
+    font-size: 22px;
+    margin-top: 50px;
+    color: #000;
+    margin-bottom: 40px !important;
+}
+
+section.spinner .slice {
+    border: 2px solid #ffffff;
+}
+
+section.spinner .slicetxt {
+    font-size: 18px;
+    fill: #ffffff;
+}
+
+.circle-border {
+    border: 2px solid #ffffff;
+}
+
+section.spinner #question a {
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+section.spinner #question .btn-getreward {
+    color: #FFF;
+    border: none;
+    padding: 18px 16px;
+    border-radius: 50px;
+    background: linear-gradient(150deg, #A17FE0, #5D26C1);
+    ;
+}
 /*
 =======================
 FLASH MESSAGE STYLES
@@ -1877,7 +1957,7 @@ FLASH MESSAGE STYLES
 */
 .alert-message {
     max-width: 630px;
-    margin-top: 18px;
+    margin: 18px auto;
 }
 
 .alert-message .btn-close-alert {
@@ -1958,9 +2038,21 @@ FLASH MESSAGE STYLES
 .withdraw-btn:hover {
     color: #ffffff;
 }
+/*=======================
+BANK DATILS PAGE STYLES
+=========================
+*/
 
+.bank_user_account_data{
+    padding: 25px;
+    margin-left: 70px;
+}
+.bank_user_account_data d{}
 
-/** Media Queries **/
+/*==================
+RESPONSIVE STYLES 
+====================
+*/
 @media (max-width: 480px) {
     .cahrgeback_main_tab {
         width: 85%;
@@ -2074,74 +2166,3 @@ FLASH MESSAGE STYLES
     }
 }
 
-/*=======================
-SPINNER PAGE STYLES
-=======================
-*/
-section.spinner {
-    position: relative;
-    padding: 80px 0 80px 0;
-    /* background: #000; */
-}
-
-section.spinner .box {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-top: 35px;
-    border-radius: 20px;
-    /* background-color: #040304; */
-}
-
-section.spinner #chart {
-    position: relative;
-    width: 550px;
-    height: 550px;
-    top: 0;
-    left: 53%;
-    padding-left: 39px;
-    padding-top: 12px;
-    border: 5px solid #5D26C1;
-    border-radius: 100%;
-    transform: translate(-50%, 0);
-    background-color: #001219;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
-}
-
-section.spinner #question {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-section.spinner #question h1 {
-    font-size: 22px;
-    margin-top: 50px;
-    color: #000;
-    margin-bottom: 40px !important;
-}
-
-section.spinner .slice {
-    border: 2px solid #ffffff;
-}
-
-section.spinner .slicetxt {
-    font-size: 18px;
-    fill: #ffffff;
-}
-
-.circle-border {
-    border: 2px solid #ffffff;
-}
-
-section.spinner #question a {
-    text-decoration: none;
-    margin-bottom: 50px;
-}
-
-section.spinner #question .btn-getreward {
-    color: #FFF;
-    border: none;
-    padding: 18px 16px;
-    border-radius: 50px;
-    background: linear-gradient(150deg, #A17FE0, #5D26C1);
-    ;
-}
