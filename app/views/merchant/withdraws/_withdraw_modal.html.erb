@@ -15,7 +15,7 @@
         <div class="form-group col-md-12">
           <div class="custom-select-one">
             <label for="amount">Bank </label>
-            <%= form.select :bank_id, @banks.map{|e| [ e.bank_name, e.id]}, class:"form-select p-2 " %>
+            <%= form.select :bank_id, @banks.map{|e| [ "#{e.bank_name} #{e.iban.last(4)}", e.id]}, class:"form-select p-2 " %>
           </div>
         </div>
         <div class="form-group col-md-12">
