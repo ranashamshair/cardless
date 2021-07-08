@@ -182,7 +182,7 @@
                                 <td>Passport/ID</td>
                             </tr>
                             <tr>
-                              <% if @company.present? && company.id_doc.present? %>
+                              <% if @company.present? && @company.id_doc.present? %>
                                 <% if @company.id_doc.content_type == "application/pdf" %>
                                   <iframe src="<%= url_for(@company.id_doc) %>" width="500px" height="500px"></iframe>
                                 <% else %>
