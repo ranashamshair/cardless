@@ -134,8 +134,9 @@
                     <table class="table table-bordered mt-3 mb-3">
                         <tbody>
                             <tr>
-                                <%#= image_tag "laptop.jpg", class:"img-admin-side" %>
-                                <%= image_tag @company.logo,class:"img-admin-side" if @company.present? %>
+                                <%  if @company.present? %>
+                                  <%= image_tag @company.logo,class:"img-admin-side" %>
+                                <% end %>
                             </tr>
                         </tbody>
                     </table>
