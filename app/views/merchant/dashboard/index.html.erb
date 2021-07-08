@@ -5,8 +5,8 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <% user= current_user %>
         <div class="welcom_heading">
-          Welcome, <%= user.first_name + " " + user.last_name %> </div>
-        <div class="small_head pl-1">Your Accounts Dashboard</div>
+        Dashboard </div>
+        <!-- <div class="small_head pl-1">Your Accounts Dashboard</div> -->
         <% flash.try(:each) do |name, msg| %>
         <div class="alert-message">
           <div class="alert alert-warning alert-dismissible fade shadow show" role="alert">

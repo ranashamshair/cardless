@@ -3,10 +3,10 @@
     <div class="row text-center">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="welcom_heading">
-          Welcome, abdul qayyum </div>
-        <div class="small_head pl-1">Your Accounts Dashboard</div>
+          Reserve Schedules </div>
+        <!-- <div class="small_head pl-1">Your Accounts Dashboard</div> -->
       </div>
-    </div>  
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="transaction_history_table mt-5">
@@ -24,9 +24,9 @@
                             <tr>
                                 <th scope="row"><%= reserve_schedules.main_tx&.ref_id %></th>
                                 <td><%= reserve_schedules.release_date.strftime("%m/%d/%Y") %></td>
-                                
+
                                 <td><%= number_with_precision(number_to_currency(reserve_schedules.amount.to_f), precision: 2, delimiter: ',') %></td>
-                                
+
                                 <td><button class="tabel_status"><a href="#"><%= reserve_schedules.reserve_status %></a></button></td>
                             </tr>
                         <% end %>
