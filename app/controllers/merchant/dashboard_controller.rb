@@ -3,8 +3,8 @@
 class Merchant::DashboardController < MerchantBaseController
   before_action :find_merchant, only: %i[edit update]
   def index
-    @reserve_wallet = current_user.wallets.reserve.first
-    @primary = current_user.wallets.primary.first
+    reserve_release = current_user.reserve_schedules.where('DATE(release_date) = ?', Date.today)
+    @reserve_release_amount = reserve_release.pluck(:amount).sum if reserve_release.present?
   end
 
   def fee_structure

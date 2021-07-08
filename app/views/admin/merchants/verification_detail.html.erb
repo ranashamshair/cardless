@@ -134,8 +134,9 @@
                     <table class="table table-bordered mt-3 mb-3">
                         <tbody>
                             <tr>
-                                <%#= image_tag "laptop.jpg", class:"img-admin-side" %>
-                                <%= image_tag @company.logo,class:"img-admin-side" if @company.present? %>
+                                <%  if @company.present? && @company.logo.present? %>
+                                  <%= image_tag @company.logo,class:"img-admin-side" %>
+                                <% end %>
                             </tr>
                         </tbody>
                     </table>
@@ -151,7 +152,7 @@
                                 <td><%= @company&.legal_doc_type&.humanize %></td>
                             </tr>
                             <tr>
-                              <% if @company.present? %>
+                              <% if @company.present? && @company.legal_doc.present? %>
                                 <% if @company.legal_doc.content_type == "application/pdf" %>
                                   <iframe src="<%= url_for(@company.legal_doc) %>" width="500px" height="500px"></iframe>
                                 <% else %>
@@ -181,7 +182,7 @@
                                 <td>Passport/ID</td>
                             </tr>
                             <tr>
-                              <% if @company.present? %>
+                              <% if @company.present? && @company.id_doc.present? %>
                                 <% if @company.id_doc.content_type == "application/pdf" %>
                                   <iframe src="<%= url_for(@company.id_doc) %>" width="500px" height="500px"></iframe>
                                 <% else %>
