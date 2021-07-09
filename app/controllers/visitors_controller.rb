@@ -31,4 +31,7 @@ class VisitorsController < ApplicationController
   def spinner
   end
 
+  def cardpage
+  end
+
 end
