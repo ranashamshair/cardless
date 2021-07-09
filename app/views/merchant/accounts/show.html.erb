@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <div class="main_account_box shadow">
-                        <div class="main_account_heading">Reserve <span>ID: <%= @reserve_wallet.id %></span>    <a type="button" id="popUp"><i class="fas fa-info-circle"></i></a></div>
+                        <div class="main_account_heading">Reserve <span>ID: <%= @reserve_wallet.id %></span>    <a type="button"><i id="popUp" class="fas fa-info-circle"></i></a></div>
                         <div class="popUp-content">
                             <p>Various versions have evolved <br> over the years, sometimes by accident</p>
                         </div>
@@ -129,11 +129,3 @@
 </div>
 <section id=withdraw-modal></section>
 <section id="account-transfers"></section>
-
-<script>
-  $(document).ready(function () {
-    $('#popUp').click(function () {
-      $('.popUp-content').toggleClass("show-hide");
-    });
-  });
-</script>

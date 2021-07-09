@@ -2,8 +2,7 @@
 <div class="sidebar_left shadow ">
   <div class="d-flex justify-content-center mt-3 mb-3">
     <div class="dash_logo">
-      <%= image_tag "logo-white.png" %>
-
+      <%= image_tag "distro-logo.svg" %>
     </div>
 
   </div>
@@ -93,16 +92,17 @@
       <div class="dropdown-container">
         <ul>
           <li
-            class="mb-3 <%= controller.controller_name == 'dashboard' && controller.action_name == 'api_key' ? 'active' : '' %>">
+            class="arrow-left mb-3 <%= controller.controller_name == 'dashboard' && controller.action_name == 'api_key' ? 'active' : '' %>">
             <a href="<%= api_key_merchant_dashboard_index_path %>">
               <div class="icon"><i class="fas fa-key"></i></div>
               <div class="title">Api Keys</div>
             </a>
           </li>
+         
           <li
-            class="mb-3 <%= controller.controller_name == 'dashboard' && controller.action_name == 'api_key' ? 'active' : '' %>">
+            class="arrow-left-two mb-3 <%= controller.controller_name == 'dashboard' && controller.action_name == 'api_key' ? 'active' : '' %>">
             <a href="<%= api_key_merchant_dashboard_index_path %>">
-              <div class="icon"><i class="fas fa-key"></i></div>
+              <div class="icon"><i class="fas fa-dice-one"></i></div>
               <div class="title">Plugins Zone</div>
             </a>
           </li>
@@ -113,7 +113,7 @@
   </ul>
 
   <div class="wrap d-flex justify-content-center">
-    <a href="#"><i class="fas fa-home"></i></a>
+    <a href="/"><i class="fas fa-home"></i></a>
   </div>
 
 </div>
@@ -121,5 +121,9 @@
 <script>
   $('.dropdown-btn').click(function () {
     $('.dropdown-container').toggleClass("dropdown-active");
+  });
+
+  $('.dropdown-btn').click(function () {
+    $('.fa-chevron-down').toggleClass("updown-icon");
   });
 </script>

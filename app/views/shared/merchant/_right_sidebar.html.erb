@@ -1,52 +1,54 @@
 <!-- Sidebar Right Start -->
 <div class="sidebar_right shadow-sm">
-    <div class="btn_close">
-      <i class="fas fa-times"></i>
+  <div class="btn_close">
+    <i class="fas fa-times"></i>
+  </div>
+  <div class="profile_bg"> </div>
+  <div class="right_side_profile ml-4">
+    <div class="user_profile shadow-sm"><i class="far fa-user-circle"></i></div>
+    <div class="right_side_ttilte">DistroPayment</div>
+    <div class="right_side_id">Account ID:<%= current_user.id %></div>
+    <div class="wrap d-flex align-items-center active">
+      <div class="active-dot"></div>
+      <span class="active-text ml-2"><%= current_user.is_active %></span>
     </div>
-    <div class="profile_bg"> </div>
-    <div class="right_side_profile ml-4">
-      <div class="user_profile shadow-sm"><i class="far fa-user-circle"></i></div>
-      <div class="right_side_ttilte">DistroPayment</div>
-      <div class="right_side_id">Account ID:<%= current_user.id %></div>
-      <div class="wrap d-flex align-items-center active">
-        <div class="active-dot"></div>
-        <span class="active-text ml-2"><%= current_user.is_active %></span>
-      </div>
-    </div>
+  </div>
 
 
+
+  <ul>
     <div class="line1"></div>
-    <ul>
-      <li>
-        <a href="/about">About Us</a>
-      </li>
-      <li>
-        <a href="/faq">Faq</a>
-      </li>
-      <li>
-        <a href="/privacy">Privacy Policy</a>
-      </li>
-      <li>
-        <a href="/terms">Terms & Conditions</a>
-      </li>
-    </ul>
+    <li>
+      <a href="/faq">Faq</a>
+    </li>
+    <li>
+      <a href="/about">About Us</a>
+    </li>
+    <li>
+      <a href="/privacy">Privacy Policy</a>
+    </li>
+    <li>
+      <a href="/terms">Terms & Conditions</a>
+    </li>
     <div class="line2"></div>
+  </ul>
 
+
+  <div class="bottom-content">
     <div class="my_profile">
       <div class="wrap d-flex align-items-center ml-4">
         <div class="profile_my mt-3"><a href="#"><i class="far fa-id-badge"></i></a></div>
         <%= link_to " My Profile", merchant_dashboard_path(id: current_user.id), class: "mt-3 ml-3"  %>
       </div>
     </div>
-
     <div class="my_log_out">
       <div class="wrap d-flex align-items-center ml-4">
         <div class="log_out_my mt-3"><a href="#"><i class="fas fa-sign-out-alt"></i></a></div>
         <%= link_to "Logout",destroy_user_session_path, :method => :delete, data: {turbolinks: "false"}, class: "mt-3 ml-3" %>
       </div>
     </div>
-
     <div class="copyright_text pt-3 text-center">&copy; DistroPayment 2021</div>
-
   </div>
-  <!-- Sidebar Right End -->
+
+</div>
+<!-- Sidebar Right End -->

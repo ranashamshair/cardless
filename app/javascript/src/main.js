@@ -17,6 +17,11 @@ $(document).on("turbolinks:load", function () {
     $('.sidebar_right').css("width", "0px");
   });
 
+  /* Click To REveal */
+  $('#clicktorv').click(function () {
+    $('.click-reveal').css("display", "none");
+  });
+
   /* Notification Sidebar */
   $('.notify_icon').click(function () {
     $('.notify_sidebar').css("width", "350px");
@@ -137,42 +142,20 @@ $(document).on("turbolinks:load", function () {
     });
   });
 
-  /* Tooltip */
-  $('#btn_copy').tooltip({
-    trigger: 'click',
-    placement: 'bottom'
-  });
-
-  /* Click To Reveal */
-  $(".btn_secret").click(function () {
-    $(".btn_secret").hide(300);
-  });
-
-  function setTooltip(btn, message) {
-    $(btn).tooltip('hide')
-      .attr('data-original-title', message)
-      .tooltip('show');
-  }
-
-  function hideTooltip(btn) {
-    setTimeout(function () {
-      $(btn).tooltip('hide');
-    }, 1000);
-  }
-  /* Clipboard */
-  if ($("#btn_copy").length != 0) {
+    /* Clipboard Variable */
     var clipboard = new ClipboardJS('#btn_copy');
-
-    clipboard.on('success', function (e) {
-      setTooltip(e.trigger, 'Copied!');
-      hideTooltip(e.trigger);
+    
+    /* Trigger Tooltip */
+    $('#btn_copy').on({"click": function() {
+        $(this).tooltip({ items: "#btn_copy", content: "Copied"});
+        $(this).tooltip("open");
+        alert('copied')
+      },
+      "mouseout": function() {      
+         $(this).tooltip("disable");   
+      }
     });
-
-    clipboard.on('error', function (e) {
-      setTooltip(e.trigger, 'Failed!');
-      hideTooltip(e.trigger);
-    });
-  }
+    
   $('*[data-href]').on('click', function () {
     window.location = $(this).data("href");
   });
